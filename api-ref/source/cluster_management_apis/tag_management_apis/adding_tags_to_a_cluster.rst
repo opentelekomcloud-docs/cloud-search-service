@@ -1,0 +1,90 @@
+:original_name: css_03_0083.html
+
+.. _css_03_0083:
+
+Adding Tags to a Cluster
+========================
+
+Function
+--------
+
+This API is used to add tags to a cluster. A cluster can have a maximum of 10 tags.
+
+URI
+---
+
+.. code-block:: text
+
+   POST /v1.0/{project_id}/css-cluster/{cluster_id}/tags
+
+.. table:: **Table 1** Parameters
+
+   +------------+-----------+--------+-------------------------------------------------+
+   | Parameter  | Mandatory | Type   | Description                                     |
+   +============+===========+========+=================================================+
+   | project_id | Yes       | String | Project ID                                      |
+   +------------+-----------+--------+-------------------------------------------------+
+   | cluster_id | Yes       | String | ID of the cluster to which a tag is to be added |
+   +------------+-----------+--------+-------------------------------------------------+
+
+Request
+-------
+
+.. table:: **Table 2** **tag** field description
+
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                 |
+   +=================+=================+=================+=============================================================================================================+
+   | key             | Yes             | String          | Tag key. The value can contain up to 36 characters.                                                         |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | value           | Yes             | String          | Tag value. The value contains up to 43 characters.                                                          |
+   |                 |                 |                 |                                                                                                             |
+   |                 |                 |                 | If **value** is not empty, delete tags by **key**/**value**. If **value** is empty, delete tags by **key**. |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+
+Response
+--------
+
+None
+
+Example
+-------
+
+-  Example request
+
+   .. code-block:: text
+
+      POST /v1.0/458d905f22da49c39f609e3347d65723/css-cluster/4f3deec3-efa8-4598-bf91-560aad1377a3/tags
+      {
+          "tag": {
+              "key": "DEV",
+              "value": "DEV1"
+          }
+      }
+
+-  Example response
+
+   None
+
+Status Code
+-----------
+
+:ref:`Table 3 <css_03_0083__css_03_0081_table12321369178>` describes status codes.
+
+.. _css_03_0083__css_03_0081_table12321369178:
+
+.. table:: **Table 3** Status code
+
+   +-----------------------+-----------------------+-----------------------------------------------+
+   | Status Code           | Encoding              | Description                                   |
+   +=======================+=======================+===============================================+
+   | 400                   | BadRequest            | Invalid request.                              |
+   |                       |                       |                                               |
+   |                       |                       | Do not retry the request before modification. |
+   +-----------------------+-----------------------+-----------------------------------------------+
+   | 404                   | NotFound              | The requested resource cannot be found.       |
+   |                       |                       |                                               |
+   |                       |                       | Do not retry the request before modification. |
+   +-----------------------+-----------------------+-----------------------------------------------+
+   | 204                   | OK                    | The request is processed successfully.        |
+   +-----------------------+-----------------------+-----------------------------------------------+
