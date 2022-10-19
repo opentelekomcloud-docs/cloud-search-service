@@ -12,7 +12,6 @@ Prerequisites
 
 CTS has been enabled. For details, see `Enabling CTS <https://docs.otc.t-systems.com/en-us/usermanual/cts/en-us_topic_0030598498.html>`__.
 
-.. _key-operations-recorded-by-cts-1:
 
 Key Operations Recorded by CTS
 ------------------------------

@@ -42,7 +42,6 @@ Procedure
       |                                   |    After a cluster is created, you can modify the cluster name as required. Click the name of a cluster to be modified. On the displayed **Basic Information** page, click next to the cluster name. After the modification is completed, click |image1| to save the modification. If you want to cancel the modification, click |image2|.  |
       +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-   .. _css_01_0094__css_01_0011_fig10462105216101:
 
    .. figure:: /_static/images/en-us_image_0000001286436658.png
       :alt: **Figure 1** Configuring basic information
@@ -109,7 +108,6 @@ Procedure
       |                                   | After the cold data node is enabled, CSS automatically adds cold and hot tags to related nodes.                                                                                                                                                                                                                                                                                                                                                                                   |
       +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-   .. _css_01_0094__css_01_0011_fig6524919122413:
 
    .. figure:: /_static/images/en-us_image_0000001338955973.png
       :alt: **Figure 2** Configuring node specifications
@@ -151,7 +149,6 @@ Procedure
       |                                   |    You can enable **Security Mode** only when you create a cluster. After a cluster is created, its security mode cannot be changed.                                                                                                               |
       +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-   .. _css_01_0094__fig7558102310812:
 
    .. figure:: /_static/images/en-us_image_0000001339036421.png
       :alt: **Figure 3** Configuring network specifications
@@ -209,6 +206,4 @@ Procedure
    If the cluster creation fails, create the cluster again.
 
 .. |image1| image:: /_static/images/en-us_image_0000001286596262.png
-
 .. |image2| image:: /_static/images/en-us_image_0000001338836517.png
-

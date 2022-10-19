@@ -74,7 +74,6 @@ To access a cluster by calling Elasticsearch APIs on the ECS that is located in 
 
    If encryption has not been enabled for the communication with the cluster, the command output is similar to that shown in the following figure.
 
-   .. _css_01_0012__fig129821943205913:
 
    .. figure:: /_static/images/en-us_image_0000001286436598.png
       :alt: **Figure 1** Command output
@@ -91,13 +90,11 @@ For clusters in the non-security mode, you are advised to use use RestHighLevelC
 
 -  Create a client using the default method of the RestHighLevelClient class.
 
-   +-----------------------------------+---------------------------------------------------------------+
-   | ::                                | ::                                                            |
-   |                                   |                                                               |
-   |    1                              |    RestHighLevelClient client = new RestHighLevelClient(      |
-   |    2                              |            RestClient.builder(                                |
-   |    3                              |                    new HttpHost("localhost", 9200, "http"))); |
-   +-----------------------------------+---------------------------------------------------------------+
+   ::
+
+      RestHighLevelClient client = new RestHighLevelClient(
+              RestClient.builder(
+                      new HttpHost("localhost", 9200, "http")));
 
 .. _css_01_0012__section0445155723816:
 
@@ -114,37 +111,33 @@ Two access modes are available: Create a client using either the TransportClient
 
    Run the following commands on the client to generate the keystore and truststore files. The certificate (**CloudSearchService.cer**) downloaded from the cluster management page is used.
 
-   +-----------------------------------+-------------------------------------------------------------------------------------------------+
-   | ::                                | ::                                                                                              |
-   |                                   |                                                                                                 |
-   |    1                              |    keytool -genkeypair -alias certificatekey -keyalg RSA -keystore transport-keystore.jks       |
-   |    2                              |    keytool -import -alias certificatekey -file CloudSearchService.cer  -keystore truststore.jks |
-   +-----------------------------------+-------------------------------------------------------------------------------------------------+
+   ::
+
+      keytool -genkeypair -alias certificatekey -keyalg RSA -keystore transport-keystore.jks
+      keytool -import -alias certificatekey -file CloudSearchService.cer  -keystore truststore.jks
 
    Use the keystore and truststore files to access the cluster, create the TransportClient class using the PreBuiltTransportClient method, and add the settings in the client thread.
 
    The key code is as follows:
 
-   +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | ::                                | ::                                                                                                                                       |
-   |                                   |                                                                                                                                          |
-   |     1                             |    String userPw = "username:password";                                                                                                  |
-   |     2                             |    String path = Paths.get(SecurityTransportClientDemo.class.getClassLoader().getResource(".").toURI()).toString();                      |
-   |     3                             |                                                                                                                                          |
-   |     4                             |    Settings settings = Settings.builder()                                                                                                |
-   |     5                             |                     .put("opendistro_security.ssl.transport.enforce_hostname_verification", false)                                       |
-   |     6                             |                     .put("opendistro_security.ssl.transport.keystore_filepath", path + "/transport-keystore.jks")                        |
-   |     7                             |                     .put("opendistro_security.ssl.transport.keystore_password", "tscpass")                                               |
-   |     8                             |                     .put("opendistro_security.ssl.transport.truststore_filepath", path + "/truststore.jks")                              |
-   |     9                             |                     .put("client.transport.ignore_cluster_name", "true")                                                                 |
-   |    10                             |                     .put("client.transport.sniff", false).build();                                                                       |
-   |    11                             |                                                                                                                                          |
-   |    12                             |    TransportClient client = (new PreBuiltTransportClient(settings, new Class[]{OpenDistroSecurityPlugin.class})).addTransportAddress(new |
-   |    13                             |                          TransportAddress(InetAddress.getByName(ip), 9300));                                                             |
-   |    14                             |                                                                                                                                          |
-   |    15                             |    String base64UserPw = Base64.getEncoder().encodeToString(userPw.getBytes("utf-8"));                                                   |
-   |    16                             |                   client.threadPool().getThreadContext().putHeader("Authorization", "Basic " + base64UserPw);                            |
-   +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+   ::
+
+      String userPw = "username:password";
+      String path = Paths.get(SecurityTransportClientDemo.class.getClassLoader().getResource(".").toURI()).toString();
+
+      Settings settings = Settings.builder()
+                       .put("opendistro_security.ssl.transport.enforce_hostname_verification", false)
+                       .put("opendistro_security.ssl.transport.keystore_filepath", path + "/transport-keystore.jks")
+                       .put("opendistro_security.ssl.transport.keystore_password", "tscpass")
+                       .put("opendistro_security.ssl.transport.truststore_filepath", path + "/truststore.jks")
+                       .put("client.transport.ignore_cluster_name", "true")
+                       .put("client.transport.sniff", false).build();
+
+      TransportClient client = (new PreBuiltTransportClient(settings, new Class[]{OpenDistroSecurityPlugin.class})).addTransportAddress(new
+                            TransportAddress(InetAddress.getByName(ip), 9300));
+
+      String base64UserPw = Base64.getEncoder().encodeToString(userPw.getBytes("utf-8"));
+                     client.threadPool().getThreadContext().putHeader("Authorization", "Basic " + base64UserPw);
 
 -  **Create a client using the RestHighLevelClient class.**
 
@@ -164,44 +157,42 @@ Two access modes are available: Create a client using either the TransportClient
 
       Construct the SSLContext. Use TrustManager in the preceding step as the parameter and construct the SSLContext with the default method.
 
-      +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-      | ::                                | ::                                                                                                                                              |
-      |                                   |                                                                                                                                                 |
-      |     1                             |    static TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {                                                          |
-      |     2                             |            @Override                                                                                                                            |
-      |     3                             |            public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {                               |
-      |     4                             |                                                                                                                                                 |
-      |     5                             |            }                                                                                                                                    |
-      |     6                             |            @Override                                                                                                                            |
-      |     7                             |            public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {                               |
-      |     8                             |                                                                                                                                                 |
-      |     9                             |            }                                                                                                                                    |
-      |    10                             |            @Override                                                                                                                            |
-      |    11                             |            public X509Certificate[] getAcceptedIssuers() {                                                                                      |
-      |    12                             |                return null;                                                                                                                     |
-      |    13                             |            }                                                                                                                                    |
-      |    14                             |        }};                                                                                                                                      |
-      |    15                             |     final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();                                                             |
-      |    16                             |            credentialsProvider.setCredentials(AuthScope.ANY,                                                                                    |
-      |    17                             |                    new UsernamePasswordCredentials(userName, password));                                                                        |
-      |    18                             |            SSLContext sc = null;                                                                                                                |
-      |    19                             |            try{                                                                                                                                 |
-      |    20                             |                sc = SSLContext.getInstance("SSL");                                                                                              |
-      |    21                             |                sc.init(null, trustAllCerts, new SecureRandom());                                                                                |
-      |    22                             |            }catch(KeyManagementException e){                                                                                                    |
-      |    23                             |                    e.printStackTrace();                                                                                                         |
-      |    24                             |            }catch(NoSuchAlgorithmException e){                                                                                                  |
-      |    25                             |                    e.printStackTrace();                                                                                                         |
-      |    26                             |            }                                                                                                                                    |
-      |    27                             |            SSLIOSessionStrategy sessionStrategy = new SSLIOSessionStrategy(sc, new NullHostNameVerifier());                                     |
-      |    28                             |                                                                                                                                                 |
-      |    29                             |            SecuredHttpClientConfigCallback httpClientConfigCallback = new SecuredHttpClientConfigCallback(sessionStrategy,credentialsProvider); |
-      |    30                             |                                                                                                                                                 |
-      |    31                             |            RestClientBuilder builder = RestClient.builder(new HttpHost(clusterAddress, 9200,                                                    |
-      |    32                             |                                    "https")).setHttpClientConfigCallback(httpClientConfigCallback);                                             |
-      |    33                             |                                                                                                                                                 |
-      |    34                             |            RestHighLevelClient client = new RestHighLevelClient(builder);                                                                       |
-      +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+      ::
+
+         static TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
+                 @Override
+                 public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+
+                 }
+                 @Override
+                 public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+
+                 }
+                 @Override
+                 public X509Certificate[] getAcceptedIssuers() {
+                     return null;
+                 }
+             }};
+          final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
+                 credentialsProvider.setCredentials(AuthScope.ANY,
+                         new UsernamePasswordCredentials(userName, password));
+                 SSLContext sc = null;
+                 try{
+                     sc = SSLContext.getInstance("SSL");
+                     sc.init(null, trustAllCerts, new SecureRandom());
+                 }catch(KeyManagementException e){
+                         e.printStackTrace();
+                 }catch(NoSuchAlgorithmException e){
+                         e.printStackTrace();
+                 }
+                 SSLIOSessionStrategy sessionStrategy = new SSLIOSessionStrategy(sc, new NullHostNameVerifier());
+
+                 SecuredHttpClientConfigCallback httpClientConfigCallback = new SecuredHttpClientConfigCallback(sessionStrategy,credentialsProvider);
+
+                 RestClientBuilder builder = RestClient.builder(new HttpHost(clusterAddress, 9200,
+                                         "https")).setHttpClientConfigCallback(httpClientConfigCallback);
+
+                 RestHighLevelClient client = new RestHighLevelClient(builder);
 
    -  Upload the downloaded certificate (**CloudSearchService.cer**) for accessing the cluster.
 
@@ -215,54 +206,52 @@ Two access modes are available: Create a client using either the TransportClient
 
       Construct the SSLContext. Use TrustManager in the preceding step as the parameter and construct the SSLContext with the default method.
 
-      +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-      | ::                                | ::                                                                                                                                              |
-      |                                   |                                                                                                                                                 |
-      |     1                             |    public static class MyX509TrustManager implements X509TrustManager {                                                                         |
-      |     2                             |                                                                                                                                                 |
-      |     3                             |            X509TrustManager sunJSSEX509TrustManager;                                                                                            |
-      |     4                             |            MyX509TrustManager() throws Exception {                                                                                              |
-      |     5                             |                File file = new File("certification file path");                                                                                 |
-      |     6                             |                if (file.isFile() == false) {                                                                                                    |
-      |     7                             |                    throw new Exception("Wrong Certification Path");                                                                             |
-      |     8                             |                }                                                                                                                                |
-      |     9                             |                System.out.println("Loading KeyStore " + file + "...");                                                                          |
-      |    10                             |                InputStream in = new FileInputStream(file);                                                                                      |
-      |    11                             |                KeyStore ks = KeyStore.getInstance("JKS");                                                                                       |
-      |    12                             |                ks.load(in, "changeit".toCharArray());                                                                                           |
-      |    13                             |                TrustManagerFactory tmf =                                                                                                        |
-      |    14                             |                        TrustManagerFactory.getInstance("SunX509", "SunJSSE");                                                                   |
-      |    15                             |                tmf.init(ks);                                                                                                                    |
-      |    16                             |                TrustManager tms [] = tmf.getTrustManagers();                                                                                    |
-      |    17                             |                for (int i = 0; i < tms.length; i++) {                                                                                           |
-      |    18                             |                    if (tms[i] instanceof X509TrustManager) {                                                                                    |
-      |    19                             |                        sunJSSEX509TrustManager = (X509TrustManager) tms[i];                                                                     |
-      |    20                             |                        return;                                                                                                                  |
-      |    21                             |                    }                                                                                                                            |
-      |    22                             |                }                                                                                                                                |
-      |    23                             |                throw new Exception("Couldn't initialize");                                                                                      |
-      |    24                             |            }                                                                                                                                    |
-      |    25                             |                                                                                                                                                 |
-      |    26                             |    final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();                                                              |
-      |    27                             |            credentialsProvider.setCredentials(AuthScope.ANY,                                                                                    |
-      |    28                             |                    new UsernamePasswordCredentials(userName, password));                                                                        |
-      |    29                             |                                                                                                                                                 |
-      |    30                             |            SSLContext sc = null;                                                                                                                |
-      |    31                             |            try{                                                                                                                                 |
-      |    32                             |                TrustManager[] tm = {new MyX509TrustManager()};                                                                                  |
-      |    33                             |                sc = SSLContext.getInstance("SSL", "SunJSSE");                                                                                   |
-      |    34                             |                sc.init(null, tm, new SecureRandom());                                                                                           |
-      |    35                             |            }catch (Exception e) {                                                                                                               |
-      |    36                             |                e.printStackTrace();                                                                                                             |
-      |    37                             |            }                                                                                                                                    |
-      |    38                             |                                                                                                                                                 |
-      |    39                             |            SSLIOSessionStrategy sessionStrategy = new SSLIOSessionStrategy(sc, new NullHostNameVerifier());                                     |
-      |    40                             |                                                                                                                                                 |
-      |    41                             |            SecuredHttpClientConfigCallback httpClientConfigCallback = new SecuredHttpClientConfigCallback(sessionStrategy,credentialsProvider); |
-      |    42                             |            RestClientBuilder builder = RestClient.builder(new HttpHost(clusterAddress, 9200, "https"))                                          |
-      |    43                             |                    .setHttpClientConfigCallback(httpClientConfigCallback);                                                                      |
-      |    44                             |            RestHighLevelClient client = new RestHighLevelClient(builder);                                                                       |
-      +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+      ::
+
+         public static class MyX509TrustManager implements X509TrustManager {
+
+                 X509TrustManager sunJSSEX509TrustManager;
+                 MyX509TrustManager() throws Exception {
+                     File file = new File("certification file path");
+                     if (file.isFile() == false) {
+                         throw new Exception("Wrong Certification Path");
+                     }
+                     System.out.println("Loading KeyStore " + file + "...");
+                     InputStream in = new FileInputStream(file);
+                     KeyStore ks = KeyStore.getInstance("JKS");
+                     ks.load(in, "changeit".toCharArray());
+                     TrustManagerFactory tmf =
+                             TrustManagerFactory.getInstance("SunX509", "SunJSSE");
+                     tmf.init(ks);
+                     TrustManager tms [] = tmf.getTrustManagers();
+                     for (int i = 0; i < tms.length; i++) {
+                         if (tms[i] instanceof X509TrustManager) {
+                             sunJSSEX509TrustManager = (X509TrustManager) tms[i];
+                             return;
+                         }
+                     }
+                     throw new Exception("Couldn't initialize");
+                 }
+
+         final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
+                 credentialsProvider.setCredentials(AuthScope.ANY,
+                         new UsernamePasswordCredentials(userName, password));
+
+                 SSLContext sc = null;
+                 try{
+                     TrustManager[] tm = {new MyX509TrustManager()};
+                     sc = SSLContext.getInstance("SSL", "SunJSSE");
+                     sc.init(null, tm, new SecureRandom());
+                 }catch (Exception e) {
+                     e.printStackTrace();
+                 }
+
+                 SSLIOSessionStrategy sessionStrategy = new SSLIOSessionStrategy(sc, new NullHostNameVerifier());
+
+                 SecuredHttpClientConfigCallback httpClientConfigCallback = new SecuredHttpClientConfigCallback(sessionStrategy,credentialsProvider);
+                 RestClientBuilder builder = RestClient.builder(new HttpHost(clusterAddress, 9200, "https"))
+                         .setHttpClientConfigCallback(httpClientConfigCallback);
+                 RestHighLevelClient client = new RestHighLevelClient(builder);
 
    -  Sample code
 
@@ -274,338 +263,332 @@ Two access modes are available: Create a client using either the TransportClient
 
       **ESSecuredClient class (Ignore certificates)**
 
-      +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-      | ::                                | ::                                                                                                                         |
-      |                                   |                                                                                                                            |
-      |      1                            |    package securitymode;                                                                                                   |
-      |      2                            |                                                                                                                            |
-      |      3                            |    import org.apache.http.auth.AuthScope;                                                                                  |
-      |      4                            |    import org.apache.http.auth.UsernamePasswordCredentials;                                                                |
-      |      5                            |    import org.apache.http.client.CredentialsProvider;                                                                      |
-      |      6                            |    import org.apache.http.impl.client.BasicCredentialsProvider;                                                            |
-      |      7                            |    import org.apache.http.HttpHost;                                                                                        |
-      |      8                            |    import org.apache.http.nio.conn.ssl.SSLIOSessionStrategy;                                                               |
-      |      9                            |    import org.elasticsearch.action.search.SearchRequest;                                                                   |
-      |     10                            |    import org.elasticsearch.action.search.SearchResponse;                                                                  |
-      |     11                            |    import org.elasticsearch.client.RequestOptions;                                                                         |
-      |     12                            |    import org.elasticsearch.client.RestClient;                                                                             |
-      |     13                            |    import org.elasticsearch.client.RestClientBuilder;                                                                      |
-      |     14                            |    import org.elasticsearch.client.RestHighLevelClient;                                                                    |
-      |     15                            |    import org.elasticsearch.index.query.QueryBuilders;                                                                     |
-      |     16                            |    import org.elasticsearch.search.SearchHit;                                                                              |
-      |     17                            |    import org.elasticsearch.search.SearchHits;                                                                             |
-      |     18                            |    import org.elasticsearch.search.builder.SearchSourceBuilder;                                                            |
-      |     19                            |                                                                                                                            |
-      |     20                            |    import java.io.IOException;                                                                                             |
-      |     21                            |    import java.security.KeyManagementException;                                                                            |
-      |     22                            |    import java.security.NoSuchAlgorithmException;                                                                          |
-      |     23                            |    import java.security.SecureRandom;                                                                                      |
-      |     24                            |    import java.security.cert.CertificateException;                                                                         |
-      |     25                            |    import java.security.cert.X509Certificate;                                                                              |
-      |     26                            |                                                                                                                            |
-      |     27                            |    import javax.net.ssl.HostnameVerifier;                                                                                  |
-      |     28                            |    import javax.net.ssl.SSLContext;                                                                                        |
-      |     29                            |    import javax.net.ssl.SSLSession;                                                                                        |
-      |     30                            |    import javax.net.ssl.TrustManager;                                                                                      |
-      |     31                            |    import javax.net.ssl.X509TrustManager;                                                                                  |
-      |     32                            |                                                                                                                            |
-      |     33                            |    public class ESSecuredClientIgnoreCerDemo {                                                                             |
-      |     34                            |                                                                                                                            |
-      |     35                            |        public static void main(String[] args) {                                                                            |
-      |     36                            |            String clusterAddress = args[0];                                                                                |
-      |     37                            |            String userName = args[1];                                                                                      |
-      |     38                            |            String password = args[2];                                                                                      |
-      |     39                            |           // Create a client.                                                                                              |
-      |     40                            |            RestHighLevelClient client = initESClient(clusterAddress, userName, password);                                  |
-      |     41                            |            try {                                                                                                           |
-      |     42                            |             // Search match_all, which is equivalent to {\"query\": {\"match_all\": {}}}.                                  |
-      |     43                            |                SearchRequest searchRequest = new SearchRequest();                                                          |
-      |     44                            |                SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();                                        |
-      |     45                            |                searchSourceBuilder.query(QueryBuilders.matchAllQuery());                                                   |
-      |     46                            |                searchRequest.source(searchSourceBuilder);                                                                  |
-      |     47                            |                                                                                                                            |
-      |     48                            |                SearchResponse searchResponse = client.search(searchRequest, RequestOptions.DEFAULT);                       |
-      |     49                            |                System.out.println("query result: " + searchResponse.toString());                                           |
-      |     50                            |                SearchHits hits = searchResponse.getHits();                                                                 |
-      |     51                            |                for (SearchHit hit : hits) {                                                                                |
-      |     52                            |                    System.out.println(hit.getSourceAsString());                                                            |
-      |     53                            |                }                                                                                                           |
-      |     54                            |                System.out.println("query success");                                                                        |
-      |     55                            |                Thread.sleep(2000L);                                                                                        |
-      |     56                            |            } catch (InterruptedException | IOException e) {                                                                |
-      |     57                            |                e.printStackTrace();                                                                                        |
-      |     58                            |            } finally {                                                                                                     |
-      |     59                            |                try {                                                                                                       |
-      |     60                            |                    client.close();                                                                                         |
-      |     61                            |                    System.out.println("close client");                                                                     |
-      |     62                            |                } catch (IOException e) {                                                                                   |
-      |     63                            |                    e.printStackTrace();                                                                                    |
-      |     64                            |                }                                                                                                           |
-      |     65                            |            }                                                                                                               |
-      |     66                            |        }                                                                                                                   |
-      |     67                            |                                                                                                                            |
-      |     68                            |        private static RestHighLevelClient initESClient(String clusterAddress, String userName, String password) {          |
-      |     69                            |            final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();                                 |
-      |     70                            |            credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(userName, password));         |
-      |     71                            |            SSLContext sc = null;                                                                                           |
-      |     72                            |            try {                                                                                                           |
-      |     73                            |                sc = SSLContext.getInstance("SSL");                                                                         |
-      |     74                            |                sc.init(null, trustAllCerts, new SecureRandom());                                                           |
-      |     75                            |            } catch (KeyManagementException | NoSuchAlgorithmException e) {                                                 |
-      |     76                            |                e.printStackTrace();                                                                                        |
-      |     77                            |            }                                                                                                               |
-      |     78                            |            SSLIOSessionStrategy sessionStrategy = new SSLIOSessionStrategy(sc, new NullHostNameVerifier());                |
-      |     79                            |            SecuredHttpClientConfigCallback httpClientConfigCallback = new SecuredHttpClientConfigCallback(sessionStrategy, |
-      |     80                            |                credentialsProvider);                                                                                       |
-      |     81                            |            RestClientBuilder builder = RestClient.builder(new HttpHost(clusterAddress, 9200, "https"))                     |
-      |     82                            |                .setHttpClientConfigCallback(httpClientConfigCallback);                                                     |
-      |     83                            |            RestHighLevelClient client = new RestHighLevelClient(builder);                                                  |
-      |     84                            |            return client;                                                                                                  |
-      |     85                            |        }                                                                                                                   |
-      |     86                            |                                                                                                                            |
-      |     87                            |        static TrustManager[] trustAllCerts = new TrustManager[] {                                                          |
-      |     88                            |            new X509TrustManager() {                                                                                        |
-      |     89                            |                @Override                                                                                                   |
-      |     90                            |                public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {      |
-      |     91                            |                }                                                                                                           |
-      |     92                            |                                                                                                                            |
-      |     93                            |                @Override                                                                                                   |
-      |     94                            |                public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {      |
-      |     95                            |                }                                                                                                           |
-      |     96                            |                                                                                                                            |
-      |     97                            |                @Override                                                                                                   |
-      |     98                            |                public X509Certificate[] getAcceptedIssuers() {                                                             |
-      |     99                            |                    return null;                                                                                            |
-      |    100                            |                }                                                                                                           |
-      |    101                            |            }                                                                                                               |
-      |    102                            |        };                                                                                                                  |
-      |    103                            |                                                                                                                            |
-      |    104                            |        public static class NullHostNameVerifier implements HostnameVerifier {                                              |
-      |    105                            |            @Override                                                                                                       |
-      |    106                            |            public boolean verify(String arg0, SSLSession arg1) {                                                           |
-      |    107                            |                return true;                                                                                                |
-      |    108                            |            }                                                                                                               |
-      |    109                            |        }                                                                                                                   |
-      |    110                            |                                                                                                                            |
-      |    111                            |    }                                                                                                                       |
-      +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+      ::
+
+         package securitymode;
+
+         import org.apache.http.auth.AuthScope;
+         import org.apache.http.auth.UsernamePasswordCredentials;
+         import org.apache.http.client.CredentialsProvider;
+         import org.apache.http.impl.client.BasicCredentialsProvider;
+         import org.apache.http.HttpHost;
+         import org.apache.http.nio.conn.ssl.SSLIOSessionStrategy;
+         import org.elasticsearch.action.search.SearchRequest;
+         import org.elasticsearch.action.search.SearchResponse;
+         import org.elasticsearch.client.RequestOptions;
+         import org.elasticsearch.client.RestClient;
+         import org.elasticsearch.client.RestClientBuilder;
+         import org.elasticsearch.client.RestHighLevelClient;
+         import org.elasticsearch.index.query.QueryBuilders;
+         import org.elasticsearch.search.SearchHit;
+         import org.elasticsearch.search.SearchHits;
+         import org.elasticsearch.search.builder.SearchSourceBuilder;
+
+         import java.io.IOException;
+         import java.security.KeyManagementException;
+         import java.security.NoSuchAlgorithmException;
+         import java.security.SecureRandom;
+         import java.security.cert.CertificateException;
+         import java.security.cert.X509Certificate;
+
+         import javax.net.ssl.HostnameVerifier;
+         import javax.net.ssl.SSLContext;
+         import javax.net.ssl.SSLSession;
+         import javax.net.ssl.TrustManager;
+         import javax.net.ssl.X509TrustManager;
+
+         public class ESSecuredClientIgnoreCerDemo {
+
+             public static void main(String[] args) {
+                 String clusterAddress = args[0];
+                 String userName = args[1];
+                 String password = args[2];
+                // Create a client.
+                 RestHighLevelClient client = initESClient(clusterAddress, userName, password);
+                 try {
+                  // Search match_all, which is equivalent to {\"query\": {\"match_all\": {}}}.
+                     SearchRequest searchRequest = new SearchRequest();
+                     SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+                     searchSourceBuilder.query(QueryBuilders.matchAllQuery());
+                     searchRequest.source(searchSourceBuilder);
+
+                     SearchResponse searchResponse = client.search(searchRequest, RequestOptions.DEFAULT);
+                     System.out.println("query result: " + searchResponse.toString());
+                     SearchHits hits = searchResponse.getHits();
+                     for (SearchHit hit : hits) {
+                         System.out.println(hit.getSourceAsString());
+                     }
+                     System.out.println("query success");
+                     Thread.sleep(2000L);
+                 } catch (InterruptedException | IOException e) {
+                     e.printStackTrace();
+                 } finally {
+                     try {
+                         client.close();
+                         System.out.println("close client");
+                     } catch (IOException e) {
+                         e.printStackTrace();
+                     }
+                 }
+             }
+
+             private static RestHighLevelClient initESClient(String clusterAddress, String userName, String password) {
+                 final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
+                 credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(userName, password));
+                 SSLContext sc = null;
+                 try {
+                     sc = SSLContext.getInstance("SSL");
+                     sc.init(null, trustAllCerts, new SecureRandom());
+                 } catch (KeyManagementException | NoSuchAlgorithmException e) {
+                     e.printStackTrace();
+                 }
+                 SSLIOSessionStrategy sessionStrategy = new SSLIOSessionStrategy(sc, new NullHostNameVerifier());
+                 SecuredHttpClientConfigCallback httpClientConfigCallback = new SecuredHttpClientConfigCallback(sessionStrategy,
+                     credentialsProvider);
+                 RestClientBuilder builder = RestClient.builder(new HttpHost(clusterAddress, 9200, "https"))
+                     .setHttpClientConfigCallback(httpClientConfigCallback);
+                 RestHighLevelClient client = new RestHighLevelClient(builder);
+                 return client;
+             }
+
+             static TrustManager[] trustAllCerts = new TrustManager[] {
+                 new X509TrustManager() {
+                     @Override
+                     public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                     }
+
+                     @Override
+                     public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                     }
+
+                     @Override
+                     public X509Certificate[] getAcceptedIssuers() {
+                         return null;
+                     }
+                 }
+             };
+
+             public static class NullHostNameVerifier implements HostnameVerifier {
+                 @Override
+                 public boolean verify(String arg0, SSLSession arg1) {
+                     return true;
+                 }
+             }
+
+         }
 
       **ESSecuredClient class (Uses certificates)**
 
-      +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-      | ::                                | ::                                                                                                                         |
-      |                                   |                                                                                                                            |
-      |      1                            |    package securitymode;                                                                                                   |
-      |      2                            |                                                                                                                            |
-      |      3                            |    import org.apache.http.auth.AuthScope;                                                                                  |
-      |      4                            |    import org.apache.http.auth.UsernamePasswordCredentials;                                                                |
-      |      5                            |    import org.apache.http.client.CredentialsProvider;                                                                      |
-      |      6                            |    import org.apache.http.impl.client.BasicCredentialsProvider;                                                            |
-      |      7                            |    import org.apache.http.HttpHost;                                                                                        |
-      |      8                            |    import org.apache.http.nio.conn.ssl.SSLIOSessionStrategy;                                                               |
-      |      9                            |    import org.elasticsearch.action.search.SearchRequest;                                                                   |
-      |     10                            |    import org.elasticsearch.action.search.SearchResponse;                                                                  |
-      |     11                            |    import org.elasticsearch.client.RequestOptions;                                                                         |
-      |     12                            |    import org.elasticsearch.client.RestClient;                                                                             |
-      |     13                            |    import org.elasticsearch.client.RestClientBuilder;                                                                      |
-      |     14                            |    import org.elasticsearch.client.RestHighLevelClient;                                                                    |
-      |     15                            |    import org.elasticsearch.index.query.QueryBuilders;                                                                     |
-      |     16                            |    import org.elasticsearch.search.SearchHit;                                                                              |
-      |     17                            |    import org.elasticsearch.search.SearchHits;                                                                             |
-      |     18                            |    import org.elasticsearch.search.builder.SearchSourceBuilder;                                                            |
-      |     19                            |                                                                                                                            |
-      |     20                            |    import java.io.File;                                                                                                    |
-      |     21                            |    import java.io.FileInputStream;                                                                                         |
-      |     22                            |    import java.io.IOException;                                                                                             |
-      |     23                            |    import java.io.InputStream;                                                                                             |
-      |     24                            |    import java.security.KeyStore;                                                                                          |
-      |     25                            |    import java.security.SecureRandom;                                                                                      |
-      |     26                            |    import java.security.cert.CertificateException;                                                                         |
-      |     27                            |    import java.security.cert.X509Certificate;                                                                              |
-      |     28                            |                                                                                                                            |
-      |     29                            |    import javax.net.ssl.HostnameVerifier;                                                                                  |
-      |     30                            |    import javax.net.ssl.SSLContext;                                                                                        |
-      |     31                            |    import javax.net.ssl.SSLSession;                                                                                        |
-      |     32                            |    import javax.net.ssl.TrustManager;                                                                                      |
-      |     33                            |    import javax.net.ssl.TrustManagerFactory;                                                                               |
-      |     34                            |    import javax.net.ssl.X509TrustManager;                                                                                  |
-      |     35                            |                                                                                                                            |
-      |     36                            |    public class ESSecuredClientWithCerDemo {                                                                               |
-      |     37                            |                                                                                                                            |
-      |     38                            |        public static void main(String[] args) {                                                                            |
-      |     39                            |            String clusterAddress = args[0];                                                                                |
-      |     40                            |            String userName = args[1];                                                                                      |
-      |     41                            |            String password = args[2];                                                                                      |
-      |     42                            |            String cerFilePath = args[3];                                                                                   |
-      |     43                            |            String cerPassword = args[4];                                                                                   |
-      |     44                            |           // Create a client.                                                                                              |
-      |     45                            |            RestHighLevelClient client = initESClient(clusterAddress, userName, password, cerFilePath, cerPassword);        |
-      |     46                            |            try {                                                                                                           |
-      |     47                            |             // Search match_all, which is equivalent to {\"query\": {\"match_all\": {}}}.                                  |
-      |     48                            |                SearchRequest searchRequest = new SearchRequest();                                                          |
-      |     49                            |                SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();                                        |
-      |     50                            |                searchSourceBuilder.query(QueryBuilders.matchAllQuery());                                                   |
-      |     51                            |                searchRequest.source(searchSourceBuilder);                                                                  |
-      |     52                            |                                                                                                                            |
-      |     53                            |                // query                                                                                                    |
-      |     54                            |                SearchResponse searchResponse = client.search(searchRequest, RequestOptions.DEFAULT);                       |
-      |     55                            |                System.out.println("query result: " + searchResponse.toString());                                           |
-      |     56                            |                SearchHits hits = searchResponse.getHits();                                                                 |
-      |     57                            |                for (SearchHit hit : hits) {                                                                                |
-      |     58                            |                    System.out.println(hit.getSourceAsString());                                                            |
-      |     59                            |                }                                                                                                           |
-      |     60                            |                System.out.println("query success");                                                                        |
-      |     61                            |                Thread.sleep(2000L);                                                                                        |
-      |     62                            |            } catch (InterruptedException | IOException e) {                                                                |
-      |     63                            |                e.printStackTrace();                                                                                        |
-      |     64                            |            } finally {                                                                                                     |
-      |     65                            |                try {                                                                                                       |
-      |     66                            |                    client.close();                                                                                         |
-      |     67                            |                    System.out.println("close client");                                                                     |
-      |     68                            |                } catch (IOException e) {                                                                                   |
-      |     69                            |                    e.printStackTrace();                                                                                    |
-      |     70                            |                }                                                                                                           |
-      |     71                            |            }                                                                                                               |
-      |     72                            |        }                                                                                                                   |
-      |     73                            |                                                                                                                            |
-      |     74                            |        private static RestHighLevelClient initESClient(String clusterAddress, String userName, String password,            |
-      |     75                            |            String cerFilePath, String cerPassword) {                                                                       |
-      |     76                            |            final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();                                 |
-      |     77                            |            credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(userName, password));         |
-      |     78                            |            SSLContext sc = null;                                                                                           |
-      |     79                            |            try {                                                                                                           |
-      |     80                            |                TrustManager[] tm = {new MyX509TrustManager(cerFilePath, cerPassword)};                                     |
-      |     81                            |                sc = SSLContext.getInstance("SSL", "SunJSSE");                                                              |
-      |     82                            |                //You can also use SSLContext sslContext = SSLContext.getInstance("TLSv1.2");                               |
-      |     83                            |                sc.init(null, tm, new SecureRandom());                                                                      |
-      |     84                            |            } catch (Exception e) {                                                                                         |
-      |     85                            |                e.printStackTrace();                                                                                        |
-      |     86                            |            }                                                                                                               |
-      |     87                            |                                                                                                                            |
-      |     88                            |            SSLIOSessionStrategy sessionStrategy = new SSLIOSessionStrategy(sc, new NullHostNameVerifier());                |
-      |     89                            |            SecuredHttpClientConfigCallback httpClientConfigCallback = new SecuredHttpClientConfigCallback(sessionStrategy, |
-      |     90                            |                credentialsProvider);                                                                                       |
-      |     91                            |            RestClientBuilder builder = RestClient.builder(new HttpHost(clusterAddress, 9200, "https"))                     |
-      |     92                            |                .setHttpClientConfigCallback(httpClientConfigCallback);                                                     |
-      |     93                            |            RestHighLevelClient client = new RestHighLevelClient(builder);                                                  |
-      |     94                            |            return client;                                                                                                  |
-      |     95                            |        }                                                                                                                   |
-      |     96                            |                                                                                                                            |
-      |     97                            |        public static class MyX509TrustManager implements X509TrustManager {                                                |
-      |     98                            |            X509TrustManager sunJSSEX509TrustManager;                                                                       |
-      |     99                            |                                                                                                                            |
-      |    100                            |            MyX509TrustManager(String cerFilePath, String cerPassword) throws Exception {                                   |
-      |    101                            |                File file = new File(cerFilePath);                                                                          |
-      |    102                            |                if (!file.isFile()) {                                                                                       |
-      |    103                            |                    throw new Exception("Wrong Certification Path");                                                        |
-      |    104                            |                }                                                                                                           |
-      |    105                            |                System.out.println("Loading KeyStore " + file + "...");                                                     |
-      |    106                            |                InputStream in = new FileInputStream(file);                                                                 |
-      |    107                            |                KeyStore ks = KeyStore.getInstance("JKS");                                                                  |
-      |    108                            |                ks.load(in, cerPassword.toCharArray());                                                                     |
-      |    109                            |                TrustManagerFactory tmf = TrustManagerFactory.getInstance("SunX509", "SunJSSE");                            |
-      |    110                            |                tmf.init(ks);                                                                                               |
-      |    111                            |                TrustManager[] tms = tmf.getTrustManagers();                                                                |
-      |    112                            |                for (TrustManager tm : tms) {                                                                               |
-      |    113                            |                    if (tm instanceof X509TrustManager) {                                                                   |
-      |    114                            |                        sunJSSEX509TrustManager = (X509TrustManager) tm;                                                    |
-      |    115                            |                        return;                                                                                             |
-      |    116                            |                    }                                                                                                       |
-      |    117                            |                }                                                                                                           |
-      |    118                            |                throw new Exception("Couldn't initialize");                                                                 |
-      |    119                            |            }                                                                                                               |
-      |    120                            |                                                                                                                            |
-      |    121                            |            @Override                                                                                                       |
-      |    122                            |            public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {          |
-      |    123                            |                                                                                                                            |
-      |    124                            |            }                                                                                                               |
-      |    125                            |                                                                                                                            |
-      |    126                            |            @Override                                                                                                       |
-      |    127                            |            public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {          |
-      |    128                            |                                                                                                                            |
-      |    129                            |            }                                                                                                               |
-      |    130                            |                                                                                                                            |
-      |    131                            |            @Override                                                                                                       |
-      |    132                            |            public X509Certificate[] getAcceptedIssuers() {                                                                 |
-      |    133                            |                return new X509Certificate[0];                                                                              |
-      |    134                            |            }                                                                                                               |
-      |    135                            |        }                                                                                                                   |
-      |    136                            |                                                                                                                            |
-      |    137                            |        public static class NullHostNameVerifier implements HostnameVerifier {                                              |
-      |    138                            |            @Override                                                                                                       |
-      |    139                            |            public boolean verify(String arg0, SSLSession arg1) {                                                           |
-      |    140                            |                return true;                                                                                                |
-      |    141                            |            }                                                                                                               |
-      |    142                            |        }                                                                                                                   |
-      |    143                            |                                                                                                                            |
-      |    144                            |    }                                                                                                                       |
-      +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+      ::
+
+         package securitymode;
+
+         import org.apache.http.auth.AuthScope;
+         import org.apache.http.auth.UsernamePasswordCredentials;
+         import org.apache.http.client.CredentialsProvider;
+         import org.apache.http.impl.client.BasicCredentialsProvider;
+         import org.apache.http.HttpHost;
+         import org.apache.http.nio.conn.ssl.SSLIOSessionStrategy;
+         import org.elasticsearch.action.search.SearchRequest;
+         import org.elasticsearch.action.search.SearchResponse;
+         import org.elasticsearch.client.RequestOptions;
+         import org.elasticsearch.client.RestClient;
+         import org.elasticsearch.client.RestClientBuilder;
+         import org.elasticsearch.client.RestHighLevelClient;
+         import org.elasticsearch.index.query.QueryBuilders;
+         import org.elasticsearch.search.SearchHit;
+         import org.elasticsearch.search.SearchHits;
+         import org.elasticsearch.search.builder.SearchSourceBuilder;
+
+         import java.io.File;
+         import java.io.FileInputStream;
+         import java.io.IOException;
+         import java.io.InputStream;
+         import java.security.KeyStore;
+         import java.security.SecureRandom;
+         import java.security.cert.CertificateException;
+         import java.security.cert.X509Certificate;
+
+         import javax.net.ssl.HostnameVerifier;
+         import javax.net.ssl.SSLContext;
+         import javax.net.ssl.SSLSession;
+         import javax.net.ssl.TrustManager;
+         import javax.net.ssl.TrustManagerFactory;
+         import javax.net.ssl.X509TrustManager;
+
+         public class ESSecuredClientWithCerDemo {
+
+             public static void main(String[] args) {
+                 String clusterAddress = args[0];
+                 String userName = args[1];
+                 String password = args[2];
+                 String cerFilePath = args[3];
+                 String cerPassword = args[4];
+                // Create a client.
+                 RestHighLevelClient client = initESClient(clusterAddress, userName, password, cerFilePath, cerPassword);
+                 try {
+                  // Search match_all, which is equivalent to {\"query\": {\"match_all\": {}}}.
+                     SearchRequest searchRequest = new SearchRequest();
+                     SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+                     searchSourceBuilder.query(QueryBuilders.matchAllQuery());
+                     searchRequest.source(searchSourceBuilder);
+
+                     // query
+                     SearchResponse searchResponse = client.search(searchRequest, RequestOptions.DEFAULT);
+                     System.out.println("query result: " + searchResponse.toString());
+                     SearchHits hits = searchResponse.getHits();
+                     for (SearchHit hit : hits) {
+                         System.out.println(hit.getSourceAsString());
+                     }
+                     System.out.println("query success");
+                     Thread.sleep(2000L);
+                 } catch (InterruptedException | IOException e) {
+                     e.printStackTrace();
+                 } finally {
+                     try {
+                         client.close();
+                         System.out.println("close client");
+                     } catch (IOException e) {
+                         e.printStackTrace();
+                     }
+                 }
+             }
+
+             private static RestHighLevelClient initESClient(String clusterAddress, String userName, String password,
+                 String cerFilePath, String cerPassword) {
+                 final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
+                 credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(userName, password));
+                 SSLContext sc = null;
+                 try {
+                     TrustManager[] tm = {new MyX509TrustManager(cerFilePath, cerPassword)};
+                     sc = SSLContext.getInstance("SSL", "SunJSSE");
+                     //You can also use SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
+                     sc.init(null, tm, new SecureRandom());
+                 } catch (Exception e) {
+                     e.printStackTrace();
+                 }
+
+                 SSLIOSessionStrategy sessionStrategy = new SSLIOSessionStrategy(sc, new NullHostNameVerifier());
+                 SecuredHttpClientConfigCallback httpClientConfigCallback = new SecuredHttpClientConfigCallback(sessionStrategy,
+                     credentialsProvider);
+                 RestClientBuilder builder = RestClient.builder(new HttpHost(clusterAddress, 9200, "https"))
+                     .setHttpClientConfigCallback(httpClientConfigCallback);
+                 RestHighLevelClient client = new RestHighLevelClient(builder);
+                 return client;
+             }
+
+             public static class MyX509TrustManager implements X509TrustManager {
+                 X509TrustManager sunJSSEX509TrustManager;
+
+                 MyX509TrustManager(String cerFilePath, String cerPassword) throws Exception {
+                     File file = new File(cerFilePath);
+                     if (!file.isFile()) {
+                         throw new Exception("Wrong Certification Path");
+                     }
+                     System.out.println("Loading KeyStore " + file + "...");
+                     InputStream in = new FileInputStream(file);
+                     KeyStore ks = KeyStore.getInstance("JKS");
+                     ks.load(in, cerPassword.toCharArray());
+                     TrustManagerFactory tmf = TrustManagerFactory.getInstance("SunX509", "SunJSSE");
+                     tmf.init(ks);
+                     TrustManager[] tms = tmf.getTrustManagers();
+                     for (TrustManager tm : tms) {
+                         if (tm instanceof X509TrustManager) {
+                             sunJSSEX509TrustManager = (X509TrustManager) tm;
+                             return;
+                         }
+                     }
+                     throw new Exception("Couldn't initialize");
+                 }
+
+                 @Override
+                 public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+
+                 }
+
+                 @Override
+                 public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+
+                 }
+
+                 @Override
+                 public X509Certificate[] getAcceptedIssuers() {
+                     return new X509Certificate[0];
+                 }
+             }
+
+             public static class NullHostNameVerifier implements HostnameVerifier {
+                 @Override
+                 public boolean verify(String arg0, SSLSession arg1) {
+                     return true;
+                 }
+             }
+
+         }
 
       **SecuredHttpClientConfigCallback class**
 
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-      | ::                                | ::                                                                                                                             |
-      |                                   |                                                                                                                                |
-      |     1                             |    import org.apache.http.client.CredentialsProvider;                                                                          |
-      |     2                             |    import org.apache.http.impl.nio.client.HttpAsyncClientBuilder;                                                              |
-      |     3                             |    import org.apache.http.nio.conn.ssl.SSLIOSessionStrategy;                                                                   |
-      |     4                             |    import org.elasticsearch.client.RestClientBuilder;                                                                          |
-      |     5                             |    import org.elasticsearch.common.Nullable;                                                                                   |
-      |     6                             |    import java.util.Objects;                                                                                                   |
-      |     7                             |    class SecuredHttpClientConfigCallback implements RestClientBuilder.HttpClientConfigCallback {                               |
-      |     8                             |        @Nullable                                                                                                               |
-      |     9                             |        private final CredentialsProvider credentialsProvider;                                                                  |
-      |    10                             |        /**                                                                                                                     |
-      |    11                             |         * The {@link SSLIOSessionStrategy} for all requests to enable SSL / TLS encryption.                                    |
-      |    12                             |         */                                                                                                                     |
-      |    13                             |        private final SSLIOSessionStrategy sslStrategy;                                                                         |
-      |    14                             |        /**                                                                                                                     |
-      |    15                             |         * Create a new {@link SecuredHttpClientConfigCallback}.                                                                |
-      |    16                             |         *                                                                                                                      |
-      |    17                             |         * @param credentialsProvider The credential provider, if a username/password have been supplied                        |
-      |    18                             |         * @param sslStrategy         The SSL strategy, if SSL / TLS have been supplied                                         |
-      |    19                             |         * @throws NullPointerException if {@code sslStrategy} is {@code null}                                                  |
-      |    20                             |         */                                                                                                                     |
-      |    21                             |        SecuredHttpClientConfigCallback(final SSLIOSessionStrategy sslStrategy,                                                 |
-      |    22                             |                                        @Nullable final CredentialsProvider credentialsProvider) {                              |
-      |    23                             |            this.sslStrategy = Objects.requireNonNull(sslStrategy);                                                             |
-      |    24                             |            this.credentialsProvider = credentialsProvider;                                                                     |
-      |    25                             |        }                                                                                                                       |
-      |    26                             |        /**                                                                                                                     |
-      |    27                             |         * Get the {@link CredentialsProvider} that will be added to the HTTP client.                                           |
-      |    28                             |         *                                                                                                                      |
-      |    29                             |         * @return Can be {@code null}.                                                                                         |
-      |    30                             |         */                                                                                                                     |
-      |    31                             |        @Nullable                                                                                                               |
-      |    32                             |        CredentialsProvider getCredentialsProvider() {                                                                          |
-      |    33                             |            return credentialsProvider;                                                                                         |
-      |    34                             |        }                                                                                                                       |
-      |    35                             |        /**                                                                                                                     |
-      |    36                             |         * Get the {@link SSLIOSessionStrategy} that will be added to the HTTP client.                                          |
-      |    37                             |         *                                                                                                                      |
-      |    38                             |         * @return Never {@code null}.                                                                                          |
-      |    39                             |         */                                                                                                                     |
-      |    40                             |        SSLIOSessionStrategy getSSLStrategy() {                                                                                 |
-      |    41                             |            return sslStrategy;                                                                                                 |
-      |    42                             |        }                                                                                                                       |
-      |    43                             |        /**                                                                                                                     |
-      |    44                             |         * Sets the {@linkplain HttpAsyncClientBuilder#setDefaultCredentialsProvider(CredentialsProvider) credential provider}, |
-      |    45                             |         *                                                                                                                      |
-      |    46                             |         * @param httpClientBuilder The client to configure.                                                                    |
-      |    47                             |         * @return Always {@code httpClientBuilder}.                                                                            |
-      |    48                             |         */                                                                                                                     |
-      |    49                             |        @Override                                                                                                               |
-      |    50                             |        public HttpAsyncClientBuilder customizeHttpClient(final HttpAsyncClientBuilder httpClientBuilder) {                     |
-      |    51                             |            // enable SSL / TLS                                                                                                 |
-      |    52                             |            httpClientBuilder.setSSLStrategy(sslStrategy);                                                                      |
-      |    53                             |            // enable user authentication                                                                                       |
-      |    54                             |            if (credentialsProvider != null) {                                                                                  |
-      |    55                             |                httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider);                                           |
-      |    56                             |            }                                                                                                                   |
-      |    57                             |            return httpClientBuilder;                                                                                           |
-      |    58                             |        }                                                                                                                       |
-      |    59                             |    }                                                                                                                           |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
+      ::
+
+         import org.apache.http.client.CredentialsProvider;
+         import org.apache.http.impl.nio.client.HttpAsyncClientBuilder;
+         import org.apache.http.nio.conn.ssl.SSLIOSessionStrategy;
+         import org.elasticsearch.client.RestClientBuilder;
+         import org.elasticsearch.common.Nullable;
+         import java.util.Objects;
+         class SecuredHttpClientConfigCallback implements RestClientBuilder.HttpClientConfigCallback {
+             @Nullable
+             private final CredentialsProvider credentialsProvider;
+             /**
+              * The {@link SSLIOSessionStrategy} for all requests to enable SSL / TLS encryption.
+              */
+             private final SSLIOSessionStrategy sslStrategy;
+             /**
+              * Create a new {@link SecuredHttpClientConfigCallback}.
+              *
+              * @param credentialsProvider The credential provider, if a username/password have been supplied
+              * @param sslStrategy         The SSL strategy, if SSL / TLS have been supplied
+              * @throws NullPointerException if {@code sslStrategy} is {@code null}
+              */
+             SecuredHttpClientConfigCallback(final SSLIOSessionStrategy sslStrategy,
+                                             @Nullable final CredentialsProvider credentialsProvider) {
+                 this.sslStrategy = Objects.requireNonNull(sslStrategy);
+                 this.credentialsProvider = credentialsProvider;
+             }
+             /**
+              * Get the {@link CredentialsProvider} that will be added to the HTTP client.
+              *
+              * @return Can be {@code null}.
+              */
+             @Nullable
+             CredentialsProvider getCredentialsProvider() {
+                 return credentialsProvider;
+             }
+             /**
+              * Get the {@link SSLIOSessionStrategy} that will be added to the HTTP client.
+              *
+              * @return Never {@code null}.
+              */
+             SSLIOSessionStrategy getSSLStrategy() {
+                 return sslStrategy;
+             }
+             /**
+              * Sets the {@linkplain HttpAsyncClientBuilder#setDefaultCredentialsProvider(CredentialsProvider) credential provider},
+              *
+              * @param httpClientBuilder The client to configure.
+              * @return Always {@code httpClientBuilder}.
+              */
+             @Override
+             public HttpAsyncClientBuilder customizeHttpClient(final HttpAsyncClientBuilder httpClientBuilder) {
+                 // enable SSL / TLS
+                 httpClientBuilder.setSSLStrategy(sslStrategy);
+                 // enable user authentication
+                 if (credentialsProvider != null) {
+                     httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider);
+                 }
+                 return httpClientBuilder;
+             }
+         }
 
       **pom.xml file**
 

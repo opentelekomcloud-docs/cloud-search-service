@@ -30,7 +30,6 @@ Scaling out Clusters
       -  You can expand the storage capacity six times at most.
       -  Services will not be interrupted during the cluster scale-out process.
 
-   .. _css_01_0031__fig1388413265365:
 
    .. figure:: /_static/images/en-us_image_0000001287293658.png
       :alt: **Figure 1** Modifying specifications

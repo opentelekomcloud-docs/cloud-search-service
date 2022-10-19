@@ -25,7 +25,6 @@ Perform the following steps:
 
    -  If the instance has been added to a security group, check whether the security group configuration rules meet requirements. For details, see the description of **Security Group** in the cluster information table in **Clusters**. Then go to :ref:`4 <css_02_0025__li12702114432619>`.
 
-      .. _css_02_0025__fig753791214329:
 
       .. figure:: /_static/images/en-us_image_0000001286116622.png
          :alt: **Figure 1** Viewing security group information

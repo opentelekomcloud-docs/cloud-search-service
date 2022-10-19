@@ -80,7 +80,6 @@ Managing Automatic Snapshot Creation
       |                       |                                                                                                                                           | -  You are advised to disable the automatic snapshot creation function if the key is deleted or is in the **Pending deletion** or **disable** status. In this case, automatic snapshots will be created based on the configured snapshot policy. However, all automatic snapshot creation tasks will fail, and the failed tasks will be displayed in the **Failed Tasks** dialog box.                                                                 |
       +-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-   .. _css_01_0033__fig5965112764919:
 
    .. figure:: /_static/images/en-us_image_0000001338955921.png
       :alt: **Figure 1** Edit Basic configuration
@@ -100,7 +99,7 @@ Managing Automatic Snapshot Creation
 
    -  **Time Zone**: indicates the time zone for the backup time. Specify **Backup Started** based on the time zone.
 
-   -  **Index**: Enter the name of an index. The automatic snapshot creation function supports backup of certain indices in the cluster. Uppercase letters, spaces, and certain special characters (including "\<|>/?) are not allowed. Use commas (,) to separate multiple indices. If you do not specify this parameter, data of all indices in the cluster is backed up by default. You can use the asterisk (**\***) to back up data of certain indices. For example, if you enter **index\***, then data of indices with the name prefix of **index** will be backed up.
+   -  **Index**: Enter the name of an index. The automatic snapshot creation function supports backup of certain indices in the cluster. Uppercase letters, spaces, and certain special characters (including ``"\<|>/?)`` are not allowed. Use commas (,) to separate multiple indices. If you do not specify this parameter, data of all indices in the cluster is backed up by default. You can use the asterisk (**\***) to back up data of certain indices. For example, if you enter **index\***, then data of indices with the name prefix of **index** will be backed up.
 
       You can run the **GET /_cat/indices** command in Kibana to query names of all indices in the cluster. You can then enter the names of the indices you want to back up.
 
@@ -122,7 +121,6 @@ Managing Automatic Snapshot Creation
 
    Snapshots that are automatically created according to the snapshot policy are displayed in the snapshot list, along with manually created snapshots. You can distinguish them by the **Snapshot Type** setting. In the upper right corner of the snapshot list, enter the keyword of the snapshot name or snapshot ID to search for the desired snapshots. You can also click |image7| to sort snapshots based on related parameter settings.
 
-   .. _css_01_0033__fig4952193916114:
 
    .. figure:: /_static/images/en-us_image_0000001286116726.png
       :alt: **Figure 3** Automatic snapshot creation
@@ -161,7 +159,7 @@ Manually Creating a Snapshot
 #. After basic configurations are completed, click **Create**.
 
    -  **Name** indicates the name of the manually created snapshot, which can contain 4 to 64 characters and must start with a lowercase letter. Only lowercase letters, digits, hyphens (-), and underscores (_) are allowed. For snapshots you create manually, you can specify the snapshot name. The system will not automatically add the time information to the snapshot name.
-   -  **Index**: Enter the name of an index. The manually created snapshot can back up data of certain indices in the cluster. The value can contain 0 to 1,024 characters. Uppercase letters, spaces, and certain special characters (including "\<|>/?) are not allowed. Multiple index names are separated by commas (,). If you do not specify this parameter, data of all indices in the cluster is backed up by default. You can use the asterisk (**\***) to back up data of certain indices. For example, if you enter **2018-06\***, then data of indices with the name prefix of **2018-06** will be backed up.
+   -  **Index**: Enter the name of an index. The manually created snapshot can back up data of certain indices in the cluster. The value can contain 0 to 1,024 characters. Uppercase letters, spaces, and certain special characters (including ``"\<|>/?)`` are not allowed. Multiple index names are separated by commas (,). If you do not specify this parameter, data of all indices in the cluster is backed up by default. You can use the asterisk (**\***) to back up data of certain indices. For example, if you enter **2018-06\***, then data of indices with the name prefix of **2018-06** will be backed up.
 
       .. note::
 
@@ -169,7 +167,6 @@ Manually Creating a Snapshot
 
    -  **Description**: indicates the description of the created snapshot. The value contains 0 to 256 characters, and certain special characters (**<>**) are not allowed.
 
-   .. _css_01_0033__fig78421105010:
 
    .. figure:: /_static/images/en-us_image_0000001338716621.png
       :alt: **Figure 4** Creating a snapshot
@@ -194,15 +191,14 @@ Restoring data will overwrite current data in clusters. Therefore, exercise caut
 
 #. In the displayed dialog box, specify parameters as required.
 
-   **Index**: Enter the name of the index you want to restore. If you do not specify any index name, data of all indices will be restored. The value can contain 0 to 1,024 characters. Uppercase letters, spaces, and certain special characters (including "\<|>/?) are not allowed.
+   **Index**: Enter the name of the index you want to restore. If you do not specify any index name, data of all indices will be restored. The value can contain 0 to 1,024 characters. Uppercase letters, spaces, and certain special characters (including ``"\<|>/?)`` are not allowed.
 
-   **Rename Pattern**: Enter a regular expression. Indices that match the regular expression are restored. The default value **index_(.+)** indicates restoring data of all indices. The value contains 0 to 1,024 characters. Uppercase letters, spaces, and certain special characters (including "\<|>/?,) are not allowed.
+   **Rename Pattern**: Enter a regular expression. Indices that match the regular expression are restored. The default value **index_(.+)** indicates restoring data of all indices. The value contains 0 to 1,024 characters. Uppercase letters, spaces, and certain special characters (including ``"\<|>/?,)`` are not allowed.
 
-   **Rename Replacement**: Enter the index renaming rule. The default value **restored_index_$1** indicates that **restored\_** is added in front of the names of all restored indices. The value can contain 0 to 1,024 characters. Uppercase letters, spaces, and certain special characters (including "\<|>/?,) are not allowed. You can set **Rename Replacement** only if you have specified **Rename Pattern**.
+   **Rename Replacement**: Enter the index renaming rule. The default value **restored_index_$1** indicates that **restored\_** is added in front of the names of all restored indices. The value can contain 0 to 1,024 characters. Uppercase letters, spaces, and certain special characters (including ``"\<|>/?,)`` are not allowed. You can set **Rename Replacement** only if you have specified **Rename Pattern**.
 
    **Cluster**: Select the cluster that you want to restore. You can select the current cluster or others. However, you can only restore the snapshot to clusters whose status is **Available**. If the status of the current cluster is **Unavailable**, you cannot restore the snapshot to the current cluster. If you select another cluster and two or more indices in the cluster have the same name, data of all indices with the same name as the name you specify will be overwritten. Therefore, exercise caution when you set the parameters.
 
-   .. _css_01_0033__fig128071912118:
 
    .. figure:: /_static/images/en-us_image_0000001338955933.png
       :alt: **Figure 5** Restoring a snapshot
@@ -212,7 +208,6 @@ Restoring data will overwrite current data in clusters. Therefore, exercise caut
 
 #. Click **OK**. If restoration succeeds, **Task Status** of the snapshot in the snapshot list will change to **Restoration succeeded**, and the index data is generated again according to the snapshot information.
 
-   .. _css_01_0033__fig25181595119:
 
    .. figure:: /_static/images/en-us_image_0000001286276646.png
       :alt: **Figure 6** Successful restoration
@@ -235,24 +230,13 @@ If you no longer need a snapshot, delete it to release storage resources. If the
 #. In the **Delete Snapshot** dialog box that is displayed, click **Yes**.
 
 .. |image1| image:: /_static/images/en-us_image_0000001286436602.png
-
 .. |image2| image:: /_static/images/en-us_image_0000001286116718.png
-
 .. |image3| image:: /_static/images/en-us_image_0000001286116714.png
-
 .. |image4| image:: /_static/images/en-us_image_0000001338836473.png
-
 .. |image5| image:: /_static/images/en-us_image_0000001286436602.png
-
 .. |image6| image:: /_static/images/en-us_image_0000001286116714.png
-
 .. |image7| image:: /_static/images/en-us_image_0000001286436618.png
-
 .. |image8| image:: /_static/images/en-us_image_0000001286436602.png
-
 .. |image9| image:: /_static/images/en-us_image_0000001286596218.png
-
 .. |image10| image:: /_static/images/en-us_image_0000001286116714.png
-
 .. |image11| image:: /_static/images/en-us_image_0000001286436618.png
-

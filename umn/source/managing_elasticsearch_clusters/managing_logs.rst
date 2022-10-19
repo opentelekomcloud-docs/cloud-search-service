@@ -95,16 +95,9 @@ Backed up logs mainly include deprecation logs, run logs, index slow logs, and s
    ====================================== =====================
 
 .. |image1| image:: /_static/images/en-us_image_0000001286596282.png
-
 .. |image2| image:: /_static/images/en-us_image_0000001338716685.png
-
 .. |image3| image:: /_static/images/en-us_image_0000001286116778.png
-
 .. |image4| image:: /_static/images/en-us_image_0000001338955993.png
-
 .. |image5| image:: /_static/images/en-us_image_0000001286596282.png
-
 .. |image6| image:: /_static/images/en-us_image_0000001338716677.png
-
 .. |image7| image:: /_static/images/en-us_image_0000001286276702.png
-
