@@ -14,7 +14,6 @@ Viewing Failed Tasks
 
 #. Click **Clusters** to switch to the **Clusters** page. Click the digit next to **Failed Tasks** to switch to the **Failed Tasks** dialog box.
 
-   .. _css_01_0060__fig9871436121212:
 
    .. figure:: /_static/images/en-us_image_0000001286116770.png
       :alt: **Figure 1** Clicking the digit next to Failed Tasks
@@ -26,7 +25,6 @@ Viewing Failed Tasks
 
 #. Click the question mark in the **Task Status** column to view the failure cause of a task. You are advised to troubleshoot faults based on failure causes. For details about failure causes, see :ref:`Error Code <css_01_0060__section155001521193312>`.
 
-   .. _css_01_0060__fig85418382253:
 
    .. figure:: /_static/images/en-us_image_0000001339036413.png
       :alt: **Figure 2** Viewing the failure cause of a task
@@ -42,7 +40,6 @@ You can delete one or all failed tasks at a time.
 -  To delete a failed task, perform the following operations: Locate the row that contains the target task and click **Delete** in the **Operation** column. In the displayed dialog box, confirm the task you want to delete and click **Yes**.
 -  To delete all failed tasks, perform the following operations: In the **Failed Tasks** dialog box, click **Delete All**. In the displayed dialog box, confirm the information about all failed tasks and click **Yes**.
 
-.. _css_01_0060__fig1419120710386:
 
 .. figure:: /_static/images/en-us_image_0000001338836521.png
    :alt: **Figure 3** Deleting a failed task

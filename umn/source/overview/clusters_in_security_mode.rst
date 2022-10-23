@@ -39,7 +39,6 @@ Identity Verification
 
 After enabling the security mode, you need to log in to the cluster with the username and password that you set when you create the cluster. You can perform other operations after you log in successfully.
 
-.. _css_04_0019__en-us_topic_0178473803_fig665855817396:
 
 .. figure:: /_static/images/en-us_image_0000001338716501.png
    :alt: **Figure 1** Login for identity verification
@@ -54,7 +53,6 @@ On the **Kibana** console, click **Security** to control user permissions in Ela
 
 You can add or delete users, and map users to different roles for permissions control.
 
-.. _css_04_0019__en-us_topic_0178473803_fig9206175294619:
 
 .. figure:: /_static/images/en-us_image_0000001339036237.png
    :alt: **Figure 2** Configuring users
@@ -64,7 +62,6 @@ You can add or delete users, and map users to different roles for permissions co
 
 You can use role mapping to configure roles and map a user's username, backend role, and host name to a role.
 
-.. _css_04_0019__en-us_topic_0178473803_fig1615521220484:
 
 .. figure:: /_static/images/en-us_image_0000001286276514.png
    :alt: **Figure 3** Role mapping
@@ -74,7 +71,6 @@ You can use role mapping to configure roles and map a user's username, backend r
 
 You can set permissions for each role to access clusters, indices and documents and assign Kibana tenants different roles.
 
-.. _css_04_0019__en-us_topic_0178473803_fig171866416485:
 
 .. figure:: /_static/images/en-us_image_0000001338716505.png
    :alt: **Figure 4** Configuring role permissions
@@ -84,7 +80,6 @@ You can set permissions for each role to access clusters, indices and documents 
 
 You can set action groups, assign the groups to roles, and configure the roles' permission for accessing indices and documents.
 
-.. _css_04_0019__en-us_topic_0178473803_fig10424783491:
 
 .. figure:: /_static/images/en-us_image_0000001286116602.png
    :alt: **Figure 5** Configuring action groups
@@ -94,7 +89,6 @@ You can set action groups, assign the groups to roles, and configure the roles' 
 
 You can view the parameters of authentication and authorization for the current cluster. You can also run the **securityadmin** command to modify the configuration.
 
-.. _css_04_0019__en-us_topic_0178473803_fig1995754614499:
 
 .. figure:: /_static/images/en-us_image_0000001338836353.png
    :alt: **Figure 6** Viewing cluster parameters
@@ -104,7 +98,6 @@ You can view the parameters of authentication and authorization for the current 
 
 You can also clear the security cache.
 
-.. _css_04_0019__en-us_topic_0178473803_fig16691821165012:
 
 .. figure:: /_static/images/en-us_image_0000001286276518.png
    :alt: **Figure 7** Clearing the security cache

@@ -44,7 +44,6 @@ Create a cluster using Elasticsearch as the search engine. In this example, supp
 
 After you create the cluster, switch to the cluster list to view the created cluster. If the **Status** of the cluster is **Available**, the cluster is created successfully.
 
-.. _css_01_0007__fig1388755803117:
 
 .. figure:: /_static/images/en-us_image_0000001286116742.png
    :alt: **Figure 1** Creating a cluster
@@ -65,7 +64,6 @@ CSS supports importing data to Elasticsearch using Logstash, Kibana, or APIs. Ki
 
    The text box on the left is the input box. The triangle icon in the upper right corner of the input box is the command execution button. The text box on the right area is the result output box.
 
-   .. _css_01_0007__fig1830133281516:
 
    .. figure:: /_static/images/en-us_image_0000001338716641.png
       :alt: **Figure 2** Console page

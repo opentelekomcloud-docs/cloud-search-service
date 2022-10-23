@@ -109,6 +109,4 @@ After configuring Kibana public access, you will obtain a public IP address that
 #. Use this IP address to access Kibana of this cluster through the Internet.
 
 .. |image1| image:: /_static/images/en-us_image_0000001286116734.png
-
 .. |image2| image:: /_static/images/en-us_image_0000001338836489.png
-

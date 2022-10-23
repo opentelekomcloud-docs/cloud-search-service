@@ -31,7 +31,6 @@ Procedure
 
    If you use the index backup and restoration function for the first time, you need to perform basic configurations first. For more details, see :ref:`Manually Creating a Snapshot <css_01_0033__section43906502025>`.
 
-   .. _css_01_0040__fig78421105010:
 
    .. figure:: /_static/images/en-us_image_0000001286596238.png
       :alt: **Figure 1** Creating a snapshot
@@ -46,7 +45,6 @@ Procedure
 
    Click **OK**. You can also rename the restored index.
 
-   .. _css_01_0040__fig128071912118:
 
    .. figure:: /_static/images/en-us_image_0000001286436626.png
       :alt: **Figure 2** Restoring a snapshot

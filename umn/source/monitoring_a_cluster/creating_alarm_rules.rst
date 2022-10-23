@@ -75,4 +75,3 @@ Procedure
       After the alarm rule is successfully created, it will be displayed in the alarm rule list
 
 .. |image1| image:: /_static/images/en-us_image_0000001286596290.png
-

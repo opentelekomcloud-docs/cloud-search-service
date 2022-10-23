@@ -154,7 +154,6 @@ Importing Data When Logstash Is Deployed on the External Network
 
    a. Download a certificate on the **Basic Information** page of the cluster.
 
-      .. _css_01_0048__fig11031228135019:
 
       .. figure:: /_static/images/en-us_image_0000001286276694.png
          :alt: **Figure 2** Downloading a certificate
@@ -210,7 +209,6 @@ Importing Data When Logstash Is Deployed on the External Network
 
 #. In the left navigation pane of the displayed Kibana window, click **Dev Tools**.
 
-   .. _css_01_0048__fig164001949115016:
 
    .. figure:: /_static/images/en-us_image_0000001286596270.png
       :alt: **Figure 3** Logging in to Dev Tools
@@ -335,7 +333,6 @@ Importing Data When Logstash Is Deployed on an ECS
 
    a. Download a certificate on the **Basic Information** page of the cluster.
 
-      .. _css_01_0048__fig1877019549519:
 
       .. figure:: /_static/images/en-us_image_0000001338955977.png
          :alt: **Figure 5** Downloading a certificate
@@ -387,7 +384,6 @@ Importing Data When Logstash Is Deployed on an ECS
 
 #. In the left navigation pane of the displayed Kibana window, click **Dev Tools**.
 
-   .. _css_01_0048__fig14934191615547:
 
    .. figure:: /_static/images/en-us_image_0000001338955981.png
       :alt: **Figure 6** Choosing Dev Tools

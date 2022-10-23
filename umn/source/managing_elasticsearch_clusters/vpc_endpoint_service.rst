@@ -95,8 +95,5 @@ Accessing the Cluster Using the Private Domain Name or Node IP Address
       .. code-block::
 
 .. |image1| image:: /_static/images/en-us_image_0000001286276706.png
-
 .. |image2| image:: /_static/images/en-us_image_0000001338955989.png
-
 .. |image3| image:: /_static/images/en-us_image_0000001338836529.png
-
