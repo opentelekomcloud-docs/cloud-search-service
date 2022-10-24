@@ -40,7 +40,6 @@ Importing Data When Logstash Is Deployed on the External Network
 .. figure:: /_static/images/en-us_image_0000001338716669.png
    :alt: **Figure 1** Importing data when Logstash is deployed on an external network
 
-
    **Figure 1** Importing data when Logstash is deployed on an external network
 
 #. .. _css_01_0048__li1648853125014:
@@ -158,7 +157,6 @@ Importing Data When Logstash Is Deployed on the External Network
       .. figure:: /_static/images/en-us_image_0000001286276694.png
          :alt: **Figure 2** Downloading a certificate
 
-
          **Figure 2** Downloading a certificate
 
    b. Store the certificate to the server where Logstash is deployed.
@@ -213,7 +211,6 @@ Importing Data When Logstash Is Deployed on the External Network
    .. figure:: /_static/images/en-us_image_0000001286596270.png
       :alt: **Figure 3** Logging in to Dev Tools
 
-
       **Figure 3** Logging in to Dev Tools
 
 #. On the **Console** page of Kibana, search for the imported data.
@@ -235,7 +232,6 @@ Importing Data When Logstash Is Deployed on an ECS
 
 .. figure:: /_static/images/en-us_image_0000001338716673.png
    :alt: **Figure 4** Importing data when Logstash is deployed on an ECS
-
 
    **Figure 4** Importing data when Logstash is deployed on an ECS
 
@@ -337,7 +333,6 @@ Importing Data When Logstash Is Deployed on an ECS
       .. figure:: /_static/images/en-us_image_0000001338955977.png
          :alt: **Figure 5** Downloading a certificate
 
-
          **Figure 5** Downloading a certificate
 
    b. Store the certificate to the server where Logstash is deployed.
@@ -387,7 +382,6 @@ Importing Data When Logstash Is Deployed on an ECS
 
    .. figure:: /_static/images/en-us_image_0000001338955981.png
       :alt: **Figure 6** Choosing Dev Tools
-
 
       **Figure 6** Choosing Dev Tools
 

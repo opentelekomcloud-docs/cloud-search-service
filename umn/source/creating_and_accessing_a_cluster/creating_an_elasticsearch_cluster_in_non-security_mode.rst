@@ -46,7 +46,6 @@ Procedure
    .. figure:: /_static/images/en-us_image_0000001286436658.png
       :alt: **Figure 1** Configuring basic information
 
-
       **Figure 1** Configuring basic information
 
 #. Set host specifications of the cluster.
@@ -112,7 +111,6 @@ Procedure
    .. figure:: /_static/images/en-us_image_0000001338955973.png
       :alt: **Figure 2** Configuring node specifications
 
-
       **Figure 2** Configuring node specifications
 
 #. Set network specifications of the cluster.
@@ -152,7 +150,6 @@ Procedure
 
    .. figure:: /_static/images/en-us_image_0000001339036421.png
       :alt: **Figure 3** Configuring network specifications
-
 
       **Figure 3** Configuring network specifications
 

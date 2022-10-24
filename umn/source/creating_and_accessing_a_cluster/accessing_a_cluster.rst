@@ -78,7 +78,6 @@ To access a cluster by calling Elasticsearch APIs on the ECS that is located in 
    .. figure:: /_static/images/en-us_image_0000001286436598.png
       :alt: **Figure 1** Command output
 
-
       **Figure 1** Command output
 
 .. _css_01_0012__section1619554519273:

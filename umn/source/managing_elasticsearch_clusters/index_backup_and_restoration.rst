@@ -84,7 +84,6 @@ Managing Automatic Snapshot Creation
    .. figure:: /_static/images/en-us_image_0000001338955921.png
       :alt: **Figure 1** Edit Basic configuration
 
-
       **Figure 1** Edit Basic configuration
 
 #. Click the icon to the right of **Automatic Snapshot Creation** to enable the automatic snapshot creation function.
@@ -112,7 +111,6 @@ Managing Automatic Snapshot Creation
    .. figure:: /_static/images/en-us_image_0000001339036357.png
       :alt: **Figure 2** Automatic snapshot creation
 
-
       **Figure 2** Automatic snapshot creation
 
 #. Click **OK**.
@@ -124,7 +122,6 @@ Managing Automatic Snapshot Creation
 
    .. figure:: /_static/images/en-us_image_0000001286116726.png
       :alt: **Figure 3** Automatic snapshot creation
-
 
       **Figure 3** Automatic snapshot creation
 
@@ -171,7 +168,6 @@ Manually Creating a Snapshot
    .. figure:: /_static/images/en-us_image_0000001338716621.png
       :alt: **Figure 4** Creating a snapshot
 
-
       **Figure 4** Creating a snapshot
 
 #. Click **OK**.
@@ -203,7 +199,6 @@ Restoring data will overwrite current data in clusters. Therefore, exercise caut
    .. figure:: /_static/images/en-us_image_0000001338955933.png
       :alt: **Figure 5** Restoring a snapshot
 
-
       **Figure 5** Restoring a snapshot
 
 #. Click **OK**. If restoration succeeds, **Task Status** of the snapshot in the snapshot list will change to **Restoration succeeded**, and the index data is generated again according to the snapshot information.
@@ -211,7 +206,6 @@ Restoring data will overwrite current data in clusters. Therefore, exercise caut
 
    .. figure:: /_static/images/en-us_image_0000001286276646.png
       :alt: **Figure 6** Successful restoration
-
 
       **Figure 6** Successful restoration
 

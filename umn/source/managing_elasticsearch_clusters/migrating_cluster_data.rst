@@ -35,7 +35,6 @@ Procedure
    .. figure:: /_static/images/en-us_image_0000001286596238.png
       :alt: **Figure 1** Creating a snapshot
 
-
       **Figure 1** Creating a snapshot
 
 #. In the snapshot list, locate the row that contains the target snapshot and click **Restore** in the **Operation** column to restore data to cluster **Es-2**.
@@ -48,7 +47,6 @@ Procedure
 
    .. figure:: /_static/images/en-us_image_0000001286436626.png
       :alt: **Figure 2** Restoring a snapshot
-
 
       **Figure 2** Restoring a snapshot
 

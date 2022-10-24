@@ -43,7 +43,6 @@ After enabling the security mode, you need to log in to the cluster with the use
 .. figure:: /_static/images/en-us_image_0000001338716501.png
    :alt: **Figure 1** Login for identity verification
 
-
    **Figure 1** Login for identity verification
 
 Authorization
@@ -57,7 +56,6 @@ You can add or delete users, and map users to different roles for permissions co
 .. figure:: /_static/images/en-us_image_0000001339036237.png
    :alt: **Figure 2** Configuring users
 
-
    **Figure 2** Configuring users
 
 You can use role mapping to configure roles and map a user's username, backend role, and host name to a role.
@@ -65,7 +63,6 @@ You can use role mapping to configure roles and map a user's username, backend r
 
 .. figure:: /_static/images/en-us_image_0000001286276514.png
    :alt: **Figure 3** Role mapping
-
 
    **Figure 3** Role mapping
 
@@ -75,7 +72,6 @@ You can set permissions for each role to access clusters, indices and documents 
 .. figure:: /_static/images/en-us_image_0000001338716505.png
    :alt: **Figure 4** Configuring role permissions
 
-
    **Figure 4** Configuring role permissions
 
 You can set action groups, assign the groups to roles, and configure the roles' permission for accessing indices and documents.
@@ -83,7 +79,6 @@ You can set action groups, assign the groups to roles, and configure the roles' 
 
 .. figure:: /_static/images/en-us_image_0000001286116602.png
    :alt: **Figure 5** Configuring action groups
-
 
    **Figure 5** Configuring action groups
 
@@ -93,7 +88,6 @@ You can view the parameters of authentication and authorization for the current 
 .. figure:: /_static/images/en-us_image_0000001338836353.png
    :alt: **Figure 6** Viewing cluster parameters
 
-
    **Figure 6** Viewing cluster parameters
 
 You can also clear the security cache.
@@ -101,7 +95,6 @@ You can also clear the security cache.
 
 .. figure:: /_static/images/en-us_image_0000001286276518.png
    :alt: **Figure 7** Clearing the security cache
-
 
    **Figure 7** Clearing the security cache
 

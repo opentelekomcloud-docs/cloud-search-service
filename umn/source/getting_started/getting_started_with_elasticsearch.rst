@@ -48,7 +48,6 @@ After you create the cluster, switch to the cluster list to view the created clu
 .. figure:: /_static/images/en-us_image_0000001286116742.png
    :alt: **Figure 1** Creating a cluster
 
-
    **Figure 1** Creating a cluster
 
 .. _css_01_0007__section398512163445:
@@ -67,7 +66,6 @@ CSS supports importing data to Elasticsearch using Logstash, Kibana, or APIs. Ki
 
    .. figure:: /_static/images/en-us_image_0000001338716641.png
       :alt: **Figure 2** Console page
-
 
       **Figure 2** Console page
 

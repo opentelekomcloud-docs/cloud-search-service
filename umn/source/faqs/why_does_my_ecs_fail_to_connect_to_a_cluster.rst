@@ -29,7 +29,6 @@ Perform the following steps:
       .. figure:: /_static/images/en-us_image_0000001286116622.png
          :alt: **Figure 1** Viewing security group information
 
-
          **Figure 1** Viewing security group information
 
    -  If the instance has not been added to the security group, go to the VPC page from the ECS instance details page, select a security group, and add the ECS to the group.
