@@ -18,7 +18,6 @@ Viewing Failed Tasks
    .. figure:: /_static/images/en-us_image_0000001286116770.png
       :alt: **Figure 1** Clicking the digit next to Failed Tasks
 
-
       **Figure 1** Clicking the digit next to Failed Tasks
 
 #. The **Failed Tasks** dialog box presents all failed tasks of the current account. The following information about the failed tasks is displayed: **Name/ID**, **Task Status**, and **Failure Time**.
@@ -28,7 +27,6 @@ Viewing Failed Tasks
 
    .. figure:: /_static/images/en-us_image_0000001339036413.png
       :alt: **Figure 2** Viewing the failure cause of a task
-
 
       **Figure 2** Viewing the failure cause of a task
 
@@ -43,7 +41,6 @@ You can delete one or all failed tasks at a time.
 
 .. figure:: /_static/images/en-us_image_0000001338836521.png
    :alt: **Figure 3** Deleting a failed task
-
 
    **Figure 3** Deleting a failed task
 

@@ -34,7 +34,6 @@ Scaling out Clusters
    .. figure:: /_static/images/en-us_image_0000001287293658.png
       :alt: **Figure 1** Modifying specifications
 
-
       **Figure 1** Modifying specifications
 
 #. Click **Next**.

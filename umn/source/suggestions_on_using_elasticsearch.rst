@@ -341,8 +341,8 @@ When used in a querying context, the query becomes a "**scoring**" query. Simila
 
 -  Matching the words "full text search"
 -  Containing the word "run", but also matching "runs", "running", "jog", or "sprint"
--  Containing the words "quick", "brown", and "fox" – the closer together they are, the more relevant the document
--  Tagged with lucene, search, or java – the more tags, the more relevant the document
+-  Containing the words "quick", "brown", and "fox" - the closer together they are, the more relevant the document
+-  Tagged with lucene, search, or java - the more tags, the more relevant the document
 
 Checking Whether a Query Is Valid
 ---------------------------------
