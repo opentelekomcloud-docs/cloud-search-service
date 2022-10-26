@@ -19,6 +19,6 @@ You can use any of the following three methods to manage CSS or to use search en
 
    Both Mozilla Firefox and Google Chrome provide a graphical browser plugin, the REST client, which you can use to send and process requests.
 
-   – For Mozilla Firefox, see `Firefox REST Client <https://addons.mozilla.org/en-US/firefox/addon/restclient/>`__.
+   - For Mozilla Firefox, see `Firefox REST Client <https://addons.mozilla.org/en-US/firefox/addon/restclient/>`__.
 
-   – For Google Chrome, see `Postman <https://www.getpostman.com/>`__.
+   - For Google Chrome, see `Postman <https://www.getpostman.com/>`__.

@@ -93,7 +93,6 @@ Before importing data, ensure that you can use Kibana to access the cluster. The
    .. figure:: /_static/images/en-us_image_0000001338956001.png
       :alt: **Figure 1** Response message
 
-
       **Figure 1** Response message
 
 Importing Data Using APIs
