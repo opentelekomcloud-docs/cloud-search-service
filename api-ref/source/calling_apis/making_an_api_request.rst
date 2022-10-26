@@ -86,7 +86,7 @@ A request body conveys information other than the request header and is generall
 
 The request body varies according to the APIs. Certain APIs do not require the request body, such as the GET and DELETE APIs.
 
-In the case of the API used to obtain a user token, the request parameters and parameter description can be obtained from the API request. The following provides an example request with a body included. Replace *username*, *domainname*, *\*******\** (login password), and *xxxxxxxxxxxxxxxxxx* (project ID) with the actual values. To learn how to obtain a project ID, see :ref:`Obtaining a Project ID and Name <css_03_0071>`.
+In the case of the API used to obtain a user token, the request parameters and parameter description can be obtained from the API request. The following provides an example request with a body included. Replace *username*, *domainname*, ``********`` (login password), and *xxxxxxxxxxxxxxxxxx* (project ID) with the actual values. To learn how to obtain a project ID, see :ref:`Obtaining a Project ID and Name <css_03_0071>`.
 
 .. note::
 
