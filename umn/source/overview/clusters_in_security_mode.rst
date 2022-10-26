@@ -123,6 +123,6 @@ If you want to change the login password of a cluster with the security mode ena
    .. note::
 
       -  The password can contain 8 to 32 characters.
-      -  It must include letters, digits, and special characters. No spaces and backslashes (\) are allowed.
+      -  It must include letters, digits, and special characters. No spaces and backslashes (\\) are allowed.
       -  It cannot be the username or the username spelled backwards.
       -  It is good practice to change the password periodically.
