@@ -26,7 +26,6 @@ A response header corresponds to a request header, for example, **Content-Type**
 .. figure:: /_static/images/en-us_image_0000001265939134.png
    :alt: **Figure 1** Header of the response to the request for obtaining a user token
 
-
    **Figure 1** Header of the response to the request for obtaining a user token
 
 Response Body

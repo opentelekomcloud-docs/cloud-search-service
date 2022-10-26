@@ -20,7 +20,6 @@ Obtaining a Project ID and Name from the Console
    .. figure:: /_static/images/en-us_image_0000001261293340.png
       :alt: **Figure 1** Viewing the project ID and name
 
-
       **Figure 1** Viewing the project ID and name
 
 Obtaining a Project ID by Calling an API
