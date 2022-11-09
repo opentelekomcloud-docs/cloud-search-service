@@ -29,7 +29,7 @@ Procedure
          +=============+======================================================================================================+===============+
          | Name        | Name of the alarm rule. The system automatically generates a name, which you can change if required. | alarm-p8v9    |
          +-------------+------------------------------------------------------------------------------------------------------+---------------+
-         | Description | Alarm rule description. This parameter is optional.                                                  | -             |
+         | Description | Alarm rule description. This parameter is optional.                                                  | ``-``         |
          +-------------+------------------------------------------------------------------------------------------------------+---------------+
 
    b. Select a monitored object and set alarm content parameters.
@@ -65,9 +65,9 @@ Procedure
          |                       |                                                                                                               |                       |
          |                       | If you set **Monitoring Scope** to **Specific resources**, you can set **Method** to **Use template**.        |                       |
          +-----------------------+---------------------------------------------------------------------------------------------------------------+-----------------------+
-         | Template              | Template you want to import                                                                                   | -                     |
+         | Template              | Template you want to import                                                                                   | ``-``                 |
          +-----------------------+---------------------------------------------------------------------------------------------------------------+-----------------------+
-         | Alarm Notification    | If you enable this function, specify **Validity Period**, **Notification Object**, and **Trigger Condition**. | -                     |
+         | Alarm Notification    | If you enable this function, specify **Validity Period**, **Notification Object**, and **Trigger Condition**. | ``-``                 |
          +-----------------------+---------------------------------------------------------------------------------------------------------------+-----------------------+
 
    d. Click **Create**.
