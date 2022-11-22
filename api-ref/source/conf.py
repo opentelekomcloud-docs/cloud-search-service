@@ -28,8 +28,6 @@ project = 'Cloud Search Service'
 otcdocs_repo_name = 'opentelekomcloud-docs/cloud-search-service'
 # Those variables are required for edit/bug links
 
-
-
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -93,7 +91,7 @@ html_static_path = ['_static']
 
 # -- Options for PDF output --------------------------------------------------
 latex_documents = [
-('index',
+    ('index',
      'css-api-ref.tex',
      u'Cloud Search Service - API Reference',
      u'OpenTelekomCloud', 'manual'),
