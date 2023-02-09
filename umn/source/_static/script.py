@@ -247,7 +247,7 @@ def delete_elb(name_or_id, release_public_ip=False):
     for pool in loadbalancer.pools:
         print("\nRemoving members from Server Group (Pool):  %s" % pool["id"])
         for member in conn.vlb.get_pool(pool["id"]).members:
-            conn.load_balancer.delete_member(member["id"], pool["id"])
+            conn.vlb.delete_member(member["id"], pool["id"])
 
         print("\nDeleting Server Group (Pool):  %s" % pool["id"])
         conn.vlb.delete_pool(pool["id"])

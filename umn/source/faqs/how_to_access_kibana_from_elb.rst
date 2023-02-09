@@ -1,12 +1,27 @@
 .. _css_02_0201:
 
-How To Access Kibana From ELB
-=============================
+How to access Kibana from outside cloud using ELB
+=================================================
+
+Overview
+--------
+
+Currently to access Kibana dashboard of CSS Service, a user have to login to
+OTC console and navigate to Kibana login page.
+
+To make the access convenient a user can utilise the provided
+``python script`` which will configure the Dedicated Loadbalancer
+of OTC and a user would be able to acceess Kibana dasboard with a
+public IP.
+
 
 ELB Configuration Script
 ------------------------
 
-Script to Configure ELB to be able to access CSS Kibana Dashboard in https mode. This Script will create a Dedicated Loadbalancer with a HTTPS Listener which will be forwarding the trafiic to css nodes at 5601 port in order to access Kibana Dashboard.
+Script to Configure ELB to be able to access CSS Kibana Dashboard in https
+mode. This Script will create a Dedicated Loadbalancer with a HTTPS Listener
+which will be forwarding the trafiic to css nodes at 5601 port in order to
+access Kibana Dashboard.
 
 ``Download`` :download:`Script </_static/script.py>`
 
@@ -62,19 +77,17 @@ With this configuration you can start using the CLI with
   used::
 
     export OS_AUTH_URL=<url-to-openstack-identity>
-    export OS_IDENTITY_API_VERSION=3
     export OS_PROJECT_NAME=<project-name>
-    export OS_PROJECT_DOMAIN_NAME=<project-domain-name>
     export OS_USERNAME=<username>
-    export OS_USER_DOMAIN_NAME=<user-domain-name>
     export OS_PASSWORD=<password>
+    export OS_USER_DOMAIN_NAME=<user-domain-name>
+    export OS_IDENTITY_API_VERSION=3
 
 
 In addition to that a regular `clouds.yaml` configuration file can be used.
 
 | More information is available at:-
-| https://docs.openstack.org/python-openstackclient/latest/cli/authentication.html
-| https://developer.openstack.org/sdks/python/openstacksdk/users/config
+| https://docs.openstack.org/openstacksdk/latest/user/config/configuration.html
 
 
 Pre-Requisites
@@ -95,6 +108,8 @@ a HTTPS listener.
 ::
 
    openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:4096 -keyout private.key -out certificate.crt
+
+* ``Note - When adding the certificate and private key, Certificate Type must be "Server Certificate".``
 
 
 Running The Script
