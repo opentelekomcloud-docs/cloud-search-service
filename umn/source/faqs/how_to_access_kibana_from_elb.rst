@@ -1,7 +1,7 @@
 .. _css_02_0201:
 
-How to access Kibana from outside cloud using ELB
-=================================================
+How to access Kibana from outside cloud using ELB?
+==================================================
 
 Overview
 --------
