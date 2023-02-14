@@ -6,12 +6,12 @@ How to access Kibana from outside cloud using ELB
 Overview
 --------
 
-Currently to access Kibana dashboard of CSS Service, a user have to login to
-OTC console and navigate to Kibana login page.
+Currently to access Kibana dashboard of CSS Service, a user has to
+login to OTC console and navigate to Kibana login page.
 
-To make the access convenient a user can utilise the provided
+To make the access convenient a user can utilize the provided
 ``python script`` which will configure the Dedicated Loadbalancer
-of OTC and a user would be able to acceess Kibana dasboard with a
+of OTC and a user would be able to access Kibana dashboard with a
 public IP.
 
 
@@ -20,13 +20,13 @@ ELB Configuration Script
 
 Script to Configure ELB to be able to access CSS Kibana Dashboard in https
 mode. This Script will create a Dedicated Loadbalancer with a HTTPS Listener
-which will be forwarding the trafiic to css nodes at 5601 port in order to
+which will be forwarding the traffic to CSS nodes at 5601 port in order to
 access Kibana Dashboard.
 
 ``Download`` :download:`Script </_static/script.py>`
 
 
-Installing Dependancy
+Installing Dependency
 ---------------------
 
 The script depends on ``otcextensions`` library.
@@ -115,7 +115,8 @@ a HTTPS listener.
 Running The Script
 ------------------
 
-Once you have certificate_id and cluster_id, you are ready to run the script.
+Once you have **certificate_id** and **cluster_id**, you are ready to
+run the script.
 
 
 List ELB Flavors
