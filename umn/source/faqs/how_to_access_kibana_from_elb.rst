@@ -101,7 +101,7 @@ a HTTPS listener.
    details.
 -  To learn more about Creating and Getting a TLS Certificate, check
    `ELB User Guide
-   <https://docs.otc.t-systems.com/usermanual/elb/en-us_elb_03_0005.html>`__
+   <https://docs.otc.t-systems.com/elastic-load-balancing/umn/certificate/creating,_modifying,_or_deleting_a_certificate.html>`__
 
 ``Generating a TSL Certificate with openssl command.``
 
