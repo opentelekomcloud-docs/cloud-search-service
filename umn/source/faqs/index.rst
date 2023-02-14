@@ -20,6 +20,7 @@ FAQs
 -  :ref:`Why Does Index Backup Fail? <css_02_0029>`
 -  :ref:`How Can I Improve Filebeat Performance? <css_02_0018>`
 -  :ref:`Failed to Open Kibana <css_02_0019>`
+-  :ref:`How to Access Kibana From ELB? <css_02_0201>`
 
 .. toctree::
    :maxdepth: 1
@@ -40,3 +41,4 @@ FAQs
    why_does_index_backup_fail
    how_can_i_improve_filebeat_performance
    failed_to_open_kibana
+   how_to_access_kibana_from_elb
