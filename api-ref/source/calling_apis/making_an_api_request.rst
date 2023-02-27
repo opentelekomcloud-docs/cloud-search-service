@@ -54,7 +54,7 @@ HTTP-based request methods, which are also called operations or actions, specify
 
 If **POST** is displayed in the URI of the API for obtaining a user token, the request is as follows:
 
-.. code-block::
+.. code-block:: text
 
    POST https://{iam-endpoint}/v3/auth/tokens
 
@@ -63,14 +63,23 @@ Request Header
 
 You can also add additional fields to a request, such as the fields required by a specified URI or an HTTP method. For example, add **Content-Type** that defines a request body type to request for the authentication information.
 
-Common request headers are as follows:
+:ref:`Table 2 <iam_02_0008__table181671338175614>` lists common request header fields.
 
--  **Content-Type**: specifies the request body type or format. This field is mandatory and its default value is **application/json**.
--  **X-Auth-Token**: specifies the user token, which is optional. This field is mandatory for token-based authentication. **X-Auth-Token** is the value of **x-subject-token** returned in response to the API used to obtain a user token.
+.. _iam_02_0008__table181671338175614:
 
-   .. note::
+.. table:: **Table 2** Common request headers
 
-      In addition to supporting authentication using tokens, APIs support authentication using the access key ID (AK)/secret access key (SK), which uses SDKs to sign a request. During the signing, the **Authorization** (signature authentication information) and **X-Sdk-Date** (time when a request is sent) headers are automatically added to the request. For more details, see :ref:`Authentication Using AK/SK <iam_02_0510>`.
+   +-----------------------+-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter             | Mandatory                                     | Description                                                                                                                                                                                                                            |
+   +=======================+===============================================+========================================================================================================================================================================================================================================+
+   | Content-Type          | Yes                                           | Message body type (or format). You are advised to use the default value **application/json**.                                                                                                                                          |
+   +-----------------------+-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | X-Auth-Token          | No (Mandatory for token-based authentication) | User token.                                                                                                                                                                                                                            |
+   |                       |                                               |                                                                                                                                                                                                                                        |
+   |                       |                                               | User token is the response to the API for obtaining a user token (only this API does not require authentication). After the request is processed, the value of **X-Subject-Token** in the response header (Header) is the token value. |
+   +-----------------------+-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | X-Language            | No                                            | Request language                                                                                                                                                                                                                       |
+   +-----------------------+-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 The API used to obtain a user token does not require authentication. Therefore, only the **Content-Type** field needs to be added to requests for calling the API. An example of such requests is as follows:
 

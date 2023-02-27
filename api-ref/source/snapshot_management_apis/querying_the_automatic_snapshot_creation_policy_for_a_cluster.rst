@@ -78,7 +78,7 @@ Example response
 
    {
        "keepday":2,
-       "period":"16:00 GMT+08:00",
+       "period":"16:00 GMT+02:00",
        "prefix":"snapshot",
        "bucket":"es-backup",
        "basePath": "css_repository/tests",
