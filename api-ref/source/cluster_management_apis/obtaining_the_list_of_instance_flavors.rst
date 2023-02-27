@@ -90,7 +90,7 @@ Example response
    {
      "versions": [
        {
-         "version": "6.2.3",
+         "version": "7.6.2",
          "flavors": [
            {
              "cpu": 1,

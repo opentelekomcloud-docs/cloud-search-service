@@ -122,10 +122,10 @@ Example response
    {
       "backups": [
        {
-         "created": "2018-03-07T07:34:47",
+         "created": "2021-03-07T07:34:47",
          "datastore": {
            "type": "elasticsearch",
-           "version": "*.*.*"
+           "version": "7.6.2"
          },
          "description": "",
          "id": "e29d99c1-3d19-4ea4-ae8d-f252df76cbe9",
@@ -133,7 +133,7 @@ Example response
          "clusterName": "Es-xfx",
          "name": "snapshot-002",
          "status": "COMPLETED",
-         "updated": "2018-03-07T07:40:12",
+         "updated": "2021-03-07T07:40:12",
          "backupType": "1",
          "backupMethod": "manual",
          "backupExpectedStartTime": null,
@@ -142,17 +142,17 @@ Example response
          "indices": ".kibana,website2",
          "totalShards": 6,
          "failedShards": 0,
-         "version": "6.2.3",
+         "version": "7.6.2",
          "restoreStatus": "success",
          "startTime": 1520408087099,
          "endTime": 1520408412219,
          "bucketName": "obs-b8ed"
        },
        {
-         "created": "2018-03-06T15:42:37",
+         "created": "2021-03-06T15:42:37",
          "datastore": {
            "type": "elasticsearch",
-           "version": "6.2.3"
+           "version": "7.6.2"
          },
          "description": "",
          "id": "29a2254e-947f-4463-b65a-5f0b17515fae",
@@ -160,7 +160,7 @@ Example response
          "clusterName": "Es-xfx",
          "name": "snapshot-001",
          "status": "COMPLETED",
-         "updated": "2018-03-06T15:48:04",
+         "updated": "2021-03-06T15:48:04",
          "backupType": "1",
          "backupMethod": "manual",
          "backupExpectedStartTime": null,
@@ -169,7 +169,7 @@ Example response
          "indices": ".kibana",
          "totalShards": 1,
          "failedShards": 0,
-         "version": "6.2.3",
+         "version": "7.6.2",
          "restoreStatus": "none",
          "startTime": 1520350957275,
          "endTime": 1520351284357,
