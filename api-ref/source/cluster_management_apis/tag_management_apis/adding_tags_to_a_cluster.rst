@@ -69,9 +69,9 @@ Example
 Status Code
 -----------
 
-:ref:`Table 3 <css_03_0083__css_03_0081_table12321369178>` describes status codes.
+:ref:`Table 3 <css_03_0083__en-us_topic_0000001341910209_table12321369178>` describes status codes.
 
-.. _css_03_0083__css_03_0081_table12321369178:
+.. _css_03_0083__en-us_topic_0000001341910209_table12321369178:
 
 .. table:: **Table 3** Status code
 
