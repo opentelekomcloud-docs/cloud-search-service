@@ -17,7 +17,7 @@ Obtaining a Project ID and Name from the Console
 #. In the project list, view the **Project ID** and **Project Name**.
 
 
-   .. figure:: /_static/images/en-us_image_0000001342150645.png
+   .. figure:: /_static/images/en-us_image_0000001483650274.png
       :alt: **Figure 1** Viewing the project ID and name
 
       **Figure 1** Viewing the project ID and name
