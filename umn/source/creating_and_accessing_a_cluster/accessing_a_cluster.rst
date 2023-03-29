@@ -20,7 +20,7 @@ Accessing a Cluster Using Kibana on the Management Console
 #. Log in to the CSS management console.
 #. In the left navigation pane, click **Clusters**.
 #. On the displayed **Clusters** page, locate the row containing the target cluster and click **Access Kibana** in the **Operation** column.
-#. On the Kibana page that is displayed, you can create indices, query indices and documents, and analyze document fields. For details about Kibana, see :ref:`Kibana <css_04_0007>`. For details about how to import data to Elasticsearch, see the following sections:
+#. On the Kibana page that is displayed, you can create indices, query indices and documents, and analyze document fields. For details about Kibana, see :ref:`Product Components <css_04_0007>`. For details about how to import data to Elasticsearch, see the following sections:
 
    -  :ref:`Using Logstash to Import Data to Elasticsearch <css_01_0048>`
    -  :ref:`Using Kibana or APIs to Import Data to Elasticsearch <css_01_0024>`
@@ -75,7 +75,7 @@ To access a cluster by calling Elasticsearch APIs on the ECS that is located in 
    If encryption has not been enabled for the communication with the cluster, the command output is similar to that shown in the following figure.
 
 
-   .. figure:: /_static/images/en-us_image_0000001286436598.png
+   .. figure:: /_static/images/en-us_image_0000001524766305.png
       :alt: **Figure 1** Command output
 
       **Figure 1** Command output

@@ -5,16 +5,37 @@
 Managing Plugins
 ================
 
-CSS allows you to view default plugins.
+CSS clusters have default plugins. You can view the default plugin information on the console or Kibana.
+
+Viewing Plugins on the Console
+------------------------------
+
+#. Log in to the CSS management console.
+#. In the navigation pane, choose **Clusters**. Click the target cluster name and go to the **Basic Information** page of the cluster.
+#. Click the **Plugins** tab.
+#. On the **Default** page, view default plugins supported by the current version.
+
+Viewing Plugins on the Kibana
+-----------------------------
 
 #. Log in to the CSS management console.
 
-#. On the **Clusters** page, click the name of a cluster for which you want to install a plugin.
+#. In the navigation pane, choose **Clusters**. Locate the target cluster and click **Access Kibana** in the **Operation** column to log in to Kibana.
 
-   The **Basic Information** page is displayed.
+#. Go to **Dev Tools** and run the following command to view the cluster plugin information:
 
-#. Click the **Plugins** tab.
+   .. code-block:: text
 
-#. View the information about default plugins.
+      GET _cat/plugins?v
 
-   On the **Default** page, view default plugins supported by the current version.
+   The following is an example of the response body:
+
+   .. code-block::
+
+      name                 component                       version
+      css-2918-ess-esn-1-1 analysis-dynamic-synonym        7.10.2-h0.cbu.css.v1.0.0.0.r1
+      css-2918-ess-esn-1-1 analysis-icu                    7.10.2-h0.cbu.css.v1.0.0.3.r1
+      css-2918-ess-esn-1-1 analysis-ik                     7.10.2-h0.cbu.css.v1.0.0.0.r1
+      ......
+
+   **name** indicates the cluster node name, **component** indicates the plugin name, and **version** indicates the plugin version.

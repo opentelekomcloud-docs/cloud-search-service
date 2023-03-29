@@ -5,7 +5,7 @@
 Getting Started with Elasticsearch
 ==================================
 
-This section describes how to use Elasticsearch to provide the search function for users. You can use the Elasticsearch search engine of CSS to search for data based on the scenario example. The basic operation process is as follows:
+This section describes how to use Elasticsearch for product search. You can use the Elasticsearch search engine of CSS to search for data based on the scenario example. The basic operation process is as follows:
 
 -  :ref:`Step 1: Create a Cluster <css_01_0007__section96881833619>`
 -  :ref:`Step 2: Import Data <css_01_0007__section398512163445>`
@@ -40,15 +40,11 @@ Assume that the e-commerce website provides the following data:
 Step 1: Create a Cluster
 ------------------------
 
-Create a cluster using Elasticsearch as the search engine. In this example, suppose that you create a cluster named **Es-xfx**. This cluster is used only for getting started with Elasticsearch. For this cluster, you are advised to select **css.medium.8** for **Node Specifications**, **Common I/O** for **Node Storage Type**, and **40 GB** for **Node Storage Capacity**. For details, see :ref:`Creating an Elasticsearch Cluster in Non-Security Mode <css_01_0094>`.
+Create a cluster using Elasticsearch as the search engine. In this example, suppose that you create a cluster named **Es-xfx**. This cluster is used only for getting started with Elasticsearch. For this cluster, you are advised to select **css.medium.8** for **Node Specifications**, **Common I/O** for **Node Storage Type**, and **40 GB** for **Node Storage Capacity**. For details, see :ref:`Creating an Elasticsearch Cluster in Non-Security Mode <css_01_0011>`.
+
+Create a cluster using Elasticsearch as the search engine. In this example, suppose that you create a cluster named **Sample-ESCluster**. This cluster is used only for getting started with Elasticsearch. For this cluster, you are advised to select **ess.spec-4u8g** for **Node Specifications**, **High I/O** for **Node Storage Type**, and **40 GB** for **Node Storage Capacity**. For details, see or .
 
 After you create the cluster, switch to the cluster list to view the created cluster. If the **Status** of the cluster is **Available**, the cluster is created successfully.
-
-
-.. figure:: /_static/images/en-us_image_0000001286116742.png
-   :alt: **Figure 1** Creating a cluster
-
-   **Figure 1** Creating a cluster
 
 .. _css_01_0007__section398512163445:
 
@@ -57,23 +53,26 @@ Step 2: Import Data
 
 CSS supports importing data to Elasticsearch using Logstash, Kibana, or APIs. Kibana lets you visualize your Elasticsearch data. The following procedure illustrates how to import data to Elasticsearch using Kibana.
 
-#. On the **Clusters** page of the CSS management console, locate the row containing the target cluster and click **Access Kibana** in the **Operation** column.
+#. On the **Clusters** page, locate the target cluster and click **More** > **Cerebro** in the **Operation** column to go to the Cerebro login page.
 
-#. In the left navigation pane of Kibana, choose **Dev Tools**.
+   -  Non-security cluster: Click the cluster name on the Cerebro login page to go to the Cerebro console.
+   -  Security cluster: Click the cluster name on the Cerebro login page, enter the username and password, and click **Authenticate** to go to the Cerebro console. The default username is **admin** and the password is the one specified during cluster creation.
+
+2. In the navigation pane of Kibana on the left, choose **Dev Tools**.
 
    The text box on the left is the input box. The triangle icon in the upper right corner of the input box is the command execution button. The text box on the right area is the result output box.
 
 
-   .. figure:: /_static/images/en-us_image_0000001338716641.png
-      :alt: **Figure 2** Console page
+   .. figure:: /_static/images/en-us_image_0000001476610606.png
+      :alt: **Figure 1** Console page
 
-      **Figure 2** Console page
+      **Figure 1** Console page
 
    .. note::
 
       The Kibana UI varies depending on the Kibana version.
 
-#. On the **Console** page, run the following command to create index named **my_store**:
+3. On the **Console** page, run the following command to create index named **my_store**:
 
    (Versions earlier than 7.\ *x*)
 
@@ -131,7 +130,7 @@ CSS supports importing data to Elasticsearch using Logstash, Kibana, or APIs. Ki
         "index" : "my_store"
       }
 
-#. On the **Console** page, run the following command to import data to index named **my_store**:
+4. On the **Console** page, run the following command to import data to index named **my_store**:
 
    (Versions earlier than 7.\ *x*)
 
@@ -181,7 +180,7 @@ Step 3: Search for Data
 
 -  **Full-text search**
 
-   If you access the e-commerce website and want to search for commodities whose names include "spring jeans", enter "spring jeans" to begin your search. The following text provides the command to be executed on Kibana and the command output.
+   If you access the e-commerce website and want to search for commodities whose names include "spring jeans", enter "spring jeans" to begin your search. The following example shows the command to be executed on Kibana and the command output.
 
    Command to be executed on Kibana:
 
@@ -269,12 +268,12 @@ Step 3: Search for Data
       }
 
    -  Elasticsearch supports full-text search. The preceding command searches for the information about all commodities whose names include "spring" or "jeans".
-   -  Unlike traditional databases, Elasticsearch can return results in milliseconds by using inverted indices.
-   -  Elasticsearch supports sorting by score. In the command output, information about the first two commodities contains both "spring" and "jeans", while that about the last two products contains only "spring". Therefore, the first two commodities rank prior to the last two due to high keyword match.
+   -  Unlike traditional databases, Elasticsearch can return results in milliseconds by using inverted indexes.
+   -  Elasticsearch supports sorting by score. In the command output, information about the first two commodities contains both "spring" and "jeans", while that about the last two products contain only "spring". Therefore, the first two commodities rank prior to the last two due to high keyword match.
 
 -  **Aggregation result display**
 
-   The e-commerce website provides the function of displaying aggregation results. For example, it classifies commodities corresponding to "spring" based on the size so that you can collect the number of products of different sizes. The following provides the command to be executed on Kibana and the command output.
+   The e-commerce website provides the function of displaying aggregation results. For example, it classifies commodities corresponding to "spring" based on the size so that you can collect the number of products of different sizes. The following example shows the command to be executed on Kibana and the command output.
 
    Command to be executed on Kibana:
 
@@ -404,8 +403,10 @@ Step 4: Delete the Cluster
 
 Once you understand the process and method of using Elasticsearch, you can perform the following steps to delete the cluster you created for the example and its data to avoid resource wastage.
 
-After you delete a cluster, its data cannot be restored. Exercise caution when deleting a cluster.
+.. note::
 
-#. Log in to the CSS management console. In the left navigation pane, click **Clusters** to switch to the **Clusters** page.
+   After you delete a cluster, its data cannot be restored. Exercise caution when deleting a cluster.
+
+#. Log in to the CSS management console. In the navigation pane on the left, choose **Clusters** > **Elasticsearch**.
 #. Locate the row that contains cluster **Es-xfx** and click **More** > **Delete** in the **Operation** column.
 #. In the displayed dialog box, enter the name of the cluster to be deleted and click **OK**.
