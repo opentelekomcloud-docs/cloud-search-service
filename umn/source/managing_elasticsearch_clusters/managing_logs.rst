@@ -94,10 +94,10 @@ Backed up logs mainly include deprecation logs, run logs, index slow logs, and s
    clustername_audit.log                  Audit log
    ====================================== =====================
 
-.. |image1| image:: /_static/images/en-us_image_0000001286596282.png
-.. |image2| image:: /_static/images/en-us_image_0000001338716685.png
-.. |image3| image:: /_static/images/en-us_image_0000001286116778.png
-.. |image4| image:: /_static/images/en-us_image_0000001338955993.png
-.. |image5| image:: /_static/images/en-us_image_0000001286596282.png
-.. |image6| image:: /_static/images/en-us_image_0000001338716677.png
-.. |image7| image:: /_static/images/en-us_image_0000001286276702.png
+.. |image1| image:: /_static/images/en-us_image_0000001474565996.png
+.. |image2| image:: /_static/images/en-us_image_0000001524925961.png
+.. |image3| image:: /_static/images/en-us_image_0000001524925965.png
+.. |image4| image:: /_static/images/en-us_image_0000001525205857.png
+.. |image5| image:: /_static/images/en-us_image_0000001474565996.png
+.. |image6| image:: /_static/images/en-us_image_0000001474246372.png
+.. |image7| image:: /_static/images/en-us_image_0000001524766285.png

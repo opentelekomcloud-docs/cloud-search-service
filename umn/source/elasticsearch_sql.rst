@@ -12,35 +12,39 @@ If you are already familiar with SQL and do not want to learn query DSL, this fe
 Basic Operations
 ----------------
 
-To use this function, send requests to the **\_opendistro/_sql** URI. You can use a request parameter or the request body (recommended).
+-  Kibana (recommended)
 
-.. code-block:: text
+   -  Log in to Kibana and send requests using request parameters or request body to **\_opendistro/_sqlURI** in the **Dev Tools** page.
 
-   GET https://<host>:<port>/_opendistro/_sql?sql=select * from my-index limit 50
+      .. code-block:: text
 
-.. code-block:: text
+         GET _opendistro/_sql?sql=select * from my-index limit 50
 
-   POST https://<host>:<port>/_opendistro/_sql
-   {
-     "query": "SELECT * FROM my-index LIMIT 50"
-   }
+      .. code-block:: text
 
-You can run the cURL command:
+         POST _opendistro/_sql
+         {
+           "query": "SELECT * FROM my-index LIMIT 50"
+         }
 
-.. code-block::
+   -  By default, the result is returned in the JSON structure. If you want the result to be returned in the CSV format, run the following command:
 
-   curl -XPOST https://localhost:9200/_opendistro/_sql -u username:password -k -d '{"query": "SELECT * FROM kibana_sample_data_flights LIMIT 10"}' -H 'Content-Type: application/json'
+      .. code-block:: text
 
-By default, JSON is returned for query. You can also set the format parameter for the data to be returned in CSV format.
+         POST _opendistro/_sql?format=csv
+         {
+           "query": "SELECT * FROM my-index LIMIT 50"
+         }
 
-.. code-block:: text
+      When data is returned in the CSV format, each row corresponds to a document and each column corresponds to a field.
 
-   POST _opendistro/_sql?format=csv
-   {
-     "query": "SELECT * FROM my-index LIMIT 50"
-   }
+-  cURL commands
 
-When data is returned in CSV format, each row corresponds to a document and each column corresponds to a field.
+   You can also run cURL commands in ECS to execute SQL statements.
+
+   .. code-block::
+
+      curl -XPOST https://localhost:9200/_opendistro/_sql -u username:password -k -d '{"query": "SELECT * FROM kibana_sample_data_flights LIMIT 10"}' -H 'Content-Type: application/json'
 
 Supported Operations
 --------------------
@@ -149,15 +153,15 @@ Open Distro for Elasticsearch supports the following SQL operations: statements,
 
    .. table:: **Table 6** Joins
 
-      +-----------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-      | Join            | Example                                                                                                                                     |
-      +=================+=============================================================================================================================================+
-      | Inner join      | SELECT p.firstname, p.lastname, p.gender, dogs.name FROM people p JOIN dogs d ON d.holdersName = p.firstname WHERE p.age > 12 AND d.age > 1 |
-      +-----------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-      | Left outer join | SELECT p.firstname, p.lastname, p.gender, dogs.name FROM people p LEFT JOIN dogs d ON d.holdersName = p.firstname                           |
-      +-----------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-      | Cross join      | SELECT p.firstname, p.lastname, p.gender, dogs.name FROM people p CROSS JOIN dogs d                                                         |
-      +-----------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+      +-----------------+-----------------------------------------------------------------------------------------------------------------------------+
+      | Join            | Example                                                                                                                     |
+      +=================+=============================================================================================================================+
+      | Inner join      | SELECT s.firstname, s.lastname, s.gender, sc.name FROM student s JOIN school sc ON sc.name = s.school_name WHERE s.age > 20 |
+      +-----------------+-----------------------------------------------------------------------------------------------------------------------------+
+      | Left outer join | SELECT s.firstname, s.lastname, s.gender, sc.name FROM student s LEFT JOIN school sc ON sc.name = s.school_name             |
+      +-----------------+-----------------------------------------------------------------------------------------------------------------------------+
+      | Cross join      | SELECT s.firstname, s.lastname, s.gender, sc.name FROM student s CROSS JOIN school sc                                       |
+      +-----------------+-----------------------------------------------------------------------------------------------------------------------------+
 
    For details about the constraints and limitations, see :ref:`Joins <css_01_0061__section89917481618>`.
 

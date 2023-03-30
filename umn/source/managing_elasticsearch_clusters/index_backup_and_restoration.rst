@@ -37,17 +37,11 @@ Managing Automatic Snapshot Creation
 
 #. On the **Clusters** page that is displayed, click the name of the target cluster. On the displayed page, click **Cluster Snapshots**.
 
-   Alternatively, on the **Clusters** page, locate the row that contains the target cluster and click **More > Back Up and Restore** in the **Operation** column to switch to the **Cluster Snapshots** page.
-
 #. On the displayed **Cluster Snapshots** page, click the icon to the right of **Cluster Snapshot** to enable the cluster snapshot function.
-
-   |image1| indicates that the cluster snapshot function is disabled.
-
-   |image2| indicates that the cluster snapshot function is enabled.
 
 #. .. _css_01_0033__li1597517249415:
 
-   (Optional) After the cluster snapshot function is enabled, CSS automatically creates the OBS bucket and IAM agency for you to store snapshots. The automatically created OBS bucket and IAM agency are displayed on the page. If you want to change the OBS bucket and IAM agency, click |image3| to the right of **Basic Configuration**. To ensure the security of snapshot data, you can select a key to encrypt the snapshot.
+   (Optional) After the cluster snapshot function is enabled, CSS automatically creates the OBS bucket and IAM agency for you to store snapshots. The automatically created OBS bucket and IAM agency are displayed on the page. If you want to change the OBS bucket and IAM agency, click |image1| to the right of **Basic Configuration**. To ensure the security of snapshot data, you can select a key to encrypt the snapshot.
 
    In the displayed **Edit Basic Configuration** dialog box, you can either select an existing OBS bucket and IAM agency or create an OBS bucket and IAM agency. To create an OBS bucket, click **Create Bucket**. To create an IAM agency, click **Create IAM Agency**. For details, see `Creating a Bucket <https://docs.otc.t-systems.com/en-us/usermanual/obs/en-us_topic_0045853662.html>`__ and `Creating an Agency <https://docs.otc.t-systems.com/en-us/usermanual/iam/en-us_topic_0046613147.html>`__. To encrypt the snapshot, select **Snapshot Encryption** and select a key.
 
@@ -80,17 +74,7 @@ Managing Automatic Snapshot Creation
       |                       |                                                                                                                                           | -  You are advised to disable the automatic snapshot creation function if the key is deleted or is in the **Pending deletion** or **disable** status. In this case, automatic snapshots will be created based on the configured snapshot policy. However, all automatic snapshot creation tasks will fail, and the failed tasks will be displayed in the **Failed Tasks** dialog box.                                                                 |
       +-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-
-   .. figure:: /_static/images/en-us_image_0000001338955921.png
-      :alt: **Figure 1** Edit Basic configuration
-
-      **Figure 1** Edit Basic configuration
-
 #. Click the icon to the right of **Automatic Snapshot Creation** to enable the automatic snapshot creation function.
-
-   |image4| indicates that the automatic snapshot function is enabled.
-
-   |image5| indicates that the automatic snapshot function is disabled.
 
 #. In the displayed **Edit Snapshot Policy** dialog box, specify parameters as required.
 
@@ -104,26 +88,26 @@ Managing Automatic Snapshot Creation
 
    -  **Backup Started**: indicates the time when the backup starts automatically every day. You can specify this parameter only in hours and not minutes, for example, **00:00** or **01:00**. The value ranges from **00:00** to **23:00**. Select the backup time from the drop-down list box.
 
-   -  **Retention Period (days)**: indicates the duration when snapshots are retained in the OBS bucket, in days. The value ranges from **1** to **90**. You can specify this parameter as required. The system automatically deletes snapshots that are retained over the specified retention period on the half hour. For example, if you set the snapshot policy as shown in :ref:`Figure 2 <css_01_0033__fig1797311351298>`, the system will automatically delete in 35 days at 00:30 the automated snapshots that were created 35 days earlier at 00:00.
+   -  **Retention Period (days)**: indicates the duration when snapshots are retained in the OBS bucket, in days. The value ranges from **1** to **90**. You can specify this parameter as required. The system automatically deletes snapshots that are retained over the specified retention period on the half hour. For example, if you set the snapshot policy as shown in :ref:`Figure 1 <css_01_0033__fig1797311351298>`, the system will automatically delete in 35 days at 00:30 the automated snapshots that were created 35 days earlier at 00:00.
 
    .. _css_01_0033__fig1797311351298:
 
-   .. figure:: /_static/images/en-us_image_0000001339036357.png
-      :alt: **Figure 2** Automatic snapshot creation
+   .. figure:: /_static/images/en-us_image_0000001474725844.png
+      :alt: **Figure 1** Automatic snapshot creation
 
-      **Figure 2** Automatic snapshot creation
+      **Figure 1** Automatic snapshot creation
 
 #. Click **OK**.
 
-   After the policy for automatic snapshot creation is created, the policy information will be displayed on the **Cluster Snapshots** page. If you need to change the policy due to business changes, click |image6|.
+   After the policy for automatic snapshot creation is created, the policy information will be displayed on the **Cluster Snapshots** page. If you need to change the policy due to business changes, click |image2|.
 
-   Snapshots that are automatically created according to the snapshot policy are displayed in the snapshot list, along with manually created snapshots. You can distinguish them by the **Snapshot Type** setting. In the upper right corner of the snapshot list, enter the keyword of the snapshot name or snapshot ID to search for the desired snapshots. You can also click |image7| to sort snapshots based on related parameter settings.
+   Snapshots that are automatically created according to the snapshot policy are displayed in the snapshot list, along with manually created snapshots. You can distinguish them by the **Snapshot Type** setting. In the upper right corner of the snapshot list, enter the keyword of the snapshot name or snapshot ID to search for the desired snapshots. You can also click |image3| to sort snapshots based on related parameter settings.
 
 
-   .. figure:: /_static/images/en-us_image_0000001286116726.png
-      :alt: **Figure 3** Automatic snapshot creation
+   .. figure:: /_static/images/en-us_image_0000001524766289.png
+      :alt: **Figure 2** Automatic snapshot creation
 
-      **Figure 3** Automatic snapshot creation
+      **Figure 2** Automatic snapshot creation
 
 #. (Optional) Disable the automatic snapshot creation function.
 
@@ -147,11 +131,11 @@ Manually Creating a Snapshot
 
 #. On the displayed **Cluster Snapshots** page, click the icon to the right of **Cluster Snapshot** to enable the cluster snapshot function.
 
-   |image8| indicates that the cluster snapshot function is disabled.
+   |image4| indicates that the cluster snapshot function is disabled.
 
-   |image9| indicates that the cluster snapshot function is enabled.
+   |image5| indicates that the cluster snapshot function is enabled.
 
-#. (Optional) After the cluster snapshot function is enabled, CSS automatically creates the OBS bucket and IAM agency for you to store snapshots. The automatically created OBS bucket and IAM agency are displayed on the page. If you want to change the OBS bucket and IAM agency, click |image10| to the right of **Basic Configuration**. For details about how to configure parameters involved in the basic configuration, see :ref:`4 <css_01_0033__li1597517249415>`.
+#. (Optional) After the cluster snapshot function is enabled, CSS automatically creates the OBS bucket and IAM agency for you to store snapshots. The automatically created OBS bucket and IAM agency are displayed on the page. If you want to change the OBS bucket and IAM agency, click |image6| to the right of **Basic Configuration**. For details about how to configure parameters involved in the basic configuration, see :ref:`4 <css_01_0033__li1597517249415>`.
 
 #. After basic configurations are completed, click **Create**.
 
@@ -165,14 +149,14 @@ Manually Creating a Snapshot
    -  **Description**: indicates the description of the created snapshot. The value contains 0 to 256 characters, and certain special characters (**<>**) are not allowed.
 
 
-   .. figure:: /_static/images/en-us_image_0000001338716621.png
-      :alt: **Figure 4** Creating a snapshot
+   .. figure:: /_static/images/en-us_image_0000001524766273.png
+      :alt: **Figure 3** Creating a snapshot
 
-      **Figure 4** Creating a snapshot
+      **Figure 3** Creating a snapshot
 
 #. Click **OK**.
 
-   After the snapshot is created, it will be displayed in the snapshot list. The status **Available** indicates that the snapshot is created successfully. All automatically and manually created snapshots are displayed in the snapshot list. You can distinguish them by the **Snapshot Type** setting. In the upper right corner of the snapshot list, enter the keyword of the snapshot name or snapshot ID to search for the desired snapshots. You can also click |image11| to sort snapshots based on related parameter settings.
+   After the snapshot is created, it will be displayed in the snapshot list. The status **Available** indicates that the snapshot is created successfully. All automatically and manually created snapshots are displayed in the snapshot list. You can distinguish them by the **Snapshot Type** setting. In the upper right corner of the snapshot list, enter the keyword of the snapshot name or snapshot ID to search for the desired snapshots. You can also click |image7| to sort snapshots based on related parameter settings.
 
 .. _css_01_0033__section16538152014387:
 
@@ -196,18 +180,18 @@ Restoring data will overwrite current data in clusters. Therefore, exercise caut
    **Cluster**: Select the cluster that you want to restore. You can select the current cluster or others. However, you can only restore the snapshot to clusters whose status is **Available**. If the status of the current cluster is **Unavailable**, you cannot restore the snapshot to the current cluster. If you select another cluster and two or more indices in the cluster have the same name, data of all indices with the same name as the name you specify will be overwritten. Therefore, exercise caution when you set the parameters.
 
 
-   .. figure:: /_static/images/en-us_image_0000001338955933.png
-      :alt: **Figure 5** Restoring a snapshot
+   .. figure:: /_static/images/en-us_image_0000001525365813.png
+      :alt: **Figure 4** Restoring a snapshot
 
-      **Figure 5** Restoring a snapshot
+      **Figure 4** Restoring a snapshot
 
 #. Click **OK**. If restoration succeeds, **Task Status** of the snapshot in the snapshot list will change to **Restoration succeeded**, and the index data is generated again according to the snapshot information.
 
 
-   .. figure:: /_static/images/en-us_image_0000001286276646.png
-      :alt: **Figure 6** Successful restoration
+   .. figure:: /_static/images/en-us_image_0000001474566000.png
+      :alt: **Figure 5** Successful restoration
 
-      **Figure 6** Successful restoration
+      **Figure 5** Successful restoration
 
 .. _css_01_0033__section3105193716428:
 
@@ -223,14 +207,10 @@ If you no longer need a snapshot, delete it to release storage resources. If the
 #. In the **Snapshots** area, locate the row containing the target snapshot and click **Delete** in the **Operation** column.
 #. In the **Delete Snapshot** dialog box that is displayed, click **Yes**.
 
-.. |image1| image:: /_static/images/en-us_image_0000001286436602.png
-.. |image2| image:: /_static/images/en-us_image_0000001286116718.png
-.. |image3| image:: /_static/images/en-us_image_0000001286116714.png
-.. |image4| image:: /_static/images/en-us_image_0000001338836473.png
-.. |image5| image:: /_static/images/en-us_image_0000001286436602.png
-.. |image6| image:: /_static/images/en-us_image_0000001286116714.png
-.. |image7| image:: /_static/images/en-us_image_0000001286436618.png
-.. |image8| image:: /_static/images/en-us_image_0000001286436602.png
-.. |image9| image:: /_static/images/en-us_image_0000001286596218.png
-.. |image10| image:: /_static/images/en-us_image_0000001286116714.png
-.. |image11| image:: /_static/images/en-us_image_0000001286436618.png
+.. |image1| image:: /_static/images/en-us_image_0000001474246364.png
+.. |image2| image:: /_static/images/en-us_image_0000001474246364.png
+.. |image3| image:: /_static/images/en-us_image_0000001474246376.png
+.. |image4| image:: /_static/images/en-us_image_0000001525365809.png
+.. |image5| image:: /_static/images/en-us_image_0000001525365829.png
+.. |image6| image:: /_static/images/en-us_image_0000001474246364.png
+.. |image7| image:: /_static/images/en-us_image_0000001474246376.png

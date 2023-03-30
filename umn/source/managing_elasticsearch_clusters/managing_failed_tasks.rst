@@ -11,24 +11,9 @@ Viewing Failed Tasks
 --------------------
 
 #. Log in to the CSS management console.
-
 #. Click **Clusters** to switch to the **Clusters** page. Click the digit next to **Failed Tasks** to switch to the **Failed Tasks** dialog box.
-
-
-   .. figure:: /_static/images/en-us_image_0000001286116770.png
-      :alt: **Figure 1** Clicking the digit next to Failed Tasks
-
-      **Figure 1** Clicking the digit next to Failed Tasks
-
 #. The **Failed Tasks** dialog box presents all failed tasks of the current account. The following information about the failed tasks is displayed: **Name/ID**, **Task Status**, and **Failure Time**.
-
 #. Click the question mark in the **Task Status** column to view the failure cause of a task. You are advised to troubleshoot faults based on failure causes. For details about failure causes, see :ref:`Error Code <css_01_0060__section155001521193312>`.
-
-
-   .. figure:: /_static/images/en-us_image_0000001339036413.png
-      :alt: **Figure 2** Viewing the failure cause of a task
-
-      **Figure 2** Viewing the failure cause of a task
 
 Deleting a Failed Task
 ----------------------
@@ -39,10 +24,10 @@ You can delete one or all failed tasks at a time.
 -  To delete all failed tasks, perform the following operations: In the **Failed Tasks** dialog box, click **Delete All**. In the displayed dialog box, confirm the information about all failed tasks and click **Yes**.
 
 
-.. figure:: /_static/images/en-us_image_0000001338836521.png
-   :alt: **Figure 3** Deleting a failed task
+.. figure:: /_static/images/en-us_image_0000001524925993.png
+   :alt: **Figure 1** Deleting a failed task
 
-   **Figure 3** Deleting a failed task
+   **Figure 1** Deleting a failed task
 
 .. _css_01_0060__section155001521193312:
 
