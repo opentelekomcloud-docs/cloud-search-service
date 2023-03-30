@@ -5,6 +5,68 @@
 Creating an Elasticsearch Cluster in Non-Security Mode
 ======================================================
 
+This section describes how to create an Elasticsearch cluster in non-security mode.
+
+Context
+-------
+
+-  When creating a cluster, the number of nodes that can be added varies according to the node type. For details, see :ref:`Table 1 <css_01_0094__en-us_topic_0000001268594549_table10730243193816>`.
+
+   .. _css_01_0094__en-us_topic_0000001268594549_table10730243193816:
+
+   .. table:: **Table 1** Number of nodes in different types
+
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | Node Type                                                                                                          | Number                                        |
+      +====================================================================================================================+===============================================+
+      | ess                                                                                                                | ess: 1-32                                     |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | ess, ess-master                                                                                                    | ess: 1-200                                    |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-master: an odd number ranging from 3 to 9 |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | ess, ess-client                                                                                                    | ess: 1-32                                     |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-client: 1-32                              |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | ess, ess-cold                                                                                                      | ess: 1-32                                     |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-cold: 1-32                                |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | ess, ess-master, ess-client                                                                                        | ess: 1-200                                    |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-master: an odd number ranging from 3 to 9 |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-client: 1-32                              |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | ess, ess-master, ess-cold                                                                                          | ess: 1-200                                    |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-master: an odd number ranging from 3 to 9 |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-cold: 1-32                                |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | ess, ess-client, ess-cold                                                                                          | ess: 1-32                                     |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-client: 1-32                              |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-cold: 1-32                                |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | ess, ess-master, ess-client, ess-cold                                                                              | ess: 1-200                                    |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-master: an odd number ranging from 3 to 9 |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-client: 1-32                              |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-cold: 1-32                                |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | Details about the four node types:                                                                                 |                                               |
+      |                                                                                                                    |                                               |
+      | -  **ess**: the default node type that is mandatory for cluster creation. The other three node types are optional. |                                               |
+      | -  **ess-master**: master node                                                                                     |                                               |
+      | -  **ess-client**: client node                                                                                     |                                               |
+      | -  **ess-cold**: cold data node                                                                                    |                                               |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+
 Procedure
 ---------
 
@@ -14,7 +76,7 @@ Procedure
 
 #. Specify **Region** and **AZ**.
 
-   .. table:: **Table 1** Parameter description for Region and AZ
+   .. table:: **Table 2** Parameter description for Region and AZ
 
       +-----------------------------------+---------------------------------------------------------------------------------------------------------------+
       | Parameter                         | Description                                                                                                   |
@@ -28,7 +90,7 @@ Procedure
 
 #. Set basic information about the cluster. Specifically, specify **Version** and **Name**.
 
-   .. table:: **Table 2** Description of basic parameters
+   .. table:: **Table 3** Description of basic parameters
 
       +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | Parameter                         | Description                                                                                                                                                                                                                                                                                                                                 |
@@ -43,14 +105,14 @@ Procedure
       +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-   .. figure:: /_static/images/en-us_image_0000001286436658.png
+   .. figure:: /_static/images/en-us_image_0000001474406068.png
       :alt: **Figure 1** Configuring basic information
 
       **Figure 1** Configuring basic information
 
 #. Set host specifications of the cluster.
 
-   .. table:: **Table 3** Parameter description
+   .. table:: **Table 4** Parameter description
 
       +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | Parameter                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -108,47 +170,47 @@ Procedure
       +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-   .. figure:: /_static/images/en-us_image_0000001338955973.png
+   .. figure:: /_static/images/en-us_image_0000001525365861.png
       :alt: **Figure 2** Configuring node specifications
 
       **Figure 2** Configuring node specifications
 
 #. Set network specifications of the cluster.
 
-   .. table:: **Table 4** Parameter description
+   .. table:: **Table 5** Parameter description
 
-      +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Parameter                         | Description                                                                                                                                                                                                                                        |
-      +===================================+====================================================================================================================================================================================================================================================+
-      | VPC                               | A VPC is a secure, isolated, and logical network environment.                                                                                                                                                                                      |
-      |                                   |                                                                                                                                                                                                                                                    |
-      |                                   | Select the target VPC. Click **View VPC** to enter the VPC management console and view the created VPC names and IDs. If no VPC is available, create a VPC.                                                                                        |
-      |                                   |                                                                                                                                                                                                                                                    |
-      |                                   | .. note::                                                                                                                                                                                                                                          |
-      |                                   |                                                                                                                                                                                                                                                    |
-      |                                   |    The VPC must contain CIDRs. Otherwise, cluster creation will fail. By default, a VPC will contain CIDRs.                                                                                                                                        |
-      +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Subnet                            | A subnet provides dedicated network resources that are isolated from other networks, improving network security.                                                                                                                                   |
-      |                                   |                                                                                                                                                                                                                                                    |
-      |                                   | Select the target subnet. You can access the VPC management console to view the names and IDs of the existing subnets in the VPC.                                                                                                                  |
-      +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Security Group                    | A security group is a collection of access control rules for ECSs that have the same security protection requirements and are mutually trusted in a VPC. To view more details about the security group, click **View Security Group**.             |
-      |                                   |                                                                                                                                                                                                                                                    |
-      |                                   | .. note::                                                                                                                                                                                                                                          |
-      |                                   |                                                                                                                                                                                                                                                    |
-      |                                   |    -  For cluster access purposes, ensure that the security group contains port 9200.                                                                                                                                                              |
-      |                                   |    -  If your cluster version is 7.6.2 or 7.9.3, ensure that all the ports used for communication between nodes in the same security group are allowed. If such settings cannot be configured, ensure at least the access to port 9300 is allowed. |
-      |                                   |    -  After a cluster is created, its security group cannot be changed.                                                                                                                                                                            |
-      +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Security Mode                     | Security mode is disabled.                                                                                                                                                                                                                         |
-      |                                   |                                                                                                                                                                                                                                                    |
-      |                                   | .. note::                                                                                                                                                                                                                                          |
-      |                                   |                                                                                                                                                                                                                                                    |
-      |                                   |    You can enable **Security Mode** only when you create a cluster. After a cluster is created, its security mode cannot be changed.                                                                                                               |
-      +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Parameter                         | Description                                                                                                                                                                                                                                                |
+      +===================================+============================================================================================================================================================================================================================================================+
+      | VPC                               | A VPC is a secure, isolated, and logical network environment.                                                                                                                                                                                              |
+      |                                   |                                                                                                                                                                                                                                                            |
+      |                                   | Select the target VPC. Click **View VPC** to enter the VPC management console and view the created VPC names and IDs. If no VPC is available, create a VPC.                                                                                                |
+      |                                   |                                                                                                                                                                                                                                                            |
+      |                                   | .. note::                                                                                                                                                                                                                                                  |
+      |                                   |                                                                                                                                                                                                                                                            |
+      |                                   |    The VPC must contain CIDRs. Otherwise, cluster creation will fail. By default, a VPC will contain CIDRs.                                                                                                                                                |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Subnet                            | A subnet provides dedicated network resources that are isolated from other networks, improving network security.                                                                                                                                           |
+      |                                   |                                                                                                                                                                                                                                                            |
+      |                                   | Select the target subnet. You can access the VPC management console to view the names and IDs of the existing subnets in the VPC.                                                                                                                          |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Security Group                    | A security group is a collection of access control rules for ECSs that have the same security protection requirements and are mutually trusted in a VPC. To view more details about the security group, click **View Security Group**.                     |
+      |                                   |                                                                                                                                                                                                                                                            |
+      |                                   | .. note::                                                                                                                                                                                                                                                  |
+      |                                   |                                                                                                                                                                                                                                                            |
+      |                                   |    -  For cluster access purposes, ensure that the security group contains port 9200.                                                                                                                                                                      |
+      |                                   |    -  If your cluster version is 7.6.2, 7.9.3 or 7.10.2, ensure that all the ports used for communication between nodes in the same security group are allowed. If such settings cannot be configured, ensure at least the access to port 9300 is allowed. |
+      |                                   |    -  After a cluster is created, its security group cannot be changed.                                                                                                                                                                                    |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Security Mode                     | Security mode is disabled.                                                                                                                                                                                                                                 |
+      |                                   |                                                                                                                                                                                                                                                            |
+      |                                   | .. note::                                                                                                                                                                                                                                                  |
+      |                                   |                                                                                                                                                                                                                                                            |
+      |                                   |    You can enable **Security Mode** only when you create a cluster. After a cluster is created, its security mode cannot be changed.                                                                                                                       |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-   .. figure:: /_static/images/en-us_image_0000001339036421.png
+   .. figure:: /_static/images/en-us_image_0000001525205897.png
       :alt: **Figure 3** Configuring network specifications
 
       **Figure 3** Configuring network specifications
@@ -182,7 +244,7 @@ Procedure
    -  **Default**: The the **VPC Endpoint Service**, **Kibana Public Access**, and **Tag** functions are disabled by default. You can manually enable these functions after the cluster is created.
    -  Custom: You can enable the **VPC Endpoint Service** and **Tag** functions as required.
 
-   .. table:: **Table 5** Parameters for advanced settings
+   .. table:: **Table 6** Parameters for advanced settings
 
       +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | Parameter            | Description                                                                                                                                                                                 |
@@ -202,5 +264,5 @@ Procedure
 
    If the cluster creation fails, create the cluster again.
 
-.. |image1| image:: /_static/images/en-us_image_0000001286596262.png
-.. |image2| image:: /_static/images/en-us_image_0000001338836517.png
+.. |image1| image:: /_static/images/en-us_image_0000001474246408.png
+.. |image2| image:: /_static/images/en-us_image_0000001524926001.png

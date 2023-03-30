@@ -37,7 +37,7 @@ Importing Data When Logstash Is Deployed on the External Network
 
 .. _css_01_0048__fig471717481106:
 
-.. figure:: /_static/images/en-us_image_0000001338716669.png
+.. figure:: /_static/images/en-us_image_0000001524925945.png
    :alt: **Figure 1** Importing data when Logstash is deployed on an external network
 
    **Figure 1** Importing data when Logstash is deployed on an external network
@@ -154,7 +154,7 @@ Importing Data When Logstash Is Deployed on the External Network
    a. Download a certificate on the **Basic Information** page of the cluster.
 
 
-      .. figure:: /_static/images/en-us_image_0000001286276694.png
+      .. figure:: /_static/images/en-us_image_0000001525365801.png
          :alt: **Figure 2** Downloading a certificate
 
          **Figure 2** Downloading a certificate
@@ -208,7 +208,7 @@ Importing Data When Logstash Is Deployed on the External Network
 #. In the left navigation pane of the displayed Kibana window, click **Dev Tools**.
 
 
-   .. figure:: /_static/images/en-us_image_0000001286596270.png
+   .. figure:: /_static/images/en-us_image_0000001474725816.png
       :alt: **Figure 3** Logging in to Dev Tools
 
       **Figure 3** Logging in to Dev Tools
@@ -230,7 +230,7 @@ Importing Data When Logstash Is Deployed on an ECS
 
 .. _css_01_0048__fig124034434127:
 
-.. figure:: /_static/images/en-us_image_0000001338716673.png
+.. figure:: /_static/images/en-us_image_0000001524925937.png
    :alt: **Figure 4** Importing data when Logstash is deployed on an ECS
 
    **Figure 4** Importing data when Logstash is deployed on an ECS
@@ -330,7 +330,7 @@ Importing Data When Logstash Is Deployed on an ECS
    a. Download a certificate on the **Basic Information** page of the cluster.
 
 
-      .. figure:: /_static/images/en-us_image_0000001338955977.png
+      .. figure:: /_static/images/en-us_image_0000001525205841.png
          :alt: **Figure 5** Downloading a certificate
 
          **Figure 5** Downloading a certificate
@@ -380,7 +380,7 @@ Importing Data When Logstash Is Deployed on an ECS
 #. In the left navigation pane of the displayed Kibana window, click **Dev Tools**.
 
 
-   .. figure:: /_static/images/en-us_image_0000001338955981.png
+   .. figure:: /_static/images/en-us_image_0000001524766265.png
       :alt: **Figure 6** Choosing Dev Tools
 
       **Figure 6** Choosing Dev Tools

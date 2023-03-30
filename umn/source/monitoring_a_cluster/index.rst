@@ -6,13 +6,11 @@ Monitoring a Cluster
 ====================
 
 -  :ref:`Supported Metrics <css_01_0042>`
--  :ref:`Creating Alarm Rules <css_01_0043>`
--  :ref:`Viewing Metrics <css_01_0044>`
+-  :ref:`Configuring Cluster Monitoring <css_01_0155>`
 
 .. toctree::
    :maxdepth: 1
    :hidden: 
 
    supported_metrics
-   creating_alarm_rules
-   viewing_metrics
+   configuring_cluster_monitoring

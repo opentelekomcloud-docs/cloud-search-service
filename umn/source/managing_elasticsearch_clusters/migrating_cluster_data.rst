@@ -31,23 +31,11 @@ Procedure
 
    If you use the index backup and restoration function for the first time, you need to perform basic configurations first. For more details, see :ref:`Manually Creating a Snapshot <css_01_0033__section43906502025>`.
 
-
-   .. figure:: /_static/images/en-us_image_0000001286596238.png
-      :alt: **Figure 1** Creating a snapshot
-
-      **Figure 1** Creating a snapshot
-
 #. In the snapshot list, locate the row that contains the target snapshot and click **Restore** in the **Operation** column to restore data to cluster **Es-2**.
 
    -  Leave the **Index** option blank (default setting), indicating that you want to restore data of all indices in cluster **Es-1**.
    -  From the **Cluster** drop-down list, select **Es-2**.
 
    Click **OK**. You can also rename the restored index.
-
-
-   .. figure:: /_static/images/en-us_image_0000001286436626.png
-      :alt: **Figure 2** Restoring a snapshot
-
-      **Figure 2** Restoring a snapshot
 
 #. After restoration is complete, data in cluster **Es-1** will be migrated to cluster **Es-2**.

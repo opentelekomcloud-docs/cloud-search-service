@@ -33,6 +33,6 @@ In the upper right corner of the cluster list, you can enter the name or ID of a
    | Operation               | Operations that can be performed on a cluster, including **Access Kibana**, **View Metric**, **Modify**, **Restart**, **Delete**, **Manage Word Dictionary**, **Back Up and Restore**, **Migrate**, and **Access Cerebro**. If an operation is not allowed, the button is gray. |
    +-------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-.. |image1| image:: /_static/images/en-us_image_0000001338716693.png
-.. |image2| image:: /_static/images/en-us_image_0000001286276722.png
-.. |image3| image:: /_static/images/en-us_image_0000001286116794.png
+.. |image1| image:: /_static/images/en-us_image_0000001524925973.png
+.. |image2| image:: /_static/images/en-us_image_0000001525365833.png
+.. |image3| image:: /_static/images/en-us_image_0000001474566012.png

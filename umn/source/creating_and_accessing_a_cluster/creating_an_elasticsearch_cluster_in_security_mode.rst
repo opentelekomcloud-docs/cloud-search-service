@@ -5,12 +5,72 @@
 Creating an Elasticsearch Cluster in Security Mode
 ==================================================
 
-You can enable security mode when you create a cluster of version 6.5.4 and later versions.
+This section describes how to create an Elasticsearch cluster in security mode.
 
 .. note::
 
-   -  You can enable security mode only when you create a cluster. The security mode setting of an existing cluster cannot be modified.
+   -  After a cluster is created, its security group information cannot be changed.
    -  Public IP address access and Kibana public access can be used only after security mode is enabled.
+
+Context
+-------
+
+-  When creating a cluster, the number of nodes that can be added varies according to the node type. For details, see :ref:`Table 1 <css_01_0011__table10730243193816>`.
+
+   .. _css_01_0011__table10730243193816:
+
+   .. table:: **Table 1** Number of nodes in different types
+
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | Node Type                                                                                                          | Number                                        |
+      +====================================================================================================================+===============================================+
+      | ess                                                                                                                | ess: 1-32                                     |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | ess, ess-master                                                                                                    | ess: 1-200                                    |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-master: an odd number ranging from 3 to 9 |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | ess, ess-client                                                                                                    | ess: 1-32                                     |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-client: 1-32                              |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | ess, ess-cold                                                                                                      | ess: 1-32                                     |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-cold: 1-32                                |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | ess, ess-master, ess-client                                                                                        | ess: 1-200                                    |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-master: an odd number ranging from 3 to 9 |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-client: 1-32                              |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | ess, ess-master, ess-cold                                                                                          | ess: 1-200                                    |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-master: an odd number ranging from 3 to 9 |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-cold: 1-32                                |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | ess, ess-client, ess-cold                                                                                          | ess: 1-32                                     |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-client: 1-32                              |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-cold: 1-32                                |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | ess, ess-master, ess-client, ess-cold                                                                              | ess: 1-200                                    |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-master: an odd number ranging from 3 to 9 |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-client: 1-32                              |
+      |                                                                                                                    |                                               |
+      |                                                                                                                    | ess-cold: 1-32                                |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+      | Details about the four node types:                                                                                 |                                               |
+      |                                                                                                                    |                                               |
+      | -  **ess**: the default node type that is mandatory for cluster creation. The other three node types are optional. |                                               |
+      | -  **ess-master**: master node                                                                                     |                                               |
+      | -  **ess-client**: client node                                                                                     |                                               |
+      | -  **ess-cold**: cold data node                                                                                    |                                               |
+      +--------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
 
 Procedure
 ---------
@@ -21,7 +81,7 @@ Procedure
 
 #. Specify **Region** and **AZ**.
 
-   .. table:: **Table 1** Parameter description for Region and AZ
+   .. table:: **Table 2** Parameter description for Region and AZ
 
       +-----------------------------------+---------------------------------------------------------------------------------------------------------------+
       | Parameter                         | Description                                                                                                   |
@@ -35,7 +95,7 @@ Procedure
 
 #. Set basic information about the cluster. Specifically, specify **Version** and **Name**.
 
-   .. table:: **Table 2** Description of basic parameters
+   .. table:: **Table 3** Description of basic parameters
 
       +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | Parameter                         | Description                                                                                                                                                                                                                                                                                                                                 |
@@ -50,14 +110,14 @@ Procedure
       +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-   .. figure:: /_static/images/en-us_image_0000001286436658.png
+   .. figure:: /_static/images/en-us_image_0000001474406068.png
       :alt: **Figure 1** Configuring basic information
 
       **Figure 1** Configuring basic information
 
 #. Set host specifications of the cluster.
 
-   .. table:: **Table 3** Parameter description
+   .. table:: **Table 4** Parameter description
 
       +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | Parameter                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -115,14 +175,14 @@ Procedure
       +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-   .. figure:: /_static/images/en-us_image_0000001338955973.png
+   .. figure:: /_static/images/en-us_image_0000001525365861.png
       :alt: **Figure 2** Configuring node specifications
 
       **Figure 2** Configuring node specifications
 
 #. Set network specifications of the cluster.
 
-   .. table:: **Table 4** Parameter description
+   .. table:: **Table 5** Parameter description
 
       +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | Parameter                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -144,7 +204,7 @@ Procedure
       |                                   | .. note::                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
       |                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
       |                                   |    -  For cluster access purposes, ensure that the security group contains port 9200.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-      |                                   |    -  If your cluster version is 7.6.2 or 7.9.3, ensure that all the ports used for communication between nodes in the same security group are allowed. If such settings cannot be configured, ensure at least the access to port 9300 is allowed.                                                                                                                                                                                                                                                                                                                                                                                                    |
+      |                                   |    -  If your cluster version is 7.6.2, 7.9.3 or 7.10.2, ensure that all the ports used for communication between nodes in the same security group are allowed. If such settings cannot be configured, ensure at least the access to port 9300 is allowed.                                                                                                                                                                                                                                                                                                                                                                                            |
       |                                   |    -  After a cluster is created, its security group cannot be changed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
       +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | Security Mode                     | This parameter is supported in version 6.5.4 and later versions. After enabling security mode, communication is encrypted and authentication is required for the cluster. The default administrator username is **admin**, and the password needs to be set and confirmed. For details about the security mode, see :ref:`Clusters in Security Mode <css_04_0019>`.                                                                                                                                                                                                                                                                                   |
@@ -161,7 +221,7 @@ Procedure
       +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-   .. figure:: /_static/images/en-us_image_0000001286276686.png
+   .. figure:: /_static/images/en-us_image_0000001474566044.png
       :alt: **Figure 3** Configuring network specifications
 
       **Figure 3** Configuring network specifications
@@ -195,7 +255,7 @@ Procedure
    -  **Default**: The the **VPC Endpoint Service**, **Kibana Public Access**, and **Tag** functions are disabled by default. You can manually enable these functions after the cluster is created.
    -  **Custom**: You can enable the **VPC Endpoint Service**, **Kibana Public Access**, and **Tag** functions as required.
 
-   .. table:: **Table 5** Parameters for advanced settings
+   .. table:: **Table 6** Parameters for advanced settings
 
       +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | Parameter            | Description                                                                                                                                                                                                                           |
@@ -215,5 +275,5 @@ Procedure
 
    If the cluster creation fails, create the cluster again.
 
-.. |image1| image:: /_static/images/en-us_image_0000001286596262.png
-.. |image2| image:: /_static/images/en-us_image_0000001338836517.png
+.. |image1| image:: /_static/images/en-us_image_0000001474246408.png
+.. |image2| image:: /_static/images/en-us_image_0000001524926001.png

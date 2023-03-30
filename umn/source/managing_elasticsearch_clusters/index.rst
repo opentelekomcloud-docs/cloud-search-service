@@ -8,7 +8,7 @@ Managing Elasticsearch Clusters
 -  :ref:`Cluster and Storage Capacity Statuses <css_01_0053>`
 -  :ref:`Introduction to the Cluster List <css_01_0056>`
 -  :ref:`Index Backup and Restoration <css_01_0033>`
--  :ref:`Modifying Specifications <css_01_0031>`
+-  :ref:`Binding an Enterprise Project <css_01_0058>`
 -  :ref:`Restarting a Cluster <css_01_0014>`
 -  :ref:`Migrating Cluster Data <css_01_0040>`
 -  :ref:`Managing Failed Tasks <css_01_0060>`
@@ -29,7 +29,7 @@ Managing Elasticsearch Clusters
    cluster_and_storage_capacity_statuses
    introduction_to_the_cluster_list
    index_backup_and_restoration
-   modifying_specifications
+   binding_an_enterprise_project
    restarting_a_cluster
    migrating_cluster_data
    managing_failed_tasks
