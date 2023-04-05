@@ -1,6 +1,6 @@
-:original_name: css_02_0017_0.html
+:original_name: css_02_0017.html
 
-.. _css_02_0017_0:
+.. _css_02_0017:
 
 How Can I Manage CSS?
 =====================

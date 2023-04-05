@@ -1,6 +1,6 @@
-:original_name: css_02_0007_0.html
+:original_name: css_02_0007.html
 
-.. _css_02_0007_0:
+.. _css_02_0007:
 
 Which CSS Metrics Should I Focus On?
 ====================================

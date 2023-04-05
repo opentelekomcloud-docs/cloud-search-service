@@ -25,7 +25,7 @@ Process Flow
 
 .. _css_01_0072__fig342064620244:
 
-.. figure:: /_static/images/en-us_image_0000001525365837.png
+.. figure:: /_static/images/en-us_image_0000001554577425.png
    :alt: **Figure 1** Process for granting CSS permissions
 
    **Figure 1** Process for granting CSS permissions

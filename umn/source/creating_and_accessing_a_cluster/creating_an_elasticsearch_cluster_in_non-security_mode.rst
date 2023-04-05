@@ -104,12 +104,6 @@ Procedure
       |                                   |    After a cluster is created, you can modify the cluster name as required. Click the name of a cluster to be modified. On the displayed **Basic Information** page, click next to the cluster name. After the modification is completed, click |image1| to save the modification. If you want to cancel the modification, click |image2|.  |
       +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-
-   .. figure:: /_static/images/en-us_image_0000001474406068.png
-      :alt: **Figure 1** Configuring basic information
-
-      **Figure 1** Configuring basic information
-
 #. Set host specifications of the cluster.
 
    .. table:: **Table 4** Parameter description
@@ -170,10 +164,10 @@ Procedure
       +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-   .. figure:: /_static/images/en-us_image_0000001525365861.png
-      :alt: **Figure 2** Configuring node specifications
+   .. figure:: /_static/images/en-us_image_0000001503817636.png
+      :alt: **Figure 1** Configuring node specifications
 
-      **Figure 2** Configuring node specifications
+      **Figure 1** Configuring node specifications
 
 #. Set network specifications of the cluster.
 
@@ -210,10 +204,10 @@ Procedure
       +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-   .. figure:: /_static/images/en-us_image_0000001525205897.png
-      :alt: **Figure 3** Configuring network specifications
+   .. figure:: /_static/images/en-us_image_0000001554777397.png
+      :alt: **Figure 2** Configuring network specifications
 
-      **Figure 3** Configuring network specifications
+      **Figure 2** Configuring network specifications
 
 #. Set the enterprise project of the cluster.
 
@@ -241,7 +235,7 @@ Procedure
 
 #. Configure advanced settings for the cluster.
 
-   -  **Default**: The the **VPC Endpoint Service**, **Kibana Public Access**, and **Tag** functions are disabled by default. You can manually enable these functions after the cluster is created.
+   -  **Default**: The the **VPC Endpoint Service**, and **Tag** functions are disabled by default. You can manually enable these functions after the cluster is created.
    -  Custom: You can enable the **VPC Endpoint Service** and **Tag** functions as required.
 
    .. table:: **Table 6** Parameters for advanced settings
@@ -250,8 +244,6 @@ Procedure
       | Parameter            | Description                                                                                                                                                                                 |
       +======================+=============================================================================================================================================================================================+
       | VPC Endpoint Service | After enabling this function, you can obtain a private domain name for accessing the cluster in the same VPC. For details, see :ref:`VPC Endpoint Service <css_01_0082>`.                   |
-      +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Kibana Public Access | Clusters in non-security mode cannot access Kibana through the Internet.                                                                                                                    |
       +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | Tag                  | Adding tags to clusters can help you identify and manage your cluster resources. You can customize tags or use tags predefined by TMS. For details, see :ref:`Managing Tags <css_01_0075>`. |
       +----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -264,5 +256,5 @@ Procedure
 
    If the cluster creation fails, create the cluster again.
 
-.. |image1| image:: /_static/images/en-us_image_0000001474246408.png
-.. |image2| image:: /_static/images/en-us_image_0000001524926001.png
+.. |image1| image:: /_static/images/en-us_image_0000001503657748.png
+.. |image2| image:: /_static/images/en-us_image_0000001554577401.png

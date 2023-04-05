@@ -40,5 +40,5 @@ Procedure
 
    For details about the key fields in the CTS trace structure, see the `Cloud Trace Service User Guide <https://docs.otc.t-systems.com/en-us/usermanual/cts/en-us_topic_0030579718.html>`__.
 
-.. |image1| image:: /_static/images/en-us_image_0000001524925949.png
-.. |image2| image:: /_static/images/en-us_image_0000001525205849.png
+.. |image1| image:: /_static/images/en-us_image_0000001554777429.png
+.. |image2| image:: /_static/images/en-us_image_0000001554697293.png

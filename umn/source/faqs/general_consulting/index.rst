@@ -1,17 +1,17 @@
-:original_name: css_02_0051_0.html
+:original_name: css_02_0051.html
 
-.. _css_02_0051_0:
+.. _css_02_0051:
 
 General Consulting
 ==================
 
--  :ref:`What Are Regions and AZs? <css_02_0034_0>`
--  :ref:`How Does CSS Ensure Data and Service Security? <css_02_0006_0>`
--  :ref:`Which CSS Metrics Should I Focus On? <css_02_0007_0>`
--  :ref:`What Storage Options Does CSS Provide? <css_02_0008_0>`
--  :ref:`What Is the Maximum Storage Capacity of CSS? <css_02_0009_0>`
--  :ref:`How Can I Manage CSS? <css_02_0017_0>`
--  :ref:`What Can the Disk Space of a CSS Cluster Be Used For? <css_02_0010_0>`
+-  :ref:`What Are Regions and AZs? <css_02_0034>`
+-  :ref:`How Does CSS Ensure Data and Service Security? <css_02_0006>`
+-  :ref:`Which CSS Metrics Should I Focus On? <css_02_0007>`
+-  :ref:`What Storage Options Does CSS Provide? <css_02_0008>`
+-  :ref:`What Is the Maximum Storage Capacity of CSS? <css_02_0009>`
+-  :ref:`How Can I Manage CSS? <css_02_0017>`
+-  :ref:`What Can the Disk Space of a CSS Cluster Be Used For? <css_02_0010>`
 -  :ref:`How Do I Check the Numbers of Shards and Replicas in a Cluster on the CSS Console? <css_02_0093>`
 -  :ref:`What Data Compression Algorithms Does CSS Use? <css_02_0041>`
 

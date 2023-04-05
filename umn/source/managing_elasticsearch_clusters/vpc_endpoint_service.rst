@@ -90,10 +90,12 @@ Accessing the Cluster Using the Private Domain Name or Node IP Address
 
       .. code-block::
 
+         curl 'http://vpcep-7439f7f6-2c66-47d4-b5f3-790db4204b8d.region01.xxxx.com:9200/_cat/indices'
+
    -  If the cluster you access has the security mode enabled, access the cluster using HTTPS and add the username, password and **-u** to the cURL command.
 
       .. code-block::
 
-.. |image1| image:: /_static/images/en-us_image_0000001524766309.png
-.. |image2| image:: /_static/images/en-us_image_0000001474246392.png
-.. |image3| image:: /_static/images/en-us_image_0000001474406048.png
+.. |image1| image:: /_static/images/en-us_image_0000001554697237.png
+.. |image2| image:: /_static/images/en-us_image_0000001504137408.png
+.. |image3| image:: /_static/images/en-us_image_0000001503817624.png

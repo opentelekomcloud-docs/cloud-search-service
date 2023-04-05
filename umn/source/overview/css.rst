@@ -9,7 +9,7 @@ CSS
 CSS
 ---
 
-Cloud Search Service (CSS) is a fully hosted distributed search service based on Elasticsearch. You can use it for structured and unstructured data search, and use AI vectors for combine search, statistics, and reports. CSS is a fully managed cloud service of the ELK Stack and is compatible with open-source Elasticsearch, Kibana, and Cerebro.
+Cloud Search Service (CSS) is a fully hosted distributed search service based on Elasticsearch. You can use it for structured and unstructured data search, and use AI vectors for combine search, statistics, and reports. CSS is a fully managed cloud service of the ELK Stack and is compatible with Elasticsearch, Kibana, and Cerebro.
 
 Elasticsearch is a distributed search engine that can be deployed in standalone or cluster mode. The heart of the ELK Stack, Elasticsearch clusters support multi-condition search, statistical analysis, and create visualized reports of structured and unstructured text. For details about Elasticsearch, see the `Elasticsearch: The Definitive Guide <https://www.elastic.co/guide/en/elasticsearch/guide/current/index.html>`__.
 
@@ -20,7 +20,7 @@ Functions
 
 -  Compatible with Elasticsearch
 
-   Freely use native Elasticsearch APIs and other software in the ecosystem, such as Beats and Kibana.
+   Freely use Elasticsearch APIs and other software in the ecosystem, such as Beats and Kibana.
 
 -  Support various data sources
 

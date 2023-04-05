@@ -90,7 +90,7 @@ Before importing data, ensure that you can use Kibana to access the cluster. The
 
    .. _css_01_0024__fig86351225133018:
 
-   .. figure:: /_static/images/en-us_image_0000001525365841.png
+   .. figure:: /_static/images/en-us_image_0000001503977588.png
       :alt: **Figure 1** Response message
 
       **Figure 1** Response message

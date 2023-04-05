@@ -22,7 +22,7 @@ Procedure
 #. Click **Access Kibana** in the **Operation** column of a cluster.
 
 
-   .. figure:: /_static/images/en-us_image_0000001474725864.png
+   .. figure:: /_static/images/en-us_image_0000001503657780.png
       :alt: **Figure 1** Logging in to Kibana (1)
 
       **Figure 1** Logging in to Kibana (1)
@@ -30,7 +30,7 @@ Procedure
 #. Log in to Kibana.
 
 
-   .. figure:: /_static/images/en-us_image_0000001525365849.png
+   .. figure:: /_static/images/en-us_image_0000001503657784.png
       :alt: **Figure 2** Logging in to Kibana (2)
 
       **Figure 2** Logging in to Kibana (2)
@@ -41,7 +41,7 @@ Procedure
 #. Click the **Security** icon on the Kibana operation page.
 
 
-   .. figure:: /_static/images/en-us_image_0000001474406052.png
+   .. figure:: /_static/images/en-us_image_0000001503817668.png
       :alt: **Figure 3** Going to the Security page
 
       **Figure 3** Going to the Security page
@@ -51,7 +51,7 @@ Procedure
    a. Choose **Authentication Backends** >\ **Internal Users Database**.
 
 
-      .. figure:: /_static/images/en-us_image_0000001525365845.png
+      .. figure:: /_static/images/en-us_image_0000001554777417.png
          :alt: **Figure 4** Adding a user (1)
 
          **Figure 4** Adding a user (1)
@@ -59,7 +59,7 @@ Procedure
    b. On the **Internal Users Database** page, choose |image1|. The page for adding user information is displayed.
 
 
-      .. figure:: /_static/images/en-us_image_0000001474406056.png
+      .. figure:: /_static/images/en-us_image_0000001554697285.png
          :alt: **Figure 5** Adding a user (2)
 
          **Figure 5** Adding a user (2)
@@ -73,7 +73,7 @@ Procedure
    a. Click **Roles**.
 
 
-      .. figure:: /_static/images/en-us_image_0000001524766313.png
+      .. figure:: /_static/images/en-us_image_0000001504137460.png
          :alt: **Figure 6** Adding a role
 
          **Figure 6** Adding a role
@@ -83,7 +83,7 @@ Procedure
       #. Enter a role name on the **Overview** page.
 
 
-         .. figure:: /_static/images/en-us_image_0000001524766321.png
+         .. figure:: /_static/images/en-us_image_0000001504137456.png
             :alt: **Figure 7** Entering a role name
 
             **Figure 7** Entering a role name
@@ -109,7 +109,7 @@ Procedure
    a. Click **Role Mappings**.
 
 
-      .. figure:: /_static/images/en-us_image_0000001474246400.png
+      .. figure:: /_static/images/en-us_image_0000001554777409.png
          :alt: **Figure 8** Role mapping
 
          **Figure 8** Role mapping
@@ -117,7 +117,7 @@ Procedure
    b. Click |image3| to add the mapping between users and roles.
 
 
-      .. figure:: /_static/images/en-us_image_0000001474725872.png
+      .. figure:: /_static/images/en-us_image_0000001554777413.png
          :alt: **Figure 9** Users and roles
 
          **Figure 9** Users and roles
@@ -126,6 +126,6 @@ Procedure
 
 #. Verify that the configuration takes effect in Kibana.
 
-.. |image1| image:: /_static/images/en-us_image_0000001474566028.png
-.. |image2| image:: /_static/images/en-us_image_0000001474566028.png
-.. |image3| image:: /_static/images/en-us_image_0000001474566028.png
+.. |image1| image:: /_static/images/en-us_image_0000001504137464.png
+.. |image2| image:: /_static/images/en-us_image_0000001504137464.png
+.. |image3| image:: /_static/images/en-us_image_0000001504137464.png

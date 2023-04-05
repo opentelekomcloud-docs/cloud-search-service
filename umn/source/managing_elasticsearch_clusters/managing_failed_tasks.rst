@@ -24,7 +24,7 @@ You can delete one or all failed tasks at a time.
 -  To delete all failed tasks, perform the following operations: In the **Failed Tasks** dialog box, click **Delete All**. In the displayed dialog box, confirm the information about all failed tasks and click **Yes**.
 
 
-.. figure:: /_static/images/en-us_image_0000001524925993.png
+.. figure:: /_static/images/en-us_image_0000001554697257.png
    :alt: **Figure 1** Deleting a failed task
 
    **Figure 1** Deleting a failed task

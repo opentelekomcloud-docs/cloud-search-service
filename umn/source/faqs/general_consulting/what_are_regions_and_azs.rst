@@ -1,6 +1,6 @@
-:original_name: css_02_0034_0.html
+:original_name: css_02_0034.html
 
-.. _css_02_0034_0:
+.. _css_02_0034:
 
 What Are Regions and AZs?
 =========================
@@ -13,9 +13,9 @@ A region and availability zone (AZ) identify the location of a data center. You 
 -  A region is a physical data center. Each region is completely independent, and thereby improves fault tolerance and stability. After a resource is created, its region cannot be changed.
 -  An AZ is a physical location using independent power supplies and networks. Faults in an AZ do not affect other AZs. A region can contain multiple AZs that are physically isolated but networked together. This enables low-cost and low-latency network connections.
 
-:ref:`Figure 1 <css_02_0034_0__en-us_topic_0192920412_fig115516197127>` shows the relationship between regions and AZs.
+:ref:`Figure 1 <css_02_0034__en-us_topic_0192920412_fig115516197127>` shows the relationship between regions and AZs.
 
-.. _css_02_0034_0__en-us_topic_0192920412_fig115516197127:
+.. _css_02_0034__en-us_topic_0192920412_fig115516197127:
 
 .. figure:: /_static/images/en-us_image_0000001527937353.png
    :alt: **Figure 1** Regions and AZs
