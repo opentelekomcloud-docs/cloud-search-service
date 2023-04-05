@@ -75,7 +75,7 @@ To access a cluster by calling Elasticsearch APIs on the ECS that is located in 
    If encryption has not been enabled for the communication with the cluster, the command output is similar to that shown in the following figure.
 
 
-   .. figure:: /_static/images/en-us_image_0000001524766305.png
+   .. figure:: /_static/images/en-us_image_0000001554777361.png
       :alt: **Figure 1** Command output
 
       **Figure 1** Command output

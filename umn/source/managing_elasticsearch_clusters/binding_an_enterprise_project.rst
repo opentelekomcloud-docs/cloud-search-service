@@ -11,7 +11,7 @@ You must configure an enterprise project for each cluster. If you do not need to
 Binding an Enterprise Project
 -----------------------------
 
-When creating a cluster, you can bind it to an enterprise project by specifying the **Enterprise Project** parameter. For details, see .
+When creating a cluster, you can bind it to an enterprise project by specifying the **Enterprise Project** parameter. For details, see :ref:`Creating an Elasticsearch Cluster in Security Mode <css_01_0011>`.
 
 Modifying an Enterprise Project
 -------------------------------

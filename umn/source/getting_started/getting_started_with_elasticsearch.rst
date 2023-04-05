@@ -63,7 +63,7 @@ CSS supports importing data to Elasticsearch using Logstash, Kibana, or APIs. Ki
    The text box on the left is the input box. The triangle icon in the upper right corner of the input box is the command execution button. The text box on the right area is the result output box.
 
 
-   .. figure:: /_static/images/en-us_image_0000001476610606.png
+   .. figure:: /_static/images/en-us_image_0000001554697245.png
       :alt: **Figure 1** Console page
 
       **Figure 1** Console page

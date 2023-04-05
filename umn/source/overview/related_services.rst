@@ -9,7 +9,7 @@ Related Services
 
 .. _css_04_0004__fig1895417182444:
 
-.. figure:: /_static/images/en-us_image_0000001526969785.png
+.. figure:: /_static/images/en-us_image_0000001554577377.png
    :alt: **Figure 1** Relationships between CSS and other services
 
    **Figure 1** Relationships between CSS and other services

@@ -92,7 +92,7 @@ Managing Automatic Snapshot Creation
 
    .. _css_01_0033__fig1797311351298:
 
-   .. figure:: /_static/images/en-us_image_0000001474725844.png
+   .. figure:: /_static/images/en-us_image_0000001554897333.png
       :alt: **Figure 1** Automatic snapshot creation
 
       **Figure 1** Automatic snapshot creation
@@ -104,7 +104,7 @@ Managing Automatic Snapshot Creation
    Snapshots that are automatically created according to the snapshot policy are displayed in the snapshot list, along with manually created snapshots. You can distinguish them by the **Snapshot Type** setting. In the upper right corner of the snapshot list, enter the keyword of the snapshot name or snapshot ID to search for the desired snapshots. You can also click |image3| to sort snapshots based on related parameter settings.
 
 
-   .. figure:: /_static/images/en-us_image_0000001524766289.png
+   .. figure:: /_static/images/en-us_image_0000001554697281.png
       :alt: **Figure 2** Automatic snapshot creation
 
       **Figure 2** Automatic snapshot creation
@@ -149,7 +149,7 @@ Manually Creating a Snapshot
    -  **Description**: indicates the description of the created snapshot. The value contains 0 to 256 characters, and certain special characters (**<>**) are not allowed.
 
 
-   .. figure:: /_static/images/en-us_image_0000001524766273.png
+   .. figure:: /_static/images/en-us_image_0000001554897329.png
       :alt: **Figure 3** Creating a snapshot
 
       **Figure 3** Creating a snapshot
@@ -180,7 +180,7 @@ Restoring data will overwrite current data in clusters. Therefore, exercise caut
    **Cluster**: Select the cluster that you want to restore. You can select the current cluster or others. However, you can only restore the snapshot to clusters whose status is **Available**. If the status of the current cluster is **Unavailable**, you cannot restore the snapshot to the current cluster. If you select another cluster and two or more indices in the cluster have the same name, data of all indices with the same name as the name you specify will be overwritten. Therefore, exercise caution when you set the parameters.
 
 
-   .. figure:: /_static/images/en-us_image_0000001525365813.png
+   .. figure:: /_static/images/en-us_image_0000001554697269.png
       :alt: **Figure 4** Restoring a snapshot
 
       **Figure 4** Restoring a snapshot
@@ -188,7 +188,7 @@ Restoring data will overwrite current data in clusters. Therefore, exercise caut
 #. Click **OK**. If restoration succeeds, **Task Status** of the snapshot in the snapshot list will change to **Restoration succeeded**, and the index data is generated again according to the snapshot information.
 
 
-   .. figure:: /_static/images/en-us_image_0000001474566000.png
+   .. figure:: /_static/images/en-us_image_0000001554577417.png
       :alt: **Figure 5** Successful restoration
 
       **Figure 5** Successful restoration
@@ -207,10 +207,10 @@ If you no longer need a snapshot, delete it to release storage resources. If the
 #. In the **Snapshots** area, locate the row containing the target snapshot and click **Delete** in the **Operation** column.
 #. In the **Delete Snapshot** dialog box that is displayed, click **Yes**.
 
-.. |image1| image:: /_static/images/en-us_image_0000001474246364.png
-.. |image2| image:: /_static/images/en-us_image_0000001474246364.png
-.. |image3| image:: /_static/images/en-us_image_0000001474246376.png
-.. |image4| image:: /_static/images/en-us_image_0000001525365809.png
-.. |image5| image:: /_static/images/en-us_image_0000001525365829.png
-.. |image6| image:: /_static/images/en-us_image_0000001474246364.png
-.. |image7| image:: /_static/images/en-us_image_0000001474246376.png
+.. |image1| image:: /_static/images/en-us_image_0000001503977564.png
+.. |image2| image:: /_static/images/en-us_image_0000001503977564.png
+.. |image3| image:: /_static/images/en-us_image_0000001554697273.png
+.. |image4| image:: /_static/images/en-us_image_0000001503817672.png
+.. |image5| image:: /_static/images/en-us_image_0000001554897345.png
+.. |image6| image:: /_static/images/en-us_image_0000001503977564.png
+.. |image7| image:: /_static/images/en-us_image_0000001554697273.png

@@ -42,7 +42,7 @@ On the **Kibana** console, click **Security** to control user permissions in Ela
 You can add or delete users, and map users to different roles for permissions control.
 
 
-.. figure:: /_static/images/en-us_image_0000001474725640.png
+.. figure:: /_static/images/en-us_image_0000001503817384.png
    :alt: **Figure 1** Configuring users
 
    **Figure 1** Configuring users
@@ -50,7 +50,7 @@ You can add or delete users, and map users to different roles for permissions co
 You can use role mapping to configure roles and map a user's username, backend role, and host name to a role.
 
 
-.. figure:: /_static/images/en-us_image_0000001524766093.png
+.. figure:: /_static/images/en-us_image_0000001554897033.png
    :alt: **Figure 2** Role mapping
 
    **Figure 2** Role mapping
@@ -58,7 +58,7 @@ You can use role mapping to configure roles and map a user's username, backend r
 You can set permissions for each role to access clusters, indices and documents and assign Kibana tenants different roles.
 
 
-.. figure:: /_static/images/en-us_image_0000001474405816.png
+.. figure:: /_static/images/en-us_image_0000001503977284.png
    :alt: **Figure 3** Configuring role permissions
 
    **Figure 3** Configuring role permissions
@@ -66,7 +66,7 @@ You can set permissions for each role to access clusters, indices and documents 
 You can set action groups, assign the groups to roles, and configure the roles' permission for accessing indices and documents.
 
 
-.. figure:: /_static/images/en-us_image_0000001524766089.png
+.. figure:: /_static/images/en-us_image_0000001503657480.png
    :alt: **Figure 4** Configuring action groups
 
    **Figure 4** Configuring action groups
@@ -74,7 +74,7 @@ You can set action groups, assign the groups to roles, and configure the roles' 
 You can view the parameters of authentication and authorization for the current cluster. You can also run the **securityadmin** command to modify the configuration.
 
 
-.. figure:: /_static/images/en-us_image_0000001525205649.png
+.. figure:: /_static/images/en-us_image_0000001503817392.png
    :alt: **Figure 5** Viewing cluster parameters
 
    **Figure 5** Viewing cluster parameters
@@ -82,7 +82,7 @@ You can view the parameters of authentication and authorization for the current 
 You can also clear the security cache.
 
 
-.. figure:: /_static/images/en-us_image_0000001524766097.png
+.. figure:: /_static/images/en-us_image_0000001554577133.png
    :alt: **Figure 6** Clearing the security cache
 
    **Figure 6** Clearing the security cache

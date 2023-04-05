@@ -5,7 +5,7 @@
 Creating and Managing Indices
 =============================
 
-Clusters of versions 7.6.2 and 7.9.3 support index status management (ISM). ISM is a plugin that allows you to automate periodic and administrative operations based on changes on the index age, index size, or number of documents. When using the ISM plug-in, you can define policies that automatically handle index rolleovers or deletions based on your needs.
+Clusters of versions 7.6.2, 7.9.3 and 7.10.2 support index status management (ISM). ISM is a plugin that allows you to automate periodic and administrative operations based on changes on the index age, index size, or number of documents. When using the ISM plug-in, you can define policies that automatically handle index rolleovers or deletions based on your needs.
 
 .. note::
 
@@ -17,7 +17,7 @@ Creating an Index Policy
 #. Log in to Kibana and choose **IM** or **Index Management** on the left. The **Index Management** page is displayed.
 
 
-   .. figure:: /_static/images/en-us_image_0000001474566008.png
+   .. figure:: /_static/images/en-us_image_0000001554697221.png
       :alt: **Figure 1** Choosing IM
 
       **Figure 1** Choosing IM
@@ -29,7 +29,7 @@ Creating an Index Policy
    Enter a policy ID in the **Policy ID** text box and enter your policy in the **Define policy** text box.
 
 
-   .. figure:: /_static/images/en-us_image_0000001474246380.png
+   .. figure:: /_static/images/en-us_image_0000001503977512.png
       :alt: **Figure 2** Configuring a policy
 
       **Figure 2** Configuring a policy
@@ -61,7 +61,7 @@ Attach the policy to an index.
 #. Click **Indices**.
 
 
-   .. figure:: /_static/images/en-us_image_0000001474406040.png
+   .. figure:: /_static/images/en-us_image_0000001503657716.png
       :alt: **Figure 3** Choosing Indices
 
       **Figure 3** Choosing Indices
@@ -71,7 +71,7 @@ Attach the policy to an index.
 #. Click **Apply policy** in the upper right corner.
 
 
-   .. figure:: /_static/images/en-us_image_0000001524766301.png
+   .. figure:: /_static/images/en-us_image_0000001554897281.png
       :alt: **Figure 4** Adding a policy
 
       **Figure 4** Adding a policy
@@ -79,7 +79,7 @@ Attach the policy to an index.
 #. Select the policy you created from the **Policy ID** drop-down list.
 
 
-   .. figure:: /_static/images/en-us_image_0000001525205869.png
+   .. figure:: /_static/images/en-us_image_0000001504137400.png
       :alt: **Figure 5** Selecting a policy
 
       **Figure 5** Selecting a policy

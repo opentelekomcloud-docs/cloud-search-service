@@ -1,6 +1,6 @@
-:original_name: css_02_0009_0.html
+:original_name: css_02_0009.html
 
-.. _css_02_0009_0:
+.. _css_02_0009:
 
 What Is the Maximum Storage Capacity of CSS?
 ============================================

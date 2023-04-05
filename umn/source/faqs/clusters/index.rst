@@ -5,7 +5,7 @@
 Clusters
 ========
 
--  :ref:`Why Does My ECS Fail to Connect to a Cluster? <css_02_0025_0>`
+-  :ref:`Why Does My ECS Fail to Connect to a Cluster? <css_02_0025>`
 -  :ref:`Can a New Cluster Use the IP Address of the Old Cluster? <css_02_0078>`
 -  :ref:`Can I Associate My EIP If I Want to Access the Cluster from the Internet? <css_02_0079>`
 -  :ref:`Can I Use x-pack-sql-jdbc to Access CSS Clusters and Query Data? <css_02_0081>`

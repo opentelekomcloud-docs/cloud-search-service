@@ -1,6 +1,6 @@
-:original_name: css_02_0006_0.html
+:original_name: css_02_0006.html
 
-.. _css_02_0006_0:
+.. _css_02_0006:
 
 How Does CSS Ensure Data and Service Security?
 ==============================================

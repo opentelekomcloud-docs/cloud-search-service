@@ -1,6 +1,6 @@
-:original_name: css_02_0010_0.html
+:original_name: css_02_0010.html
 
-.. _css_02_0010_0:
+.. _css_02_0010:
 
 What Can the Disk Space of a CSS Cluster Be Used For?
 =====================================================

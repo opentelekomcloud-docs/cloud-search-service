@@ -1,6 +1,6 @@
-:original_name: css_02_0008_0.html
+:original_name: css_02_0008.html
 
-.. _css_02_0008_0:
+.. _css_02_0008:
 
 What Storage Options Does CSS Provide?
 ======================================

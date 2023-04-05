@@ -20,7 +20,6 @@ Managing Elasticsearch Clusters
 -  :ref:`Hot and Cold Data Storage <css_01_0079>`
 -  :ref:`Configuring Parameters <css_01_0080>`
 -  :ref:`VPC Endpoint Service <css_01_0082>`
--  :ref:`Kibana Public Access <css_01_0088>`
 
 .. toctree::
    :maxdepth: 1
@@ -41,4 +40,3 @@ Managing Elasticsearch Clusters
    hot_and_cold_data_storage
    configuring_parameters
    vpc_endpoint_service
-   kibana_public_access
