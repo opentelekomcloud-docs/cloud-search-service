@@ -5,4 +5,4 @@
 Supported Cluster Versions
 ==========================
 
-In CSS, Elasticsearch 7.6.2, 7.9.3 and 7.10.2 and Kibana 7.6.2, 7.9.3 and 7.10.2 are supported.
+In CSS, Elasticsearch 7.6.2, 7.9.3, 7.10.2 and Opensearch_1.3.6 and Kibana 7.6.2, 7.9.3, 7.10.2 and Opensearch_1.3.6 are supported.

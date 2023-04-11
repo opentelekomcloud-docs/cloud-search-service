@@ -23,7 +23,7 @@ A response header corresponds to a request header, for example, **Content-Type**
 
 .. _iam_02_0511__en-us_topic_0170917209_en-us_topic_0168405765_fig4865141011511:
 
-.. figure:: /_static/images/en-us_image_0000001483170818.png
+.. figure:: /_static/images/en-us_image_0000001554710113.png
    :alt: **Figure 1** Header of the response to the request for obtaining a user token
 
    **Figure 1** Header of the response to the request for obtaining a user token
