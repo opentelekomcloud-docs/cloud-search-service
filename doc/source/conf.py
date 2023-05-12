@@ -19,14 +19,17 @@ import sys
 
 extensions = [
     'otcdocstheme',
+    'otc_sphinx_directives'
 ]
 
 otcdocs_auto_name = False
 otcdocs_auto_version = False
 
 project = 'Cloud Search Service'
-otcdocs_repo_name = 'opentelekomcloud-docs/cloud-search-service'
+otcdocs_repo_name = 'docs/cloud-search-service'
 # Those variables are required for edit/bug links
+otcdocs_git_fqdn = 'gitea.eco.tsi-dev.otc-service.com'
+otcdocs_git_type = 'gitea'
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -76,12 +79,15 @@ html_theme = 'otcdocs'
 # further. For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
+    "disable_search": True,
+    "site_name": "Internal Documentation Portal",
+    "logo_url": "https://docs-int.otc-service.com",
 }
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
 
-html_title = "Cloud Search Service - User Guide"
+html_title = "Cloud Search Service - Service Based View"
 
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -93,9 +99,4 @@ html_static_path = ['_static']
 html_copy_source = False
 
 # -- Options for PDF output --------------------------------------------------
-latex_documents = [
-    ('index',
-     'css-umn.tex',
-     u'Cloud Search Service - User Guide',
-     u'OpenTelekomCloud', 'manual'),
-]
+latex_documents = []
