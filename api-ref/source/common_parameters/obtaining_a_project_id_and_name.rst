@@ -11,16 +11,8 @@ Obtaining a Project ID and Name from the Console
 ------------------------------------------------
 
 #. Log in to the console.
-
 #. In the upper right corner of the page, click the username and choose **My Credentials** from the drop-down list. The **My Credentials** page is displayed.
-
 #. In the project list, view the **Project ID** and **Project Name**.
-
-
-   .. figure:: /_static/images/en-us_image_0000001483650274.png
-      :alt: **Figure 1** Viewing the project ID and name
-
-      **Figure 1** Viewing the project ID and name
 
 Obtaining a Project ID by Calling an API
 ----------------------------------------
