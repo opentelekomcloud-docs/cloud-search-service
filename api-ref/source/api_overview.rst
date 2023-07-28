@@ -5,7 +5,7 @@
 API Overview
 ============
 
-The CSS API is a self-developed API that complies with RESTful API design specifications. You can call CSS APIs to implement the CSS functions described in :ref:`Table 1 <css_03_0057__en-us_topic_0171174222_en-us_topic_0122640544_table27268632>`.
+The CSS API is a self-developed API that are complying with RESTful API design specifications. You can call CSS APIs to implement the CSS functions described in :ref:`Table 1 <css_03_0057__en-us_topic_0171174222_en-us_topic_0122640544_table27268632>`.
 
 .. _css_03_0057__en-us_topic_0171174222_en-us_topic_0122640544_table27268632:
 
