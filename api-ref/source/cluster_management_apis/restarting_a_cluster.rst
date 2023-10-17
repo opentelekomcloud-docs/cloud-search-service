@@ -19,12 +19,13 @@ URI
 
 .. table:: **Table 1** Parameter description
 
-   ========== ========= ====== ==================================
-   Parameter  Mandatory Type   Description
-   ========== ========= ====== ==================================
-   project_id Yes       String Project ID.
-   cluster_id Yes       String ID of the cluster to be restarted.
-   ========== ========= ====== ==================================
+   +------------+-----------+--------+------------------------------------------------------------------------------------+
+   | Parameter  | Mandatory | Type   | Description                                                                        |
+   +============+===========+========+====================================================================================+
+   | project_id | Yes       | String | Project ID. For details, see :ref:`Obtaining a Project ID and Name <css_03_0071>`. |
+   +------------+-----------+--------+------------------------------------------------------------------------------------+
+   | cluster_id | Yes       | String | ID of the cluster to be restarted.                                                 |
+   +------------+-----------+--------+------------------------------------------------------------------------------------+
 
 Request
 -------
@@ -34,41 +35,21 @@ None
 Response
 --------
 
-.. table:: **Table 2** Parameter description
-
-   ========= ====== =======================
-   Parameter Type   Description
-   ========= ====== =======================
-   jobId     String ID of the restart task.
-   ========= ====== =======================
+None
 
 Examples
 --------
 
-Example request
-
-.. code-block:: text
-
-   POST /v1.0/6204a5bd270343b5885144cf9c8c158d/clusters/47e49a5e-8ced-4d0d-ae15-2af62ac468e3/restart
-
-Example response
-
-.. code-block::
-
-   {
-    "jobId": [
-   "ff8080815fa0fa5e015fa365b6300007"
-    ]
-    }
+None
 
 Status Code
 -----------
 
-:ref:`Table 3 <css_03_0021__table12321369178>` describes the status code.
+:ref:`Table 2 <css_03_0021__table12321369178>` describes the status code.
 
 .. _css_03_0021__table12321369178:
 
-.. table:: **Table 3** Status code
+.. table:: **Table 2** Status code
 
    +-----------------------+-----------------------+-----------------------------------------------------------------+
    | Status Code           | Code                  | Status Code Description                                         |

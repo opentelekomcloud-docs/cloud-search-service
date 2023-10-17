@@ -21,6 +21,9 @@ Cluster Management APIs
 -  :ref:`Obtaining the List of Instance Flavors <css_03_0023>`
 -  :ref:`Downloading a Certificate File <css_03_0050>`
 -  :ref:`Tag Management APIs <css_03_0077>`
+-  :ref:`Replacing a Node <css_03_0090>`
+-  :ref:`Configuring the Security Mode. <css_03_0091>`
+-  :ref:`Changing the Security Group <css_03_0092>`
 
 .. toctree::
    :maxdepth: 1
@@ -42,3 +45,6 @@ Cluster Management APIs
    obtaining_the_list_of_instance_flavors
    downloading_a_certificate_file
    tag_management_apis/index
+   replacing_a_node
+   configuring_the_security_mode.
+   changing_the_security_group
