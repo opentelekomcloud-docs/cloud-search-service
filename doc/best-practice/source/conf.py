@@ -26,7 +26,6 @@ otcdocs_auto_version = False
 
 project = 'Cloud Search Service'
 otcdocs_repo_name = 'opentelekomcloud-docs/cloud-search-service'
-# Those variables are required for edit/bug links
 
 # Those variables are needed for indexing into OpenSearch
 otcdocs_doc_environment = 'public'
