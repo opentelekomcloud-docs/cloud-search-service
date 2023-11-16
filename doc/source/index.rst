@@ -11,3 +11,4 @@ Cloud Search Service is a fully hosted distributed search service powered on Ela
       :service_type: css
       :umn: This document provides detailed operation guidance of CSS to help you learn and use CSS.
       :api-ref: This document introduces API reference provided by CSS and describes functions and parameters of each API.
+      :best-practice: To use Cloud Search Service more securely, reliably, flexibly, and efficiently, you are advised to follow the following best practices.
