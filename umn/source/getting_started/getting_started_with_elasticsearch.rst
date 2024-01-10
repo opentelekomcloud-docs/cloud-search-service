@@ -7,10 +7,10 @@ Getting Started with Elasticsearch
 
 This section describes how to use Elasticsearch for product search. You can use the Elasticsearch search engine of CSS to search for data based on the scenario example. The basic operation process is as follows:
 
--  :ref:`Step 1: Create a Cluster <css_01_0007__section96881833619>`
--  :ref:`Step 2: Import Data <css_01_0007__section398512163445>`
--  :ref:`Step 3: Search for Data <css_01_0007__section167624221443>`
--  :ref:`Step 4: Delete the Cluster <css_01_0007__section75027114374>`
+-  :ref:`Step 1: Create a Cluster <css_01_0007__en-us_topic_0000001223434400_section96881833619>`
+-  :ref:`Step 2: Import Data <css_01_0007__en-us_topic_0000001223434400_section398512163445>`
+-  :ref:`Step 3: Search for Data <css_01_0007__en-us_topic_0000001223434400_section167624221443>`
+-  :ref:`Step 4: Delete the Cluster <css_01_0007__en-us_topic_0000001223434400_section75027114374>`
 
 Scenario Description
 --------------------
@@ -35,44 +35,49 @@ Assume that the e-commerce website provides the following data:
    ]
    }
 
-.. _css_01_0007__section96881833619:
+.. _css_01_0007__en-us_topic_0000001223434400_section96881833619:
 
 Step 1: Create a Cluster
 ------------------------
 
-Create a cluster using Elasticsearch as the search engine. In this example, suppose that you create a cluster named **Es-xfx**. This cluster is used only for getting started with Elasticsearch. For this cluster, you are advised to select **css.medium.8** for **Node Specifications**, **Common I/O** for **Node Storage Type**, and **40 GB** for **Node Storage Capacity**. For details, see :ref:`Creating an Elasticsearch Cluster in Non-Security Mode <css_01_0011>`.
-
-Create a cluster using Elasticsearch as the search engine. In this example, suppose that you create a cluster named **Sample-ESCluster**. This cluster is used only for getting started with Elasticsearch. For this cluster, you are advised to select **ess.spec-4u8g** for **Node Specifications**, **High I/O** for **Node Storage Type**, and **40 GB** for **Node Storage Capacity**. For details, see or .
+Create a cluster using Elasticsearch as the search engine. In this example, suppose that you create a cluster named **Es-xfx**. This cluster is used only for getting started with Elasticsearch. For this cluster, you are advised to select **css.medium.8** for **Node Specifications**, **Common I/O** for **Node Storage Type**, and **40 GB** for **Node Storage Capacity**. For details, see :ref:`Creating an Elasticsearch Cluster in Non-Security Mode <css_01_0094>`.
 
 After you create the cluster, switch to the cluster list to view the created cluster. If the **Status** of the cluster is **Available**, the cluster is created successfully.
 
-.. _css_01_0007__section398512163445:
+
+.. figure:: /_static/images/en-us_image_0000001666842834.png
+   :alt: **Figure 1** Creating a cluster
+
+   **Figure 1** Creating a cluster
+
+.. _css_01_0007__en-us_topic_0000001223434400_section398512163445:
 
 Step 2: Import Data
 -------------------
 
 CSS supports importing data to Elasticsearch using Logstash, Kibana, or APIs. Kibana lets you visualize your Elasticsearch data. The following procedure illustrates how to import data to Elasticsearch using Kibana.
 
-#. On the **Clusters** page, locate the target cluster and click **More** > **Cerebro** in the **Operation** column to go to the Cerebro login page.
+#. On the **Clusters** page, locate the target cluster and click **Access Kibana** in the **Operation** column to go to the Kibana login page.
 
-   -  Non-security cluster: Click the cluster name on the Cerebro login page to go to the Cerebro console.
-   -  Security cluster: Click the cluster name on the Cerebro login page, enter the username and password, and click **Authenticate** to go to the Cerebro console. The default username is **admin** and the password is the one specified during cluster creation.
+   -  Non-security cluster: The Kibana console is displayed.
+   -  Security cluster: Enter the username and password on the login page and click **Log In** to go to the Kibana console. The default username is **admin** and the password is the one specified during cluster creation.
 
-2. In the navigation pane of Kibana on the left, choose **Dev Tools**.
+#. In the navigation pane of Kibana on the left, choose **Dev Tools**, as shown in :ref:`Figure 2 <css_01_0007__en-us_topic_0000001223434400_fig1830133281516>`.
 
    The text box on the left is the input box. The triangle icon in the upper right corner of the input box is the command execution button. The text box on the right area is the result output box.
 
+   .. _css_01_0007__en-us_topic_0000001223434400_fig1830133281516:
 
-   .. figure:: /_static/images/en-us_image_0000001554697245.png
-      :alt: **Figure 1** Console page
+   .. figure:: /_static/images/en-us_image_0000001667002546.png
+      :alt: **Figure 2** Console page
 
-      **Figure 1** Console page
+      **Figure 2** Console page
 
    .. note::
 
       The Kibana UI varies depending on the Kibana version.
 
-3. On the **Console** page, run the following command to create index named **my_store**:
+#. On the **Console** page, run the following command to create index named **my_store**:
 
    (Versions earlier than 7.\ *x*)
 
@@ -109,9 +114,9 @@ CSS supports importing data to Elasticsearch using Logstash, Kibana, or APIs. Ki
         },
         "mappings": {
                 "properties": {
-              "productName": {
-                "type": "text",
-                "analyzer": "ik_smart"
+                  "productName": {
+                    "type": "text",
+                    "analyzer": "ik_smart"
               },
               "size": {
                 "type": "keyword"
@@ -130,7 +135,7 @@ CSS supports importing data to Elasticsearch using Logstash, Kibana, or APIs. Ki
         "index" : "my_store"
       }
 
-4. On the **Console** page, run the following command to import data to index named **my_store**:
+#. On the **Console** page, run the following command to import data to index named **my_store**:
 
    (Versions earlier than 7.\ *x*)
 
@@ -173,7 +178,7 @@ CSS supports importing data to Elasticsearch using Logstash, Kibana, or APIs. Ki
 
    If the value of the **errors** field in the command output is **false**, the data is imported successfully.
 
-.. _css_01_0007__section167624221443:
+.. _css_01_0007__en-us_topic_0000001223434400_section167624221443:
 
 Step 3: Search for Data
 -----------------------
@@ -396,7 +401,7 @@ Step 3: Search for Data
         }
       }
 
-.. _css_01_0007__section75027114374:
+.. _css_01_0007__en-us_topic_0000001223434400_section75027114374:
 
 Step 4: Delete the Cluster
 --------------------------

@@ -8,13 +8,12 @@ Cloud Search Service - User Guide
    overview/index
    getting_started/index
    permissions_management/index
-   creating_and_accessing_a_cluster/index
-   scaling_in_out_a_cluster/index
+   viewing_the_cluster_runtime_status_and_storage_capacity_status
+   cluster_list_overview
+   deploying_a_cross-az_cluster
+   elasticsearch/index
    importing_data_to_elasticsearch/index
-   managing_elasticsearch_clusters/index
-   working_with_kibana/index
-   monitoring_a_cluster/index
-   elasticsearch_sql
-   querying_cluster_logs/index
+   monitoring/index
+   auditing/index
    faqs/index
    change_history

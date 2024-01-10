@@ -25,7 +25,29 @@ CSS is a fully-managed, out-of-the-box service. You can start using it with seve
 Kernel Enhancement
 ------------------
 
-Speed up data import, decouple storage and computing resources, isolate read and write requests, and take advantage of our high-performance vector search engine - all these at an affordable price.
+-  **Vector search**
+
+   When you search for unstructured data, such as images, videos, and corpuses, the nearest neighbors or approximate nearest neighbors are searched based on feature vectors.
+
+-  **Decoupled storage and compute**
+
+   CSS provides an API for freezing indexes. Hot data stored on SSD can be dumped to OBS to reduce data storage costs and decouple compute from storage.
+
+-  **Flow control**
+
+   CSS can control traffic at the node level. You can configure the blacklist and whitelist, the maximum concurrent HTTPS connections, and the maximum HTTP connections for a node. Each function has an independent control switch.
+
+-  **Large query isolation**
+
+   CSS allows you to separately manage large queries. You can isolate query requests that consume a large amount of memory or take a long period of time.
+
+-  **Index monitoring**
+
+   CSS monitors various metrics of the running status and change trend of cluster indexes to measure service usage and handle potential risks in a timely manner, ensuring that clusters can run stably.
+
+-  **Enhanced monitoring**
+
+   CSS supports enhanced cluster monitoring. It can monitor the P99 latency of cluster search requests and the HTTP status codes of clusters.
 
 High Reliability
 ----------------

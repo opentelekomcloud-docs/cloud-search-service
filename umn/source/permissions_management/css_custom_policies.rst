@@ -5,14 +5,14 @@
 CSS Custom Policies
 ===================
 
-Custom policies can be created to supplement the system-defined policies of CSS. For the actions supported for custom policies, see Permissions Policies and Supported Actions.
+Custom policies can be created to supplement the system-defined policies of CSS. For the actions supported for custom policies, see section "Permissions Policies and Supported Actions" in the *Cloud Search Service API Reference*.
 
 You can create custom policies in either of the following ways:
 
 -  Visual editor: Select cloud services, actions, resources, and request conditions. You do not need to have knowledge of the policy syntax.
 -  JSON: Create a JSON policy or edit based on an existing policy.
 
-For details about how to create custom policies, see `Creating a Custom Policy <https://docs.otc.t-systems.com/usermanual/iam/en-us_topic_0274187246.html>`__. The following section contains examples of common CSS custom policies.
+For details about how to create custom policies, see `Creating a Custom Policy <https://docs.otc.t-systems.com/identity-access-management/umn/user_guide/permissions/creating_a_custom_policy.html>`__. The following section provides examples of common CSS custom policies.
 
 .. note::
 
@@ -20,6 +20,10 @@ For details about how to create custom policies, see `Creating a Custom Policy <
 
 Example Custom Policies
 -----------------------
+
+.. note::
+
+   To let an IAM user access an OBS bucket, you need to grant the GetBucketStoragePolicy, GetBucketLocation, ListBucket, and ListAllMyBuckets permissions to the user.
 
 Example 1: Allowing users to create a CSS cluster
 

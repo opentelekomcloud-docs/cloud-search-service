@@ -5,7 +5,7 @@
 Using Kibana or APIs to Import Data to Elasticsearch
 ====================================================
 
-You can import data in various formats, such as JSON and CSV, to Elasticsearch in CSS by using Kibana or APIs.
+You can import data in various formats, such as JSON, to Elasticsearch in CSS by using Kibana or APIs.
 
 Importing Data Using Kibana
 ---------------------------
@@ -14,11 +14,13 @@ Before importing data, ensure that you can use Kibana to access the cluster. The
 
 #. Log in to the CSS management console.
 
-#. Locate the target cluster and click **Access Kibana** in the **Operation** column to log in to Kibana.
+#. In the navigation pane on the left, choose **Clusters** > **Elasticsearch** to switch to the **Clusters** page.
+
+#. Choose **Clusters** in the navigation pane. Locate the target cluster and click **Access Kibana** in the **Operation** column to log in to Kibana.
 
 #. Click **Dev Tools** in the navigation tree on the left.
 
-#. (Optional) On the **Console** page, run the related command to create an index for the data to be stored and specify a custom mapping to define the data type:
+#. (Optional) On the **Console** page, run the related command to create an index for storing data and specify a custom mapping to define the data type.
 
    If there is an available index in the cluster where you want to import data, skip this step. If there is no available index, create an index by referring to the following sample code.
 
@@ -86,11 +88,11 @@ Before importing data, ensure that you can use Kibana to access the cluster. The
       {"index":{}}
       {"productName":"Latest art shirts for women in 2017 autumn","size":"L"}
 
-   The command output is similar to that shown in :ref:`Figure 1 <css_01_0024__fig86351225133018>`. If the value of the **errors** field in the result is **false**, the data is successfully imported.
+   The command output is similar to that shown in :ref:`Figure 1 <css_01_0024__en-us_topic_0000001223594412_fig86351225133018>`. If the value of the **errors** field in the result is **false**, the data is successfully imported.
 
-   .. _css_01_0024__fig86351225133018:
+   .. _css_01_0024__en-us_topic_0000001223594412_fig86351225133018:
 
-   .. figure:: /_static/images/en-us_image_0000001503977588.png
+   .. figure:: /_static/images/en-us_image_0000001667002434.png
       :alt: **Figure 1** Response message
 
       **Figure 1** Response message
@@ -98,15 +100,13 @@ Before importing data, ensure that you can use Kibana to access the cluster. The
 Importing Data Using APIs
 -------------------------
 
-The following procedure illustrates how you can import a JSON data file using bulk APIs through the cURL command.
+You can call the bulk API using the cURL command to import a JSON data file.
 
 .. note::
 
    You are advised to import a file smaller than 50 MB.
 
 #. Log in to the ECS that you use to access the cluster.
-
-   For details about how to access a cluster, see :ref:`Accessing a Cluster by Calling Elasticsearch APIs on the ECS That Is Located in the Same VPC as the Cluster <css_01_0012__section16223134914582>`.
 
 #. Run the following command to import JSON data:
 

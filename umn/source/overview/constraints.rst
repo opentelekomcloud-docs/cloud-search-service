@@ -5,12 +5,12 @@
 Constraints
 ===========
 
-Clusters and Nodes
-------------------
+Restrictions on Clusters and Nodes
+----------------------------------
 
 The following table describes restrictions on clusters and nodes in CSS.
 
-.. table:: **Table 1** Restrictions on clusters and nodes
+.. table:: **Table 1** Restrictions on Elasticsearch clusters and nodes
 
    ==================================== ===========
    Cluster and Node                     Restriction
@@ -19,8 +19,8 @@ The following table describes restrictions on clusters and nodes in CSS.
    Minimum number of nodes in a cluster 1
    ==================================== ===========
 
-Browsers
---------
+Restrictions on Browsers
+------------------------
 
 -  You are advised to use the following browsers to access the CSS management console:
 
