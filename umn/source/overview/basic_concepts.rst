@@ -1,6 +1,6 @@
-:original_name: css_04_0003.html
+:original_name: css_04_0012.html
 
-.. _css_04_0003:
+.. _css_04_0012:
 
 Basic Concepts
 ==============
@@ -8,26 +8,19 @@ Basic Concepts
 Cluster
 -------
 
-CSS provides functions on a per cluster basis. A cluster represents an independent search service that contains multiple nodes.
+CSS provides functions on a per cluster basis. A cluster represents an independent search service that consists of multiple nodes.
 
 Index
 -----
 
-Index is similar to "database" in the relational database (RDB) and stores Elasticsearch data. It refers to a logical space that consists of one or more shards.
-
-.. table:: **Table 1** Mapping between Elasticsearch and RDB
-
-   ============= ======== ===== ======== ====== =======
-   Elasticsearch Index    Type  Document Field  Mapping
-   RDB           Database Table Row      Column Schema
-   ============= ======== ===== ======== ====== =======
+An index stores Elasticsearch data. It is a logical space in which one or more shards are grouped.
 
 Shard
 -----
 
-An index can potentially store a large amount of data that exceeds the hardware limits of a single node. To solve this problem, Elasticsearch subdivides your index into multiple pieces called shards. When you create an index, you can simply define the number of shards that you want. Each shard is in itself a fully-functional and independent "index" that can be hosted on any node in the cluster.
+An index can potentially store a large amount of data that can exceed the hardware limits of a single node. To solve this problem, Elasticsearch provides the ability to subdivide your index into multiple pieces called shards. When you create an index, you can simply define the number of shards that you want. Each shard is in itself a fully-functional and independent "index" that can be hosted on any node in the cluster.
 
-You need to specify the number of shards before creating an index and cannot change the number of shards after the index is created.
+You need to specify the number of shards before creating an index and cannot change the number after the index is successfully created.
 
 Replica
 -------
@@ -37,19 +30,23 @@ A replica is a copy of the actual storage index in a shard. It can be understood
 Document
 --------
 
-An entity for Elasticsearch storage. Equivalent to a row in the RDB, the document is the basic unit that can be indexed.
+An entity for Elasticsearch storage. Equivalent to the row in the RDB, the document is the basic unit that can be indexed.
 
-Type
-----
+Document Type
+-------------
 
-Similar to a table in the RDB, type is used to distinguish between different data. One index can contain multiple document types. A document must be indexed to a document type inside an index.
+Similar to a table in the RDB, type is used to distinguish between different data.
+
+In versions earlier than Elasticsearch 7.\ *x*, each index can contain multiple document types. Elasticsearch defines a type for each document.
+
+Elasticsearch 7.\ *x* and later versions only support documents of the .doc type.
 
 Mapping
 -------
 
-A mapping is used to restrict the type of a field and is automatically created based on data. It is similar to a schema in the database.
+A mapping is used to restrict the type of a field and can be automatically created based on data. It is similar to the schema in the database.
 
 Field
 -----
 
-Minimum unit of a document. A field is similar to a column in a database.
+The field is the minimum unit of a document. It is similar to the column in the database.

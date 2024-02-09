@@ -1,188 +1,168 @@
-:original_name: css_01_0002.html
+:original_name: css_01_0055.html
 
-.. _css_01_0002:
+.. _css_01_0055:
 
 Change History
 ==============
 
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Released On                       | Description                                                                                                                    |
-+===================================+================================================================================================================================+
-| 2023-04-04                        | Added: :ref:`How to access Kibana from outside cloud using ELB? <css_02_0201>`                                                 |
-|                                   |                                                                                                                                |
-|                                   | Updated the procedure description in: :ref:`VPC Endpoint Service <css_01_0082>`                                                |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2023-03-29                        | Added cluster version Opensearch_1.3.6.                                                                                        |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2023-03-28                        | -  Updated the procedure description in:                                                                                       |
-|                                   |                                                                                                                                |
-|                                   |    -  :ref:`CSS <css_04_0001>`                                                                                                 |
-|                                   |    -  :ref:`Related Services <css_04_0004>`                                                                                    |
-|                                   |    -  :ref:`Getting Started with Elasticsearch <css_01_0007>`                                                                  |
-|                                   |    -  :ref:`Clusters in Security Mode <css_04_0019>`                                                                           |
-|                                   |    -  :ref:`Creating an Elasticsearch Cluster in Security Mode <css_01_0011>`                                                  |
-|                                   |    -  :ref:`Creating an Elasticsearch Cluster in Non-Security Mode <css_01_0094>`                                              |
-|                                   |    -  :ref:`Changing Specifications <css_01_0074>`                                                                             |
-|                                   |    -  :ref:`Managing Plugins <css_01_0078>`                                                                                    |
-|                                   |    -  :ref:`Elasticsearch SQL <css_01_0061>`                                                                                   |
-|                                   |                                                                                                                                |
-|                                   | -  Added:                                                                                                                      |
-|                                   |                                                                                                                                |
-|                                   |    -  :ref:`Advantages <css_04_0010>`                                                                                          |
-|                                   |    -  :ref:`Product Components <css_04_0007>`                                                                                  |
-|                                   |    -  :ref:`Permissions Management <css_04_0014>`                                                                              |
-|                                   |    -  :ref:`Creating a User and Granting Permissions <css_01_0072>`                                                            |
-|                                   |    -  :ref:`CSS Custom Policies <css_01_0086>`                                                                                 |
-|                                   |    -  :ref:`Accessing an Elasticsearch Cluster <css_01_0190>`                                                                  |
-|                                   |    -  :ref:`Viewing Cluster Information <css_01_0185>`                                                                         |
-|                                   |    -  :ref:`Scaling Out a Cluster <css_01_0151>`                                                                               |
-|                                   |    -  :ref:`Scaling in a Cluster <css_01_0153>`                                                                                |
-|                                   |    -  :ref:`Removing Specified Nodes <css_01_0081>`                                                                            |
-|                                   |    -  :ref:`Binding an Enterprise Project <css_01_0058>`                                                                       |
-|                                   |    -  :ref:`Working with Kibana <css_01_0107>`                                                                                 |
-|                                   |    -  :ref:`Configuring Cluster Monitoring <css_01_0155>`                                                                      |
-|                                   |    -  :ref:`Why All New Index Shards Are Allocated to the Same Node? <css_02_0042>`                                            |
-|                                   |    -  :ref:`How Do I Obtain the Security Certificate of CSS? <css_02_0106>`                                                    |
-|                                   |    -  :ref:`What Is the Relationship Between the Filebeat Version and Cluster Version? <css_02_0064>`                          |
-|                                   |    -  :ref:`Can I Restore a Deleted Cluster? <css_02_0120>`                                                                    |
-|                                   |    -  :ref:`How Do I Create a Type Under an Index in an Elasticsearch 7.x Cluster? <css_02_0132>`                              |
-|                                   |    -  :ref:`How Do I Convert the Format of a CER Security Certificate? <css_02_0128>`                                          |
-|                                   |    -  :ref:`What Are the Impacts If an Elasticsearch Cluster Has Too Many Shards? <css_02_0124>`                               |
-|                                   |    -  :ref:`How Do I Set the Default Maximum Number of Records Displayed on a Page for an Elasticsearch Cluster <css_02_0125>` |
-|                                   |    -  :ref:`Why Does the Disk Usage Increase After the delete_by_query Command Was Executed to Delete Data? <css_02_0126>`     |
-|                                   |    -  :ref:`How Do I Clear the Cache of a CSS Cluster? <css_02_0130>`                                                          |
-|                                   |    -  :ref:`The Average Memory Usage of an Elasticsearch Cluster Reaches 98% <css_02_0131>`                                    |
-|                                   |    -  :ref:`Can I Install Search Guard on CSS? <css_02_0088>`                                                                  |
-|                                   |    -  :ref:`Can I Export Data from Kibana? <css_02_0098>`                                                                      |
-|                                   |    -  :ref:`How Do I Query Index Data on Kibana in an ES Cluster? <css_02_0099>`                                               |
-|                                   |    -  :ref:`Can a New Cluster Use the IP Address of the Old Cluster? <css_02_0078>`                                            |
-|                                   |    -  :ref:`Can I Use x-pack-sql-jdbc to Access CSS Clusters and Query Data? <css_02_0081>`                                    |
-|                                   |    -  :ref:`Do Ports 9200 and 9300 Both Open? <css_02_0083>`                                                                   |
-|                                   |                                                                                                                                |
-|                                   | -  Deleted:                                                                                                                    |
-|                                   |                                                                                                                                |
-|                                   |    -  Kibana                                                                                                                   |
-|                                   |    -  Cerebro                                                                                                                  |
-|                                   |    -  Suggestions on Using Elasticsearch                                                                                       |
-|                                   |    -  Creating Alarm Rules                                                                                                     |
-|                                   |    -  Viewing Audit Logs                                                                                                       |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2022-09-14                        | Updated: :ref:`Index Backup and Restoration <css_01_0033>`                                                                     |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2022-07-28                        | Added cluster version 7.10.2.                                                                                                  |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2022-06-30                        | Added cluster version 7.9.3.                                                                                                   |
-|                                   |                                                                                                                                |
-|                                   | Supported the VPC endpoint service: :ref:`VPC Endpoint Service <css_01_0082>`                                                  |
-|                                   |                                                                                                                                |
-|                                   | Optimized the following content based on use scenarios and operation processes:                                                |
-|                                   |                                                                                                                                |
-|                                   | -  Modifying Specifications                                                                                                    |
-|                                   | -  :ref:`Creating an Elasticsearch Cluster in Security Mode <css_01_0011>`                                                     |
-|                                   | -  :ref:`Creating an Elasticsearch Cluster in Non-Security Mode <css_01_0094>`                                                 |
-|                                   | -  :ref:`Index Backup and Restoration <css_01_0033>`                                                                           |
-|                                   | -  :ref:`Managing Tags <css_01_0075>`                                                                                          |
-|                                   | -  :ref:`Managing Logs <css_01_0077>`                                                                                          |
-|                                   | -  :ref:`Hot and Cold Data Storage <css_01_0079>`                                                                              |
-|                                   | -  Viewing Metrics                                                                                                             |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2020-08-30                        | -  Added cluster versions 7.6.2.                                                                                               |
-|                                   |                                                                                                                                |
-|                                   | -  Added the following sections:                                                                                               |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Configuring Parameters <css_01_0080>`                                                                                 |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Managing Plugins <css_01_0078>`                                                                                       |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Managing Tags <css_01_0075>`                                                                                          |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Managing Logs <css_01_0077>`                                                                                          |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2019-03-15                        | -  Updated the following section based on software changes:                                                                    |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Index Backup and Restoration <css_01_0033>`                                                                           |
-|                                   |                                                                                                                                |
-|                                   |    Creating Alarm Rules                                                                                                        |
-|                                   |                                                                                                                                |
-|                                   | -  Added the operation guide for managing failed tasks.                                                                        |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Managing Failed Tasks <css_01_0060>`                                                                                  |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2019-01-26                        | -  Accepted in OTC-3.2/Agile-01.2019.                                                                                          |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2019-01-17                        | -  Modified the following section based on software changes:                                                                   |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Creating an Elasticsearch Cluster in Non-Security Mode <css_01_0094>`                                                 |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Using Logstash to Import Data to Elasticsearch <css_01_0048>`                                                         |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Cluster and Storage Capacity Statuses <css_01_0053>`                                                                  |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Index Backup and Restoration <css_01_0033>`                                                                           |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2018-12-17                        | -  Optimized examples and operation commands in the following section:                                                         |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Using Kibana or APIs to Import Data to Elasticsearch <css_01_0024>`                                                   |
-|                                   |                                                                                                                                |
-|                                   | -  Updated and optimized the description in the following sections:                                                            |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Creating an Elasticsearch Cluster in Non-Security Mode <css_01_0094>`                                                 |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Accessing a Cluster <css_01_0012>`                                                                                    |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Using Logstash to Import Data to Elasticsearch <css_01_0048>`                                                         |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2018-12-03                        | -  Updated screenshots in the following sections based on software changes:                                                    |
-|                                   |                                                                                                                                |
-|                                   |    1Why Does My ECS Fail to Connect to a Cluster?                                                                              |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2018-11-02                        | -  Updated descriptions in the following sections based on software function changes:                                          |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Index Backup and Restoration <css_01_0033>`                                                                           |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2018-10-19                        | -  Added parameter descriptions and modified the description of operations in the following section:                           |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Index Backup and Restoration <css_01_0033>`                                                                           |
-|                                   |                                                                                                                                |
-|                                   | -  Optimized the Elasticsearch usage suggestions.                                                                              |
-|                                   |                                                                                                                                |
-|                                   |    Suggestions on Using Elasticsearch                                                                                          |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2018-10-12                        | -  Added the description about the automatic snapshot deletion time.                                                           |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Index Backup and Restoration <css_01_0033>`                                                                           |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2018-10-08                        | -  Accepted in OTC-3.2.                                                                                                        |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2018-09-28                        | -  Modified descriptions related to the private network address.                                                               |
-|                                   |                                                                                                                                |
-|                                   |    -  :ref:`Getting Started with Elasticsearch <css_01_0007>`                                                                  |
-|                                   |    -  :ref:`Using Logstash to Import Data to Elasticsearch <css_01_0048>`                                                      |
-|                                   |                                                                                                                                |
-|                                   | -  Modified descriptions about metrics in the metric table.                                                                    |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Supported Metrics <css_01_0042>`                                                                                      |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2018-09-14                        | -  Added the following section:                                                                                                |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Introduction to the Cluster List <css_01_0056>`                                                                       |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2018-08-20                        | -  Modified the screenshots and output examples.                                                                               |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Getting Started with Elasticsearch <css_01_0007>`                                                                     |
-|                                   |                                                                                                                                |
-|                                   | -  Added operation examples in the following section:                                                                          |
-|                                   |                                                                                                                                |
-|                                   |    Suggestions on Using Elasticsearch                                                                                          |
-|                                   |                                                                                                                                |
-|                                   | -  Added the link to the operation guide for enabling CTS in the following section:                                            |
-|                                   |                                                                                                                                |
-|                                   |    :ref:`Key Operations Recorded by CTS <css_01_0050>`                                                                         |
-|                                   |                                                                                                                                |
-|                                   | -  Deleted the following two sections:                                                                                         |
-|                                   |                                                                                                                                |
-|                                   |    -  What is CSS?                                                                                                             |
-|                                   |    -  Which Scenarios Can CSS Be Applied To?                                                                                   |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| 2018-07-31                        | This issue is the first official release.                                                                                      |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| Released On                       | Description                                                                                       |
++===================================+===================================================================================================+
+| 2023-12-15                        | Delete the following sections:                                                                    |
+|                                   |                                                                                                   |
+|                                   | -  Using the OpenDistro Alarm Plugin                                                              |
+|                                   | -  (Optional) Service Authorization                                                               |
+|                                   | -  Logstash                                                                                       |
+|                                   | -  Intelligent O&M                                                                                |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2023-9-25                         | Added the following sections:                                                                     |
+|                                   |                                                                                                   |
+|                                   | -  :ref:`(Optional) Interconnecting with a Dedicated Load Balancer <css_01_0184>`                 |
+|                                   | -  :ref:`Replacing a Specified Node <css_01_0156>`                                                |
+|                                   | -  :ref:`Adding Master/Client Nodes <css_01_0157>`                                                |
+|                                   | -  :ref:`Changing the Security Mode <css_01_0158>`                                                |
+|                                   | -  :ref:`Changing AZs <css_01_0201>`                                                              |
+|                                   | -  :ref:`Upgrading Versions <css_01_0186>`                                                        |
+|                                   | -  :ref:`Using the Open Distro SQL Plugin <css_01_0061>`                                          |
+|                                   | -  Using the OpenDistro Alarm Plugin                                                              |
+|                                   | -  (Optional) Service Authorization                                                               |
+|                                   | -  :ref:`Monitoring Metrics <css_01_0246>`                                                        |
+|                                   | -  Logstash                                                                                       |
+|                                   | -  :ref:`Enhanced Import Performance <css_01_0227>`                                               |
+|                                   | -  :ref:`Enhanced Aggregation <css_01_0172>`                                                      |
+|                                   | -  :ref:`Read/Write Splitting <css_01_0161>`                                                      |
+|                                   | -  Intelligent O&M                                                                                |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2023-03-28                        | -  Optimized the content structure of the following sections:                                     |
+|                                   |                                                                                                   |
+|                                   |    -  What Is Cloud Search Service?                                                               |
+|                                   |    -  Related Services                                                                            |
+|                                   |    -  Clusters in Security Mode                                                                   |
+|                                   |                                                                                                   |
+|                                   | -  Updated the procedure description in:                                                          |
+|                                   |                                                                                                   |
+|                                   |    -  :ref:`Getting Started with Elasticsearch <css_01_0007>`                                     |
+|                                   |    -  :ref:`Viewing the Default Plugin List <css_01_0078>`                                        |
+|                                   |    -  :ref:`Changing Specifications <css_01_0152>`                                                |
+|                                   |                                                                                                   |
+|                                   | -  Added:                                                                                         |
+|                                   |                                                                                                   |
+|                                   |    -  Advantages                                                                                  |
+|                                   |    -  Product Components                                                                          |
+|                                   |    -  Permissions Management                                                                      |
+|                                   |    -  :ref:`Creating a User and Granting Permissions <css_01_0072>`                               |
+|                                   |    -  :ref:`CSS Custom Policies <css_01_0086>`                                                    |
+|                                   |    -  :ref:`Accessing an Elasticsearch Cluster <css_01_0190>`                                     |
+|                                   |    -  :ref:`Viewing Basic Information About an Elasticsearch Cluster <css_01_0185>`               |
+|                                   |    -  :ref:`Scaling Out a Cluster <css_01_0151>`                                                  |
+|                                   |    -  :ref:`Scaling in a Cluster <css_01_0153>`                                                   |
+|                                   |    -  :ref:`Removing Specified Nodes <css_01_0154>`                                               |
+|                                   |    -  :ref:`Binding an Enterprise Project <css_01_0058>`                                          |
+|                                   |    -  :ref:`Kibana Platform <css_01_0107>`                                                        |
+|                                   |    -  :ref:`Configuring Cluster Monitoring <css_01_0155>`                                         |
+|                                   |    -  Optimized the directory structure based on the question types.                              |
+|                                   |                                                                                                   |
+|                                   | -  Deleted the following sections:                                                                |
+|                                   |                                                                                                   |
+|                                   |    -  What Is Kibana?                                                                             |
+|                                   |    -  What is Cerebro?                                                                            |
+|                                   |    -  Suggestions on Using Elasticsearch                                                          |
+|                                   |    -  Viewing Monitoring Metrics                                                                  |
+|                                   |    -  Creating Alarm Rules                                                                        |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2022-09-14                        | Updated: :ref:`Index Backup and Restoration <css_01_0269>`                                        |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2022-07-28                        | Added the cluster version 7.10.2.                                                                 |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2022-06-30                        | Added the description about cluster version 7.9.3.                                                |
+|                                   |                                                                                                   |
+|                                   | Supported the VPC endpoint service: :ref:`Accessing a Cluster Using a VPC Endpoint <css_01_0082>` |
+|                                   |                                                                                                   |
+|                                   | Optimized:                                                                                        |
+|                                   |                                                                                                   |
+|                                   | -  :ref:`Changing Specifications <css_01_0152>`                                                   |
+|                                   | -  :ref:`Creating an Elasticsearch Cluster in Security Mode <css_01_0011>`                        |
+|                                   | -  :ref:`Creating an Elasticsearch Cluster in Non-Security Mode <css_01_0094>`                    |
+|                                   | -  :ref:`Index Backup and Restoration <css_01_0269>`                                              |
+|                                   | -  :ref:`Managing Tags <css_01_0075>`                                                             |
+|                                   | -  :ref:`Managing Logs <css_01_0077>`                                                             |
+|                                   | -  :ref:`Hot and Cold Data Node Switchover <css_01_0079>`                                         |
+|                                   | -  :ref:`Configuring Cluster Monitoring <css_01_0155>`                                            |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2020-08-30                        | -  Added: cluster version 7.6.2.                                                                  |
+|                                   | -  Added:                                                                                         |
+|                                   |                                                                                                   |
+|                                   |    -  :ref:`Configuring YML Parameters <css_01_0080>`                                             |
+|                                   |    -  :ref:`Managing Plugins <css_01_0212>`                                                       |
+|                                   |    -  :ref:`Managing Tags <css_01_0075>`                                                          |
+|                                   |    -  :ref:`Managing Logs <css_01_0077>`                                                          |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2019-03-15                        | -  Updated:                                                                                       |
+|                                   |                                                                                                   |
+|                                   |    -  :ref:`Index Backup and Restoration <css_01_0269>`                                           |
+|                                   |    -  :ref:`Configuring Cluster Monitoring <css_01_0155>`                                         |
+|                                   |                                                                                                   |
+|                                   | -  Added.                                                                                         |
+|                                   |                                                                                                   |
+|                                   |    :ref:`Managing Failed Tasks <css_01_0060>`                                                     |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2019-01-26                        | Accepted in OTC-3.2/Agile-01.2019.                                                                |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2019-01-17                        | Updated:                                                                                          |
+|                                   |                                                                                                   |
+|                                   | -  :ref:`Creating an Elasticsearch Cluster in Non-Security Mode <css_01_0094>`                    |
+|                                   | -  :ref:`Using Logstash to Import Data to Elasticsearch <css_01_0048>`                            |
+|                                   | -  :ref:`Viewing the Cluster Runtime Status and Storage Capacity Status <css_01_0053>`            |
+|                                   | -  :ref:`Index Backup and Restoration <css_01_0269>`                                              |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2018-12-17                        | -  Optimized:                                                                                     |
+|                                   |                                                                                                   |
+|                                   |    :ref:`Using Kibana or APIs to Import Data to Elasticsearch <css_01_0024>`                      |
+|                                   |                                                                                                   |
+|                                   | -  Updated:                                                                                       |
+|                                   |                                                                                                   |
+|                                   |    -  :ref:`Creating an Elasticsearch Cluster in Non-Security Mode <css_01_0094>`                 |
+|                                   |    -  :ref:`Using Logstash to Import Data to Elasticsearch <css_01_0048>`                         |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2018-12-03                        | Updated the screenshots in section "Why Does My ECS Fail to Connect to a Cluster?".               |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2018-11-02                        | Updated descriptions in the following sections based on software function changes:                |
+|                                   |                                                                                                   |
+|                                   | :ref:`Index Backup and Restoration <css_01_0269>`                                                 |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2018-10-19                        | Added parameter descriptions and modified the description of operations in the following section: |
+|                                   |                                                                                                   |
+|                                   | :ref:`Index Backup and Restoration <css_01_0269>`                                                 |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2018-10-12                        | Added the description about the automatic snapshot deletion time in the following section:        |
+|                                   |                                                                                                   |
+|                                   | :ref:`Index Backup and Restoration <css_01_0269>`                                                 |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2018-10-08                        | Accepted in OTC-3.2.                                                                              |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2018-09-28                        | -  Modified descriptions related to the private network address.                                  |
+|                                   |                                                                                                   |
+|                                   |    -  :ref:`Getting Started with Elasticsearch <css_01_0007>`                                     |
+|                                   |    -  :ref:`Using Logstash to Import Data to Elasticsearch <css_01_0048>`                         |
+|                                   |                                                                                                   |
+|                                   | -  Modified descriptions about metrics in the metric table in the following section:              |
+|                                   |                                                                                                   |
+|                                   |    :ref:`Monitoring Metrics of Elasticsearch Clusters <css_01_0042>`                              |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2018-09-14                        | Added :ref:`Cluster List Overview <css_01_0056>`.                                                 |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2018-08-20                        | -  Modified the screenshots and output examples in the following section:                         |
+|                                   |                                                                                                   |
+|                                   |    :ref:`Getting Started with Elasticsearch <css_01_0007>`                                        |
+|                                   |                                                                                                   |
+|                                   | -  Added the link to the operation guide for enabling CTS in the following section:               |
+|                                   |                                                                                                   |
+|                                   |    :ref:`Key Operations Recorded by CTS <css_01_0050>`                                            |
+|                                   |                                                                                                   |
+|                                   | -  Deleted the following two sections:                                                            |
+|                                   |                                                                                                   |
+|                                   |    -  What Is CSS?                                                                                |
+|                                   |    -  What Are the Scenarios to Which CSS Applies?                                                |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
+| 2018-07-31                        | This issue is the first official release.                                                         |
++-----------------------------------+---------------------------------------------------------------------------------------------------+

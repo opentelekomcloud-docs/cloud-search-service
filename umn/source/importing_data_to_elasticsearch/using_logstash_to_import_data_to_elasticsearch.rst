@@ -7,12 +7,12 @@ Using Logstash to Import Data to Elasticsearch
 
 You can use Logstash to collect data and migrate collected data to Elasticsearch in CSS. This method helps you effectively obtain and manage data through Elasticsearch. Data files can be in the JSON or CSV format.
 
-Logstash is an open-source, server-side data processing pipeline that ingests data from a multitude of sources simultaneously, transforms it, and then sends it to Elasticsearch. For details about Logstash, visit the following website: https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html
+Logstash is an open-source, server-side data processing pipeline that ingests data from multiple sources simultaneously, transforms data, and then sends data to Elasticsearch. For details about Logstash, visit the following website: https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html
 
 The following two scenarios are involved depending on the Logstash deployment:
 
--  :ref:`Importing Data When Logstash Is Deployed on the External Network <css_01_0048__section072813417814>`
--  :ref:`Importing Data When Logstash Is Deployed on an ECS <css_01_0048__section1098217174335>`
+-  :ref:`Importing Data When Logstash Is Deployed on the External Network <css_01_0048__en-us_topic_0000001223914344_section072813417814>`
+-  :ref:`Importing Data When Logstash Is Deployed on an ECS <css_01_0048__en-us_topic_0000001223914344_section1098217174335>`
 
 Prerequisites
 -------------
@@ -26,23 +26,23 @@ Prerequisites
 
 -  After installing Logstash, perform the following steps to import data. For details about how to install Logstash, visit the following website: https://www.elastic.co/guide/en/logstash/current/installing-logstash.html
 -  The JDK must be installed before Logstash is installed. In Linux OS, you can run the **yum -y install java-1.8.0** command to install JDK 1.8.0. In Windows OS, you can download the required JDK version from the `official website of JDK <https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>`__, and install it by following the installation guide.
--  In the :ref:`Importing Data When Logstash Is Deployed on an ECS <css_01_0048__section1098217174335>` scenario, ensure that the ECS and the Elasticsearch cluster to which data is imported reside in the same VPC.
+-  In the :ref:`Importing Data When Logstash Is Deployed on an ECS <css_01_0048__en-us_topic_0000001223914344_section1098217174335>` scenario, ensure that the ECS and the Elasticsearch cluster to which data is imported reside in the same VPC.
 
-.. _css_01_0048__section072813417814:
+.. _css_01_0048__en-us_topic_0000001223914344_section072813417814:
 
 Importing Data When Logstash Is Deployed on the External Network
 ----------------------------------------------------------------
 
-:ref:`Figure 1 <css_01_0048__fig471717481106>` illustrates how data is imported when Logstash is deployed on an external network.
+:ref:`Figure 1 <css_01_0048__en-us_topic_0000001223914344_fig471717481106>` illustrates how data is imported when Logstash is deployed on an external network.
 
-.. _css_01_0048__fig471717481106:
+.. _css_01_0048__en-us_topic_0000001223914344_fig471717481106:
 
-.. figure:: /_static/images/en-us_image_0000001554897285.png
+.. figure:: /_static/images/en-us_image_0000001667002574.png
    :alt: **Figure 1** Importing data when Logstash is deployed on an external network
 
    **Figure 1** Importing data when Logstash is deployed on an external network
 
-#. .. _css_01_0048__li1648853125014:
+#. .. _css_01_0048__en-us_topic_0000001223914344_li1648853125014:
 
    Create a jump host and configure it as follows:
 
@@ -61,8 +61,8 @@ Importing Data When Logstash Is Deployed on the External Network
 
    .. note::
 
-      -  In the preceding command, *<Local port of the jump host>* refers to the port obtained in :ref:`1 <css_01_0048__li1648853125014>`.
-      -  In the preceding command, *<Private network address and port number of a node>* refers to the private network address and port number of a node in the cluster. If the node is faulty, the command execution will fail. If the cluster contains multiple nodes, you can replace the value of *<private network address and port number of a node>* with the private network address and port number of any available node in the cluster. If the cluster contains only one node, restore the node and execute the command again.
+      -  In the preceding command, *<Local port of the jump host>* refers to the port obtained in :ref:`1 <css_01_0048__en-us_topic_0000001223914344_li1648853125014>`.
+      -  In the preceding command, *<Private network address and port number of a node>* refers to the private network address and port number of a node in the cluster. If the node is faulty, the command execution will fail. If the cluster contains multiple nodes, you can replace the value of **<private network address and port number of a node>** with the private network address and port number of any available node in the cluster. If the cluster contains only one node, restore the node and execute the command again.
       -  Replace <Private IP address of the *jump host*> in the preceding command with the IP address (with **Private IP**) of the created jump host in the **IP Address** column in the ECS list on the ECS management console.
 
    For example, port **9200** on the jump host is assigned external network access permissions, the private network address and port number of the node are **192.168.0.81** and **9200**, respectively, and the private IP address of the jump host is **192.168.0.227**. You need to run the following command to perform port mapping:
@@ -71,7 +71,7 @@ Importing Data When Logstash Is Deployed on the External Network
 
       ssh -g -L 9200:192.168.0.81:9200 -N -f root@192.168.0.227
 
-#. .. _css_01_0048__li5164153542312:
+#. .. _css_01_0048__en-us_topic_0000001223914344_li5164153542312:
 
    Log in to the server where Logstash is deployed and store the data files to be imported on the server.
 
@@ -123,9 +123,9 @@ Importing Data When Logstash Is Deployed on the External Network
 
    -  The **input** parameter indicates the data source. Set this parameter based on the actual conditions. For details about the **input** parameter and parameter usage, visit the following website: https://www.elastic.co/guide/en/logstash/current/input-plugins.html
    -  The **filter** parameter specifies the mode in which data is processed. For example, extract and process logs to convert unstructured information into structured information. For details about the **filter** parameter and parameter usage, visit the following website: https://www.elastic.co/guide/en/logstash/current/filter-plugins.html
-   -  The **output** parameter indicates the destination address of the data. For details about the **output** parameter and parameter usage, visit https://www.elastic.co/guide/en/logstash/current/output-plugins.html. Replace <*EIP address of the jump host*> with the IP address (with **EIP**) of the created jump host in the **IP Address** column in the ECS list on the ECS management console. *<Number of the port assigned external network access permissions on the jump host>* is the number of the port obtained in :ref:`1 <css_01_0048__li1648853125014>`, for example, **9200**.
+   -  The **output** parameter indicates the destination address of the data. For details about the **output** parameter and parameter usage, visit https://www.elastic.co/guide/en/logstash/current/output-plugins.html. Replace <*EIP address of the jump host*> with the IP address (with **EIP**) of the created jump host in the **IP Address** column in the ECS list on the ECS management console. *<Number of the port assigned external network access permissions on the jump host>* is the number of the port obtained in :ref:`1 <css_01_0048__en-us_topic_0000001223914344_li1648853125014>`, for example, **9200**.
 
-   Consider the data files in the **/tmp/access_log/** path mentioned in :ref:`4 <css_01_0048__li5164153542312>` as an example. Assume that data import starts from data in the first row of the data file, the filtering condition is left unspecified (indicating no data processing operations are performed), the public IP address and port number of the jump host are **192.168.0.227** and **9200**, respectively, and the name of the target index is **myindex**. Edit the configuration file as follows, and enter **:wq** to save the configuration file and exit.
+   Consider the data files in the **/tmp/access_log/** path mentioned in :ref:`4 <css_01_0048__en-us_topic_0000001223914344_li5164153542312>` as an example. Assume that data import starts from data in the first row of the data file, the filtering condition is left unspecified (indicating no data processing operations are performed), the public IP address and port number of the jump host are **192.168.0.227** and **9200**, respectively, and the name of the target index is **myindex**. Edit the configuration file as follows, and enter **:wq** to save the configuration file and exit.
 
    .. code-block::
 
@@ -154,7 +154,7 @@ Importing Data When Logstash Is Deployed on the External Network
    a. Download a certificate on the **Basic Information** page of the cluster.
 
 
-      .. figure:: /_static/images/en-us_image_0000001503977516.png
+      .. figure:: /_static/images/en-us_image_0000001666842866.png
          :alt: **Figure 2** Downloading a certificate
 
          **Figure 2** Downloading a certificate
@@ -163,7 +163,7 @@ Importing Data When Logstash Is Deployed on the External Network
 
    c. Modify the **logstash-simple.conf** configuration file.
 
-      Consider the data files in the **/tmp/access_log/** path mentioned in :ref:`4 <css_01_0048__li5164153542312>` as an example. Assume that data import starts from data in the first row of the data file, the filtering condition is left unspecified (indicating no data processing operations are performed), and the public IP address and port number of the jump host are **192.168.0.227** and **9200**, respectively. The name of the index for importing data is **myindex**, and the certificate is stored in **/logstash/logstash6.8/config/CloudSearchService.cer**. Edit the configuration file as follows, and enter **:wq** to save the configuration file and exit.
+      Consider the data files in the **/tmp/access_log/** path mentioned in :ref:`4 <css_01_0048__en-us_topic_0000001223914344_li5164153542312>` as an example. Assume that data import starts from data in the first row of the data file, the filtering condition is left unspecified (indicating no data processing operations are performed), and the public IP address and port number of the jump host are **192.168.0.227** and **9200**, respectively. The name of the index for importing data is **myindex**, and the certificate is stored in **/logstash/logstash6.8/config/CloudSearchService.cer**. Edit the configuration file as follows, and enter **:wq** to save the configuration file and exit.
 
       .. code-block::
 
@@ -201,39 +201,33 @@ Importing Data When Logstash Is Deployed on the External Network
 
 #. Log in to the CSS management console.
 
-#. In the left navigation pane, click **Clusters** to switch to the **Clusters** page.
+#. In the navigation pane on the left, choose **Clusters** > **Elasticsearch** to switch to the **Clusters** page.
 
 #. From the cluster list, locate the row that contains the cluster to which you want to import data and click **Access Kibana** in the **Operation** column.
 
-#. In the left navigation pane of the displayed Kibana window, click **Dev Tools**.
-
-
-   .. figure:: /_static/images/en-us_image_0000001503657724.png
-      :alt: **Figure 3** Logging in to Dev Tools
-
-      **Figure 3** Logging in to Dev Tools
+#. In the Kibana navigation pane on the left, choose **Dev Tools**.
 
 #. On the **Console** page of Kibana, search for the imported data.
 
-   On the **Console** page of Kibana, enter the following command to search for data. View the search results. If the searched data is consistent with the imported data, the data has been imported successfully.
+   On the **Console** page of Kibana, run the following command to search for data. View the search results. If the searched data is consistent with the imported data, the data has been imported successfully.
 
    .. code-block:: text
 
       GET myindex/_search
 
-.. _css_01_0048__section1098217174335:
+.. _css_01_0048__en-us_topic_0000001223914344_section1098217174335:
 
 Importing Data When Logstash Is Deployed on an ECS
 --------------------------------------------------
 
-:ref:`Figure 4 <css_01_0048__fig124034434127>` illustrates how data is imported when Logstash is deployed on an ECS that resides in the same VPC as the cluster to which data is to be imported.
+:ref:`Figure 3 <css_01_0048__en-us_topic_0000001223914344_fig124034434127>` illustrates how data is imported when Logstash is deployed on an ECS that resides in the same VPC as the cluster to which data is to be imported.
 
-.. _css_01_0048__fig124034434127:
+.. _css_01_0048__en-us_topic_0000001223914344_fig124034434127:
 
-.. figure:: /_static/images/en-us_image_0000001503817616.png
-   :alt: **Figure 4** Importing data when Logstash is deployed on an ECS
+.. figure:: /_static/images/en-us_image_0000001714922197.png
+   :alt: **Figure 3** Importing data when Logstash is deployed on an ECS
 
-   **Figure 4** Importing data when Logstash is deployed on an ECS
+   **Figure 3** Importing data when Logstash is deployed on an ECS
 
 #. Ensure that the ECS where Logstash is deployed and the cluster to which data is to be imported reside in the same VPC, port **9200** of the ECS security group has been assigned external network access permissions, and an EIP has been bound to the ECS.
 
@@ -242,7 +236,7 @@ Importing Data When Logstash Is Deployed on an ECS
       -  If there are multiple servers in a VPC, you do not need to associate EIPs to other servers as long as one server is associated with an EIP. Switch to the node where Logstash is deployed from the node with which the EIP is associated.
       -  If a private line or VPN is available, you do not need to associate an EIP.
 
-#. .. _css_01_0048__li1652411439236:
+#. .. _css_01_0048__en-us_topic_0000001223914344_li1652411439236:
 
    Use PuTTY to log in to the ECS.
 
@@ -305,7 +299,7 @@ Importing Data When Logstash Is Deployed on an ECS
 
          hosts => "192.168.0.81:9200"
 
-   Consider the data files in the **/tmp/access_log/** path mentioned in :ref:`2 <css_01_0048__li1652411439236>` as an example. Assume that data import starts from data in the first row of the data file, the filtering condition is left unspecified (indicating no data processing operations are performed), the private network address and port number of the node in the cluster where data is to be imported are **192.168.0.81** and **9200**, respectively, and the name of the target index is **myindex**. Edit the configuration file as follows, and enter **:wq** to save the configuration file and exit.
+   Consider the data files in the **/tmp/access_log/** path mentioned in :ref:`2 <css_01_0048__en-us_topic_0000001223914344_li1652411439236>` as an example. Assume that data import starts from data in the first row of the data file, the filtering condition is left unspecified (indicating no data processing operations are performed), the private network address and port number of the node in the cluster where data is to be imported are **192.168.0.81** and **9200**, respectively, and the name of the target index is **myindex**. Edit the configuration file as follows, and enter **:wq** to save the configuration file and exit.
 
    .. code-block::
 
@@ -330,16 +324,16 @@ Importing Data When Logstash Is Deployed on an ECS
    a. Download a certificate on the **Basic Information** page of the cluster.
 
 
-      .. figure:: /_static/images/en-us_image_0000001554777349.png
-         :alt: **Figure 5** Downloading a certificate
+      .. figure:: /_static/images/en-us_image_0000001714802369.png
+         :alt: **Figure 4** Downloading a certificate
 
-         **Figure 5** Downloading a certificate
+         **Figure 4** Downloading a certificate
 
    b. Store the certificate to the server where Logstash is deployed.
 
    c. Modify the **logstash-simple.conf** configuration file.
 
-      Consider the data files in the **/tmp/access_log/** path mentioned in :ref:`2 <css_01_0048__li1652411439236>` as an example. Assume that data import starts from data in the first row of the data file, the filtering condition is left unspecified (indicating no data processing operations are performed), the public IP address and port number of the jump host are **192.168.0.227** and **9200**, respectively. The name of the index for importing data is **myindex**, and the certificate is stored in **/logstash/logstash6.8/config/CloudSearchService.cer**. Edit the configuration file as follows, and enter **:wq** to save the configuration file and exit.
+      Consider the data files in the **/tmp/access_log/** path mentioned in step :ref:`2 <css_01_0048__en-us_topic_0000001223914344_li1652411439236>` as an example. Assume that data import starts from data in the first row of the data file, the filtering condition is left unspecified (indicating no data processing operations are performed), the public IP address and port number of the jump host are **192.168.0.227** and **9200**, respectively. The name of the index for importing data is **myindex**, and the certificate is stored in **/logstash/logstash6.8/config/CloudSearchService.cer**. Edit the configuration file as follows, and enter **:wq** to save the configuration file and exit.
 
       .. code-block::
 
@@ -373,21 +367,15 @@ Importing Data When Logstash Is Deployed on an ECS
 
 #. Log in to the CSS management console.
 
-#. In the left navigation pane, click **Clusters** to switch to the **Clusters** page.
+#. In the navigation pane on the left, choose **Clusters** > **Elasticsearch** to switch to the **Clusters** page.
 
 #. From the cluster list, locate the row that contains the cluster to which you want to import data and click **Access Kibana** in the **Operation** column.
 
-#. In the left navigation pane of the displayed Kibana window, click **Dev Tools**.
-
-
-   .. figure:: /_static/images/en-us_image_0000001503657720.png
-      :alt: **Figure 6** Choosing Dev Tools
-
-      **Figure 6** Choosing Dev Tools
+#. In the Kibana navigation pane on the left, choose **Dev Tools**.
 
 #. On the **Console** page of Kibana, search for the imported data.
 
-   On the **Console** page of Kibana, enter the following command to search for data. View the search results. If the searched data is consistent with the imported data, the data has been imported successfully.
+   On the **Console** page of Kibana, run the following command to search for data. View the search results. If the searched data is consistent with the imported data, the data has been imported successfully.
 
    .. code-block:: text
 
