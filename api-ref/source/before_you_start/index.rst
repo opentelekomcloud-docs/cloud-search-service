@@ -7,7 +7,6 @@ Before You Start
 
 -  :ref:`Overview <css_03_0051>`
 -  :ref:`Endpoints <css_03_0053>`
--  :ref:`Concepts <css_03_0055>`
 -  :ref:`Supported Cluster Versions <css_03_0056>`
 
 .. toctree::
@@ -16,5 +15,4 @@ Before You Start
 
    overview
    endpoints
-   concepts
    supported_cluster_versions
