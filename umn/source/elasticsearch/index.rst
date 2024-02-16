@@ -9,7 +9,6 @@ Elasticsearch
 -  :ref:`Accessing an Elasticsearch Cluster <css_01_0210>`
 -  :ref:`Index Backup and Restoration <css_01_0269>`
 -  :ref:`Changing the Elasticsearch Cluster Form <css_01_0149>`
--  :ref:`Upgrading Versions <css_01_0186>`
 -  :ref:`Configuring an Elasticsearch Cluster <css_01_0211>`
 -  :ref:`Managing Logs <css_01_0077>`
 -  :ref:`Managing Plugins <css_01_0212>`
@@ -24,7 +23,6 @@ Elasticsearch
    accessing_an_elasticsearch_cluster/index
    index_backup_and_restoration/index
    changing_the_elasticsearch_cluster_form/index
-   upgrading_versions
    configuring_an_elasticsearch_cluster/index
    managing_logs
    managing_plugins/index

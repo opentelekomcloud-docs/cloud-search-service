@@ -18,10 +18,6 @@ Basic Operations
 
       .. code-block:: text
 
-         GET _opendistro/_sql?sql=select * from my-index limit 50
-
-      .. code-block:: text
-
          POST _opendistro/_sql
          {
            "query": "SELECT * FROM my-index LIMIT 50"

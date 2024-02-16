@@ -8,6 +8,15 @@ Change History
 +-----------------------------------+---------------------------------------------------------------------------------------------------+
 | Released On                       | Description                                                                                       |
 +===================================+===================================================================================================+
+| 2024-02-07                        | Deleted:                                                                                          |
+|                                   |                                                                                                   |
+|                                   | -  The **Get** method from the section :ref:`Using the Open Distro SQL Plugin <css_01_0061>`.     |
+|                                   | -  Upgrading Versions                                                                             |
+|                                   |                                                                                                   |
+|                                   | Added:                                                                                            |
+|                                   |                                                                                                   |
+|                                   | New examples in section :ref:`Optimization of Other Parameters <css_01_0233_0>`.                  |
++-----------------------------------+---------------------------------------------------------------------------------------------------+
 | 2023-12-15                        | Delete the following sections:                                                                    |
 |                                   |                                                                                                   |
 |                                   | -  Using the OpenDistro Alarm Plugin                                                              |
@@ -22,7 +31,7 @@ Change History
 |                                   | -  :ref:`Adding Master/Client Nodes <css_01_0157>`                                                |
 |                                   | -  :ref:`Changing the Security Mode <css_01_0158>`                                                |
 |                                   | -  :ref:`Changing AZs <css_01_0201>`                                                              |
-|                                   | -  :ref:`Upgrading Versions <css_01_0186>`                                                        |
+|                                   | -  10.7 Upgrading Versions                                                                        |
 |                                   | -  :ref:`Using the Open Distro SQL Plugin <css_01_0061>`                                          |
 |                                   | -  Using the OpenDistro Alarm Plugin                                                              |
 |                                   | -  (Optional) Service Authorization                                                               |

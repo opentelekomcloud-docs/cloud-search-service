@@ -8,7 +8,7 @@ Instructions
 -  :ref:`Bulk Route Optimization <css_01_0230>`
 -  :ref:`Bulk Aggregation Optimization <css_01_0231>`
 -  :ref:`Text Index Acceleration <css_01_0232>`
--  :ref:`Optimization of Other Parameters <css_01_0233>`
+-  :ref:`Optimization of Other Parameters <css_01_0233_0>`
 
 .. toctree::
    :maxdepth: 1
