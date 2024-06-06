@@ -1,6 +1,6 @@
-:original_name: css_01_0183.html
+:original_name: en-us_topic_0000001477419788.html
 
-.. _css_01_0183:
+.. _en-us_topic_0000001477419788:
 
 Sample Code for Two-Way Authentication During the Access to a Cluster
 =====================================================================

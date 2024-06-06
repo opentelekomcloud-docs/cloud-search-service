@@ -1,6 +1,6 @@
-:original_name: css_02_0099.html
+:original_name: en-us_topic_0000001527777441.html
 
-.. _css_02_0099:
+.. _en-us_topic_0000001527777441:
 
 How Do I Query Index Data on Kibana in an ES Cluster?
 =====================================================

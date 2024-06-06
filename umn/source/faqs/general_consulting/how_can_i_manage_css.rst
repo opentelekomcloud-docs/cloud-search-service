@@ -1,6 +1,6 @@
-:original_name: css_02_0017.html
+:original_name: en-us_topic_0000001477137546.html
 
-.. _css_02_0017:
+.. _en-us_topic_0000001477137546:
 
 How Can I Manage CSS?
 =====================

@@ -1,6 +1,6 @@
-:original_name: css_02_0126.html
+:original_name: en-us_topic_0000001527777425.html
 
-.. _css_02_0126:
+.. _en-us_topic_0000001527777425:
 
 Why Does the Disk Usage Increase After the delete_by_query Command Was Executed to Delete Data?
 ===============================================================================================

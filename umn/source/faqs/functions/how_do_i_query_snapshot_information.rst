@@ -1,6 +1,6 @@
-:original_name: css_02_0043.html
+:original_name: en-us_topic_0000001527697777.html
 
-.. _css_02_0043:
+.. _en-us_topic_0000001527697777:
 
 How Do I Query Snapshot Information?
 ====================================

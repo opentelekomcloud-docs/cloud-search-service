@@ -1,6 +1,6 @@
-:original_name: css_01_0088.html
+:original_name: en-us_topic_0000001477419764.html
 
-.. _css_01_0088:
+.. _en-us_topic_0000001477419764:
 
 Accessing a Cluster from a Kibana Public Network
 ================================================

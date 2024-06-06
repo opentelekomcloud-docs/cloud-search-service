@@ -1,6 +1,6 @@
-:original_name: css_02_0106.html
+:original_name: en-us_topic_0000001476817894.html
 
-.. _css_02_0106:
+.. _en-us_topic_0000001476817894:
 
 How Do I Obtain the Security Certificate of CSS?
 ================================================

@@ -1,6 +1,6 @@
-:original_name: css_02_0010.html
+:original_name: en-us_topic_0000001477297350.html
 
-.. _css_02_0010:
+.. _en-us_topic_0000001477297350:
 
 What Can the Disk Space of a CSS Cluster Be Used For?
 =====================================================

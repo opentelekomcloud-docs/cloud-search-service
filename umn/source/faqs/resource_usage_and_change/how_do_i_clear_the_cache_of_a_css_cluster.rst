@@ -1,6 +1,6 @@
-:original_name: css_02_0130.html
+:original_name: en-us_topic_0000001528097317.html
 
-.. _css_02_0130:
+.. _en-us_topic_0000001528097317:
 
 How Do I Clear the Cache of a CSS Cluster?
 ==========================================

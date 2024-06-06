@@ -1,6 +1,6 @@
-:original_name: css_01_0266.html
+:original_name: en-us_topic_0000001583300810.html
 
-.. _css_01_0266:
+.. _en-us_topic_0000001583300810:
 
 Restoring Data
 ==============
@@ -50,8 +50,10 @@ Restoring data will overwrite current data in clusters. Therefore, exercise caut
 
    **Cluster**: Select the cluster that you want to restore. You can select the current cluster or others. However, you can only restore the snapshot to clusters whose status is **Available**. If the status of the current cluster is **Unavailable**, you cannot restore the snapshot to the current cluster. When you restore data to another cluster, the version of the target cluster must be later than or equal to that of the current cluster. If the target cluster you selected has an index with the same name as the original cluster, data in the index will be overwritten after the restoration. Exercise caution when performing this operation.
 
+   **Overwrite Index Shards of the Buckets with the Same Name in the Target Cluster**: By default, the shards are not overwritten. Data is restored using snapshots by overwriting the snapshot files. After the index with the same name in the target cluster is overwritten, the index data in the target cluster may be lost. Exercise caution when performing this operation.
 
-   .. figure:: /_static/images/en-us_image_0000001714922233.png
+
+   .. figure:: /_static/images/en-us_image_0000001633030485.png
       :alt: **Figure 1** Restoring a snapshot
 
       **Figure 1** Restoring a snapshot
@@ -59,7 +61,7 @@ Restoring data will overwrite current data in clusters. Therefore, exercise caut
 #. Click **OK**. If restoration succeeds, **Task Status** of the snapshot in the snapshot list will change to **Restoration succeeded**, and the index data is generated again according to the snapshot information.
 
 
-   .. figure:: /_static/images/en-us_image_0000001714802405.png
+   .. figure:: /_static/images/en-us_image_0000001633111029.png
       :alt: **Figure 2** Successful restoration
 
       **Figure 2** Successful restoration

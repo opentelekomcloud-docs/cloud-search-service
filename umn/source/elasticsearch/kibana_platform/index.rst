@@ -1,21 +1,19 @@
-:original_name: css_01_0107.html
+:original_name: en-us_topic_0000001528299625.html
 
-.. _css_01_0107:
+.. _en-us_topic_0000001528299625:
 
 Kibana Platform
 ===============
 
--  :ref:`Kibana Usage Restrictions <css_01_0125>`
--  :ref:`Logging In to Kibana <css_01_0108>`
--  :ref:`Accessing a Cluster from a Kibana Public Network <css_01_0088>`
--  :ref:`Creating a User and Granting Permissions by Using Kibana <css_01_0109>`
--  :ref:`Connecting User-Built Kibana to an Elasticsearch Cluster <css_02_0097>`
+-  :ref:`Logging In to Kibana <en-us_topic_0000001477419728>`
+-  :ref:`Accessing a Cluster from a Kibana Public Network <en-us_topic_0000001477419764>`
+-  :ref:`Creating a User and Granting Permissions by Using Kibana <en-us_topic_0000001528379273>`
+-  :ref:`Connecting User-Built Kibana to an Elasticsearch Cluster <en-us_topic_0000001477419776>`
 
 .. toctree::
    :maxdepth: 1
    :hidden: 
 
-   kibana_usage_restrictions
    logging_in_to_kibana
    accessing_a_cluster_from_a_kibana_public_network
    creating_a_user_and_granting_permissions_by_using_kibana

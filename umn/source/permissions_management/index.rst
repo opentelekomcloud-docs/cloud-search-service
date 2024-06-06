@@ -1,12 +1,12 @@
-:original_name: css_01_0070.html
+:original_name: en-us_topic_0000001477419768.html
 
-.. _css_01_0070:
+.. _en-us_topic_0000001477419768:
 
 Permissions Management
 ======================
 
--  :ref:`Creating a User and Granting Permissions <css_01_0072>`
--  :ref:`CSS Custom Policies <css_01_0086>`
+-  :ref:`Creating a User and Granting Permissions <en-us_topic_0000001477419752>`
+-  :ref:`CSS Custom Policies <en-us_topic_0000001477899148>`
 
 .. toctree::
    :maxdepth: 1

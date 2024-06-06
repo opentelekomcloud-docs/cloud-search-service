@@ -1,6 +1,6 @@
-:original_name: css_02_0068.html
+:original_name: en-us_topic_0000001527937333.html
 
-.. _css_02_0068:
+.. _en-us_topic_0000001527937333:
 
 How Do I Configure a Two-Replica CSS Cluster?
 =============================================

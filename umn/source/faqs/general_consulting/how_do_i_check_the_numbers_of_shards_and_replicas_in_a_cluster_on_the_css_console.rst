@@ -1,6 +1,6 @@
-:original_name: css_02_0093.html
+:original_name: en-us_topic_0000001527697797.html
 
-.. _css_02_0093:
+.. _en-us_topic_0000001527697797:
 
 How Do I Check the Numbers of Shards and Replicas in a Cluster on the CSS Console?
 ==================================================================================

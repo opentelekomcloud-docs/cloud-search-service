@@ -1,6 +1,6 @@
-:original_name: css_02_0118.html
+:original_name: en-us_topic_0000001477297358.html
 
-.. _css_02_0118:
+.. _en-us_topic_0000001477297358:
 
 How Do I Set the Numbers of Index Copies to 0 in Batches?
 =========================================================

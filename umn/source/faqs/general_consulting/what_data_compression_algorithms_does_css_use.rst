@@ -1,6 +1,6 @@
-:original_name: css_02_0041.html
+:original_name: en-us_topic_0000001477297354.html
 
-.. _css_02_0041:
+.. _en-us_topic_0000001477297354:
 
 What Data Compression Algorithms Does CSS Use?
 ==============================================

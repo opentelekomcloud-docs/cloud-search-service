@@ -1,6 +1,6 @@
-:original_name: css_01_0053.html
+:original_name: en-us_topic_0000001477579368.html
 
-.. _css_01_0053:
+.. _en-us_topic_0000001477579368:
 
 Viewing the Cluster Runtime Status and Storage Capacity Status
 ==============================================================

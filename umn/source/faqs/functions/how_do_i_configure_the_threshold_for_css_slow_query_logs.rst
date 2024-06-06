@@ -1,6 +1,6 @@
-:original_name: css_02_0096.html
+:original_name: en-us_topic_0000001476977558.html
 
-.. _css_02_0096:
+.. _en-us_topic_0000001476977558:
 
 How Do I Configure the Threshold for CSS Slow Query Logs?
 =========================================================

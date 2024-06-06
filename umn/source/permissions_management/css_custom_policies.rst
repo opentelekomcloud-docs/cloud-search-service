@@ -1,6 +1,6 @@
-:original_name: css_01_0086.html
+:original_name: en-us_topic_0000001477899148.html
 
-.. _css_01_0086:
+.. _en-us_topic_0000001477899148:
 
 CSS Custom Policies
 ===================
@@ -23,7 +23,7 @@ Example Custom Policies
 
 .. note::
 
-   To let an IAM user access an OBS bucket, you need to grant the GetBucketStoragePolicy, GetBucketLocation, ListBucket, and ListAllMyBuckets permissions to the user.
+   To let an IAM user access an OBS bucket, you need to grant the **GetBucketStoragePolicy**, **GetBucketLocation**, **ListBucket**, and **ListAllMyBuckets** permissions to the user.
 
 Example 1: Allowing users to create a CSS cluster
 

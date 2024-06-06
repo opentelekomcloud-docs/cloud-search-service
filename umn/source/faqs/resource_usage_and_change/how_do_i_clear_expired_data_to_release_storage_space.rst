@@ -1,6 +1,6 @@
-:original_name: css_02_0067.html
+:original_name: en-us_topic_0000001528097289.html
 
-.. _css_02_0067:
+.. _en-us_topic_0000001528097289:
 
 How Do I Clear Expired Data to Release Storage Space?
 =====================================================

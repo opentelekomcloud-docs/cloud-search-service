@@ -1,6 +1,6 @@
-:original_name: css_02_0079.html
+:original_name: en-us_topic_0000001477297338.html
 
-.. _css_02_0079:
+.. _en-us_topic_0000001477297338:
 
 Can I Associate My EIP If I Want to Access the Cluster from the Internet?
 =========================================================================

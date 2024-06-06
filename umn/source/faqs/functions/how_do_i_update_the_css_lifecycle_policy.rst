@@ -1,6 +1,6 @@
-:original_name: css_02_0119.html
+:original_name: en-us_topic_0000001477297334.html
 
-.. _css_02_0119:
+.. _en-us_topic_0000001477297334:
 
 How Do I Update the CSS Lifecycle Policy?
 =========================================

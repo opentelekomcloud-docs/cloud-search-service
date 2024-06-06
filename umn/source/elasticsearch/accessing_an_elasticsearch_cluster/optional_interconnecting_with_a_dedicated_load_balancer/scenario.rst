@@ -1,6 +1,6 @@
-:original_name: css_01_0181.html
+:original_name: en-us_topic_0000001477739400.html
 
-.. _css_01_0181:
+.. _en-us_topic_0000001477739400:
 
 Scenario
 ========
@@ -13,13 +13,13 @@ Advantages of connecting a cluster to a dedicated load balancer:
 -  You can use customized certificates for HTTPS bidirectional authentication.
 -  Seven-layer traffic monitoring and alarm configuration are supported, allowing you to view the cluster status at any time.
 
-There are eight service forms for clusters in different security modes to connect to dedicated load balancers. :ref:`Table 1 <css_01_0181__en-us_topic_0000001463358273_table4446327845>` describes the load balancer capabilities for the eight service forms. :ref:`Table 2 <css_01_0181__en-us_topic_0000001463358273_table1537163912019>` describes the configurations for the eight service forms.
+There are eight service forms for clusters in different security modes to connect to dedicated load balancers. :ref:`Table 1 <en-us_topic_0000001477739400__en-us_topic_0000001463358273_table4446327845>` describes the ELB capabilities for the eight service forms. :ref:`Table 2 <en-us_topic_0000001477739400__en-us_topic_0000001463358273_table1537163912019>` describes the configurations for the eight service forms.
 
 .. important::
 
-   You are not advised to connect an ELB that has bound the public network to a non-security cluster. Non-security clusters can be accessed over HTTP without security authentication. A load balancer with an EIP allows access to such clusters over the Internet, which may bring security risks.
+   You are not advised connecting a load balancer that has been bound to a public IP address to a non-security cluster. Access from the public network using such a load balancer may bring security risks because non-security clusters can be accessed over HTTP without security authentication.
 
-.. _css_01_0181__en-us_topic_0000001463358273_table4446327845:
+.. _en-us_topic_0000001477739400__en-us_topic_0000001463358273_table4446327845:
 
 .. table:: **Table 1** ELB capabilities for different clusters
 
@@ -43,7 +43,7 @@ There are eight service forms for clusters in different security modes to connec
    |                       | Two-way authentication + Password authentication  |                    |                        |                            |
    +-----------------------+---------------------------------------------------+--------------------+------------------------+----------------------------+
 
-.. _css_01_0181__en-us_topic_0000001463358273_table1537163912019:
+.. _en-us_topic_0000001477739400__en-us_topic_0000001463358273_table1537163912019:
 
 .. table:: **Table 2** Configuration for interconnecting different clusters with ELB
 

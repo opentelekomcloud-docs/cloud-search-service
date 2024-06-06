@@ -1,13 +1,13 @@
-:original_name: css_02_0063.html
+:original_name: en-us_topic_0000001527777433.html
 
-.. _css_02_0063:
+.. _en-us_topic_0000001527777433:
 
 Clusters in Security Mode
 =========================
 
--  :ref:`What Is the Relationship Between the Filebeat Version and Cluster Version? <css_02_0064>`
--  :ref:`How Do I Obtain the Security Certificate of CSS? <css_02_0106>`
--  :ref:`How Do I Convert the Format of a CER Security Certificate? <css_02_0128>`
+-  :ref:`What Is the Relationship Between the Filebeat Version and Cluster Version? <en-us_topic_0000001477137538>`
+-  :ref:`How Do I Obtain the Security Certificate of CSS? <en-us_topic_0000001476817894>`
+-  :ref:`How Do I Convert the Format of a CER Security Certificate? <en-us_topic_0000001476817906>`
 
 .. toctree::
    :maxdepth: 1

@@ -1,6 +1,6 @@
-:original_name: css_02_0098.html
+:original_name: en-us_topic_0000001527937329.html
 
-.. _css_02_0098:
+.. _en-us_topic_0000001527937329:
 
 Can I Export Data from Kibana?
 ==============================
