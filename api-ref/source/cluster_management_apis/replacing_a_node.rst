@@ -10,12 +10,17 @@ Function
 
 This API is used to replace a failed node.
 
+Debugging
+---------
+
+You can debug this API in . Automatic authentication is supported.
+
 URI
 ---
 
 PUT /v1.0/{project_id}/clusters/{cluster_id}/instance/{instance_id}/replace
 
-.. table:: **Table 1** Path Parameters
+.. table:: **Table 1** Path parameters
 
    +-------------+-----------+--------+------------------------------------------------------------------------------------+
    | Parameter   | Mandatory | Type   | Description                                                                        |
@@ -37,31 +42,31 @@ Response Parameters
 
 None
 
-Example Requests
-----------------
+Request Example
+---------------
 
 .. code-block:: text
 
    PUT /v1.0/{project_id}/clusters/{cluster_id}/instance/{instance_id}/replace
 
-Example Responses
------------------
+Response Example
+----------------
 
 None
 
 Status Codes
 ------------
 
-+-----------------------------------+-------------------------------------------------------------------+
-| Status Code                       | Description                                                       |
-+===================================+===================================================================+
-| 200                               | Request succeeded.                                                |
-+-----------------------------------+-------------------------------------------------------------------+
-| 400                               | Invalid request.                                                  |
-|                                   |                                                                   |
-|                                   | The client should modify the request instead of re-initiating it. |
-+-----------------------------------+-------------------------------------------------------------------+
-| 404                               | The requested resource could not be found.                        |
-|                                   |                                                                   |
-|                                   | The client should modify the request instead of re-initiating it. |
-+-----------------------------------+-------------------------------------------------------------------+
++-----------------------------------+-----------------------------------------+
+| Status Code                       | Description                             |
++===================================+=========================================+
+| 200                               | The request is processed successfully.  |
++-----------------------------------+-----------------------------------------+
+| 400                               | Invalid request.                        |
+|                                   |                                         |
+|                                   | Modify the request instead of retrying. |
++-----------------------------------+-----------------------------------------+
+| 404                               | The requested resource cannot be found. |
+|                                   |                                         |
+|                                   | Modify the request instead of retrying. |
++-----------------------------------+-----------------------------------------+

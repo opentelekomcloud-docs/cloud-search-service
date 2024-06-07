@@ -31,15 +31,15 @@ URI
 
    POST /v1.0/{project_id}/css-cluster/{cluster_id}/tags/action
 
-.. table:: **Table 1** Parameters
+.. table:: **Table 1** Parameter description
 
-   +------------+-----------+--------+------------------------------------------------------------------------------------+
-   | Parameter  | Mandatory | Type   | Description                                                                        |
-   +============+===========+========+====================================================================================+
-   | project_id | Yes       | String | Project ID. For details, see :ref:`Obtaining a Project ID and Name <css_03_0071>`. |
-   +------------+-----------+--------+------------------------------------------------------------------------------------+
-   | cluster_id | Yes       | String | IDs of clusters to which tags are to be added or deleted in batches.               |
-   +------------+-----------+--------+------------------------------------------------------------------------------------+
+   +------------+-----------+--------+-----------------------------------------------------------------------------------+
+   | Parameter  | Mandatory | Type   | Description                                                                       |
+   +============+===========+========+===================================================================================+
+   | project_id | Yes       | String | Project ID For details, see :ref:`Obtaining a Project ID and Name <css_03_0071>`. |
+   +------------+-----------+--------+-----------------------------------------------------------------------------------+
+   | cluster_id | Yes       | String | IDs of clusters to which tags are to be added or deleted in batches               |
+   +------------+-----------+--------+-----------------------------------------------------------------------------------+
 
 Request
 -------
@@ -116,22 +116,22 @@ This API is used to delete tags in batches.
 Status Code
 -----------
 
-:ref:`Table 4 <css_03_0081__table12321369178>` describes status codes.
+:ref:`Table 4 <css_03_0081__table12321369178>` describes the status code.
 
 .. _css_03_0081__table12321369178:
 
 .. table:: **Table 4** Status code
 
-   +-----------------------+-----------------------+-----------------------------------------------+
-   | Status Code           | Encoding              | Description                                   |
-   +=======================+=======================+===============================================+
-   | 400                   | BadRequest            | Invalid request.                              |
-   |                       |                       |                                               |
-   |                       |                       | Do not retry the request before modification. |
-   +-----------------------+-----------------------+-----------------------------------------------+
-   | 404                   | NotFound              | The requested resource cannot be found.       |
-   |                       |                       |                                               |
-   |                       |                       | Do not retry the request before modification. |
-   +-----------------------+-----------------------+-----------------------------------------------+
-   | 204                   | OK                    | The request is processed successfully.        |
-   +-----------------------+-----------------------+-----------------------------------------------+
+   +-----------------------+-----------------------+-----------------------------------------+
+   | Status Code           | Encoding              | Description                             |
+   +=======================+=======================+=========================================+
+   | 400                   | BadRequest            | Invalid request.                        |
+   |                       |                       |                                         |
+   |                       |                       | Modify the request instead of retrying. |
+   +-----------------------+-----------------------+-----------------------------------------+
+   | 404                   | NotFound              | The requested resource cannot be found. |
+   |                       |                       |                                         |
+   |                       |                       | Modify the request instead of retrying. |
+   +-----------------------+-----------------------+-----------------------------------------+
+   | 204                   | OK                    | The request is processed successfully.  |
+   +-----------------------+-----------------------+-----------------------------------------+

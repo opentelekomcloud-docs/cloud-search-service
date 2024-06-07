@@ -11,20 +11,18 @@ The CSS API is a self-developed API that complies with RESTful API design specif
 
 .. table:: **Table 1** API description
 
-   +--------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-   | Type                                                   | Description                                                                                                                            |
-   +========================================================+========================================================================================================================================+
-   | :ref:`Cluster Management APIs <css_03_0008>`           | You can use cluster management APIs to create clusters, scale out a cluster, view cluster details, and obtain instance specifications. |
-   +--------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Kibana Public Network Access APIs <css_03_0119>` | These APIs are used to enable, disable, and modify Kibana public access for a cluster in security mode.                                |
-   +--------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Log Management APIs <css_03_0093>`               | These APIs are used to enable, disable, modify, and query logs.                                                                        |
-   +--------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Public Network Access APIs <css_03_0103>`        | These APIs are used to enable, disable, and modify the public network access of a cluster.                                             |
-   +--------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Snapshot Management APIs <css_03_0010>`          | Snapshots can be used to back up and restore data. You can use snapshot management APIs to create, restore, or delete a snapshot.      |
-   +--------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`VPC Endpoint APIs <css_03_0109>`                 | These APIs can be used to enable, disable, obtain, and update VPC endpoint connections.                                                |
-   +--------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Parameter Configuration APIs <css_03_0115>`      | These APIs can be used to modify the parameter configurations of a cluster.                                                            |
-   +--------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+   +------------------------------+----------------------------------------------------------------------------------------------------------------------+
+   | Type                         | Description                                                                                                          |
+   +==============================+======================================================================================================================+
+   | Cluster management APIs      | You can call APIs to create clusters, scale out a cluster, view cluster details, and obtain instance specifications. |
+   +------------------------------+----------------------------------------------------------------------------------------------------------------------+
+   | Log management APIs          | You can call APIs to enable, disable, modify, and query logs.                                                        |
+   +------------------------------+----------------------------------------------------------------------------------------------------------------------+
+   | Public network access APIs   | You can call APIs to enable, disable, and modify public network access of a cluster.                                 |
+   +------------------------------+----------------------------------------------------------------------------------------------------------------------+
+   | Snapshot management APIs     | Snapshots can be used to back up and restore data. You can call APIs to create, restore, or delete a snapshot.       |
+   +------------------------------+----------------------------------------------------------------------------------------------------------------------+
+   | VPC endpoint APIs            | You can call APIs to enable, disable, obtain, and update VPC endpoint connections.                                   |
+   +------------------------------+----------------------------------------------------------------------------------------------------------------------+
+   | Parameter configuration APIs | You can call APIs to modify the parameter configurations of a cluster.                                               |
+   +------------------------------+----------------------------------------------------------------------------------------------------------------------+
