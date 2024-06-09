@@ -1,6 +1,6 @@
-:original_name: css_02_0009.html
+:original_name: en-us_topic_0000001527937337.html
 
-.. _css_02_0009:
+.. _en-us_topic_0000001527937337:
 
 What Is the Maximum Storage Capacity of CSS?
 ============================================

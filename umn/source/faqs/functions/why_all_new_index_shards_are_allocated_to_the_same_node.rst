@@ -1,6 +1,6 @@
-:original_name: css_02_0042.html
+:original_name: en-us_topic_0000001527777449.html
 
-.. _css_02_0042:
+.. _en-us_topic_0000001527777449:
 
 Why All New Index Shards Are Allocated to the Same Node?
 ========================================================

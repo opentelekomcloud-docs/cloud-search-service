@@ -1,14 +1,14 @@
-:original_name: css_01_0210.html
+:original_name: en-us_topic_0000001555591537.html
 
-.. _css_01_0210:
+.. _en-us_topic_0000001555591537:
 
 Accessing an Elasticsearch Cluster
 ==================================
 
--  :ref:`Accessing an Elasticsearch Cluster <css_01_0190>`
--  :ref:`Accessing a Cluster from a Public Network <css_01_0076>`
--  :ref:`Accessing a Cluster Using a VPC Endpoint <css_01_0082>`
--  :ref:`(Optional) Interconnecting with a Dedicated Load Balancer <css_01_0184>`
+-  :ref:`Accessing an Elasticsearch Cluster <en-us_topic_0000001528379305>`
+-  :ref:`Accessing a Cluster from a Public Network <en-us_topic_0000001528299629>`
+-  :ref:`Accessing a Cluster Using a VPC Endpoint <en-us_topic_0000001477579412>`
+-  :ref:`(Optional) Interconnecting with a Dedicated Load Balancer <en-us_topic_0000001528379297>`
 
 .. toctree::
    :maxdepth: 1

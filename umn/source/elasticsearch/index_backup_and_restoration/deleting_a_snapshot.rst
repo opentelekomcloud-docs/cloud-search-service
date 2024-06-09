@@ -1,6 +1,6 @@
-:original_name: css_01_0271.html
+:original_name: en-us_topic_0000001583146906.html
 
-.. _css_01_0271:
+.. _en-us_topic_0000001583146906:
 
 Deleting a Snapshot
 ===================

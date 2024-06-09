@@ -1,19 +1,19 @@
-:original_name: css_02_0066.html
+:original_name: en-us_topic_0000001527697785.html
 
-.. _css_02_0066:
+.. _en-us_topic_0000001527697785:
 
 Resource Usage and Change
 =========================
 
--  :ref:`How Do I Clear Expired Data to Release Storage Space? <css_02_0067>`
--  :ref:`How Do I Configure a Two-Replica CSS Cluster? <css_02_0068>`
--  :ref:`How Do I Delete Index Data? <css_02_0069>`
--  :ref:`Can I Change the Number of Shards to Four with Two Replicas When There Is One Shard Set in the JSON File? <css_02_0089>`
--  :ref:`What Are the Impacts If an Elasticsearch Cluster Has Too Many Shards? <css_02_0124>`
--  :ref:`How Do I Set the Default Maximum Number of Records Displayed on a Page for an Elasticsearch Cluster <css_02_0125>`
--  :ref:`Why Does the Disk Usage Increase After the delete_by_query Command Was Executed to Delete Data? <css_02_0126>`
--  :ref:`How Do I Clear the Cache of a CSS Cluster? <css_02_0130>`
--  :ref:`The Average Memory Usage of an Elasticsearch Cluster Reaches 98% <css_02_0131>`
+-  :ref:`How Do I Clear Expired Data to Release Storage Space? <en-us_topic_0000001528097289>`
+-  :ref:`How Do I Configure a Two-Replica CSS Cluster? <en-us_topic_0000001527937333>`
+-  :ref:`How Do I Delete Index Data? <en-us_topic_0000001527777445>`
+-  :ref:`Can I Change the Number of Shards to Four with Two Replicas When There Is One Shard Set in the JSON File? <en-us_topic_0000001476977562>`
+-  :ref:`What Are the Impacts If an Elasticsearch Cluster Has Too Many Shards? <en-us_topic_0000001476977554>`
+-  :ref:`How Do I Set the Default Maximum Number of Records Displayed on a Page for an Elasticsearch Cluster <en-us_topic_0000001527697781>`
+-  :ref:`Why Does the Disk Usage Increase After the delete_by_query Command Was Executed to Delete Data? <en-us_topic_0000001527777425>`
+-  :ref:`How Do I Clear the Cache of a CSS Cluster? <en-us_topic_0000001528097317>`
+-  :ref:`The Average Memory Usage of an Elasticsearch Cluster Reaches 98% <en-us_topic_0000001527777429>`
 
 .. toctree::
    :maxdepth: 1

@@ -1,6 +1,6 @@
-:original_name: css_01_0155.html
+:original_name: en-us_topic_0000001477579336.html
 
-.. _css_01_0155:
+.. _en-us_topic_0000001477579336:
 
 Configuring Cluster Monitoring
 ==============================
@@ -9,9 +9,9 @@ You can use Cloud Eye to monitor the created clusters. After configuring the clu
 
 The procedure for configuring cluster monitoring:
 
-#. :ref:`Creating Alarm Rules <css_01_0155__en-us_topic_0000001263429532_section15621114112420>`: Customize alarm rules for the monitoring metrics. Once a metric exceeds the threshold, the system will notify you by sending emails or HTTP/HTTPS requests.
-#. :ref:`Configuring Monitoring Metrics <css_01_0155__en-us_topic_0000001263429532_section1136460963>`: Configure monitoring metrics for a cluster or a node in the cluster.
-#. :ref:`Viewing Monitoring Metrics <css_01_0155__en-us_topic_0000001263429532_section322123712611>`: View the statistics of the monitoring metrics in specific periods.
+#. :ref:`Creating Alarm Rules <en-us_topic_0000001477579336__en-us_topic_0000001263429532_section15621114112420>`: Customize alarm rules for the monitoring metrics. Once a metric exceeds the threshold, the system will notify you by sending emails or HTTP/HTTPS requests.
+#. :ref:`Configuring Monitoring Metrics <en-us_topic_0000001477579336__en-us_topic_0000001263429532_section1136460963>`: Configure monitoring metrics for a cluster or a node in the cluster.
+#. :ref:`Viewing Monitoring Metrics <en-us_topic_0000001477579336__en-us_topic_0000001263429532_section322123712611>`: View the statistics of the monitoring metrics in specific periods.
 
 Prerequisites
 -------------
@@ -26,7 +26,7 @@ Recommended Monitoring Metrics
 -  Cluster write and query latency and throughput. You are advised to configure the following monitoring metrics: average index latency, average index rate, average search latency, and average QPS.
 -  Cluster write and query queue and rejected tasks. You are advised to configure the following monitoring metrics: tasks in write queue, tasks in search queue, rejected tasks in write queue, and rejected tasks in search queue.
 
-.. _css_01_0155__en-us_topic_0000001263429532_section15621114112420:
+.. _en-us_topic_0000001477579336__en-us_topic_0000001263429532_section15621114112420:
 
 Creating Alarm Rules
 --------------------
@@ -37,9 +37,9 @@ Creating Alarm Rules
 
 #. In the **Resource Type** column, select **Cloud Search Service** as criteria to search for alarm rules that meet the requirements.
 
-   If no alarm rules are available, create one by referring to the "Creating an Alarm Rule" section. For details about how to set **Resource Type** and **Dimension**, see :ref:`Table 1 <css_01_0155__en-us_topic_0000001263429532_table15676621164617>`.
+   If no alarm rules are available, create one by referring to the "Creating an Alarm Rule" section. For details about how to set **Resource Type** and **Dimension**, see :ref:`Table 1 <en-us_topic_0000001477579336__en-us_topic_0000001263429532_table15676621164617>`.
 
-   .. _css_01_0155__en-us_topic_0000001263429532_table15676621164617:
+   .. _en-us_topic_0000001477579336__en-us_topic_0000001263429532_table15676621164617:
 
    .. table:: **Table 1** Alarm rule configuration parameter
 
@@ -54,7 +54,7 @@ Creating Alarm Rules
       |                       |                                                         | -  **CSS Clusters - CSS Instances**: Alarm rules are specified by node in a cluster. |
       +-----------------------+---------------------------------------------------------+--------------------------------------------------------------------------------------+
 
-.. _css_01_0155__en-us_topic_0000001263429532_section1136460963:
+.. _en-us_topic_0000001477579336__en-us_topic_0000001263429532_section1136460963:
 
 Configuring Monitoring Metrics
 ------------------------------
@@ -63,9 +63,9 @@ Configuring Monitoring Metrics
 
 #. Add CSS monitoring graphs by referring to the "Adding a Graph" section.
 
-   For details about how to set **Resource Type** and **Dimension**, see :ref:`Table 2 <css_01_0155__en-us_topic_0000001263429532_table10410173801911>`.
+   For details about how to set **Resource Type** and **Dimension**, see :ref:`Table 2 <en-us_topic_0000001477579336__en-us_topic_0000001263429532_table10410173801911>`.
 
-   .. _css_01_0155__en-us_topic_0000001263429532_table10410173801911:
+   .. _en-us_topic_0000001477579336__en-us_topic_0000001263429532_table10410173801911:
 
    .. table:: **Table 2** Graph configuration parameter
 
@@ -80,7 +80,7 @@ Configuring Monitoring Metrics
       |                       |                                      | -  **CSS Clusters - CSS Instances**: Monitoring is executed by node in a cluster. |
       +-----------------------+--------------------------------------+-----------------------------------------------------------------------------------+
 
-.. _css_01_0155__en-us_topic_0000001263429532_section322123712611:
+.. _en-us_topic_0000001477579336__en-us_topic_0000001263429532_section322123712611:
 
 Viewing Monitoring Metrics
 --------------------------

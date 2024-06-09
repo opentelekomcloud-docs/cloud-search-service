@@ -1,11 +1,11 @@
-:original_name: css_02_0070.html
+:original_name: en-us_topic_0000001527697789.html
 
-.. _css_02_0070:
+.. _en-us_topic_0000001527697789:
 
 Components
 ==========
 
--  :ref:`Can I Install Search Guard on CSS? <css_02_0088>`
+-  :ref:`Can I Install Search Guard on CSS? <en-us_topic_0000001476977550>`
 
 .. toctree::
    :maxdepth: 1

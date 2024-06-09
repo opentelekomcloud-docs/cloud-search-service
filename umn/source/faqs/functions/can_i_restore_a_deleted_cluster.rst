@@ -1,6 +1,6 @@
-:original_name: css_02_0120.html
+:original_name: en-us_topic_0000001476817914.html
 
-.. _css_02_0120:
+.. _en-us_topic_0000001476817914:
 
 Can I Restore a Deleted Cluster?
 ================================

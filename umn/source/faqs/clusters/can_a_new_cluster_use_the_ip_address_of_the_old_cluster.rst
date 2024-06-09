@@ -1,6 +1,6 @@
-:original_name: css_02_0078.html
+:original_name: en-us_topic_0000001477297362.html
 
-.. _css_02_0078:
+.. _en-us_topic_0000001477297362:
 
 Can a New Cluster Use the IP Address of the Old Cluster?
 ========================================================

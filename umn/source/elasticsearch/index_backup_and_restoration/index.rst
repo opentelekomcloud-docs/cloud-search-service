@@ -1,15 +1,15 @@
-:original_name: css_01_0269.html
+:original_name: en-us_topic_0000001633221741.html
 
-.. _css_01_0269:
+.. _en-us_topic_0000001633221741:
 
 Index Backup and Restoration
 ============================
 
--  :ref:`Backup and Restoration Overview <css_01_0033>`
--  :ref:`Managing Automatic Snapshot Creation <css_01_0267>`
--  :ref:`Manually Creating a Snapshot <css_01_0268>`
--  :ref:`Restoring Data <css_01_0266>`
--  :ref:`Deleting a Snapshot <css_01_0271>`
+-  :ref:`Backup and Restoration Overview <en-us_topic_0000001633303977>`
+-  :ref:`Managing Automatic Snapshot Creation <en-us_topic_0000001583460750>`
+-  :ref:`Manually Creating a Snapshot <en-us_topic_0000001633220693>`
+-  :ref:`Restoring Data <en-us_topic_0000001583300810>`
+-  :ref:`Deleting a Snapshot <en-us_topic_0000001583146906>`
 
 .. toctree::
    :maxdepth: 1

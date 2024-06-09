@@ -1,13 +1,13 @@
-:original_name: css_01_0076.html
+:original_name: en-us_topic_0000001528299629.html
 
-.. _css_01_0076:
+.. _en-us_topic_0000001528299629:
 
 Accessing a Cluster from a Public Network
 =========================================
 
 You can access a security cluster (Elasticsearch clusters in version 6.5.4 or later support the security mode) that has the HTTPS access enabled through the public IP address provided by the system.
 
-By default, CSS uses a shared load balancer for public network access. You can use a dedicated load balancer to improve performance. For details about its configuration, see :ref:`Connecting to a Dedicated Load Balancer <css_01_0181>`.
+By default, CSS uses a shared load balancer for public network access. You can use a dedicated load balancer to improve performance. For details about its configuration, see :ref:`Connecting to a Dedicated Load Balancer <en-us_topic_0000001477739400>`.
 
 .. note::
 

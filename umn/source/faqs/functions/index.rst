@@ -1,23 +1,23 @@
-:original_name: css_02_0055.html
+:original_name: en-us_topic_0000001477137530.html
 
-.. _css_02_0055:
+.. _en-us_topic_0000001477137530:
 
 Functions
 =========
 
--  :ref:`Can Elasticsearch Data Be Migrated Between VPCs? <css_02_0058>`
--  :ref:`How Do I Migrate a CSS Cluster Across Regions? <css_02_0094>`
--  :ref:`How Do I Configure the Threshold for CSS Slow Query Logs? <css_02_0096>`
--  :ref:`How Do I Update the CSS Lifecycle Policy? <css_02_0119>`
--  :ref:`How Do I Set the Numbers of Index Copies to 0 in Batches? <css_02_0118>`
--  :ref:`Why All New Index Shards Are Allocated to the Same Node? <css_02_0042>`
--  :ref:`How Do I Query Snapshot Information? <css_02_0043>`
--  :ref:`Can I Upgrade a Cluster from an Earlier Version to a Later Version? <css_02_0052>`
--  :ref:`Can I Restore a Deleted Cluster? <css_02_0120>`
--  :ref:`Can I Modify the TLS Algorithm of an Elasticsearch Cluster? <css_02_0101>`
--  :ref:`How Do I Set the search.max_buckets Parameter for an ES Cluster? <css_02_0102>`
--  :ref:`Does the Value i of node.roles Indicate an Injest Node? <css_02_0127>`
--  :ref:`How Do I Create a Type Under an Index in an Elasticsearch 7.x Cluster? <css_02_0132>`
+-  :ref:`Can Elasticsearch Data Be Migrated Between VPCs? <en-us_topic_0000001527937341>`
+-  :ref:`How Do I Migrate a CSS Cluster Across Regions? <en-us_topic_0000001528097309>`
+-  :ref:`How Do I Configure the Threshold for CSS Slow Query Logs? <en-us_topic_0000001476977558>`
+-  :ref:`How Do I Update the CSS Lifecycle Policy? <en-us_topic_0000001477297334>`
+-  :ref:`How Do I Set the Numbers of Index Copies to 0 in Batches? <en-us_topic_0000001477297358>`
+-  :ref:`Why All New Index Shards Are Allocated to the Same Node? <en-us_topic_0000001527777449>`
+-  :ref:`How Do I Query Snapshot Information? <en-us_topic_0000001527697777>`
+-  :ref:`Can I Upgrade a Cluster from an Earlier Version to a Later Version? <en-us_topic_0000001477137542>`
+-  :ref:`Can I Restore a Deleted Cluster? <en-us_topic_0000001476817914>`
+-  :ref:`Can I Modify the TLS Algorithm of an Elasticsearch Cluster? <en-us_topic_0000001527777437>`
+-  :ref:`How Do I Set the search.max_buckets Parameter for an ES Cluster? <en-us_topic_0000001476817910>`
+-  :ref:`Does the Value i of node.roles Indicate an Injest Node? <en-us_topic_0000001477137526>`
+-  :ref:`How Do I Create a Type Under an Index in an Elasticsearch 7.x Cluster? <en-us_topic_0000001528097313>`
 
 .. toctree::
    :maxdepth: 1

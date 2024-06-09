@@ -1,6 +1,6 @@
-:original_name: css_01_0109.html
+:original_name: en-us_topic_0000001528379273.html
 
-.. _css_01_0109:
+.. _en-us_topic_0000001528379273:
 
 Creating a User and Granting Permissions by Using Kibana
 ========================================================
@@ -8,7 +8,7 @@ Creating a User and Granting Permissions by Using Kibana
 CSS uses the opendistro_security plug-in to provide security cluster capabilities. The opendistro_security plug-in is built based on the RBAC model. RBAC involves three core concepts: user, action, and role. RBAC simplifies the relationship between users and actions, simplifies permission management, and facilitates permission expansion and maintenance. The following figure shows the relationship between the three.
 
 
-.. figure:: /_static/images/en-us_image_0000001714802213.png
+.. figure:: /_static/images/en-us_image_0000001705958261.png
    :alt: **Figure 1** User, action, and role
 
    **Figure 1** User, action, and role
@@ -38,12 +38,12 @@ This section describes how to use Kibana to create a user and grant permissions 
    -  The Kibana UI varies depending on the Kibana version, but their operations are similar. This section takes Kibana 7.6.2 as an example to describe the procedure.
    -  You can customize the username, role name, and tenant name in Kibana.
 
--  Step 1: :ref:`Logging in to Kibana <css_01_0109__en-us_topic_0000001223434440_section12163507442>`
--  Step 2: :ref:`Creating a User <css_01_0109__section111313114129>`
--  Step 3: :ref:`Creating a Role and Granting Permissions <css_01_0109__section1028814911138>`
--  Step 4: :ref:`Configuring a Role for a User <css_01_0109__section1997772813158>`
+-  Step 1: :ref:`Logging in to Kibana <en-us_topic_0000001528379273__en-us_topic_0000001223434440_section12163507442>`
+-  Step 2: :ref:`Creating a User <en-us_topic_0000001528379273__section111313114129>`
+-  Step 3: :ref:`Creating a Role and Granting Permissions <en-us_topic_0000001528379273__section1028814911138>`
+-  Step 4: :ref:`Configuring a Role for a User <en-us_topic_0000001528379273__section1997772813158>`
 
-.. _css_01_0109__en-us_topic_0000001223434440_section12163507442:
+.. _en-us_topic_0000001528379273__en-us_topic_0000001223434440_section12163507442:
 
 Logging in to Kibana
 --------------------
@@ -54,16 +54,16 @@ Logging in to Kibana
 
    Enter the administrator username and password to log in to Kibana.
 
-   -  Username: admin (default administrator account name)
+   -  Username: **admin** (default administrator account name)
    -  Password: Enter the administrator password you set when creating the cluster in security mode.
 
 
-   .. figure:: /_static/images/en-us_image_0000001666842726.png
+   .. figure:: /_static/images/en-us_image_0000001575635862.png
       :alt: **Figure 2** Login page
 
       **Figure 2** Login page
 
-.. _css_01_0109__section111313114129:
+.. _en-us_topic_0000001528379273__section111313114129:
 
 Creating a User
 ---------------
@@ -73,7 +73,7 @@ Log in to Kibana and create a user on the **Security** page.
 #. After a successful login, choose **Security** in the navigation tree on the left of the Kibana operation page. The **Security** page is displayed.
 
 
-   .. figure:: /_static/images/en-us_image_0000001714922041.png
+   .. figure:: /_static/images/en-us_image_0000001656902246.png
       :alt: **Figure 3** Accessing the **Security** page
 
       **Figure 3** Accessing the **Security** page
@@ -81,7 +81,7 @@ Log in to Kibana and create a user on the **Security** page.
 #. Choose **Authentication Backends** > **Internal Users Database**.
 
 
-   .. figure:: /_static/images/en-us_image_0000001667002442.png
+   .. figure:: /_static/images/en-us_image_0000001657061586.png
       :alt: **Figure 4** Adding a user (1)
 
       **Figure 4** Adding a user (1)
@@ -89,7 +89,7 @@ Log in to Kibana and create a user on the **Security** page.
 #. On the **Internal Users Database** page, choose |image1|. The page for adding user information is displayed.
 
 
-   .. figure:: /_static/images/en-us_image_0000001714922057.png
+   .. figure:: /_static/images/en-us_image_0000001705220953.png
       :alt: **Figure 5** Adding a user (2)
 
       **Figure 5** Adding a user (2)
@@ -98,7 +98,7 @@ Log in to Kibana and create a user on the **Security** page.
 
 The user will be displayed in the user list.
 
-.. _css_01_0109__section1028814911138:
+.. _en-us_topic_0000001528379273__section1028814911138:
 
 Creating a Role and Granting Permissions
 ----------------------------------------
@@ -108,7 +108,7 @@ Create a role and grant permissions to the role.
 #. Click **Roles**.
 
 
-   .. figure:: /_static/images/en-us_image_0000001667002438.png
+   .. figure:: /_static/images/en-us_image_0000001656902250.png
       :alt: **Figure 6** Adding a role
 
       **Figure 6** Adding a role
@@ -118,7 +118,7 @@ Create a role and grant permissions to the role.
    a. On the **Overview** tab page, set the role name.
 
 
-      .. figure:: /_static/images/en-us_image_0000001666842730.png
+      .. figure:: /_static/images/en-us_image_0000001705061717.png
          :alt: **Figure 7** Entering a role name
 
          **Figure 7** Entering a role name
@@ -129,7 +129,7 @@ Create a role and grant permissions to the role.
       -  **Permissions: Single Permissions**: Select **Show Advanced** and click **Add Single Permission** to set more refined permissions for the cluster. For example, if this parameter is set to **indices:data/read**, you can only read specified indexes.
 
 
-      .. figure:: /_static/images/en-us_image_0000001666842722.png
+      .. figure:: /_static/images/en-us_image_0000001705220957.png
          :alt: **Figure 8** **Cluster Permissions** tab page
 
          **Figure 8** **Cluster Permissions** tab page
@@ -151,14 +151,14 @@ Create a role and grant permissions to the role.
       -  **Tenant permissions**: Click **Add tenant pattern** to add a tenant mode and set the **kibana_all_read** or **kibana_all_write** permission for a new tenant mode.
 
 
-         .. figure:: /_static/images/en-us_image_0000001714802217.png
+         .. figure:: /_static/images/en-us_image_0000001656902254.png
             :alt: **Figure 9** **Tenant Permissions** tab
 
             **Figure 9** **Tenant Permissions** tab
 
 #. Click **Save Role Definition** and you can view the configured role.
 
-.. _css_01_0109__section1997772813158:
+.. _en-us_topic_0000001528379273__section1997772813158:
 
 Configuring a Role for a User
 -----------------------------
@@ -168,7 +168,7 @@ After creating a role and granting permissions to the role, you need to map the 
 #. Click **Role Mappings**. On the displayed **Role Mappings** page, map the roles.
 
 
-   .. figure:: /_static/images/en-us_image_0000001714922065.png
+   .. figure:: /_static/images/en-us_image_0000001657061594.png
       :alt: **Figure 10** Role mapping
 
       **Figure 10** Role mapping
@@ -179,7 +179,7 @@ After creating a role and granting permissions to the role, you need to map the 
    -  **Users**: Click **Add User** and enter the name of the user whose role is mapped.
 
 
-   .. figure:: /_static/images/en-us_image_0000001666842710.png
+   .. figure:: /_static/images/en-us_image_0000001705227645.png
       :alt: **Figure 11** Users and roles
 
       **Figure 11** Users and roles
@@ -188,6 +188,6 @@ After creating a role and granting permissions to the role, you need to map the 
 
 #. Verify that the configuration takes effect in Kibana.
 
-.. |image1| image:: /_static/images/en-us_image_0000001714802205.png
-.. |image2| image:: /_static/images/en-us_image_0000001714802229.png
-.. |image3| image:: /_static/images/en-us_image_0000001667002454.png
+.. |image1| image:: /_static/images/en-us_image_0000001705061721.png
+.. |image2| image:: /_static/images/en-us_image_0000001657061590.png
+.. |image3| image:: /_static/images/en-us_image_0000001705061713.png

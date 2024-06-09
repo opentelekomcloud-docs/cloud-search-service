@@ -1,6 +1,6 @@
-:original_name: css_02_0006.html
+:original_name: en-us_topic_0000001476977546.html
 
-.. _css_02_0006:
+.. _en-us_topic_0000001476977546:
 
 How Does CSS Ensure Data and Service Security?
 ==============================================

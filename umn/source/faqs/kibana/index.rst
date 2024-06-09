@@ -1,12 +1,12 @@
-:original_name: css_02_0073.html
+:original_name: en-us_topic_0000001527937345.html
 
-.. _css_02_0073:
+.. _en-us_topic_0000001527937345:
 
 Kibana
 ======
 
--  :ref:`Can I Export Data from Kibana? <css_02_0098>`
--  :ref:`How Do I Query Index Data on Kibana in an ES Cluster? <css_02_0099>`
+-  :ref:`Can I Export Data from Kibana? <en-us_topic_0000001527937329>`
+-  :ref:`How Do I Query Index Data on Kibana in an ES Cluster? <en-us_topic_0000001527777441>`
 
 .. toctree::
    :maxdepth: 1

@@ -1,11 +1,11 @@
-:original_name: css_01_0006.html
+:original_name: en-us_topic_0000001477739396.html
 
-.. _css_01_0006:
+.. _en-us_topic_0000001477739396:
 
 Getting Started
 ===============
 
--  :ref:`Getting Started with Elasticsearch <css_01_0007>`
+-  :ref:`Getting Started with Elasticsearch <en-us_topic_0000001528379317>`
 
 .. toctree::
    :maxdepth: 1

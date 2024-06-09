@@ -1,6 +1,6 @@
-:original_name: css_02_0069.html
+:original_name: en-us_topic_0000001527777445.html
 
-.. _css_02_0069:
+.. _en-us_topic_0000001527777445:
 
 How Do I Delete Index Data?
 ===========================

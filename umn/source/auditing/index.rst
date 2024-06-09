@@ -1,16 +1,16 @@
-:original_name: css_01_0049.html
+:original_name: en-us_topic_0000001528499181.html
 
-.. _css_01_0049:
+.. _en-us_topic_0000001528499181:
 
 Auditing
 ========
 
--  :ref:`Key Operations Recorded by CTS <css_01_0050>`
--  :ref:`Viewing Audit Logs <css_01_0051>`
+-  :ref:`Key Operations Recorded by CTS <en-us_topic_0000001528299573>`
+-  :ref:`Querying Real-Time Traces <en-us_topic_0000001720964408>`
 
 .. toctree::
    :maxdepth: 1
    :hidden: 
 
    key_operations_recorded_by_cts
-   viewing_audit_logs
+   querying_real-time_traces

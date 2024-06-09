@@ -1,6 +1,6 @@
-:original_name: css_02_0008.html
+:original_name: en-us_topic_0000001528097293.html
 
-.. _css_02_0008:
+.. _en-us_topic_0000001528097293:
 
 What Storage Options Does CSS Provide?
 ======================================

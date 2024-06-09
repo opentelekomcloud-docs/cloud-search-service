@@ -1,6 +1,6 @@
-:original_name: css_02_0201.html
+:original_name: en-us_topic_0000001562137917.html
 
-.. _css_02_0201:
+.. _en-us_topic_0000001562137917:
 
 How to access Kibana from outside cloud using ELB?
 ==================================================

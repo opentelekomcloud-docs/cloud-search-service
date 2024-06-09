@@ -1,6 +1,6 @@
-:original_name: css_01_0182.html
+:original_name: en-us_topic_0000001477739348.html
 
-.. _css_01_0182:
+.. _en-us_topic_0000001477739348:
 
 Connecting to a Dedicated Load Balancer
 =======================================
@@ -98,16 +98,16 @@ Prepare and upload a self-signed certificate.
       #Convert the client certificate format to JKS.
       keytool -importkeystore -srckeystore client.p12 -srcstoretype PKCS12 -deststoretype JKS -destkeystore client.jks
 
-#. Upload the self-signed certificate. For details, see the section "Configuring the Server Certificate and Private Key" in *Elastic Load Balance User Guide*\ `Configuring the Server Certificate and Private Key <https://docs.otc.t-systems.com/elastic-load-balancing/umn/advanced_features_of_http_https_listeners/mutual_authentication.html#configuring-the-server-certificate-and-private-key>`__.
+#. Upload the self-signed certificate. For details, see `Configuring the Server Certificate and Private Key <https://docs.otc.t-systems.com/elastic-load-balancing/umn/advanced_features_of_http_https_listeners/mutual_authentication.html#configuring-the-server-certificate-and-private-key>`__.
 
 Creating a Dedicated Load Balancer
 ----------------------------------
 
 #. Log in to the ELB management console.
 
-#. Create a dedicated load balancer. For details, see `Creating a Dedicated Load Balancer <https://docs.otc.t-systems.com/elastic-load-balancing/umn/load_balancer/creating_a_dedicated_load_balancer.html>`__. :ref:`Table 1 <css_01_0182__en-us_topic_0000001463438465_table937081413137>` describes the parameters required for connecting a CSS cluster with a dedicated load balancer.
+#. Create a dedicated load balancer. For details, see `Creating a Dedicated Load Balancer <https://docs.otc.t-systems.com/elastic-load-balancing/umn/load_balancer/creating_a_dedicated_load_balancer.html>`__. :ref:`Table 1 <en-us_topic_0000001477739348__en-us_topic_0000001463438465_table937081413137>` describes the parameters required for connecting a CSS cluster with a dedicated load balancer.
 
-   .. _css_01_0182__en-us_topic_0000001463438465_table937081413137:
+   .. _en-us_topic_0000001477739348__en-us_topic_0000001463438465_table937081413137:
 
    .. table:: **Table 1** Parameters for interconnecting a CSS cluster with a dedicated load balancer
 
@@ -116,7 +116,7 @@ Creating a Dedicated Load Balancer
       +=======================+=========================================================================================================================+=========================================+
       | Type                  | Load balancer type. Select **Dedicated**.                                                                               | Dedicated                               |
       +-----------------------+-------------------------------------------------------------------------------------------------------------------------+-----------------------------------------+
-      | Billing Mode          | Billing mode of the dedicated load balancer.                                                                            | Pay-per-use                             |
+      | Billed By             | Billing mode of the dedicated load balancer.                                                                            | Pay-per-use                             |
       +-----------------------+-------------------------------------------------------------------------------------------------------------------------+-----------------------------------------+
       | Region                | Region where the CSS cluster is located.                                                                                | ``-``                                   |
       +-----------------------+-------------------------------------------------------------------------------------------------------------------------+-----------------------------------------+
@@ -157,7 +157,7 @@ Interconnecting with a Load Balancer
    -  **Agency**: Select an agency name. If no agency is available, click **Create Agency** to create one. The selected agency must have the **ELB Administrator** and **ELB FullAccess** permissions.
 
 
-      .. figure:: /_static/images/en-us_image_0000001714802149.png
+      .. figure:: /_static/images/en-us_image_0000001870378393.png
          :alt: **Figure 1** Enabling load balancing
 
          **Figure 1** Enabling load balancing
@@ -165,7 +165,7 @@ Interconnecting with a Load Balancer
 #. Click **OK**. The listener configuration page is displayed.
 
 
-   .. figure:: /_static/images/en-us_image_0000001667002386.png
+   .. figure:: /_static/images/en-us_image_0000001823619658.png
       :alt: **Figure 2** Creating a listener
 
       **Figure 2** Creating a listener
@@ -173,7 +173,7 @@ Interconnecting with a Load Balancer
 #. In the **Listener Configuration** area, click |image1| to configure listener information.
 
 
-   .. figure:: /_static/images/en-us_image_0000001714922005.png
+   .. figure:: /_static/images/en-us_image_0000001823780106.png
       :alt: **Figure 3** Configuring a listener
 
       **Figure 3** Configuring a listener
@@ -207,12 +207,6 @@ Interconnecting with a Load Balancer
       +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 #. (Optional) In the **Connection Mode** area, you can click **Settings** next to **Access Control** to configure the IP addresses or network segments that are allowed to access the system. If you do not set the IP addresses or network segments, all IP addresses are allowed to access the system by default.
-
-
-   .. figure:: /_static/images/en-us_image_0000001666842658.png
-      :alt: **Figure 4** Configuring access control
-
-      **Figure 4** Configuring access control
 
 In the **Health Check** area, you can view the health check result of each node IP address. The following table describes the health check results.
 
@@ -276,13 +270,13 @@ Run the following commands to check whether the dedicated load balancer can be c
    pwd      Password of the user
    ======== ======================================
 
-If the Elasticsearch cluster information is returned, the connection is successful. For example, if a security cluster using the HTTPS protocol is connected to a load balancer using two-way authentication, the information shown in :ref:`Figure 5 <css_01_0182__en-us_topic_0000001463438465_fig17880115545713>` is returned.
+If the Elasticsearch cluster information is returned, the connection is successful. For example, if a security cluster using the HTTPS protocol is connected to a load balancer using two-way authentication, the information shown in :ref:`Figure 4 <en-us_topic_0000001477739348__en-us_topic_0000001463438465_fig17880115545713>` is returned.
 
-.. _css_01_0182__en-us_topic_0000001463438465_fig17880115545713:
+.. _en-us_topic_0000001477739348__en-us_topic_0000001463438465_fig17880115545713:
 
-.. figure:: /_static/images/en-us_image_0000001667002382.png
-   :alt: **Figure 5** Accessing a cluster
+.. figure:: /_static/images/en-us_image_0000001625673045.png
+   :alt: **Figure 4** Accessing a cluster
 
-   **Figure 5** Accessing a cluster
+   **Figure 4** Accessing a cluster
 
-.. |image1| image:: /_static/images/en-us_image_0000001666842670.png
+.. |image1| image:: /_static/images/en-us_image_0000001637133729.png

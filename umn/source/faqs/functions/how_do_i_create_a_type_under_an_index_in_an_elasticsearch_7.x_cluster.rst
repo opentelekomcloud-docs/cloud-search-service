@@ -1,6 +1,6 @@
-:original_name: css_02_0132.html
+:original_name: en-us_topic_0000001528097313.html
 
-.. _css_02_0132:
+.. _en-us_topic_0000001528097313:
 
 How Do I Create a Type Under an Index in an Elasticsearch 7.\ *x* Cluster?
 ==========================================================================

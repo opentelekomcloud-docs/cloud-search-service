@@ -1,18 +1,18 @@
-:original_name: css_01_0041.html
+:original_name: en-us_topic_0000001477419740.html
 
-.. _css_01_0041:
+.. _en-us_topic_0000001477419740:
 
 Monitoring
 ==========
 
--  :ref:`Monitoring Metrics of Elasticsearch Clusters <css_01_0042>`
--  :ref:`Monitoring Metrics <css_01_0246>`
--  :ref:`Configuring Cluster Monitoring <css_01_0155>`
+-  :ref:`Monitoring Metrics of Clusters <en-us_topic_0000001528659133>`
+-  :ref:`Monitoring Metrics <en-us_topic_0000001599872681>`
+-  :ref:`Configuring Cluster Monitoring <en-us_topic_0000001477579336>`
 
 .. toctree::
    :maxdepth: 1
    :hidden: 
 
-   monitoring_metrics_of_elasticsearch_clusters
+   monitoring_metrics_of_clusters
    monitoring_metrics
    configuring_cluster_monitoring

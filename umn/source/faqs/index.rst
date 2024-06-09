@@ -1,18 +1,18 @@
-:original_name: css_02_0001.html
+:original_name: en-us_topic_0000001876048066.html
 
-.. _css_02_0001:
+.. _en-us_topic_0000001876048066:
 
 FAQs
 ====
 
--  :ref:`General Consulting <css_02_0051>`
--  :ref:`Functions <css_02_0055>`
--  :ref:`Clusters in Security Mode <css_02_0063>`
--  :ref:`Resource Usage and Change <css_02_0066>`
--  :ref:`Components <css_02_0070>`
--  :ref:`Kibana <css_02_0073>`
--  :ref:`Clusters <css_02_0077>`
--  :ref:`Ports <css_02_0082>`
+-  :ref:`General Consulting <en-us_topic_0000001477137534>`
+-  :ref:`Functions <en-us_topic_0000001477137530>`
+-  :ref:`Clusters in Security Mode <en-us_topic_0000001527777433>`
+-  :ref:`Resource Usage and Change <en-us_topic_0000001527697785>`
+-  :ref:`Components <en-us_topic_0000001527697789>`
+-  :ref:`Kibana <en-us_topic_0000001527937345>`
+-  :ref:`Clusters <en-us_topic_0000001476817902>`
+-  :ref:`Ports <en-us_topic_0000001476817918>`
 
 .. toctree::
    :maxdepth: 1

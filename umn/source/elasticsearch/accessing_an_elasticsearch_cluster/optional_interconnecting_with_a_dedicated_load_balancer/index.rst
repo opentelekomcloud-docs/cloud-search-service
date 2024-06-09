@@ -1,13 +1,13 @@
-:original_name: css_01_0184.html
+:original_name: en-us_topic_0000001528379297.html
 
-.. _css_01_0184:
+.. _en-us_topic_0000001528379297:
 
 (Optional) Interconnecting with a Dedicated Load Balancer
 =========================================================
 
--  :ref:`Scenario <css_01_0181>`
--  :ref:`Connecting to a Dedicated Load Balancer <css_01_0182>`
--  :ref:`Sample Code for Two-Way Authentication During the Access to a Cluster <css_01_0183>`
+-  :ref:`Scenario <en-us_topic_0000001477739400>`
+-  :ref:`Connecting to a Dedicated Load Balancer <en-us_topic_0000001477739348>`
+-  :ref:`Sample Code for Two-Way Authentication During the Access to a Cluster <en-us_topic_0000001477419788>`
 
 .. toctree::
    :maxdepth: 1

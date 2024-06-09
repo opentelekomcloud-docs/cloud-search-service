@@ -1,12 +1,12 @@
-:original_name: css_02_0082.html
+:original_name: en-us_topic_0000001476817918.html
 
-.. _css_02_0082:
+.. _en-us_topic_0000001476817918:
 
 Ports
 =====
 
--  :ref:`Do Ports 9200 and 9300 Both Open? <css_02_0083>`
--  :ref:`How to access Kibana from outside cloud using ELB? <css_02_0201>`
+-  :ref:`Do Ports 9200 and 9300 Both Open? <en-us_topic_0000001527697793>`
+-  :ref:`How to access Kibana from outside cloud using ELB? <en-us_topic_0000001562137917>`
 
 .. toctree::
    :maxdepth: 1
