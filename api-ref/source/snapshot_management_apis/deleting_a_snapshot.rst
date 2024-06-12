@@ -64,7 +64,7 @@ Status Code
    +-----------------------+-----------------------+-------------------------------------------------------------------+
    | 400                   | BadRequest            | Invalid request.                                                  |
    |                       |                       |                                                                   |
-   |                       |                       | The client should not repeat the request without modifications.   |
+   |                       |                       | Modify the request instead of retrying.                           |
    +-----------------------+-----------------------+-------------------------------------------------------------------+
    | 403                   | Forbidden             | The server understood the request, but is refusing to fulfill it. |
    |                       |                       |                                                                   |

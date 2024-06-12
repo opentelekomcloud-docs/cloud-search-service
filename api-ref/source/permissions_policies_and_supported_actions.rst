@@ -5,11 +5,11 @@
 Permissions Policies and Supported Actions
 ==========================================
 
-This section describes fine-grained permissions management for your CSS. If your account does not need individual IAM users, then you may skip over this chapter.
+This section describes fine-grained permissions management for your CSS. If your cloud account does not need individual IAM users, then you may skip over this chapter.
 
 By default, new IAM users do not have any permissions assigned. You need to add a user to one or more groups, and assign permissions policies to these groups. Users inherit permissions from the groups to which they are added and can perform specified operations on cloud services based on the permissions.
 
-You can grant users permissions by using roles and policies. Roles are a type of coarse-grained authorization mechanism that defines permissions related to user responsibilities. Policies define API-based permissions for operations on specific resources under certain conditions, allowing for more fine-grained, secure access control of cloud resources.
+You can grant permissions to a role or by creating a policy. Roles are a type of coarse-grained authorization mechanism that defines permissions related to user responsibilities. Policies define API-based permissions for operations on specific resources under certain conditions, allowing for more fine-grained, secure access control of cloud resources.
 
 .. note::
 
@@ -25,7 +25,7 @@ CSS provides system-defined policies that can be directly used in IAM. CSS admin
 -  Permissions: Allow or deny operations on specified resources under specific conditions.
 -  APIs: REST APIs that can be called by a custom policy.
 -  Actions: added to a custom policy to control permissions for specific operations.
--  Related actions: actions on which a specific action depends to take effect. When assigning permissions for the action to a user, you also need to assign permissions for the dependent actions.
+-  Dependencies: actions which a specific action depends on. When allowing an action for a user, you also need to allow any existing action dependencies for that user.
 -  IAM or enterprise projects: type of projects for which an action will take effect. Policies that contain actions supporting both IAM and enterprise projects can be assigned to user groups and take effect in both IAM and Enterprise Management. Policies that only contain actions supporting IAM projects can be assigned to user groups and only take effect for IAM.
 
    .. note::

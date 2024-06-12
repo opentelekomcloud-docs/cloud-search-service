@@ -17,6 +17,7 @@ Cloud Search Service - API Reference
    vpc_endpoint/index
    parameter_configuration/index
    load_balancing/index
+   intelligent_o_and_m/index
    permissions_policies_and_supported_actions
    common_parameters/index
    change_history

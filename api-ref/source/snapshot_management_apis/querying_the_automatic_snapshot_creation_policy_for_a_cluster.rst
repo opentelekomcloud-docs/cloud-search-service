@@ -56,7 +56,7 @@ Response
    +---------------+---------+---------------------------------------------------------------------------------------+
    | agency        | String  | Agency used to access OBS buckets.                                                    |
    +---------------+---------+---------------------------------------------------------------------------------------+
-   | enable        | String  | Whether to enable the automatic snapshot creation policy.                             |
+   | enable        | String  | Indicates whether to enable the automatic snapshot creation policy.                   |
    +---------------+---------+---------------------------------------------------------------------------------------+
    | snapshotCmkId | String  | Snapshot encryption ID. If the snapshot is not encrypted, value **null** is returned. |
    +---------------+---------+---------------------------------------------------------------------------------------+
@@ -78,7 +78,7 @@ Example response
 
    {
        "keepday":2,
-       "period":"16:00 GMT+02:00",
+       "period":"16:00 GMT+2:00",
        "prefix":"snapshot",
        "bucket":"es-backup",
        "basePath": "css_repository/tests",
@@ -94,12 +94,12 @@ Status Code
 
 .. _css_03_0032__table18620659263:
 
-.. table:: **Table 3** Status code
+.. table:: **Table 3** Status codes
 
    +-------------+----------------+------------------------------------------------------------------------------------------------+
-   | Status Code | Code           | Status Code Description                                                                        |
+   | Status Code | Message        | Description                                                                                    |
    +=============+================+================================================================================================+
-   | 200         | OK             | The request is processed successfully.                                                         |
+   | 200         | OK             | The request is processed.                                                                      |
    +-------------+----------------+------------------------------------------------------------------------------------------------+
    | 406         | Not Acceptable | The server cannot fulfill the request according to the content characteristics of the request. |
    +-------------+----------------+------------------------------------------------------------------------------------------------+

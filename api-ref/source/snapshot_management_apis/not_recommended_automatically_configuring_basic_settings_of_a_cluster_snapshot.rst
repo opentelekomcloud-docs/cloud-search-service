@@ -7,7 +7,7 @@
 
 .. note::
 
-   The API for automatically configuring a cluster snapshot can automatically create OBS buckets and agencies for storing snapthos. If you have multiple clusters, an OBS bucket will be created for each cluster via this API during automatic configuration and consume your OBS quota. Too many OBS buckets will be difficult to manage. You are advised to perform operations in :ref:`Modifying Basic Configurations of a Cluster Snapshot <css_03_0030>`.
+   The API for automatically configuring a cluster snapshot can automatically create OBS buckets and agencies for storing snapshots. If you have multiple clusters, an OBS bucket will be created for each cluster via this API during automatic configuration and consume your OBS quota. Too many OBS buckets will be difficult to manage. You are advised to perform operations in :ref:`Modifying Basic Configurations of a Cluster Snapshot <css_03_0030>`.
 
 Function
 --------
@@ -26,13 +26,13 @@ URI
 
 .. table:: **Table 1** Parameter description
 
-   +------------+-----------+--------+-------------------------------------------------------------------------------------+
-   | Parameter  | Mandatory | Type   | Description                                                                         |
-   +============+===========+========+=====================================================================================+
-   | project_id | Yes       | String | Project ID. For details, see :ref:`Obtaining a Project ID and Name <css_03_0071>`.f |
-   +------------+-----------+--------+-------------------------------------------------------------------------------------+
-   | cluster_id | Yes       | String | ID of the cluster where snapshots are to be backed up.                              |
-   +------------+-----------+--------+-------------------------------------------------------------------------------------+
+   +------------+-----------+--------+------------------------------------------------------------------------------------+
+   | Parameter  | Mandatory | Type   | Description                                                                        |
+   +============+===========+========+====================================================================================+
+   | project_id | Yes       | String | Project ID. For details, see :ref:`Obtaining a Project ID and Name <css_03_0071>`. |
+   +------------+-----------+--------+------------------------------------------------------------------------------------+
+   | cluster_id | Yes       | String | ID of the cluster where snapshots are to be backed up.                             |
+   +------------+-----------+--------+------------------------------------------------------------------------------------+
 
 Request
 -------

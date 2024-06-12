@@ -2,13 +2,13 @@
 
 .. _css_03_0050:
 
-Downloading a Certificate File
-==============================
+Downloading the Certificate
+===========================
 
 Function
 --------
 
-This API is used to download the HTTPS certificate file of the server.
+This API is used to download the HTTPS certificate of the server.
 
 URI
 ---
@@ -60,18 +60,18 @@ After obtaining the preceding character string, run the following command to obt
 Status Code
 -----------
 
-.. table:: **Table 2** Status code
+.. table:: **Table 2** Status codes
 
-   +-----------------------+-----------------------+-----------------------------------------------------------------+
-   | Status Code           | Code                  | Status Code Description                                         |
-   +=======================+=======================+=================================================================+
-   | 400                   | BadRequest            | Invalid request.                                                |
-   |                       |                       |                                                                 |
-   |                       |                       | The client should not repeat the request without modifications. |
-   +-----------------------+-----------------------+-----------------------------------------------------------------+
-   | 404                   | NotFound              | The requested resource cannot be found.                         |
-   |                       |                       |                                                                 |
-   |                       |                       | The client should not repeat the request without modifications. |
-   +-----------------------+-----------------------+-----------------------------------------------------------------+
-   | 200                   | OK                    | The request is processed successfully.                          |
-   +-----------------------+-----------------------+-----------------------------------------------------------------+
+   +-----------------------+-----------------------+-----------------------------------------+
+   | Status Code           | Message               | Description                             |
+   +=======================+=======================+=========================================+
+   | 400                   | BadRequest            | Invalid request.                        |
+   |                       |                       |                                         |
+   |                       |                       | Modify the request instead of retrying. |
+   +-----------------------+-----------------------+-----------------------------------------+
+   | 404                   | NotFound              | The requested resource cannot be found. |
+   |                       |                       |                                         |
+   |                       |                       | Modify the request instead of retrying. |
+   +-----------------------+-----------------------+-----------------------------------------+
+   | 200                   | OK                    | The request is processed.               |
+   +-----------------------+-----------------------+-----------------------------------------+

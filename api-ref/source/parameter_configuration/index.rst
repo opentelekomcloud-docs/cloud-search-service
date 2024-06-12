@@ -5,7 +5,7 @@
 Parameter Configuration
 =======================
 
--  :ref:`Modifying Cluster Parameters <css_03_0116>`
+-  :ref:`Modifying Parameter Configurations <css_03_0116>`
 -  :ref:`Obtaining the Task List of Parameter Configurations <css_03_0117>`
 -  :ref:`Obtaining the Parameter Configuration List <css_03_0118>`
 
@@ -13,6 +13,6 @@ Parameter Configuration
    :maxdepth: 1
    :hidden: 
 
-   modifying_cluster_parameters
+   modifying_parameter_configurations
    obtaining_the_task_list_of_parameter_configurations
    obtaining_the_parameter_configuration_list

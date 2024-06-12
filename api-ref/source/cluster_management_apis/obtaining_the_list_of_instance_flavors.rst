@@ -1,6 +1,6 @@
-:original_name: css_03_0023.html
+:original_name: ListFlavors.html
 
-.. _css_03_0023:
+.. _ListFlavors:
 
 Obtaining the List of Instance Flavors
 ======================================
@@ -33,19 +33,19 @@ None
 Response
 --------
 
-:ref:`Table 2 <css_03_0023__table347318359446>` describes the response parameters.
+:ref:`Table 2 <listflavors__table347318359446>` describes the response parameters.
 
-.. _css_03_0023__table347318359446:
+.. _listflavors__table347318359446:
 
 .. table:: **Table 2** Parameter description
 
    +-----------+---------------------------------------------------------------------+--------------------------+
    | Parameter | Type                                                                | Description              |
    +===========+=====================================================================+==========================+
-   | versions  | Array of :ref:`versions <css_03_0023__table25411438165118>` objects | List of engine versions. |
+   | versions  | Array of :ref:`versions <listflavors__table25411438165118>` objects | List of engine versions. |
    +-----------+---------------------------------------------------------------------+--------------------------+
 
-.. _css_03_0023__table25411438165118:
+.. _listflavors__table25411438165118:
 
 .. table:: **Table 3** **versions** field description
 
@@ -56,10 +56,10 @@ Response
    +-----------+-------------------------------------------------------------------+-------------------------------------------------------------------------------------------+
    | type      | String                                                            | Instance type. The options are **ess**, **ess-cold**, **ess-master**, and **ess-client**. |
    +-----------+-------------------------------------------------------------------+-------------------------------------------------------------------------------------------+
-   | flavors   | Array of :ref:`flavors <css_03_0023__table5319191204412>` objects | Flavor list                                                                               |
+   | flavors   | Array of :ref:`flavors <listflavors__table5319191204412>` objects | Flavor list                                                                               |
    +-----------+-------------------------------------------------------------------+-------------------------------------------------------------------------------------------+
 
-.. _css_03_0023__table5319191204412:
+.. _listflavors__table5319191204412:
 
 .. table:: **Table 4** **flavors** field description
 
@@ -90,7 +90,7 @@ Example response
    {
      "versions": [
        {
-         "version": "7.6.2",
+         "version": "6.2.3",
          "flavors": [
            {
              "cpu": 1,
@@ -144,22 +144,22 @@ Example response
 Status Code
 -----------
 
-:ref:`Table 5 <css_03_0023__table12321369178>` describes the status code.
+:ref:`Table 5 <listflavors__table12321369178>` describes the status code.
 
-.. _css_03_0023__table12321369178:
+.. _listflavors__table12321369178:
 
-.. table:: **Table 5** Status code
+.. table:: **Table 5** Status codes
 
-   +-----------------------+-----------------------+-----------------------------------------------------------------+
-   | Status Code           | Code                  | Status Code Description                                         |
-   +=======================+=======================+=================================================================+
-   | 400                   | BadRequest            | Invalid request.                                                |
-   |                       |                       |                                                                 |
-   |                       |                       | The client should not repeat the request without modifications. |
-   +-----------------------+-----------------------+-----------------------------------------------------------------+
-   | 404                   | NotFound              | The requested resource cannot be found.                         |
-   |                       |                       |                                                                 |
-   |                       |                       | The client should not repeat the request without modifications. |
-   +-----------------------+-----------------------+-----------------------------------------------------------------+
-   | 200                   | OK                    | The request is processed successfully.                          |
-   +-----------------------+-----------------------+-----------------------------------------------------------------+
+   +-----------------------+-----------------------+-----------------------------------------+
+   | Status Code           | Message               | Description                             |
+   +=======================+=======================+=========================================+
+   | 400                   | BadRequest            | Invalid request.                        |
+   |                       |                       |                                         |
+   |                       |                       | Modify the request instead of retrying. |
+   +-----------------------+-----------------------+-----------------------------------------+
+   | 404                   | NotFound              | The requested resource cannot be found. |
+   |                       |                       |                                         |
+   |                       |                       | Modify the request instead of retrying. |
+   +-----------------------+-----------------------+-----------------------------------------+
+   | 200                   | OK                    | The request is processed.               |
+   +-----------------------+-----------------------+-----------------------------------------+
