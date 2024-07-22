@@ -33,7 +33,7 @@ Procedure
 
    Obtain the token. Send **POST https://IAM** **endpoint/v3/auth/tokens**.
 
-   Obtain the token by following instructions in :ref:`Authentication <iam_02_0510>`.
+   Obtain the token by following instructions in :ref:`Authentication <css_03_0139>`.
 
    The value of **X-Subject-Token** in the response header is the user token.
 

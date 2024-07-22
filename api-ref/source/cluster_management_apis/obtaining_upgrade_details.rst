@@ -13,7 +13,7 @@ The upgrade takes a long time. You can call this API to check the upgrade progre
 Calling Method
 --------------
 
-For details, see :ref:`Calling APIs <iam_01_0023>`.
+For details, see :ref:`Calling APIs <css_03_0137>`.
 
 URI
 ---
