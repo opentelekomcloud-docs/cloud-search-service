@@ -1,6 +1,6 @@
-:original_name: iam_02_0511.html
+:original_name: css_03_0140.html
 
-.. _iam_02_0511:
+.. _css_03_0140:
 
 Returned Values
 ===============
@@ -19,9 +19,9 @@ Response Header
 
 A response header corresponds to a request header, for example, **Content-Type**.
 
-:ref:`Figure 1 <iam_02_0511__en-us_topic_0170917209_en-us_topic_0168405765_fig4865141011511>` shows the response header for the API of obtaining a user token, where **x-subject-token** is the desired user token. Then, you can use the token to authenticate the calling of other APIs.
+:ref:`Figure 1 <css_03_0140__en-us_topic_0170917209_en-us_topic_0168405765_fig4865141011511>` shows the response header for the API of obtaining a user token, where **x-subject-token** is the desired user token. Then, you can use the token to authenticate the calling of other APIs.
 
-.. _iam_02_0511__en-us_topic_0170917209_en-us_topic_0168405765_fig4865141011511:
+.. _css_03_0140__en-us_topic_0170917209_en-us_topic_0168405765_fig4865141011511:
 
 .. figure:: /_static/images/en-us_image_0000001554710113.png
    :alt: **Figure 1** Header of the response to the request for obtaining a user token

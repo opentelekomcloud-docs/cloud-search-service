@@ -1,6 +1,6 @@
-:original_name: iam_02_0008.html
+:original_name: css_03_0138.html
 
-.. _iam_02_0008:
+.. _css_03_0138:
 
 Making an API Request
 =====================
@@ -63,9 +63,9 @@ Request Header
 
 You can also add additional fields to a request, such as the fields required by a specified URI or an HTTP method. For example, to request for the authentication information, add **Content-Type**, which specifies the request body type.
 
-:ref:`Table 2 <iam_02_0008__table181671338175614>` lists common request header fields.
+:ref:`Table 2 <css_03_0138__table181671338175614>` lists common request header fields.
 
-.. _iam_02_0008__table181671338175614:
+.. _css_03_0138__table181671338175614:
 
 .. table:: **Table 2** Common request headers
 

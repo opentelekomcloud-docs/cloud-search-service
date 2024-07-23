@@ -13,7 +13,7 @@ This API is used to obtain the ID of an image that can be upgraded in the curren
 Calling Method
 --------------
 
-For details, see :ref:`Calling APIs <iam_01_0023>`.
+For details, see :ref:`Calling APIs <css_03_0137>`.
 
 URI
 ---
