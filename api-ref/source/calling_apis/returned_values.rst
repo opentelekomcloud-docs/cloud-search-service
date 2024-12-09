@@ -1,29 +1,29 @@
-:original_name: css_03_0080.html
+:original_name: css_03_0140.html
 
-.. _css_03_0080:
+.. _css_03_0140:
 
 Returned Values
 ===============
 
-After sending a request, you will receive a response containing the status code, response header, and response body.
-
 Status Code
 -----------
 
-A status code is a group of digits, ranging from 1xx to 5xx. It indicates the status of a request. For more information, see :ref:`Status Codes <css_03_0075>`.
+After sending a request, you will receive a response containing the status code, response header, and response body.
 
-If status code 201 is returned for the API for obtaining a user token, the request is successful.
+A status code is a group of digits, ranging from 1xx to 5xx. It indicates the status of a request. For more information, see :ref:`Status Code <css_03_0075>`.
+
+If status code 201 is returned for the calling of the API for obtaining a user token, the request is successful.
 
 Response Header
 ---------------
 
 A response header corresponds to a request header, for example, **Content-Type**.
 
-:ref:`Figure 1 <css_03_0080__en-us_topic_0175865507_en-us_topic_0170917209_en-us_topic_0168405765_fig4865141011511>` shows the response header for the API of obtaining a user token, where **x-subject-token** is the desired user token. Then, you can use the token to authenticate the calling of other APIs.
+:ref:`Figure 1 <css_03_0140__en-us_topic_0170917209_en-us_topic_0168405765_fig4865141011511>` shows the response header for the API of obtaining a user token, where **x-subject-token** is the desired user token. Then, you can use the token to authenticate the calling of other APIs.
 
-.. _css_03_0080__en-us_topic_0175865507_en-us_topic_0170917209_en-us_topic_0168405765_fig4865141011511:
+.. _css_03_0140__en-us_topic_0170917209_en-us_topic_0168405765_fig4865141011511:
 
-.. figure:: /_static/images/en-us_image_0000002083397766.png
+.. figure:: /_static/images/en-us_image_0000001554710113.png
    :alt: **Figure 1** Header of the response to the request for obtaining a user token
 
    **Figure 1** Header of the response to the request for obtaining a user token
@@ -33,7 +33,7 @@ Response Body
 
 A response body is generally returned in a structured format, corresponding to the **Content-Type** in the response header, and is used to transfer content other than the response header.
 
-The following is part of the response body for the API used to obtain a user token. The following is only part of the response body.
+The following shows part of the response body for the API of obtaining a user token.
 
 .. code-block::
 
