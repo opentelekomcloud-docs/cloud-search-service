@@ -110,7 +110,7 @@ html_copy_source = False
 latex_documents = [
     ('index',
      'css-umn.tex',
-     u'Cloud Search Service - User Guide',
+    u'Cloud Search Service - User Guide',
      u'OpenTelekomCloud', 'manual'),
 ]
 
