@@ -110,7 +110,7 @@ html_copy_source = False
 latex_documents = [
     ('index',
      'css-best-practice.tex',
-     u'Cloud Search Service - Best Practice',
+    u'Cloud Search Service - Best Practice',
      u'OpenTelekomCloud', 'manual'),
 ]
 

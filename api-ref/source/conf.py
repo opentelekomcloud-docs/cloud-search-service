@@ -110,7 +110,7 @@ html_copy_source = False
 latex_documents = [
     ('index',
      'css-api-ref.tex',
-     u'Cloud Search Service - API Reference',
+    u'Cloud Search Service - API Reference',
      u'OpenTelekomCloud', 'manual'),
 ]
 
