@@ -6,9 +6,6 @@
       - helpcenter-base-jobs
     vars:
       sphinx_pdf_files:
-        - css-umn.pdf
-        - css-api-ref.pdf
-        - css-best-practice.pdf
     check:
       jobs:
         - noop
