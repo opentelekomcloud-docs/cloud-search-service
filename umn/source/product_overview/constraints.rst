@@ -1,33 +1,33 @@
-:original_name: en-us_topic_0000001715624677.html
+:original_name: css_04_0005.html
 
-.. _en-us_topic_0000001715624677:
+.. _css_04_0005:
 
 Constraints
 ===========
 
-Restrictions on Clusters and Nodes
-----------------------------------
+This topic describes limits on the node quantity and resource quotas of a CSS cluster. For details about the limits and limitations of different features provided by CSS, see relevant topics in the CSS User Guide.
 
-The following table describes restrictions on clusters and nodes in CSS.
+Maximum and Minimum Numbers of Nodes in a Cluster
+-------------------------------------------------
 
-.. table:: **Table 1** Restrictions on Elasticsearch clusters and nodes
+The following tables provide the maximum and minimum numbers of nodes each CSS cluster can have.
 
-   ==================================== ===========
-   Cluster and Node                     Restriction
-   ==================================== ===========
+.. table:: **Table 1** Maximum and minimum numbers of nodes in an Elasticsearch or OpenSearch cluster
+
+   ==================================== =====
+   Number of Nodes                      Limit
+   ==================================== =====
    Maximum number of nodes in a cluster 32
    Minimum number of nodes in a cluster 1
-   ==================================== ===========
+   ==================================== =====
 
-Restrictions on Browsers
-------------------------
+Quotas
+------
 
--  You are advised to use the following browsers to access the CSS management console:
+CSS uses the following resource quotas:
 
-   -  Google Chrome 36.0 or later
-   -  Mozilla Firefox 35.0 or later
-
--  You are advised to use the following browsers to access Kibana integrated in CSS:
-
-   -  Google Chrome 36.0 or later
-   -  Mozilla Firefox 35.0 or later
+-  Number of instances
+-  CPUs
+-  Memory capacity in GB
+-  Number of disks
+-  Disk size (GB)

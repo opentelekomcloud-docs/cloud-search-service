@@ -1,6 +1,6 @@
-:original_name: en-us_topic_0000001477297354.html
+:original_name: css_02_0041.html
 
-.. _en-us_topic_0000001477297354:
+.. _css_02_0041:
 
 What Data Compression Algorithms Does CSS Use?
 ==============================================
@@ -9,7 +9,7 @@ CSS supports two data compression algorithms: LZ4 (by default) and best_compress
 
 -  **LZ4 algorithm**
 
-   LZ4 is the default compression algorithm of Elasticsearch. This algorithm can compress and decompress data quickly, but its compression ratio is low.
+   LZ4 is the default compression algorithm for Elasticsearch. This algorithm can compress and decompress data quickly, but its compression ratio is low.
 
    LZ4 scans data with a 4-byte window, which slides 1 byte forward at a time. Duplicate data is compressed. This algorithm applies to scenarios where a large amount of data to be read while a small amount of data to be written.
 
