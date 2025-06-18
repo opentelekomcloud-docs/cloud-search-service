@@ -1,6 +1,6 @@
-:original_name: en-us_topic_0000001715704493.html
+:original_name: css_04_0002.html
 
-.. _en-us_topic_0000001715704493:
+.. _css_04_0002:
 
 Scenarios
 =========
@@ -16,12 +16,6 @@ CSS can be used to search for website content by keyword as well as search for a
 -  Categorized statistics: You can apply search filters to sort products by category.
 -  Custom highlight style: You can define how the search results are highlighted.
 
-
-.. figure:: /_static/images/en-us_image_0000001715704521.png
-   :alt: **Figure 1** Site search
-
-   **Figure 1** Site search
-
 All-Scenario Log Analysis
 -------------------------
 
@@ -30,12 +24,6 @@ Analyze the logs of Elastic Load Balance (ELB), servers, containers, and applica
 -  High cost-effectiveness: CSS separates cold and hot storage, and decouples computing and storage resources, achieving high performance and reducing costs by over 30%.
 -  Ease of use: Perform queries in a GUI editor. Easily create reports using drag-and-drop components.
 -  Powerful processing capability: CSS can import hundreds of terabytes of data per day, and can process petabytes of data.
-
-
-.. figure:: /_static/images/en-us_image_0000001667704906.png
-   :alt: **Figure 2** All-scenario log analysis
-
-   **Figure 2** All-scenario log analysis
 
 Database Query Acceleration
 ---------------------------
@@ -51,12 +39,12 @@ Vector Search
 
 When you search for unstructured data, such as images, videos, and corpuses, the nearest neighbors or approximate nearest neighbors are searched based on feature vectors. This has the following advantages:
 
--  Efficient and reliable: The vector search engine provides optimal search performance and distributed DR capabilities.
+-  Efficiency and reliability: The vector search engine provides ultimate search performance and distributed disaster recovery capabilities.
 -  Abundant indexes: Multiple indexing algorithms and similarity measurement methods are available and can meet diverse needs.
 -  Easy learning: CSS is fully compatible with the open-source Elasticsearch ecosystem.
 
 
-.. figure:: /_static/images/en-us_image_0000001715624681.png
-   :alt: **Figure 3** Vector search
+.. figure:: /_static/images/en-us_image_0000001981470337.png
+   :alt: **Figure 1** Vector search
 
-   **Figure 3** Vector search
+   **Figure 1** Vector search

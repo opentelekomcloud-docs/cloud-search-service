@@ -7,12 +7,9 @@ Cloud Search Service - User Guide
 
    product_overview/index
    getting_started/index
-   permissions_management/index
-   elasticsearch/index
-   opensearch/index
-   viewing_the_cluster_runtime_status_and_storage_capacity_status
-   enhanced_cluster_features/index
-   monitoring/index
-   auditing/index
+   css_service_permission_management/index
+   using_elasticsearch_for_data_search/index
+   using_opensearch_for_data_search/index
+   css_resource_monitoring
    faqs/index
    change_history
