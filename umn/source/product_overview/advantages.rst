@@ -1,6 +1,6 @@
-:original_name: en-us_topic_0000001667704890.html
+:original_name: css_04_0010.html
 
-.. _en-us_topic_0000001667704890:
+.. _css_04_0010:
 
 Advantages
 ==========
@@ -69,14 +69,14 @@ You can choose to trigger snapshots manually or on a periodic basis for backup a
 High Security
 -------------
 
-CSS ensures secure running of data and services from the following aspects:
+CSS uses network isolation in addition to various host and data security measures.
 
 -  Network isolation
 
    The network is divided into two planes, service plane and management plane. The two planes are deployed and isolated physically to ensure the security of the service and management networks.
 
    -  Service plane: refers to the network plane of the cluster. It provides service channels for users and delivers data definition, index, and search capabilities.
-   -  Management plane: refers to the management console. It is used to manage CSS.
+   -  Management plane: This is mainly the management console, where you manage CSS.
    -  VPC security groups or isolated networks ensure the security of hosts.
 
 -  Access control
@@ -87,7 +87,7 @@ CSS ensures secure running of data and services from the following aspects:
 
 -  Data security
 
-   -  In CSS, the multi-replica mechanism is used to ensure user data security.
+   -  In CSS, a multi-replica mechanism is used to ensure data security.
    -  Communication between the client and server can be encrypted using SSL.
 
 -  Operation audit
