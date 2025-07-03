@@ -27,7 +27,7 @@ Description
 
 The CSS vector search engine integrates a variety of vector indexes, such as brute-force search, Hierarchical Navigable Small World (HNSW) graphs, product quantization, and IVF-HNSW. It also supports multiple similarity calculation methods, such as Euclidean, inner product, cosine, and Hamming. The recall rate and retrieval performance of the engine are better than those of open-source engines. It can meet the requirements for high performance, high precision, low costs, and multi-modal computation.
 
-The search engine also supports all the capabilities of the native Elasticsearch, including distribution, multi-replica, error recovery, snapshot, and permission control. The engine is compatible with the native Elasticsearch ecosystem, including the cluster monitoring tool Cerebro, the visualization tool Kibana, and the real-time data ingestion tool Logstash. Several client languages, such as Python, Java, Go, and C++, are supported.
+The search engine also supports all the capabilities of the native OpenSearch, including distribution, multi-replica, error recovery, snapshot, and permission control. The engine is compatible with the native OpenSearch ecosystem, including the cluster monitoring tool Cerebro, the visualization tool Kibana, and the real-time data ingestion tool Logstash. Several client languages, such as Python, Java, Go, and C++, are supported.
 
 Constraints
 -----------
@@ -44,19 +44,19 @@ Off-heap memory is used for index construction and query in vector search. There
 
 There are different methods for estimating the size of off-heap memory required by different types of indexes. The calculation formulas are as follows:
 
--  **GRAPH Index**
+-  **GRAPH index**
 
-   mem_needs = (dim x dim_size + neighbros x 4) x num + delta
+   mem_needs = (dim x dim_size + neighbors x 4) x num + delta
 
    .. note::
 
       If you need to update indexes in real time, consider the off-heap memory overhead required for vector index construction and automatic merge. The actual size of required **mem_needs** is at least 1.5 to 2 times of the original estimation.
 
--  **PQ Index**
+-  **PQ index**
 
    mem_needs = frag_num x frag_size x num + delta
 
--  **FALT and IVF Indexes**
+-  **FLAT and IVF indexes**
 
    mem_needs = dim x dim_size x num + delta
 

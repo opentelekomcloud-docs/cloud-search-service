@@ -11,9 +11,8 @@ If the current account has met your requirements, you do not need to create an i
 
 With IAM, you can use your account to create IAM users for your employees and assign permissions to the users to control their access to your resources. IAM is free of charge. You pay only for the resources you purchase.
 
-
-Permissions Management
-----------------------
+CSS Permissions
+---------------
 
 New IAM users do not have any permissions assigned by default. You need to first add them to one or more groups and attach policies or roles to these groups. The users then inherit permissions from the groups and can perform specified operations on cloud services based on the permissions they have been assigned.
 
