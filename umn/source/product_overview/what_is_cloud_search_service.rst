@@ -24,9 +24,6 @@ CSS is a fully managed, distributed search service based on open source Elastics
 
    CSS Logstash is a fully managed data ingestion and processing service that is completely compatible with open-source Logstash. You can quickly create Logstash clusters in CSS. Data is scattered across many different systems in different formats. CSS Logstash helps you get insights by easily processing data from a variety of data sources and dumping it to CSS's Elasticsearch clusters or other systems.
 
-Introduction Video
-------------------
-
 Functions
 ---------
 
