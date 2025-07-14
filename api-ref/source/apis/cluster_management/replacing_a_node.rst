@@ -106,7 +106,7 @@ PUT /v1.0/{project_id}/clusters/{cluster_id}/instance/{instance_id}/replace
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | **Options**:                                                                                                                     |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | VPC permissions required by the agency: "vpc:subnets:get","vpc:ports:``*``".                                                     |
+   |                 |                 |                 | VPC permissions required by the agency: "``vpc:subnets:get``","``vpc:ports:*``".                                                 |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | **Default value**:                                                                                                               |
    |                 |                 |                 |                                                                                                                                  |
