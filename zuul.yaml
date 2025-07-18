@@ -7,8 +7,10 @@
     vars:
       sphinx_pdf_files:
         - css-umn.pdf
-        - css-api-ref.pdf
         - css-best-practice.pdf
+        - css-koosearch-umn.pdf
+        - css-api-ref.pdf
+        - css-koosearch-api-ref.pdf
     check:
       jobs:
         - noop
