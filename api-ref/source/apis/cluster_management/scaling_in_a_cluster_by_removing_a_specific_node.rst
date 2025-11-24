@@ -95,7 +95,7 @@ Request Parameters
    |                 |                 |                  |                                                                                                                                  |
    |                 |                 |                  | **Options**:                                                                                                                     |
    |                 |                 |                  |                                                                                                                                  |
-   |                 |                 |                  | VPC permissions required by the agency: "vpc:subnets:get","vpc:ports:``*``".                                                     |
+   |                 |                 |                  | VPC permissions required by the agency: "``vpc:subnets:get``","``vpc:ports:*``".                                                 |
    |                 |                 |                  |                                                                                                                                  |
    |                 |                 |                  | **Default value**:                                                                                                               |
    |                 |                 |                  |                                                                                                                                  |
