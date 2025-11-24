@@ -44,19 +44,19 @@ Off-heap memory is used for index construction and query in vector search. There
 
 There are different methods for estimating the size of off-heap memory required by different types of indexes. The calculation formulas are as follows:
 
--  **GRAPH Index**
+-  **GRAPH index**
 
-   mem_needs = (dim x dim_size + neighbros x 4) x num + delta
+   mem_needs = (dim x dim_size + neighbors x 4) x num + delta
 
    .. note::
 
       If you need to update indexes in real time, consider the off-heap memory overhead required for vector index construction and automatic merge. The actual size of required **mem_needs** is at least 1.5 to 2 times of the original estimation.
 
--  **PQ Index**
+-  **PQ index**
 
    mem_needs = frag_num x frag_size x num + delta
 
--  **FALT and IVF Indexes**
+-  **FLAT and IVF indexes**
 
    mem_needs = dim x dim_size x num + delta
 

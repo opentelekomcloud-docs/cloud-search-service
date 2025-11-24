@@ -113,27 +113,27 @@ After index monitoring is enabled for a cluster, you can check the read/write tr
 
 .. table:: **Table 2** Configuration items
 
-   +-----------------------+-----------------------+----------------------------------------------------------------------------------+
-   | Configuration Item    | Mandatory             | Description                                                                      |
-   +=======================+=======================+==================================================================================+
-   | indexname             | No                    | Index name.                                                                      |
-   |                       |                       |                                                                                  |
-   |                       |                       | .. note::                                                                        |
-   |                       |                       |                                                                                  |
-   |                       |                       |    You cannot check the traffic of system indexes, whose names start with **.**. |
-   +-----------------------+-----------------------+----------------------------------------------------------------------------------+
-   | begin                 | No                    | Start time (UTC time) of the monitoring data you want to view.                   |
-   |                       |                       |                                                                                  |
-   |                       |                       | Time format: strict_date_optional_time|epoch_millis                              |
-   |                       |                       |                                                                                  |
-   |                       |                       | The default start time is 5 minutes before the current time.                     |
-   +-----------------------+-----------------------+----------------------------------------------------------------------------------+
-   | end                   | No                    | End time (UTC time) of the monitoring data you want to view.                     |
-   |                       |                       |                                                                                  |
-   |                       |                       | Time format: strict_date_optional_time|epoch_millis                              |
-   |                       |                       |                                                                                  |
-   |                       |                       | The default end time is the current time.                                        |
-   +-----------------------+-----------------------+----------------------------------------------------------------------------------+
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------+
+   | Configuration Item    | Mandatory             | Description                                                                             |
+   +=======================+=======================+=========================================================================================+
+   | indexname             | No                    | Index name.                                                                             |
+   |                       |                       |                                                                                         |
+   |                       |                       | .. note::                                                                               |
+   |                       |                       |                                                                                         |
+   |                       |                       |    You cannot check the traffic of system indexes, whose names start with a period (.). |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------+
+   | begin                 | No                    | Start time (UTC time) of the monitoring data you want to view.                          |
+   |                       |                       |                                                                                         |
+   |                       |                       | Time format: strict_date_optional_time|epoch_millis                                     |
+   |                       |                       |                                                                                         |
+   |                       |                       | The default start time is 5 minutes before the current time.                            |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------+
+   | end                   | No                    | End time (UTC time) of the monitoring data you want to view.                            |
+   |                       |                       |                                                                                         |
+   |                       |                       | Time format: strict_date_optional_time|epoch_millis                                     |
+   |                       |                       |                                                                                         |
+   |                       |                       | The default end time is the current time.                                               |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------+
 
 Information similar to the following is displayed:
 
