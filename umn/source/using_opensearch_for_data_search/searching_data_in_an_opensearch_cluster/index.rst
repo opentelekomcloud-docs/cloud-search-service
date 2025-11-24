@@ -1,12 +1,12 @@
-:original_name: css_01_0459.html
+:original_name: css_01_0074.html
 
-.. _css_01_0459:
+.. _css_01_0074:
 
 Searching Data in an OpenSearch Cluster
 =======================================
 
--  :ref:`Using DSL to Search for Data in OpenSearch <css_01_0460>`
--  :ref:`Using SQL to Search for Data in OpenSearch <css_01_0461>`
+-  :ref:`Using DSL to Search for Data in OpenSearch <css_01_0081>`
+-  :ref:`Using SQL to Search for Data in OpenSearch <css_01_0083>`
 
 .. toctree::
    :maxdepth: 1

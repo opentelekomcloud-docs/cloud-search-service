@@ -5,11 +5,11 @@
 Related Services
 ================
 
-:ref:`Figure 1 <css_04_0004__fig1895417182444>` shows the relationships between CSS and other services.
+:ref:`Figure 1 <en-us_topic_0000002473954298__fig1895417182444>` shows the relationships between CSS and other services.
 
-.. _css_04_0004__fig1895417182444:
+.. _en-us_topic_0000002473954298__fig1895417182444:
 
-.. figure:: /_static/images/en-us_image_0000001981470325.png
+.. figure:: /_static/images/en-us_image_0000002473794376.png
    :alt: **Figure 1** Relationships between CSS and other services
 
    **Figure 1** Relationships between CSS and other services

@@ -1,6 +1,6 @@
-:original_name: css_01_0408.html
+:original_name: css_01_0132.html
 
-.. _css_01_0408:
+.. _css_01_0132:
 
 Configuring Large Query Isolation for an Elasticsearch Cluster
 ==============================================================
@@ -21,141 +21,149 @@ Constraints
 
 Only Elasticsearch 7.6.2 and Elasticsearch 7.10.2 clusters support large query isolation.
 
-Configuring Large Query Isolation
----------------------------------
+Logging In to Kibana
+--------------------
 
-Large query isolation is enabled by default, while the global timeout duration is disabled by default. If you enable them, the configuration will take effect immediately.
+Log in to Kibana and go to the command execution page. Elasticsearch clusters support multiple access methods. This topic uses Kibana as an example to describe the operation procedures.
 
 #. Log in to the CSS management console.
 
-#. Choose **Clusters** in the navigation pane. On the **Clusters** page, locate the target cluster, and click **Access Kibana** in the **Operation** column.
+#. In the navigation pane on the left, choose **Clusters > Elasticsearch**.
 
-#. In the navigation pane of Kibana on the left, choose **Dev Tools**. Run the following command to enable large query isolation and global timeout features:
+#. In the cluster list, find the target cluster, and click **Kibana** in the **Operation** column to log in to the Kibana console.
+
+#. In the left navigation pane, choose **Dev Tools**.
+
+   The left part of the console is the command input box, and the triangle icon in its upper-right corner is the execution button. The right part shows the execution result.
+
+Enabling Large Query Isolation
+------------------------------
+
+Large query isolation is enabled by default, while global query timeout is disabled by default. If you enable them, the configuration will take effect immediately.
+
+Run the following commands to enable large query isolation and global query timeout:
+
+.. code-block:: text
+
+   PUT _cluster/settings
+   {
+     "persistent": {
+       "search.isolator.enabled": true,
+       "search.isolator.time.enabled": true
+     }
+   }
+
+The two features each has an independent switch. :ref:`Table 1 <en-us_topic_0000001938377744__table289124893815>` describes their parameters.
+
+.. _en-us_topic_0000001938377744__table289124893815:
+
+.. table:: **Table 1** Parameters for configuring large query isolation and global query timeout
+
+   +------------------------------+-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Switch                       | Parameter                         | Description                                                                                                                                                                                                                |
+   +==============================+===================================+============================================================================================================================================================================================================================+
+   | search.isolator.enabled      | search.isolator.memory.task.limit | Thresholds for identifying a single shard query task as a large query.                                                                                                                                                     |
+   |                              |                                   |                                                                                                                                                                                                                            |
+   |                              | search.isolator.time.management   |                                                                                                                                                                                                                            |
+   +------------------------------+-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   |                              | search.isolator.memory.pool.limit | Resource usage thresholds for isolation. If the resource usage of a query task exceeds one of these thresholds, the task will be paused.                                                                                   |
+   |                              |                                   |                                                                                                                                                                                                                            |
+   |                              | search.isolator.memory.heap.limit | .. note::                                                                                                                                                                                                                  |
+   |                              |                                   |                                                                                                                                                                                                                            |
+   |                              | search.isolator.count.limit       |    **search.isolator.memory.heap.limit** defines the limit on the heap memory consumed by write, query, and other operations of a node. If this limit is exceeded, large query tasks in the isolation pool will be paused. |
+   +------------------------------+-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   |                              | search.isolator.strategy          | Policy for selecting query tasks to pause in the isolation pool.                                                                                                                                                           |
+   |                              |                                   |                                                                                                                                                                                                                            |
+   |                              | search.isolator.strategy.ratio    |                                                                                                                                                                                                                            |
+   +------------------------------+-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | search.isolator.time.enabled | search.isolator.time.limit        | Global timeout for query tasks.                                                                                                                                                                                            |
+   +------------------------------+-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Configuring Large Query Isolation Thresholds
+--------------------------------------------
+
+-  Run the following commands to configure thresholds for defining a large query task:
 
    .. code-block:: text
 
       PUT _cluster/settings
       {
         "persistent": {
-          "search.isolator.enabled": true,
-          "search.isolator.time.enabled": true
+          "search.isolator.memory.task.limit": "50MB",
+          "search.isolator.time.management": "10s"
         }
       }
 
-   The two features each has an independent switch. :ref:`Table 1 <css_01_0408__en-us_topic_0000001223914380_table449913935218>` describes their parameters.
+   .. table:: **Table 2** Parameters for configuring large query isolation thresholds
 
-   .. _css_01_0408__en-us_topic_0000001223914380_table449913935218:
+      +-----------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Parameter                         | Type                  | Description                                                                                                                                                                          |
+      +===================================+=======================+======================================================================================================================================================================================+
+      | search.isolator.memory.task.limit | String                | Threshold of the memory requested by a query task to perform aggregation or other operations. If the requested memory exceeds the threshold, the task will be isolated and observed. |
+      |                                   |                       |                                                                                                                                                                                      |
+      |                                   |                       | -  Value range: **0b** to the maximum heap memory of a node                                                                                                                          |
+      |                                   |                       | -  Default value: **50MB**                                                                                                                                                           |
+      +-----------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | search.isolator.time.management   | String                | Threshold of the duration of a query (started when cluster resources are used for query). If the duration of a query exceeds the threshold, it will be isolated and observed.        |
+      |                                   |                       |                                                                                                                                                                                      |
+      |                                   |                       | -  Value range: >= **0ms**                                                                                                                                                           |
+      |                                   |                       | -  Default value: **10s**                                                                                                                                                            |
+      +-----------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-   .. table:: **Table 1** Parameters for large query isolation and global timeout duration
+-  Configure the resource usage thresholds for triggering the isolation of query tasks.
 
-      +------------------------------+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Switch                       | Parameter                         | Description                                                                                                                                                                                                                     |
-      +==============================+===================================+=================================================================================================================================================================================================================================+
-      | search.isolator.enabled      | search.isolator.memory.task.limit | Thresholds of a shard query task. A query task exceeding one of these thresholds is identified as a large query.                                                                                                                |
-      |                              |                                   |                                                                                                                                                                                                                                 |
-      |                              | search.isolator.time.management   |                                                                                                                                                                                                                                 |
-      +------------------------------+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      |                              | search.isolator.memory.pool.limit | Resource usage thresholds for isolation. If the resource usage of a query task exceeds one of these thresholds, the task will be interrupted.                                                                                   |
-      |                              |                                   |                                                                                                                                                                                                                                 |
-      |                              | search.isolator.memory.heap.limit | .. note::                                                                                                                                                                                                                       |
-      |                              |                                   |                                                                                                                                                                                                                                 |
-      |                              | search.isolator.count.limit       |    **search.isolator.memory.heap.limit** defines the limit on the heap memory consumed by write, query, and other operations of a node. If this limit is exceeded, large query tasks in the isolation pool will be interrupted. |
-      +------------------------------+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      |                              | search.isolator.strategy          | Policy for selecting query tasks to pause in the isolation pool.                                                                                                                                                                |
-      |                              |                                   |                                                                                                                                                                                                                                 |
-      |                              | search.isolator.strategy.ratio    |                                                                                                                                                                                                                                 |
-      +------------------------------+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | search.isolator.time.enabled | search.isolator.time.limit        | Global timeout interval of query tasks.                                                                                                                                                                                         |
-      +------------------------------+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   .. code-block:: text
 
-#. Configure large query isolation.
+      PUT _cluster/settings
+      {
+        "persistent": {
+          "search.isolator.memory.pool.limit": "50%",
+          "search.isolator.memory.heap.limit": "90%",
+          "search.isolator.count.limit": 1000
+        }
+      }
 
-   -  Run the following commands to configure thresholds for defining a large query task:
+   .. table:: **Table 3** Parameters for configuring isolation pool thresholds
 
-      .. code-block:: text
+      +-----------------------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Parameter                         | Type                  | Description                                                                                                                                                                                                                                                                            |
+      +===================================+=======================+========================================================================================================================================================================================================================================================================================+
+      | search.isolator.memory.pool.limit | String                | Threshold of the heap memory percentage of the current node. If the total memory requested by large query tasks in the isolation pool exceeds the threshold, the interrupt control program will be triggered to cancel one of the tasks.                                               |
+      |                                   |                       |                                                                                                                                                                                                                                                                                        |
+      |                                   |                       | -  Value range: **0.0** to **100.0%**                                                                                                                                                                                                                                                  |
+      |                                   |                       | -  Default value: **50%**                                                                                                                                                                                                                                                              |
+      +-----------------------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | search.isolator.memory.heap.limit | String                | Heap memory threshold of the current node. If the heap memory of the node exceeds the threshold, the interrupt control program will be triggered to cancel a large query task in the isolation pool.                                                                                   |
+      |                                   |                       |                                                                                                                                                                                                                                                                                        |
+      |                                   |                       | -  Value range: **0.0** to **100.0%**                                                                                                                                                                                                                                                  |
+      |                                   |                       | -  Default value: **90%**                                                                                                                                                                                                                                                              |
+      +-----------------------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | search.isolator.count.limit       | Integer               | Threshold of the number of large query tasks in the current node isolation pool. If the number of observed query tasks exceeds the threshold, the interrupt control program will be triggered to stop accepting new large queries. New large query requests will be directly canceled. |
+      |                                   |                       |                                                                                                                                                                                                                                                                                        |
+      |                                   |                       | -  Value range: **10**\ ``-``\ **50000**                                                                                                                                                                                                                                               |
+      |                                   |                       | -  Default value: **1000**                                                                                                                                                                                                                                                             |
+      +-----------------------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-         PUT _cluster/settings
-         {
-           "persistent": {
-             "search.isolator.memory.task.limit": "50MB",
-             "search.isolator.time.management": "10s"
-           }
-         }
+   .. note::
 
-      .. table:: **Table 2** Parameter description
+      In addition to **search.isolator.memory.pool.limit** and **search.isolator.count.limit** parameters, you can configure **search.isolator.memory.task.limit** and **search.isolator.time.management** to control the number of query tasks that enter the isolation pool.
 
-         +-----------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-         | Parameter                         | Data Type             | Description                                                                                                                                                                          |
-         +===================================+=======================+======================================================================================================================================================================================+
-         | search.isolator.memory.task.limit | String                | Threshold of the memory requested by a query task to perform aggregation or other operations. If the requested memory exceeds the threshold, the task will be isolated and observed. |
-         |                                   |                       |                                                                                                                                                                                      |
-         |                                   |                       | -  Value range: **0b** to the maximum heap memory of a node                                                                                                                          |
-         |                                   |                       | -  Default value: **50MB**                                                                                                                                                           |
-         |                                   |                       |                                                                                                                                                                                      |
-         |                                   |                       | .. note::                                                                                                                                                                            |
-         |                                   |                       |                                                                                                                                                                                      |
-         |                                   |                       |    You can run the following command to query the current heap memory and the maximum heap memory of a cluster:                                                                      |
-         |                                   |                       |                                                                                                                                                                                      |
-         |                                   |                       |    **GET \_cat/nodes?&h=id,ip,port,r,ramPercent,ramCurrent,heapMax,heapCurrent**                                                                                                     |
-         +-----------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-         | search.isolator.time.management   | String                | Threshold of the duration of a query (started when cluster resources are used for query). If the duration of a query exceeds the threshold, it will be isolated and observed.        |
-         |                                   |                       |                                                                                                                                                                                      |
-         |                                   |                       | -  Value range: >= **0ms**                                                                                                                                                           |
-         |                                   |                       | -  Default value: **10s**                                                                                                                                                            |
-         +-----------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+-  Configure a policy for selecting query tasks to pause in the isolation pool.
 
-   -  Configure the resource usage thresholds for triggering the isolation of query tasks.
+   .. code-block:: text
 
-      .. code-block:: text
+      PUT _cluster/settings
+      {
+        "persistent": {
+          "search.isolator.strategy": "fair",
+          "search.isolator.strategy.ratio": "0.5%"
+        }
+      }
 
-         PUT _cluster/settings
-         {
-           "persistent": {
-             "search.isolator.memory.pool.limit": "50%",
-             "search.isolator.memory.heap.limit": "90%",
-             "search.isolator.count.limit": 1000
-           }
-         }
-
-      .. table:: **Table 3** Parameter description
-
-         +-----------------------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-         | Parameter                         | Data Type             | Description                                                                                                                                                                                                                                                                            |
-         +===================================+=======================+========================================================================================================================================================================================================================================================================================+
-         | search.isolator.memory.pool.limit | String                | Threshold of the heap memory percentage of the current node. If the total memory requested by large query tasks in the isolation pool exceeds the threshold, the interrupt control program will be triggered to cancel one of the tasks.                                               |
-         |                                   |                       |                                                                                                                                                                                                                                                                                        |
-         |                                   |                       | -  Value range: **0.0** to **100.0%**                                                                                                                                                                                                                                                  |
-         |                                   |                       | -  Default value: **50%**                                                                                                                                                                                                                                                              |
-         +-----------------------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-         | search.isolator.memory.heap.limit | String                | Heap memory threshold of the current node. If the heap memory of the node exceeds the threshold, the interrupt control program will be triggered to cancel a large query task in the isolation pool.                                                                                   |
-         |                                   |                       |                                                                                                                                                                                                                                                                                        |
-         |                                   |                       | -  Value range: **0.0** to **100.0%**                                                                                                                                                                                                                                                  |
-         |                                   |                       | -  Default value: **90%**                                                                                                                                                                                                                                                              |
-         +-----------------------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-         | search.isolator.count.limit       | Integer               | Threshold of the number of large query tasks in the current node isolation pool. If the number of observed query tasks exceeds the threshold, the interrupt control program will be triggered to stop accepting new large queries. New large query requests will be directly canceled. |
-         |                                   |                       |                                                                                                                                                                                                                                                                                        |
-         |                                   |                       | -  Value range: **10**\ ``-``\ **50000**                                                                                                                                                                                                                                               |
-         |                                   |                       | -  Default value: **1000**                                                                                                                                                                                                                                                             |
-         +-----------------------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-      .. note::
-
-         In addition to **search.isolator.memory.pool.limit** and **search.isolator.count.limit** parameters, you can configure **search.isolator.memory.task.limit** and **search.isolator.time.management** to control the number of query tasks that enter the isolation pool.
-
-   -  Configure a policy for selecting query tasks to pause in the isolation pool.
-
-      .. code-block:: text
-
-         PUT _cluster/settings
-         {
-           "persistent": {
-             "search.isolator.strategy": "fair",
-             "search.isolator.strategy.ratio": "0.5%"
-           }
-         }
+   .. table:: **Table 4** Parameters for configuring a query cancelation policy
 
       +--------------------------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Parameter                      | Data Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                   |
+      | Parameter                      | Type                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                   |
       +================================+=======================+===============================================================================================================================================================================================================================================================================================================================================================================================================================+
       | search.isolator.strategy       | String                | Policy for selecting large queries when the interrupt control program is triggered. The selected queries will be interrupted.                                                                                                                                                                                                                                                                                                 |
       |                                |                       |                                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -177,21 +185,24 @@ Large query isolation is enabled by default, while the global timeout duration i
       |                                |                       | -  Default value: **1%**                                                                                                                                                                                                                                                                                                                                                                                                      |
       +--------------------------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-#. Configure the global timeout duration of query tasks.
+Configuring the Global Query Timeout
+------------------------------------
 
-   Run the following command to set the global timeout of query tasks:
+Run the following command to set the global timeout of query tasks:
 
-   .. code-block:: text
+.. code-block:: text
 
-      PUT _cluster/settings
-      {
-        "persistent": {
-          "search.isolator.time.limit": "120s"
-        }
-      }
+   PUT _cluster/settings
+   {
+     "persistent": {
+       "search.isolator.time.limit": "120s"
+     }
+   }
+
+.. table:: **Table 5** Description
 
    +----------------------------+-----------------------+--------------------------------------------------------------------------------------------+
-   | Parameter                  | Data Type             | Description                                                                                |
+   | Parameter                  | Type                  | Description                                                                                |
    +============================+=======================+============================================================================================+
    | search.isolator.time.limit | String                | Global query timeout duration. Any query task that exceeds this duration will be canceled. |
    |                            |                       |                                                                                            |
@@ -199,35 +210,36 @@ Large query isolation is enabled by default, while the global timeout duration i
    |                            |                       | -  Default value: **120s**                                                                 |
    +----------------------------+-----------------------+--------------------------------------------------------------------------------------------+
 
-#. Configure logging for **cancel task**.
+Configuring the Maximum Number of Log Records for Canceled Query Requests
+-------------------------------------------------------------------------
 
-   Run the following command to set the maximum number of **cancel task** log records.
+Run the following command to set the maximum number of log records kept for canceled query requests:
 
-   .. code-block:: text
+.. code-block:: text
 
-      PUT _cluster/settings
-      {
-        "persistent": {
-          "search.isolator.log.count": "100s"
-        }
-      }
+   PUT _cluster/settings
+   {
+     "persistent": {
+       "search.isolator.log.count": "100"
+     }
+   }
 
-   +---------------------------+-----------------------+--------------------------------------------------------------------------------------------------------+
-   | Parameter                 | Data Type             | Description                                                                                            |
-   +===========================+=======================+========================================================================================================+
-   | search.isolator.log.count | Integer               | Maximum number of records of canceled query requests that can be recorded in the memory.               |
-   |                           |                       |                                                                                                        |
-   |                           |                       | -  Value range: 0-5000                                                                                 |
-   |                           |                       | -  Default value: **100**                                                                              |
-   |                           |                       |                                                                                                        |
-   |                           |                       | .. note::                                                                                              |
-   |                           |                       |                                                                                                        |
-   |                           |                       |    You can use the following APIs to query canceled requests:                                          |
-   |                           |                       |                                                                                                        |
-   |                           |                       |    -  GET /_isolator_metrics: Queries all nodes.                                                       |
-   |                           |                       |    -  GET /_isolator_metrics/{nodeId}: Queries a single node.                                          |
-   |                           |                       |    -  GET /_isolator_metrics? detailed: Queries request cancellation details of all nodes.             |
-   |                           |                       |    -  GET /_isolator_metrics/{nodeId}?detailed: Queries request cancellation details of a single node. |
-   |                           |                       |                                                                                                        |
-   |                           |                       |    In the commands above, **nodeId** indicates the node ID.                                            |
-   +---------------------------+-----------------------+--------------------------------------------------------------------------------------------------------+
++---------------------------+-----------------------+--------------------------------------------------------------------------------------------------------+
+| Parameter                 | Data Type             | Description                                                                                            |
++===========================+=======================+========================================================================================================+
+| search.isolator.log.count | Integer               | Maximum number of records of canceled query requests that can be recorded in the memory.               |
+|                           |                       |                                                                                                        |
+|                           |                       | -  Value range: 0-5000                                                                                 |
+|                           |                       | -  Default value: **100**                                                                              |
+|                           |                       |                                                                                                        |
+|                           |                       | .. note::                                                                                              |
+|                           |                       |                                                                                                        |
+|                           |                       |    You can use the following APIs to query canceled requests:                                          |
+|                           |                       |                                                                                                        |
+|                           |                       |    -  GET /_isolator_metrics: Queries all nodes.                                                       |
+|                           |                       |    -  GET /_isolator_metrics/{nodeId}: Queries a single node.                                          |
+|                           |                       |    -  GET /_isolator_metrics? detailed: Queries request cancellation details of all nodes.             |
+|                           |                       |    -  GET /_isolator_metrics/{nodeId}?detailed: Queries request cancellation details of a single node. |
+|                           |                       |                                                                                                        |
+|                           |                       |    In the commands above, **nodeId** indicates the node ID.                                            |
++---------------------------+-----------------------+--------------------------------------------------------------------------------------------------------+

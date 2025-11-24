@@ -1,6 +1,6 @@
-:original_name: en-us_topic_0000001944960892.html
+:original_name: css_00_0001.html
 
-.. _en-us_topic_0000001944960892:
+.. _css_00_0001:
 
 Product Overview
 ================
@@ -10,9 +10,10 @@ Product Overview
 -  :ref:`Product Components <css_04_0007>`
 -  :ref:`Scenarios <css_04_0002>`
 -  :ref:`Differences Between Elasticsearch Cluster Versions <css_04_0047>`
+-  :ref:`Differences Between Elasticsearch and OpenSearch <css_04_0042>`
 -  :ref:`Permissions Management <css_04_0014>`
 -  :ref:`Constraints <css_04_0005>`
--  :ref:`Performance Metrics <en-us_topic_0000001950350846>`
+-  :ref:`Performance Metrics <css_04_0008>`
 -  :ref:`Related Services <css_04_0004>`
 -  :ref:`Basic Concepts <css_04_0012>`
 
@@ -25,6 +26,7 @@ Product Overview
    product_components
    scenarios
    differences_between_elasticsearch_cluster_versions
+   differences_between_elasticsearch_and_opensearch
    permissions_management
    constraints
    performance_metrics

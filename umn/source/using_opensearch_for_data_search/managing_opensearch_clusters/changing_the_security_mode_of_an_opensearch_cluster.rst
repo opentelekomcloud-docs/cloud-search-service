@@ -1,174 +1,225 @@
-:original_name: css_01_0493.html
+:original_name: css_01_0310.html
 
-.. _css_01_0493:
+.. _css_01_0310:
 
 Changing the Security Mode of an OpenSearch Cluster
 ===================================================
 
-This topic describes how to change the security mode of an existing cluster.
+With CSS, when an OpenSearch cluster's security needs change, you can change its security mode settings.
 
-Scenario
---------
+Configure the security mode based on the security needs of your cluster.
 
-You can create a cluster by choosing its security mode and web protocol (HTTP or HTTPS). For details about the differences between clusters of different security mode settings (including HTTP/HTTPS), see :ref:`Table 1 <css_01_0493__css_01_0158_en-us_topic_0000001410060261_table198661437165914>`.
+.. caution::
 
-.. _css_01_0493__css_01_0158_en-us_topic_0000001410060261_table198661437165914:
+   HTTPS access can be disabled only for OpenSearch 1.3.6 and 2.19.0 security-mode clusters. For other versions, HTTPS access is forcibly enabled and cannot be disabled.
 
 .. table:: **Table 1** Cluster security modes
 
-   +---------------------------+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-   | Cluster Type              |                                                 | Description                                                                                                                                                                                                                                                                    | Characteristics                                                                                                                              |
-   +===========================+=================================================+================================================================================================================================================================================================================================================================================+==============================================================================================================================================+
-   | Non-security mode cluster | Cluster for which the security mode is disabled | With such a cluster, access to the cluster will require no user authentication, and data will be transmitted in plaintext using HTTP. Make sure the customer is in a secure environment, and do not expose the cluster access interface to the public network.                 | This type of cluster is mostly used for internal services and testing.                                                                       |
-   |                           |                                                 |                                                                                                                                                                                                                                                                                |                                                                                                                                              |
-   |                           |                                                 |                                                                                                                                                                                                                                                                                | -  Advantage: simple and easy to access.                                                                                                     |
-   |                           |                                                 |                                                                                                                                                                                                                                                                                | -  Disadvantage: poor security as anyone can access it.                                                                                      |
-   +---------------------------+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-   | Security-mode cluster     | Cluster in security mode + HTTP                 | A security-mode cluster requires user authentication. It supports access control and data encryption, and it uses HTTP to transmit data in plaintext. Make sure the customer is in a secure environment, and do not expose the cluster access interface to the public network. | Access control by user permissions is supported. This type of cluster is suitable for workloads that are particularly performance-demanding. |
-   |                           |                                                 |                                                                                                                                                                                                                                                                                |                                                                                                                                              |
-   |                           |                                                 |                                                                                                                                                                                                                                                                                | -  Advantage: User authentication improves cluster security. HTTP-based access ensures high performance of the cluster.                      |
-   |                           |                                                 |                                                                                                                                                                                                                                                                                | -  Disadvantage: The cluster cannot be accessed from the public network.                                                                     |
-   +---------------------------+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-   |                           | Cluster in security mode + HTTPS                | A security-mode cluster requires user authentication. It supports access control and data encryption, and it uses HTTPS to encrypt communication and enhance data security.                                                                                                    | This type of cluster is suitable where there is a high security standard and public network access is required.                              |
-   |                           |                                                 |                                                                                                                                                                                                                                                                                |                                                                                                                                              |
-   |                           |                                                 |                                                                                                                                                                                                                                                                                | -  Advantage: User authentication improves cluster security, and HTTPS-based secure communication allows for secure public network access.   |
-   |                           |                                                 |                                                                                                                                                                                                                                                                                | -  Disadvantage: HTTPS encrypts nearly all information sent between server and client, causing a read performance loss of around 20%.        |
-   +---------------------------+-------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+   +---------------------------+--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Cluster Type              | Key Settings                   | Description                                                                                                                                                        | Applicable Scenario                                                                                                                                                                                                  |
+   +===========================+================================+====================================================================================================================================================================+======================================================================================================================================================================================================================+
+   | Non-security mode cluster | **Security Mode**: disabled    | Access to such a cluster requires no user authentication, and data will be transmitted in plaintext using HTTP.                                                    | Use when creating a cluster for internal testing or workloads that have a low security standard.                                                                                                                     |
+   |                           |                                |                                                                                                                                                                    |                                                                                                                                                                                                                      |
+   |                           |                                |                                                                                                                                                                    | -  Advantage: easy to access the cluster.                                                                                                                                                                            |
+   |                           |                                |                                                                                                                                                                    | -  Disadvantage: poor security, as anyone can access the cluster. When the security mode is disabled, public network access and Kibana public network access cannot be enabled.                                      |
+   |                           |                                |                                                                                                                                                                    |                                                                                                                                                                                                                      |
+   |                           |                                |                                                                                                                                                                    | Make sure the cluster is deployed in a secure environment. Do not expose the cluster's network interface to the public network.                                                                                      |
+   +---------------------------+--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Security-mode cluster     | Security-mode cluster + HTTP:  | Such a cluster requires user authentication. It supports access control and data encryption, and it uses HTTP to transmit data in plaintext.                       | Use to balance security and performance.                                                                                                                                                                             |
+   |                           |                                |                                                                                                                                                                    |                                                                                                                                                                                                                      |
+   |                           | -  **Security Mode**: enabled  |                                                                                                                                                                    | -  Advantage: User authentication improves cluster security. HTTP-based access ensures high performance of the cluster. User permissions can be configured to ensure proper isolation.                               |
+   |                           | -  **HTTPS Access**: disabled  |                                                                                                                                                                    | -  Disadvantage: Public network access is not supported.                                                                                                                                                             |
+   |                           |                                |                                                                                                                                                                    |                                                                                                                                                                                                                      |
+   |                           |                                |                                                                                                                                                                    | Make sure the cluster is deployed in a secure environment. Do not expose the cluster's network interface to the public network.                                                                                      |
+   +---------------------------+--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   |                           | Security-mode cluster + HTTPS: | Such a cluster requires user authentication. It supports access control and data encryption, and it uses HTTPS to encrypt communication and enhance data security. | Use when security takes precedence over performance and public network access is required.                                                                                                                           |
+   |                           |                                |                                                                                                                                                                    |                                                                                                                                                                                                                      |
+   |                           | -  **Security Mode**: enabled  |                                                                                                                                                                    | -  Advantage: User authentication improves cluster security. HTTPS enhances cluster security by encrypting all communication over the public network. User permissions can be configured to ensure proper isolation. |
+   |                           | -  **HTTPS Access**: enabled   |                                                                                                                                                                    | -  Disadvantage: When HTTPS is used, data encryption and decryption introduce computational overhead and impact the cluster's read and write performance.                                                            |
+   +---------------------------+--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-:ref:`Table 2 <css_01_0493__css_01_0158_table11800123345617>` lists the options you have when it comes to changing the security model of a cluster.
+:ref:`Table 2 <en-us_topic_0000001992205853__en-us_topic_0000001938218408_table11800123345617>` lists the various types of security mode changes supported for CSS clusters.
 
-.. _css_01_0493__css_01_0158_table11800123345617:
+.. _en-us_topic_0000001992205853__en-us_topic_0000001938218408_table11800123345617:
 
 .. table:: **Table 2** Security mode change scenarios
 
-   +----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Scenario                                                             | Details                                                                                                                                    |
-   +======================================================================+============================================================================================================================================+
-   | Change a cluster from non-security mode to security mode + HTTP.     | :ref:`Switching from the Non-Security Mode to Security Mode <css_01_0493__css_01_0158_en-us_topic_0000001410060261_section17593143823914>` |
-   +----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Change a cluster from non-security mode to security mode + HTTPS.    |                                                                                                                                            |
-   +----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Change a cluster from security mode + HTTP to non-security mode.     | :ref:`Switching from the Security to Non-Security Mode <css_01_0493__css_01_0158_en-us_topic_0000001410060261_section93951219134016>`      |
-   +----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Change a cluster from security mode + HTTPS to non-security mode.    |                                                                                                                                            |
-   +----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Change a cluster from security mode + HTTP to security mode + HTTPS. | :ref:`Switching the Protocol of Security Clusters <css_01_0493__css_01_0158_en-us_topic_0000001410060261_section672993904118>`             |
-   +----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Change a cluster from security mode + HTTPS to security mode + HTTP. |                                                                                                                                            |
-   +----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   +-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+
+   | Action                                                | Scenario                                                                                                     | Change Process                                                                                                            |
+   +=======================================================+==============================================================================================================+===========================================================================================================================+
+   | Switching from the non-security mode to security mode | Non-security mode → Security mode + HTTP: Change a cluster from non-security mode to security mode + HTTP.   | #. Select a node and modify the OpenSearch, OpenSearch Dashboards, and Cerebro configuration files.                       |
+   |                                                       |                                                                                                              | #. Restart the OpenSearch, OpenSearch Dashboards, and Cerebro processes and restore data.                                 |
+   |                                                       |                                                                                                              | #. After the node recovers, proceed to another node and repeat the steps above. This goes on until all nodes are changed. |
+   +-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+
+   |                                                       | Non-security mode → Security mode + HTTPS: Change a cluster from non-security mode to security mode + HTTPS. |                                                                                                                           |
+   +-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+
+   | Switching from security mode to non-security mode     | Security mode → Non-security mode:                                                                           |                                                                                                                           |
+   |                                                       |                                                                                                              |                                                                                                                           |
+   |                                                       | -  Change a cluster from security mode + HTTP to non-security mode.                                          |                                                                                                                           |
+   |                                                       | -  Change a cluster from security mode + HTTPS to non-security mode.                                         |                                                                                                                           |
+   +-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+
+   | Switching between HTTP and HTTPS in security mode     | HTTP → HTTPS: Change a cluster from security mode + HTTP to security mode + HTTPS.                           |                                                                                                                           |
+   +-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+
+   |                                                       | HTTPS → HTTP: Change a cluster from security mode + HTTPS to security mode + HTTP.                           |                                                                                                                           |
+   +-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+
+
+Change Impact
+-------------
+
+Before changing the security mode for a cluster, it is essential to assess the potential impacts and review operational recommendations. This enables proper scheduling of the change, minimizing service interruptions.
+
+.. table:: **Table 3** Impact overview
+
+   +-------------------------------------------+----------------------+-----------------------------+-------------+------------------------+---------------------+
+   | Action                                    | Service Interruption | Authentication Mode         | Performance | Public Network Access  | Security Account    |
+   +===========================================+======================+=============================+=============+========================+=====================+
+   | Non-security mode → Security mode + HTTP  | Yes                  | Authentication required     | N/A         | Disallowed             | N/A                 |
+   +-------------------------------------------+----------------------+-----------------------------+-------------+------------------------+---------------------+
+   | Non-security mode → Security mode + HTTPS | Yes                  | Authentication required     | Downgraded  | Allowed                | N/A                 |
+   +-------------------------------------------+----------------------+-----------------------------+-------------+------------------------+---------------------+
+   | Security mode → Non-security mode         | Yes                  | Authentication not required | Enhanced    | Automatically disabled | Permanently deleted |
+   +-------------------------------------------+----------------------+-----------------------------+-------------+------------------------+---------------------+
+   | HTTP → HTTPS                              | Yes                  | No change                   | Downgraded  | Allowed                | N/A                 |
+   +-------------------------------------------+----------------------+-----------------------------+-------------+------------------------+---------------------+
+   | HTTPS → HTTP                              | Yes                  | No change                   | Enhanced    | Automatically disabled | N/A                 |
+   +-------------------------------------------+----------------------+-----------------------------+-------------+------------------------+---------------------+
+
+Impact description:
+
+-  The security mode can be enabled or disabled for a cluster, and a security-mode cluster can use either HTTPS and HTTP.
+-  Service interruption: When a cluster's security mode is changed, the cluster automatically restarts, leading to temporary service unavailability.
+-  Authentication mode: Changing a cluster's security mode also changes its user authentication mechanism. The client authentication logic must be updated accordingly. If client adaptation cannot be completed in a timely manner, services may be interrupted.
+-  Performance impact: Given the same hardware configuration, switching from HTTP to HTTPS leads to a performance loss (such as throughput) of around 20% under high concurrency. Conversely, when a cluster switches from HTTPS to HTTP, cluster performance improves.
+-  Public network access: Only security-mode clusters that use HTTPS support public network access.
+-  Security account: When the security mode is disabled for a cluster, the system permanently deletes the cluster's security account.
+-  Tool impact: If the security mode is changed for a cluster that has an ongoing OpenSearch Dashboards session, an error message will be displayed on OpenSearch Dashboards. To rectify the error, clear the cache and launch OpenSearch Dashboards again.
+
+Changing the security mode for a cluster changes its accessibility mode, possibly causing service interruptions. You should perform this operation before services are brought online or when service interruptions can be tolerated.
+
+Change Duration
+---------------
+
+The following formula can be used to estimate how long it will take to change the security mode for a cluster:
+
+**Change duration (min) = 5 (min) x Total number of nodes to change + Data recovery duration (min)**
+
+where,
+
+-  5 minutes indicates how long non-data recovery operations (e.g., initialization) typically take per node. It is an empirical value.
+-  The total number of nodes is the sum of the number of data nodes, master nodes, client nodes, and cold data nodes in the cluster.
+
+**Data recovery duration (min) = Total data size (MB)/[Total number of vCPUs of the data nodes x 32 (MB/s) x 60 (s)]**
+
+where,
+
+-  32 MB/s indicates that each vCPU can process 32 MB of data per second. It is an empirical value.
+-  The formulas above use estimates under ideal conditions. The actual data recovery speed depends on cluster load.
 
 Prerequisites
 -------------
 
--  You are advised to back up data before changing the cluster security mode.
--  The target cluster is available and has no tasks in progress.
--  Check whether load balancing is enabled for the cluster. If yes, disable load balancing for the cluster. Enable load balancing again after the security mode is changed. This prevents errors in accessing the cluster through the load balancer during the change.
-
-Constraints
------------
-
--  Only clusters (whose version is 6.5.4 or later) created after November 2022 support security mode changing.
--  A cluster automatically restarts when its security mode is being changed. Services are interrupted during the restart. The authentication mode for invoking the cluster will change after the restart, and client configurations need to be adjusted accordingly.
--  If a cluster has already opened the Kibana session box, a session error message will be displayed after you change the cluster security mode. In this case, clear the cache and open Kibana again.
--  Disabling security mode for a cluster clears the security account. The cleared account cannot be restored.
-
-.. _css_01_0493__css_01_0158_en-us_topic_0000001410060261_section17593143823914:
+-  All mission-critical data has been backed up. For details, see :ref:`Creating Snapshots to Back Up the Data of an OpenSearch Cluster <css_01_0298>`.
+-  The cluster status is **Available**, and there are no ongoing tasks.
+-  Check whether load balancing is enabled for the cluster. If yes, disable load balancing first. Enable load balancing again after the security mode is changed. This prevents errors in accessing the cluster through the load balancer during the change.
 
 Switching from the Non-Security Mode to Security Mode
 -----------------------------------------------------
 
-You can change a non-security cluster to a security cluster that uses HTTP or HTTPS. After a cluster's security mode is enabled, security authentication is required for accessing the cluster.
+You can change a non-security mode cluster to a security-mode cluster that uses HTTP or HTTPS. After a cluster's security mode is enabled, user authentication is required for accessing the cluster.
 
 #. Log in to the CSS management console.
 
-#. In the navigation pane on the left, choose **Clusters** > **Elasticsearch**. The Elasticsearch cluster management page is displayed.
+#. In the navigation pane on the left, choose **Clusters > OpenSearch**.
 
-#. Choose **More** > **Modify Configuration** in the **Operation** column of the target cluster. The **Modify Configuration** page is displayed.
+#. In the cluster list, find the target cluster, and choose **More** > **Modify Configuration** in the **Operation** column. The **Modify Configuration** page is displayed.
 
-#. Choose the **Configure Security Mode** tab.
+#. Choose the **Change Security Mode** tab.
 
 #. Enable the security mode. Enter and confirm the administrator password of the cluster.
 
 
-   .. figure:: /_static/images/en-us_image_0000001965497265.png
-      :alt: **Figure 1** Enabling the security mode
+   .. figure:: /_static/images/en-us_image_0000002289446649.png
+      :alt: **Figure 1** Switching from the non-security mode to security mode
 
-      **Figure 1** Enabling the security mode
+      **Figure 1** Switching from the non-security mode to security mode
 
 #. Enable or disable **HTTPS Access**.
 
-   -  If you enable **HTTPS Access**: The HTTPS protocol is used to encrypt cluster communication and you can configure public networks to access the cluster.
-   -  If you disable **HTTPS Access**: The HTTP protocol is used and you cannot configure public networks to access the cluster.
+   -  If you enable **HTTPS Access**, HTTPS is used to encrypt cluster communication, and public network access can be enabled for the cluster.
+   -  If you disable **HTTPS Access**, HTTP is used, and public network access is disallowed for the cluster.
 
-#. Click **Submit**. Confirm the information and the cluster list page is displayed.
+#. Click **Submit**, and confirm the information. The cluster list is displayed.
 
-   The **Task Status** of the cluster is **The security mode is changing**. When the cluster status changes to **Available**, the security mode has been successfully changed.
+   The **Task Status** of the cluster is **Changing security mode**. When the cluster status changes to **Available**, the security mode has been successfully changed.
 
-.. _css_01_0493__css_01_0158_en-us_topic_0000001410060261_section93951219134016:
+Switching from Security Mode to Non-Security Mode
+-------------------------------------------------
 
-Switching from the Security to Non-Security Mode
-------------------------------------------------
+You can change a security-mode cluster that uses HTTP or HTTPS to a non-security cluster. After a cluster's security mode is disabled, user authentication is no longer required for accessing the cluster.
 
-You can change a security cluster that uses HTTP or HTTPS to a non-security cluster. After a cluster's security mode is disabled, security authentication is no longer required for accessing the cluster.
+.. warning::
 
-.. important::
-
-   -  Clusters in non-security mode can be accessed without security authentication, and HTTP protocol is used to transmit data. Ensure the security of the cluster access environment and do not expose the access interface to the public network.
-   -  During the switchover from the security mode to the non-security mode, the indexes of the original security cluster will be deleted. Back up data before disabling the security mode.
-   -  If a security cluster has been bound to a public IP address, unbind it before changing the security mode.
-   -  If a security cluster has enabled Kibana public network access, disable it before changing the security mode.
+   -  Clusters with the security mode disabled do not require user authentication, and HTTP is used to transmit data in plaintext. Make sure such a cluster are deployed in a secure environment, and do not expose the cluster's network interface to the public network.
+   -  When a cluster is switched from the security mode to non-security mode, indexes used by the security-mode cluster will be deleted. Back up data before changing the security mode.
+   -  If a public IP address has been assigned to a security-mode cluster, unassign it before changing the security mode.
+   -  If OpenSearch Dashboards public network access is enabled for a security-mode cluster, disable it before changing the security mode.
 
 #. Log in to the CSS management console.
 
-#. In the navigation pane on the left, choose **Clusters**. On the displayed **Clusters** page, locate the target cluster and choose **More** > **Modify Configuration** in the **Operation** column.
+#. In the navigation pane on the left, choose **Clusters > OpenSearch**.
 
-#. Choose the **Configure Security Mode** tab.
+#. In the cluster list, find the target cluster, and choose **More** > **Modify Configuration** in the **Operation** column. The **Modify Configuration** page is displayed.
+
+#. Choose the **Change Security Mode** tab.
 
 #. Disable the security mode.
 
 
-   .. figure:: /_static/images/en-us_image_0000001938378044.png
-      :alt: **Figure 2** Disabling the security mode
+   .. figure:: /_static/images/en-us_image_0000002254796400.png
+      :alt: **Figure 2** Switching from security mode to non-security mode
 
-      **Figure 2** Disabling the security mode
+      **Figure 2** Switching from security mode to non-security mode
 
 #. Click **Submit**. In the displayed dialog box, confirm the information. The cluster list page is displayed.
 
-   The **Task Status** of the cluster is **The security mode is changing**. When the cluster status changes to **Available**, the security mode has been successfully changed.
+   The **Task Status** of the cluster is **Changing security mode**. When the cluster status changes to **Available**, the security mode has been successfully changed.
 
-.. _css_01_0493__css_01_0158_en-us_topic_0000001410060261_section672993904118:
+.. _en-us_topic_0000001992205853__en-us_topic_0000001938218408_en-us_topic_0000001410060261_section672993904118:
 
-Switching the Protocol of Security Clusters
--------------------------------------------
+Switching between HTTP and HTTPS in Security Mode
+-------------------------------------------------
 
 You can change the protocol of a security cluster.
 
-.. important::
+.. warning::
 
-   If a security cluster has been bound to a public IP address, you need to unbind it before changing HTTPS protocol to HTTP.
+   -  If a public IP address has been assigned to a security-mode cluster, unassign it before changing from HTTPS to HTTP.
+   -  If the OpenSearch cluster version is 2.x or later, HTTPS is enabled by default and cannot be disabled when the security mode is enabled. This means you cannot change from "Security Mode + HTTPS" to "Security Mode + HTTP".
 
 #. Log in to the CSS management console.
 
-#. In the navigation pane on the left, choose **Clusters**. On the displayed **Clusters** page, locate the target cluster and choose **More** > **Modify Configuration** in the **Operation** column.
+#. In the navigation pane on the left, choose **Clusters > OpenSearch**.
 
-#. Choose the **Configure Security Mode** tab.
+#. In the cluster list, find the target cluster, and choose **More** > **Modify Configuration** in the **Operation** column. The **Modify Configuration** page is displayed.
+
+#. Choose the **Change Security Mode** tab.
 
 #. Enable or disable **HTTPS Access**.
 
 
-   .. figure:: /_static/images/en-us_image_0000001938218688.png
+   .. figure:: /_static/images/en-us_image_0000002304308981.png
       :alt: **Figure 3** Configuring the protocol
 
       **Figure 3** Configuring the protocol
 
-   -  If you enable **HTTPS Access**:
+   -  If you enable **HTTPS Access**,
 
-      HTTPS protocol is used to encrypt cluster communication and you can configure public network access.
+      HTTPS is used to encrypt cluster communication, and you can enable public network access for the cluster.
 
-   -  If you disable **HTTPS Access**: An alarm message is displayed. Click **OK** to disable the function.
+   -  If you disable **HTTPS Access**, an alarm message is displayed. Click **OK** to disable the protocol.
 
-      Cluster communication is no longer encrypted and the public network access function cannot be enabled.
+      Cluster communication is no longer encrypted and public network access cannot be enabled.
 
-#. Click **Submit**. Confirm the information and the cluster list page is displayed.
+#. Click **Submit**, and confirm the information. The cluster list is displayed.
 
-   The **Task Status** of the cluster is **The security mode is changing**. When the cluster status changes to **Available**, the security mode has been successfully changed.
+   The **Task Status** of the cluster is **Changing security mode**. When the cluster status changes to **Available**, the security mode has been successfully changed.

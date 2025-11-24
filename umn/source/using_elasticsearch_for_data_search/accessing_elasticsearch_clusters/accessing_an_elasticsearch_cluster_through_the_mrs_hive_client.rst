@@ -1,6 +1,6 @@
-:original_name: css_01_0391.html
+:original_name: css_01_0071.html
 
-.. _css_01_0391:
+.. _css_01_0071:
 
 Accessing an Elasticsearch Cluster Through the MRS Hive Client
 ==============================================================
@@ -17,24 +17,20 @@ Prerequisites
 
 -  The CSS and MRS clusters are in the same region, AZ, VPC, and subnet.
 
-
-   .. figure:: /_static/images/en-us_image_0000001972384697.png
-      :alt: **Figure 1** CSS cluster information
-
-      **Figure 1** CSS cluster information
-
 Accessing a Cluster
 -------------------
 
 #. Obtain the private network address of the cluster. It is used to access the cluster.
 
-   This topic uses a private IP address as an example to describe how to access a cluster. The cluster access address varies with the network configurations used. For details, see :ref:`Network Configuration <css_01_0381__section855085010198>`.
+   This topic uses a private IP address as an example to describe how to access a cluster. The cluster access address varies with the network configurations used. For details, see :ref:`Network Configuration <en-us_topic_0000001975823337__section855085010198>`.
 
-   a. In the navigation pane on the left, choose **Clusters**.
+   a. Log in to the CSS management console.
 
-   b. In the cluster list, obtain the IP address of the cluster you want to access from the **Private Network Address** column. Generally, the IP address format is *<host>*\ **:**\ *<port>* or *<host>*\ **:**\ *<port>*\ **,**\ *<host>*\ **:**\ *<port>*.
+   b. In the navigation pane on the left, choose **Clusters > Elasticsearch**.
 
-      If the cluster has only one node, the IP address and port number of this one node are displayed, for example, **10.62.179.32:9200**. If the cluster has multiple nodes, the IP addresses and port numbers of all nodes are displayed, for example, **10.62.179.32:9200,10.62.179.33:9200**.
+   c. In the cluster list, obtain the target cluster's private IP address from the **Private IP Address** column. Generally, the IP address format is *<host>*:*<port>* or *<host>*:*<port>*,\ *<host>*:*<port>*.
+
+      If the cluster has only one node, the IP address and port number of this single node are displayed, for example, **10.62.179.32:9200**. If the cluster has multiple nodes and all of them are data nodes, the IP addresses and port numbers of all these nodes are displayed; if some of them are client nodes, only the IP addresses and port numbers of these client nodes are displayed; for example, **10.62.179.32:9200,10.62.179.33:9200**.
 
 #. Log in to an MRS cluster node.
 
@@ -76,13 +72,13 @@ Accessing a Cluster
 
 #. Download the `ES-Hadoop lib package <https://www.elastic.co/downloads/hadoop>`__ and decompress it to obtain the **elasticsearch-hadoop-x.x.x.jar** file. The version must be the same as the CSS cluster version. For example, if the CSS cluster version is 7.6.2, you are advised to download **elasticsearch-hadoop-7.6.2.zip**.
 
-#. Download the httpclient dependency package `commons-httpclient:commons-httpclient-3.1.jar <https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient/3.1>`__. In the package name, **3.1** indicates the version number. Select the package of the version you need.
+#. Download the HttpClient dependency package `commons-httpclient:commons-httpclient-3.1.jar <https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient/3.1>`__. In the package name, **3.1** indicates the version number. Select the package of the version you need.
 
 #. Install the MRS client. If the MRS client has been installed, skip this step.
 
-#. Log in to the MRS client. Upload the JAR dependency packages of ES-Hadoop and httpclient to the MRS client.
+#. Log in to the MRS client. Upload the JAR dependency packages of ES-Hadoop and HttpClient to the MRS client.
 
-#. Create an HDFS directory on the MRS client. Upload the ES-Hadoop lib package and the httpclient dependency package to the directory.
+#. Create an HDFS directory on the MRS client. Upload the ES-Hadoop lib package and the HttpClient dependency package to the directory.
 
    .. code-block::
 
@@ -92,7 +88,7 @@ Accessing a Cluster
 
 #. Log in to the Hive client from the MRS client.
 
-#. On the Hive client, add the ES-Hadoop lib package and the httpclient dependency package. This command is valid only for the current session.
+#. On the Hive client, add the ES-Hadoop lib package and the HttpClient dependency package. This command is valid only for the current session.
 
    Enter **beeline** or **hive** to go to the execution page and run the following commands:
 
@@ -148,38 +144,15 @@ Accessing a Cluster
 
    -  Cluster in security mode + HTTPS
 
-      a. Obtain the security certificate **CloudSearchService.cer**.
+      a. :ref:`Obtaining and Uploading a Security Certificate <en-us_topic_0000001972416129__section16306122401412>`.
 
-         #. Log in to the CSS management console.
-         #. In the navigation pane, choose **Clusters**. The cluster list is displayed.
-         #. Click the name of a cluster to go to the cluster details page.
-         #. On the **Configuration** page, click **Download Certificate** next to **HTTPS Access**.
-
-      b. Convert the security certificate **CloudSearchService.cer**. Upload the downloaded security certificate to the client and use keytool to convert the .cer certificate into a .jks certificate that can be read by Java.
-
-         -  In Linux, run the following command to convert the certificate:
-
-            .. code-block::
-
-               keytool -import -alias newname -keystore ./truststore.jks -file ./CloudSearchService.cer
-
-         -  In Windows, run the following command to convert the certificate:
-
-            .. code-block::
-
-               keytool -import -alias newname -keystore .\truststore.jks -file .\CloudSearchService.cer
-
-         In the preceding command, *newname* indicates the user-defined certificate name.
-
-         After this command is executed, you will be prompted to set the certificate password and confirm the password. Securely store the password. It will be used for accessing the cluster.
-
-      c. Put the .jks file to the same path of each node in the MRS cluster, for example, **/tmp**. You can run the **scp** command to transfer the file. Ensure user **omm** has the permission to read the file. You can run the following command to set the permission:
+      b. Put the .jks file to the same path of each node in the MRS cluster, for example, **/tmp**. You can run the **scp** command to transfer the file. Ensure user **omm** has the permission to read the file. You can run the following command to set the permission:
 
          .. code-block::
 
             chown -R omm truststore.jks
 
-      d. Create a Hive foreign table.
+      c. Create a Hive foreign table.
 
          .. code-block::
 
@@ -193,8 +166,8 @@ Accessing a Cluster
                 'es.nodes' = 'https://xxx.xxx.xxx.xxx:9200',
                 'es.port' = '9200',
                 'es.net.ssl' = 'true',
-                'es.net.ssl.truststore.location' = 'cerFilePath',
-                'es.net.ssl.truststore.pass' = 'cerPassword',
+                'es.net.ssl.truststore.location' = 'certFilePath',
+                'es.net.ssl.truststore.pass' = 'certPassword',
                 'es.nodes.wan.only' = 'false',
                 'es.nodes.discovery'='false',
                 'es.nodes.client.only'='true',
@@ -267,9 +240,14 @@ Accessing a Cluster
       +-------------+---------------+---------------+
       2 rows selected (0.116 seconds)
 
-#. Log in to the CSS console and choose **Clusters**. Locate the target cluster and click **Access Kibana** in the **Operation** column.
+#. Log in to Kibana.
 
-#. On the **Dev Tools** page of Kibana, run a query and view the result.
+   a. Log in to the CSS management console.
+   b. In the navigation pane on the left, choose **Clusters > Elasticsearch**.
+   c. In the cluster list, find the target cluster, and click **Kibana** in the **Operation** column to log in to the Kibana console.
+   d. In the left navigation pane, choose **Dev Tools**.
+
+#. On the **Dev Tools** page of Kibana, run a query and check the result.
 
    .. code-block:: text
 
@@ -277,6 +255,47 @@ Accessing a Cluster
 
 
    .. figure:: /_static/images/en-us_image_0000001945226538.png
-      :alt: **Figure 2** Kibana query result
+      :alt: **Figure 1** Kibana query result
 
-      **Figure 2** Kibana query result
+      **Figure 1** Kibana query result
+
+.. _en-us_topic_0000001972416129__section16306122401412:
+
+Obtaining and Uploading a Security Certificate
+----------------------------------------------
+
+To access a security-mode Elasticsearch cluster that uses HTTPS, a security certificate must be loaded. Perform the following steps to obtain the security certificate and upload it to the client:
+
+#. Obtain the security certificate **CloudSearchService.cer**.
+
+   a. Log in to the CSS management console.
+
+   b. In the navigation pane on the left, choose **Clusters > Elasticsearch**.
+
+   c. In the cluster list, click the name of the target cluster. The cluster information page is displayed.
+
+   d. Click the **Overview** tab. In the **Configuration** area, click **Download Certificate** next to **HTTPS Access**.
+
+
+      .. figure:: /_static/images/en-us_image_0000002412557593.png
+         :alt: **Figure 2** Downloading a security certificate
+
+         **Figure 2** Downloading a security certificate
+
+#. Convert the security certificate **CloudSearchService.cer**. Upload the downloaded security certificate to the client and use keytool to convert the **.cer** certificate into a **.jks** certificate that can be read by Java.
+
+   -  In Linux, run the following command to convert the certificate:
+
+      .. code-block::
+
+         keytool -import -alias newname -keystore ./truststore.jks -file ./CloudSearchService.cer
+
+   -  In Windows, run the following command to convert the certificate:
+
+      .. code-block::
+
+         keytool -import -alias newname -keystore .\truststore.jks -file .\CloudSearchService.cer
+
+   In the preceding command, *newname* indicates the user-defined certificate name.
+
+   After this command is executed, you will be prompted to set the certificate password and confirm the password. Securely store the password. It will be used for accessing the cluster.

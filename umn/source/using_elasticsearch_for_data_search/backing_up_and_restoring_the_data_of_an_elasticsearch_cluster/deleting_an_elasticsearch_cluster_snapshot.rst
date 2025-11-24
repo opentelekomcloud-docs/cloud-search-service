@@ -5,20 +5,23 @@
 Deleting an Elasticsearch Cluster Snapshot
 ==========================================
 
-If you no longer need a snapshot, delete it to reclaim storage space.
+Delete snapshots that are no longer needed to reclaim storage spaces.
 
-If automatic snapshot creation is enabled, snapshots that are automatically created cannot be deleted manually. Instead, the system automatically deletes these snapshots on the half hour after the time specified by **Retention Period (days)** elapses.
+Constraints
+-----------
 
-If you disable automatic snapshot creation while retaining the automatically created snapshots, then you can manually delete these snapshots later. If you do not manually delete the automatically created snapshots but later enable automatic snapshot creation again, then all these snapshots (with **Snapshot Type** set to **Automated** in the snapshot list of the cluster) can only be automatically deleted by the system.
+-  Deleting a snapshot will permanently delete its data.
+-  The deletion of automatically generated snapshots is subject to the following constraints:
 
-.. note::
-
-   After a snapshot is deleted, its data cannot be restored. Exercise caution.
+   -  While automatic snapshot creation is enabled, the system automatically deletes snapshots on the nearest half hour after their retention period expires.
+   -  After automatic snapshot creation is disabled, existing auto-created snapshots will not be deleted automatically, but they can be deleted manually.
+   -  If automatic snapshot creation is re-enabled, the system resumes automatic deletion of all auto-created snapshots upon expiration, including these created before automatic snapshot creation was previously disabled.
 
 Manually Deleting a Snapshot
 ----------------------------
 
 #. Log in to the CSS management console.
-#. On the **Clusters** page, click the name of the target cluster. In the navigation pane on the left, choose **Cluster Snapshots**.
-#. In the snapshot list, locate the snapshot you want to delete.
-#. Click **Delete** in the **Operation** column. In the displayed dialog box, confirm the snapshot information, manually type in **DELETE**, and click **OK**.
+#. In the navigation pane on the left, choose **Clusters > Elasticsearch**.
+#. In the cluster list, click the name of the target cluster. The cluster information page is displayed.
+#. Click the **Cluster Snapshots** tab.
+#. In the cluster snapshot task list, select the snapshot you want to delete, and click **Delete** in the **Operation** column. In the displayed dialog box, enter **DELETE** and click **OK**.

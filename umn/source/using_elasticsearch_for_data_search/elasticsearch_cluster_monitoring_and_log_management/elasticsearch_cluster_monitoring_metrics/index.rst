@@ -1,12 +1,12 @@
-:original_name: css_01_0423.html
+:original_name: css_01_0025.html
 
-.. _css_01_0423:
+.. _css_01_0025:
 
 Elasticsearch Cluster Monitoring Metrics
 ========================================
 
--  :ref:`Monitoring Metrics for Elasticsearch Clusters in Cloud Eye <css_01_0424>`
--  :ref:`Elasticsearch Cluster Monitoring Metrics Supported by the Kernel <css_01_0425>`
+-  :ref:`Monitoring Metrics for Elasticsearch Clusters in Cloud Eye <css_01_0042>`
+-  :ref:`Elasticsearch Cluster Monitoring Metrics Supported by the Kernel <css_01_0023>`
 
 .. toctree::
    :maxdepth: 1

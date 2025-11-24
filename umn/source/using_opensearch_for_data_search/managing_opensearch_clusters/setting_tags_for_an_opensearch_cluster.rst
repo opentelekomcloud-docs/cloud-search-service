@@ -1,18 +1,19 @@
-:original_name: css_01_0488.html
+:original_name: css_01_0277.html
 
-.. _css_01_0488:
+.. _css_01_0277:
 
 Setting Tags for an OpenSearch Cluster
 ======================================
 
-Tags are cluster identifiers. Adding tags to clusters can help you identify and manage your cluster resources.
+Tags are cluster identifiers. Adding tags to clusters helps you identify and manage your cluster resources.
 
-You can add tags to a cluster when creating the cluster or add them on the details page of the created cluster.
+Tags can be added during or after cluster creation. If you want to use the same tag to identify multiple cloud resources for better resource grouping, we recommend that you predefine tags in Tag Management Service (TMS). For details, see Tag Management Service User Guide.
 
 Constraints
 -----------
 
-You can create a maximum of 20 tags for a CSS cluster.
+-  Each cluster can have a maximum of 20 tags.
+-  If your organization has configured tag policies for CSS, add tags to clusters based on these policies. If a tag does not comply with existing tag policies, cluster creation may fail. Contact the administrator to learn more about these policies.
 
 Managing Tags
 -------------
@@ -20,12 +21,9 @@ Managing Tags
 In CSS, you can add, delete, modify, and query cluster tags.
 
 #. Log in to the CSS management console.
-
-#. On the **Clusters** page, click the name of a cluster for which you want to manage tags.
-
-   The **Basic Information** page is displayed.
-
-#. In the navigation pane on the left, choose the **Tags** tab. You can add, modify, or delete tags.
+#. In the navigation pane on the left, choose **Clusters > OpenSearch**.
+#. In the cluster list, click the name of the target cluster. The cluster information page is displayed.
+#. Select the **Tags** tab, where you can add, modify, or delete tags for the current cluster.
 
    -  View
 
@@ -48,8 +46,10 @@ Searching for Clusters by Tag
 
 #. Log in to the CSS management console.
 
-#. On the **Clusters** page, click the search box above the cluster list and select tag keys and values to search for clusters.
+#. In the navigation pane on the left, choose **Clusters > OpenSearch**.
 
-   You can select a tag key or tag value from their drop-down lists. The system returns a list of clusters that exactly match the tag key or tag value. If you enter multiple tags, the cluster that meets requirements of all the tags will be filtered.
+#. In the cluster list, click the search box, and select a tag key and value to search for the target cluster.
 
-   You can add a maximum of 10 tags at one time.
+   You can select a tag key and value from the drop-down list. The system returns a list of clusters that exactly match the tag key and value. If you select multiple tags, only clusters including all of the selected tags will be returned.
+
+   The filter can include a maximum of 10 tags.

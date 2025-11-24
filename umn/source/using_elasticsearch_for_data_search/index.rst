@@ -5,20 +5,20 @@
 Using Elasticsearch for Data Search
 ===================================
 
--  :ref:`Procedure for Using Elasticsearch <css_01_0378>`
--  :ref:`Elasticsearch Cluster Planning Suggestions <css_01_0379>`
--  :ref:`Creating an Elasticsearch Cluster <css_01_0380>`
+-  :ref:`Procedure for Using Elasticsearch <css_01_0002>`
+-  :ref:`Elasticsearch Cluster Planning Suggestions <css_01_0188>`
+-  :ref:`Creating an Elasticsearch Cluster <css_01_0270>`
 -  :ref:`Accessing Elasticsearch Clusters <css_01_0210>`
--  :ref:`Importing Data to an Elasticsearch Cluster <css_01_0045>`
--  :ref:`Searching Data in an Elasticsearch Cluster <css_01_0398>`
+-  :ref:`Importing Data to an Elasticsearch Cluster <css_01_0004>`
+-  :ref:`Searching Data in an Elasticsearch Cluster <css_01_0006>`
 -  :ref:`Enhancing Search Capabilities for Elasticsearch Clusters <css_01_0111>`
--  :ref:`Configuring Networking for an Elasticsearch Cluster <css_01_0411>`
--  :ref:`Backing up and Restoring the Data of an Elasticsearch Cluster <css_01_0269>`
--  :ref:`Scaling an Elasticsearch Cluster <css_01_0414>`
+-  :ref:`Configuring Networking for an Elasticsearch Cluster <css_01_0010>`
+-  :ref:`Backing up and Restoring the Data of an Elasticsearch Cluster <css_01_0033>`
+-  :ref:`Scaling an Elasticsearch Cluster <css_01_0012>`
 -  :ref:`Upgrading the Version of an Elasticsearch Cluster <css_01_0186>`
 -  :ref:`Managing Elasticsearch Clusters <css_01_0009>`
 -  :ref:`Managing Index Policies for an Elasticsearch Cluster <css_01_0091>`
--  :ref:`Elasticsearch Cluster Monitoring and Log Management <css_01_0422>`
+-  :ref:`Elasticsearch Cluster Monitoring and Log Management <css_01_0016>`
 -  :ref:`Viewing Elasticsearch Cluster Audit Logs <css_01_0050>`
 
 .. toctree::
@@ -26,7 +26,7 @@ Using Elasticsearch for Data Search
    :hidden: 
 
    procedure_for_using_elasticsearch
-   elasticsearch_cluster_planning_suggestions
+   elasticsearch_cluster_planning_suggestions/index
    creating_an_elasticsearch_cluster
    accessing_elasticsearch_clusters/index
    importing_data_to_an_elasticsearch_cluster/index

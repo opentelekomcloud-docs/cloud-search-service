@@ -1,16 +1,16 @@
-:original_name: css_01_0384.html
+:original_name: css_01_0063.html
 
-.. _css_01_0384:
+.. _css_01_0063:
 
 Accessing an Elasticsearch Cluster Using cURL Commands
 ======================================================
 
-Open-source Elasticsearch provides a series of RESTful APIs. You can run cURL commands to access these APIs using tools such as Kibana and Postman. This topic describes how to use cURL commands to access an Elasticsearch or OpenSearch cluster.
+Open-source Elasticsearch provides a series of RESTful APIs. You can run cURL commands to access these APIs using tools such as Kibana and Postman. This topic describes how to use cURL commands to access an Elasticsearch cluster.
 
 Prerequisites
 -------------
 
--  CSS has an Elasticsearch or OpenSearch cluster that is available.
+-  The target Elasticsearch cluster is available.
 -  An ECS has been created, and it is in the same VPC and security group as the CSS cluster.
 
    -  If they are not in the same security group, modify the ECS security group, or configure the inbound and outbound rules of the group to allow all access from the cluster. For details, see `Configuring Security Group Rules <https://docs.otc.t-systems.com/en-us/usermanual/ecs/en-us_topic_0030878383.html>`__.
@@ -21,13 +21,15 @@ Accessing a Cluster
 
 #. Obtain the private network address of the cluster. It is used to access the cluster.
 
-   This topic uses a private IP address as an example to describe how to access a cluster. The cluster access address varies with the network configurations used. For details, see :ref:`Network Configuration <css_01_0381__section855085010198>`.
+   This topic uses a private IP address as an example to describe how to access a cluster. The cluster access address varies with the network configurations used. For details, see :ref:`Network Configuration <en-us_topic_0000001975823337__section855085010198>`.
 
-   a. In the navigation pane on the left, choose **Clusters**.
+   a. Log in to the CSS management console.
 
-   b. In the cluster list, obtain the IP address of the cluster you want to access from the **Private Network Address** column. Generally, the IP address format is *<host>*\ **:**\ *<port>* or *<host>*\ **:**\ *<port>*\ **,**\ *<host>*\ **:**\ *<port>*.
+   b. In the navigation pane on the left, choose **Clusters > Elasticsearch**.
 
-      If the cluster has only one node, the IP address and port number of this one node are displayed, for example, **10.62.179.32:9200**. If the cluster has multiple nodes, the IP addresses and port numbers of all nodes are displayed, for example, **10.62.179.32:9200,10.62.179.33:9200**.
+   c. In the cluster list, obtain the target cluster's private IP address from the **Private IP Address** column. Generally, the IP address format is *<host>*:*<port>* or *<host>*:*<port>*,\ *<host>*:*<port>*.
+
+      If the cluster has only one node, the IP address and port number of this single node are displayed, for example, **10.62.179.32:9200**. If the cluster has multiple nodes and all of them are data nodes, the IP addresses and port numbers of all these nodes are displayed; if some of them are client nodes, only the IP addresses and port numbers of these client nodes are displayed; for example, **10.62.179.32:9200,10.62.179.33:9200**.
 
 #. Run one of the following commands on the ECS to access the cluster. The access command varies according to the security mode of the cluster.
 

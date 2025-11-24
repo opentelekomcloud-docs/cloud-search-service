@@ -1,12 +1,12 @@
-:original_name: en-us_topic_0000001945121184.html
+:original_name: css_00_0002.html
 
-.. _en-us_topic_0000001945121184:
+.. _css_00_0002:
 
 Getting Started
 ===============
 
--  :ref:`Using Elasticsearch for Data Search <en-us_topic_0000002098813645>`
--  :ref:`Using OpenSearch for Data Search <en-us_topic_0000002098695185>`
+-  :ref:`Using Elasticsearch for Data Search <index>`
+-  :ref:`Using OpenSearch for Data Search <css_08_0003>`
 
 .. toctree::
    :maxdepth: 1

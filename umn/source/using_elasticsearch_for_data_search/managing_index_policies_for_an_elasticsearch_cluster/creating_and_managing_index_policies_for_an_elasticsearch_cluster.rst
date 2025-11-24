@@ -1,6 +1,6 @@
-:original_name: css_01_0419.html
+:original_name: css_01_0093.html
 
-.. _css_01_0419:
+.. _css_01_0093:
 
 Creating and Managing Index Policies for an Elasticsearch Cluster
 =================================================================
@@ -12,34 +12,31 @@ Context
 
 Index State Management (ISM) of Elasticsearch is a plugin that allows you to automate periodic, administrative operations on indexes by triggering them based on changes in the index age, index size, or number of documents. With ISM, you can define custom policies to automate index rollovers and deletion, thus optimizing cluster search performance or cutting storage costs. The procedure for using ISM is as follows:
 
-#. :ref:`Creating an Index Lifecycle Policy <css_01_0419__en-us_topic_0000001268154473_section779154094817>`: Create an index lifecycle policy on OpenSearch Dashboards.
-#. :ref:`Associating Indexes with a Lifecycle Policy <css_01_0419__en-us_topic_0000001268154473_section11451321182815>`: Associate indexes with a lifecycle policy.
-#. :ref:`Managing Index Policies <css_01_0419__en-us_topic_0000001268154473_section87941257192>`: Modify, retry, and change index lifecycle policies.
+#. :ref:`Creating an Index Lifecycle Policy <en-us_topic_0000001938377904__en-us_topic_0000001268154473_section779154094817>`: Create an index lifecycle policy on OpenSearch Dashboards.
+#. :ref:`Associating Indexes with a Lifecycle Policy <en-us_topic_0000001938377904__en-us_topic_0000001268154473_section11451321182815>`: Associate indexes with a lifecycle policy.
+#. :ref:`Managing Index Policies <en-us_topic_0000001938377904__en-us_topic_0000001268154473_section87941257192>`: Modify, retry, and change index lifecycle policies.
 
 For more information about ISM, see `Index State Management <https://opendistro.github.io/for-elasticsearch-docs/docs/im/ism/>`__.
-
-Common use cases for index lifecycle policies:
-
--  :ref:`Automating Index Rollover in an Elasticsearch Cluster Through Index Lifecycle Management <css_01_0420>`
--  :ref:`Decoupling Index Storage and Compute in an Elasticsearch Cluster Through Index Lifecycle Management <css_01_0421>`
 
 Constraints
 -----------
 
--  ISM is available only in Elasticsearch 7.6.2 clusters or later or OpenSearch clusters.
+-  ISM is available only in Elasticsearch 7.6.2 clusters or later.
 -  You can customize policy names in Kibana.
 -  The Kibana GUI varies depending on the Kibana version. Kibana 7.6.2 is used as an example here.
 
-.. _css_01_0419__en-us_topic_0000001268154473_section779154094817:
+.. _en-us_topic_0000001938377904__en-us_topic_0000001268154473_section779154094817:
 
 Creating an Index Lifecycle Policy
 ----------------------------------
 
 #. Log in to the CSS management console.
 
-#. On the **Clusters** page, locate the target cluster, and click **Access Kibana** in the **Operation** column to log in to the Kibana page.
+#. In the navigation pane on the left, choose **Clusters > Elasticsearch**.
 
-#. Choose **IM** or **Index Management** from the menu bar to go to the index management page.
+#. In the cluster list, find the target cluster, and click **Kibana** in the **Operation** column to log in to the Kibana console.
+
+#. On the Kibana console, expand the menu in the upper-left corner, and choose **IM** or **Index Management** to go to the index management page.
 
 #. Click **Create policy** to configure an index lifecycle policy.
 
@@ -54,7 +51,7 @@ Creating an Index Lifecycle Policy
 
 #. Click **Create**.
 
-.. _css_01_0419__en-us_topic_0000001268154473_section11451321182815:
+.. _en-us_topic_0000001938377904__en-us_topic_0000001268154473_section11451321182815:
 
 Associating Indexes with a Lifecycle Policy
 -------------------------------------------
@@ -114,18 +111,12 @@ Use either of the following methods to associate a lifecycle policy with an inde
 
       After you bind a policy to an index, ISM creates a job that runs every 5 minutes by default to execute the policy, check criteria, and change index states.
 
-.. _css_01_0419__en-us_topic_0000001268154473_section87941257192:
+.. _en-us_topic_0000001938377904__en-us_topic_0000001268154473_section87941257192:
 
 Managing Index Policies
 -----------------------
 
-#. Log in to the CSS management console.
-
-#. On the **Clusters** page, locate the target cluster, and click **Access Kibana** in the **Operation** column to log in to the Kibana page.
-
-#. Choose **IM** or **Index Management** from the menu bar to go to the index management page.
-
-#. Choose **Managed Indices** on the left.
+#. On the **Index Management** page of the Kibana console, choose **Managed Indices**.
 
    The displayed page shows index policies configured for the current cluster.
 

@@ -1,6 +1,6 @@
-:original_name: css_01_0392.html
+:original_name: css_01_0073.html
 
-.. _css_01_0392:
+.. _css_01_0073:
 
 Accessing an Elasticsearch Cluster Using Go
 ===========================================

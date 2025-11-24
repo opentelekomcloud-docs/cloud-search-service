@@ -1,6 +1,6 @@
-:original_name: css_01_0429.html
+:original_name: css_01_0219.html
 
-.. _css_01_0429:
+.. _css_01_0219:
 
 Synchronizing Elasticsearch Alerts to Prometheus
 ================================================
@@ -25,11 +25,13 @@ Configuring Alert Synchronization
 
 #. Log in to the CSS management console.
 
-#. Choose **Clusters** > **Elasticsearch**, select the target cluster and click **Access Kibana** in the **Operation** column.
+#. In the navigation pane on the left, choose **Clusters > Elasticsearch**.
+
+#. In the cluster list, find the target cluster, and click **Kibana** in the **Operation** column to log in to the Kibana console.
 
 #. On the Kibana page, choose **Open Distro for Elasticsearch** > **Alerting** in the navigation pane on the left.
 
-#. .. _css_01_0429__li10273150152314:
+#. .. _en-us_topic_0000002122797792__li10273150152314:
 
    Create a Prometheus destination to send alert messages.
 
@@ -116,9 +118,9 @@ Configuring Alert Synchronization
          +-----------------------+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
          | Configure actions     | Action name           | Name of the triggered action.                                                                                                                                                                                                                                                      |
          +-----------------------+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-         |                       | Destination           | Select the destination created in :ref:`4 <css_01_0429__li10273150152314>`.                                                                                                                                                                                                        |
+         |                       | Destination           | Select the destination created in :ref:`5 <en-us_topic_0000002122797792__li10273150152314>`.                                                                                                                                                                                       |
          +-----------------------+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-         |                       | Message               | Defines the body of the message to be published. See the following for an example.                                                                                                                                                                                                 |
+         |                       | Message               | Defines the body of the message to be published, which must use the JSON format. See the following for an example.                                                                                                                                                                 |
          |                       |                       |                                                                                                                                                                                                                                                                                    |
          |                       |                       | .. code-block::                                                                                                                                                                                                                                                                    |
          |                       |                       |                                                                                                                                                                                                                                                                                    |
@@ -143,9 +145,9 @@ Configuring Alert Synchronization
 
          **Figure 3** Sending a test message
 
-      As shown in :ref:`Figure 4 <css_01_0429__fig341274195412>`, Prometheus can receive a triggered message, meaning the trigger is set successfully.
+      As shown in :ref:`Figure 4 <en-us_topic_0000002122797792__fig341274195412>`, Prometheus can receive a triggered message, meaning the trigger is set successfully.
 
-      .. _css_01_0429__fig341274195412:
+      .. _en-us_topic_0000002122797792__fig341274195412:
 
       .. figure:: /_static/images/en-us_image_0000002127428880.png
          :alt: **Figure 4** Message received successfully
