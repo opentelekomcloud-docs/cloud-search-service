@@ -1,11 +1,11 @@
-:original_name: css_01_0398.html
+:original_name: css_01_0006.html
 
-.. _css_01_0398:
+.. _css_01_0006:
 
 Searching Data in an Elasticsearch Cluster
 ==========================================
 
--  :ref:`Using DSL to Search for Data in Elasticsearch <css_01_0399>`
+-  :ref:`Using DSL to Search for Data in Elasticsearch <css_01_0007>`
 -  :ref:`Using SQL to Search for Data in Elasticsearch <css_01_0061>`
 
 .. toctree::

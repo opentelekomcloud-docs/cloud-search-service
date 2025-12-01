@@ -1,6 +1,6 @@
-:original_name: css_01_0502.html
+:original_name: css_01_0209.html
 
-.. _css_01_0502:
+.. _css_01_0209:
 
 Automating Index Rollover in an OpenSearch Cluster Through Index Lifecycle Management
 =====================================================================================
@@ -29,13 +29,17 @@ The target OpenSearch cluster is available.
 Automating Index Rollover Through Index Lifecycle Management
 ------------------------------------------------------------
 
-#. Log in to the CSS management console.
+#. Log in to the OpenSearch Dashboards.
 
-#. In the navigation tree on the left, choose **Clusters** > **OpenSearch**. The cluster list is displayed.
+   a. Log in to the CSS management console.
 
-#. Click **Access Kibana** in the **Operation** column of a cluster, and log in to OpenSearch Dashboards.
+   b. In the navigation pane on the left, choose **Clusters > OpenSearch**.
 
-#. In the navigation tree on the left of OpenSearch Dashboards, choose **Dev Tools**. The command execution page is displayed.
+   c. In the cluster list, find the target cluster, and click **Dashboards** in the **Operation** column to log in to OpenSearch Dashboards.
+
+   d. In the left navigation pane, choose **Dev Tools**.
+
+      The left part of the console is the command input box, and the triangle icon in its upper-right corner is the execution button. The right part shows the execution result.
 
 #. Create a rollover lifecycle policy named **rollover_workflow**.
 
@@ -142,8 +146,6 @@ Automating Index Rollover Through Index Lifecycle Management
       +--------------------------------------------------------+--------------------------------+
       | number_of_replicas                                     | Number of index shard replicas |
       +--------------------------------------------------------+--------------------------------+
-      | opendistro.index_state_management.policy_id            | Lifecycle policy name          |
-      +--------------------------------------------------------+--------------------------------+
       | index.opendistro.index_state_management.rollover_alias | Index alias for rollover       |
       +--------------------------------------------------------+--------------------------------+
 
@@ -153,7 +155,7 @@ Automating Index Rollover Through Index Lifecycle Management
 
       GET _template/template_test
 
-#. .. _css_01_0502__css_01_0420_en-us_topic_0000001961259029_li5274918111415:
+#. .. _en-us_topic_0000001955726554__en-us_topic_0000001945382698_en-us_topic_0000001961259029_li5274918111415:
 
    Create an index, specify **aliases**, and set **is_write_index** to **true**. The index template **template_test** is automatically used for the index and is associated with the lifecycle policy **rollover_workflow** based on the index template configuration. In this way, when the index size reaches 1 TB or the index is created for more than one day, the rollover automatically starts. After an index is created for seven days, the data copy is disabled. After an index is created for 30 days, the index is deleted.
 
@@ -203,7 +205,7 @@ Automating Index Rollover Through Index Lifecycle Management
          green open test-<Date>-000001 r8ab5NX6T3Ox_hoGUanogQ 1 1 6 0 416b 208b
          green open test-<Date>-000002 sfwkVgy8RSSEw7W-xYjM2Q 1 1 0 0 209b 209b
 
-      In the preceding information, **test-<Date>-000001** is the index created in :ref:`7 <css_01_0502__css_01_0420_en-us_topic_0000001961259029_li5274918111415>`, and **test-<Date>-000002** is the index generated through rollover.
+      In the preceding information, **test-<Date>-000001** is the index created in :ref:`4 <en-us_topic_0000001955726554__en-us_topic_0000001945382698_en-us_topic_0000001961259029_li5274918111415>`, and **test-<Date>-000002** is the index generated through rollover.
 
    -  To query the index associated with the alias **log_alias**, run the following command:
 

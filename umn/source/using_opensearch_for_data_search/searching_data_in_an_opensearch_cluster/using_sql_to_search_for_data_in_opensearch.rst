@@ -1,6 +1,6 @@
-:original_name: css_01_0461.html
+:original_name: css_01_0083.html
 
-.. _css_01_0461:
+.. _css_01_0083:
 
 Using SQL to Search for Data in OpenSearch
 ==========================================
@@ -38,11 +38,11 @@ SQL Usage Example
 
 -  Run cURL commands on an ECS to execute SQL statements to search for data.
 
-   For example, run the following command to retrieve 10 records from the **kibana_sample_data_flights** index.
+   For example, run the following command to retrieve 10 records from the **opensearch_dashboards_sample_data_flights** index.
 
    .. code-block::
 
-      curl -XPOST https://localhost:9200/_opendistro/_sql -u username:password -k -d '{"query": "SELECT * FROM kibana_sample_data_flights LIMIT 10"}' -H 'Content-Type: application/json'
+      curl -XPOST https://localhost:9200/_opendistro/_sql -u username:password -k -d '{"query": "SELECT * FROM opensearch_dashboards_sample_data_flights LIMIT 10"}' -H 'Content-Type: application/json'
 
    **localhost** indicates the cluster access address. **username** and **password** indicate the username and password for accessing the security-mode cluster, respectively.
 
@@ -76,29 +76,20 @@ Open Distro for Elasticsearch supports the following SQL operations: statements,
 
    .. table:: **Table 2** Conditions
 
-      +----------------+-----------------------------------------------------------------+
-      | Condition      | Example                                                         |
-      +================+=================================================================+
-      | Like           | SELECT \* FROM my-index WHERE name LIKE 'j%'                    |
-      +----------------+-----------------------------------------------------------------+
-      | And            | SELECT \* FROM my-index WHERE name LIKE 'j%' AND age > 21       |
-      +----------------+-----------------------------------------------------------------+
-      | Or             | SELECT \* FROM my-index WHERE name LIKE 'j%' OR age > 21        |
-      +----------------+-----------------------------------------------------------------+
-      | Count distinct | SELECT count(distinct age) FROM my-index                        |
-      +----------------+-----------------------------------------------------------------+
-      | In             | SELECT \* FROM my-index WHERE name IN ('alejandro', 'carolina') |
-      +----------------+-----------------------------------------------------------------+
-      | Not            | SELECT \* FROM my-index WHERE name NOT IN ('jane')              |
-      +----------------+-----------------------------------------------------------------+
-      | Between        | SELECT \* FROM my-index WHERE age BETWEEN 20 AND 30             |
-      +----------------+-----------------------------------------------------------------+
-      | Aliases        | SELECT avg(age) AS Average_Age FROM my-index                    |
-      +----------------+-----------------------------------------------------------------+
-      | Date           | SELECT \* FROM my-index WHERE birthday='1990-11-15'             |
-      +----------------+-----------------------------------------------------------------+
-      | Null           | SELECT \* FROM my-index WHERE name IS NULL                      |
-      +----------------+-----------------------------------------------------------------+
+      ============== =========================================================
+      Condition      Example
+      ============== =========================================================
+      Like           SELECT \* FROM my-index WHERE name LIKE 'j%'
+      And            SELECT \* FROM my-index WHERE name LIKE 'j%' AND age > 21
+      Or             SELECT \* FROM my-index WHERE name LIKE 'j%' OR age > 21
+      Count distinct SELECT count(distinct age) FROM my-index
+      In             SELECT \* FROM my-index WHERE name IN ('Bob', 'David')
+      Not            SELECT \* FROM my-index WHERE name NOT IN ('Bob')
+      Between        SELECT \* FROM my-index WHERE age BETWEEN 20 AND 30
+      Aliases        SELECT avg(age) AS Average_Age FROM my-index
+      Date           SELECT \* FROM my-index WHERE birthday='1990-11-15'
+      Null           SELECT \* FROM my-index WHERE name IS NULL
+      ============== =========================================================
 
 -  Aggregations
 
@@ -163,7 +154,7 @@ Open Distro for Elasticsearch supports the following SQL operations: statements,
       | Cross join      | SELECT s.firstname, s.lastname, s.gender, sc.name FROM student s CROSS JOIN school sc                                       |
       +-----------------+-----------------------------------------------------------------------------------------------------------------------------+
 
-   For details about the constraints, see :ref:`Joins <css_01_0461__css_01_0061_en-us_topic_0000001268594557_section89917481618>`.
+   For details about the constraints, see :ref:`Joins <en-us_topic_0000001955726486__en-us_topic_0000001965496981_en-us_topic_0000001268594557_section89917481618>`.
 
 -  Show
 
@@ -177,7 +168,7 @@ Open Distro for Elasticsearch supports the following SQL operations: statements,
       Show tables like SHOW TABLES LIKE logs-\*
       ================ ========================
 
-.. _css_01_0461__css_01_0061_en-us_topic_0000001268594557_section89917481618:
+.. _en-us_topic_0000001955726486__en-us_topic_0000001965496981_en-us_topic_0000001268594557_section89917481618:
 
 Joins
 -----

@@ -14,7 +14,7 @@ SQL Usage Example
 
 -  Use SQL to search for data on Kibana (recommended).
 
-   Log in to Kibana and, on the **Dev Tools** page, send requests using request parameters or the request body to **\_opendistro/_sql**.
+   Log in to Kibana and, on the **Dev Tools** page, send requests to **\_opendistro/_sql** using request parameters or the request body.
 
    For example, run the following command to retrieve 50 records from the **my-index** index:
 
@@ -76,29 +76,20 @@ Open Distro for Elasticsearch supports the following SQL operations: statements,
 
    .. table:: **Table 2** Conditions
 
-      +----------------+-----------------------------------------------------------------+
-      | Condition      | Example                                                         |
-      +================+=================================================================+
-      | Like           | SELECT \* FROM my-index WHERE name LIKE 'j%'                    |
-      +----------------+-----------------------------------------------------------------+
-      | And            | SELECT \* FROM my-index WHERE name LIKE 'j%' AND age > 21       |
-      +----------------+-----------------------------------------------------------------+
-      | Or             | SELECT \* FROM my-index WHERE name LIKE 'j%' OR age > 21        |
-      +----------------+-----------------------------------------------------------------+
-      | Count distinct | SELECT count(distinct age) FROM my-index                        |
-      +----------------+-----------------------------------------------------------------+
-      | In             | SELECT \* FROM my-index WHERE name IN ('alejandro', 'carolina') |
-      +----------------+-----------------------------------------------------------------+
-      | Not            | SELECT \* FROM my-index WHERE name NOT IN ('jane')              |
-      +----------------+-----------------------------------------------------------------+
-      | Between        | SELECT \* FROM my-index WHERE age BETWEEN 20 AND 30             |
-      +----------------+-----------------------------------------------------------------+
-      | Aliases        | SELECT avg(age) AS Average_Age FROM my-index                    |
-      +----------------+-----------------------------------------------------------------+
-      | Date           | SELECT \* FROM my-index WHERE birthday='1990-11-15'             |
-      +----------------+-----------------------------------------------------------------+
-      | Null           | SELECT \* FROM my-index WHERE name IS NULL                      |
-      +----------------+-----------------------------------------------------------------+
+      ============== =========================================================
+      Condition      Example
+      ============== =========================================================
+      Like           SELECT \* FROM my-index WHERE name LIKE 'j%'
+      And            SELECT \* FROM my-index WHERE name LIKE 'j%' AND age > 21
+      Or             SELECT \* FROM my-index WHERE name LIKE 'j%' OR age > 21
+      Count distinct SELECT count(distinct age) FROM my-index
+      In             SELECT \* FROM my-index WHERE name IN ('Bob', 'David')
+      Not            SELECT \* FROM my-index WHERE name NOT IN ('Bob')
+      Between        SELECT \* FROM my-index WHERE age BETWEEN 20 AND 30
+      Aliases        SELECT avg(age) AS Average_Age FROM my-index
+      Date           SELECT \* FROM my-index WHERE birthday='1990-11-15'
+      Null           SELECT \* FROM my-index WHERE name IS NULL
+      ============== =========================================================
 
 -  Aggregations
 
@@ -163,7 +154,7 @@ Open Distro for Elasticsearch supports the following SQL operations: statements,
       | Cross join      | SELECT s.firstname, s.lastname, s.gender, sc.name FROM student s CROSS JOIN school sc                                       |
       +-----------------+-----------------------------------------------------------------------------------------------------------------------------+
 
-   For details about the restrictions, see :ref:`Joins <css_01_0061__en-us_topic_0000001268594557_section89917481618>`.
+   For details about the constraints, see :ref:`Joins <en-us_topic_0000001965496981__en-us_topic_0000001268594557_section89917481618>`.
 
 -  Show
 
@@ -177,7 +168,7 @@ Open Distro for Elasticsearch supports the following SQL operations: statements,
       Show tables like SHOW TABLES LIKE logs-\*
       ================ ========================
 
-.. _css_01_0061__en-us_topic_0000001268594557_section89917481618:
+.. _en-us_topic_0000001965496981__en-us_topic_0000001268594557_section89917481618:
 
 Joins
 -----
@@ -186,7 +177,7 @@ Open Distro for Elasticsearch SQL supports inner joins, left outer joins and cro
 
 -  You can only join two indexes.
 
--  You must use an alias for an index (for example, people p).
+-  You must use an alias for each index (for example, people p).
 
 -  In an ON clause, you can only use the AND conditions.
 

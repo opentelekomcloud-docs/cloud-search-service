@@ -16,19 +16,19 @@ CSS Permissions
 
 New IAM users do not have any permissions assigned by default. You need to first add them to one or more groups and attach policies or roles to these groups. The users then inherit permissions from the groups and can perform specified operations on cloud services based on the permissions they have been assigned.
 
-CSS is a project-level service deployed in specific physical regions. Therefore, CSS permissions are assigned to projects in specific regions and only take effect in these regions. If you want the permissions to take effect in all regions, you need to assign the permissions to projects in each region. When accessing CSS, the users need to switch to a region where they have been authorized to use cloud services.
+CSS is a project-level service deployed in specific physical regions. Therefore, CSS permissions are assigned to projects in specific regions and only take effect in these regions. If you want the permissions to take effect in all regions, you need to assign the permissions to projects in each region. When accessing CSS, the users need to switch to a region where they have been authorized to use this service.
 
 You can use roles and policies to grant users permissions.
 
 -  Roles: A type of coarse-grained authorization mechanism that defines permissions related to user responsibilities. This mechanism provides only a limited number of service-level roles for authorization. When using roles to grant permissions, you need to also assign dependency roles. Roles are not ideal for fine-grained authorization and secure access control.
 -  Policies: A type of fine-grained authorization mechanism that defines the permissions for performing operations on specific cloud resources under certain conditions. This mechanism allows for more flexible authorization. Policies allow you to meet requirements for more secure access control. For example, CSS administrators can only grant CSS users the permissions needed for managing a particular type of CSS resources.
 
-:ref:`Table 1 <css_04_0014__table1795816382618>` lists all the system-defined roles and policies supported by CSS.
+:ref:`Table 1 <en-us_topic_0000002506074329__table1795816382618>` lists all the system-defined roles and policies supported by CSS.
 
 -  **CSS Administrator** depends on the roles of other services to execute its permissions. Therefore, if you assign the **Elasticsearch Administrator** role to a user, assign its dependency roles at the same time.
 -  **CSS FullAccess** and **CSS ReadOnlyAccess** can be used to control the resources that users can access. For example, if you want your software developers to use CSS resources but not delete them or perform any high-risk operations, you can create IAM users for these software developers and assign them only the permissions required for using CSS resources.
 
-.. _css_04_0014__table1795816382618:
+.. _en-us_topic_0000002506074329__table1795816382618:
 
 .. table:: **Table 1** CSS system permissions
 
@@ -116,9 +116,9 @@ You can use roles and policies to grant users permissions.
    |                    |                       |                                                                                                                                                 |    obs:bucket:HeadBucket                                                                                  |
    +--------------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
 
-:ref:`Table 2 <css_04_0014__table680913525437>` lists the common operations supported by each system permission of CSS. Please choose proper system permissions according to this table.
+:ref:`Table 2 <en-us_topic_0000002506074329__table680913525437>` lists the common operations supported by each system permission of CSS. Please choose proper system permissions according to this table.
 
-.. _css_04_0014__table680913525437:
+.. _en-us_topic_0000002506074329__table680913525437:
 
 .. table:: **Table 2** Common operations supported by each system-defined policy
 

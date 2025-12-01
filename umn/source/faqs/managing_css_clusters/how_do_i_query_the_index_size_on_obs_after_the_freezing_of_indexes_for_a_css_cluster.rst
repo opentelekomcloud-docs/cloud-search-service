@@ -1,6 +1,6 @@
-:original_name: en-us_topic_0000001936831250.html
+:original_name: css_02_0151.html
 
-.. _en-us_topic_0000001936831250:
+.. _css_02_0151:
 
 How Do I Query the Index Size on OBS After the Freezing of Indexes for a CSS Cluster?
 =====================================================================================
@@ -26,9 +26,9 @@ The last column of the returned result contains the index size information.
 
 -  **Billing for index storage on OBS**
 
-   Fees may be incurred when you store indexes in OBS.
+   Storing index data in OBS incurs additional charges.
 
--  **Why can frozen indexes stored in OBS still be queried using commands?**
+-  **Why are frozen indexes stored in OBS still searchable via commands?**
 
    Elasticsearch and OpenSearch clusters use local storage by default, and Lucene index files are stored on local disks. Lucene interacts with the underlying storage via the Directory API. Files can be read through the following API:
 

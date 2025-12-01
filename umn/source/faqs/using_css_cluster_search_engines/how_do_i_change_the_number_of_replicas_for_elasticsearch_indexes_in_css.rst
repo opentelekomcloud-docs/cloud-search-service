@@ -5,17 +5,19 @@
 How Do I Change the Number of Replicas for Elasticsearch Indexes in CSS?
 ========================================================================
 
-When creating an index for an Elasticsearch cluster, you can specify the number of shards, that is, the number of primary shards. Once an index is created, the number of primary shards cannot be changed, but the number of replicas can. **Number of replica shards = Number of primary shards x Number of replicas.**
+When creating an index for an Elasticsearch cluster, you can specify the number of shards, that is, the number of primary shards. Once an index is created, the number of primary shards cannot be changed, but the number of replicas can be changed. **Number of replica shards = Number of primary shards x Number of replicas.**
 
-You can change the number of index replicas of an Elasticsearch cluster in Kibana.
+#. Log in to Kibana and go to the command execution page. Elasticsearch clusters support multiple access methods. This topic uses Kibana as an example to describe the operation procedures.
 
-#. Log in to the CSS management console.
+   a. Log in to the CSS management console.
 
-#. In the navigation pane on the left, choose **Clusters** > **Elasticsearch**.
+   b. In the navigation pane on the left, choose **Clusters > Elasticsearch**.
 
-#. Locate the target cluster, and click **Access Kibana** in the **Operation** column to log in to Kibana.
+   c. In the cluster list, find the target cluster, and click **Kibana** in the **Operation** column to log in to the Kibana console.
 
-#. Click **Dev Tools** in the navigation tree on the left.
+   d. In the left navigation pane, choose **Dev Tools**.
+
+      The left part of the console is the command input box, and the triangle icon in its upper-right corner is the execution button. The right part shows the execution result.
 
 #. On the Kibana console, run the following command to check the number of replicas for each Elasticsearch index:
 

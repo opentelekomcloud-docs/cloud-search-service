@@ -1,15 +1,15 @@
-:original_name: css_01_0389.html
+:original_name: css_01_0068.html
 
-.. _css_01_0389:
+.. _css_01_0068:
 
 Accessing an Elasticsearch Cluster Using Spring Boot
 ====================================================
 
 You can access a CSS cluster using Spring Boot. Spring Boot can connect to a cluster in any of the following ways:
 
--  :ref:`Accessing an HTTP Cluster Through Spring Boot <css_01_0389__en-us_topic_0000001961178861_section197550282614>`: applicable to clusters in non-security mode and clusters in security mode+HTTP
--  :ref:`Using Spring Boot to Access an HTTPS Cluster (Without Using Any Security Certificate) <css_01_0389__en-us_topic_0000001961178861_section1523020817518>`: suitable for clusters in security mode+HTTPS
--  :ref:`Using Spring Boot to Access an HTTPS Cluster (Using a Security Certificate) <css_01_0389__en-us_topic_0000001961178861_section1368184211106>`: suitable for clusters in security mode+HTTPS
+-  :ref:`Accessing an HTTP Cluster Through Spring Boot <en-us_topic_0000001945377010__en-us_topic_0000001961178861_section197550282614>`: applicable to clusters in non-security mode and clusters in security mode+HTTP
+-  :ref:`Using Spring Boot to Access an HTTPS Cluster (Without Using Any Security Certificate) <en-us_topic_0000001945377010__en-us_topic_0000001961178861_section1523020817518>`: suitable for clusters in security mode+HTTPS
+-  :ref:`Using Spring Boot to Access an HTTPS Cluster (Using a Security Certificate) <en-us_topic_0000001945377010__en-us_topic_0000001961178861_section1368184211106>`: suitable for clusters in security mode+HTTPS
 
 .. note::
 
@@ -18,7 +18,7 @@ You can access a CSS cluster using Spring Boot. Spring Boot can connect to a clu
 Precautions
 -----------
 
--  You are advised to use the Elasticsearch Rest High Level Client version that matches the Elasticsearch version. For example, use Rest High Level Client 7.10.2 to access an Elasticsearch 7.10.2 cluster.
+-  The Elasticsearch High Level REST Client version should match the Elasticsearch version. For example, use High Level REST Client 7.10.2 to access an Elasticsearch 7.10.2 cluster.
 -  This section uses Spring Boot 2.5.5 as an example to describe how to connect Spring Boot to a cluster. The corresponding Spring Data Elasticsearch version is 4.2.\ *x*.
 
 Prerequisites
@@ -28,7 +28,7 @@ Prerequisites
 
 -  Ensure that the server running Java can communicate with the CSS cluster.
 
--  Depending on the network configuration method used, obtain the cluster access address. For details, see :ref:`Network Configuration <css_01_0381__section855085010198>`.
+-  Depending on the network configuration method used, obtain the cluster access address. For details, see :ref:`Network Configuration <en-us_topic_0000001975823337__section855085010198>`.
 
 -  Install JDK 1.8 on the server. You can download JDK 1.8 from: https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
@@ -63,7 +63,7 @@ Prerequisites
              </dependency>
          </dependencies>
 
-.. _css_01_0389__en-us_topic_0000001961178861_section197550282614:
+.. _en-us_topic_0000001945377010__en-us_topic_0000001961178861_section197550282614:
 
 Accessing an HTTP Cluster Through Spring Boot
 ---------------------------------------------
@@ -142,7 +142,7 @@ Code:
        }
    }
 
-.. _css_01_0389__en-us_topic_0000001961178861_section1523020817518:
+.. _en-us_topic_0000001945377010__en-us_topic_0000001961178861_section1523020817518:
 
 Using Spring Boot to Access an HTTPS Cluster (Without Using Any Security Certificate)
 -------------------------------------------------------------------------------------
@@ -248,37 +248,14 @@ Code:
        }
    }
 
-.. _css_01_0389__en-us_topic_0000001961178861_section1368184211106:
+.. _en-us_topic_0000001945377010__en-us_topic_0000001961178861_section1368184211106:
 
 Using Spring Boot to Access an HTTPS Cluster (Using a Security Certificate)
 ---------------------------------------------------------------------------
 
 You can use a security certificate to connect to a cluster in security mode + HTTPS.
 
-#. Obtain the security certificate **CloudSearchService.cer**.
-
-   a. Log in to the CSS management console.
-   b. In the navigation pane, choose **Clusters**. The cluster list is displayed.
-   c. Click the name of a cluster to go to the cluster details page.
-   d. On the **Configuration** page, click **Download Certificate** next to **HTTPS Access**.
-
-#. Convert the security certificate **CloudSearchService.cer**. Upload the downloaded security certificate to the client and use keytool to convert the .cer certificate into a .jks certificate that can be read by Java.
-
-   -  In Linux, run the following command to convert the certificate:
-
-      .. code-block::
-
-         keytool -import -alias newname -keystore ./truststore.jks -file ./CloudSearchService.cer
-
-   -  In Windows, run the following command to convert the certificate:
-
-      .. code-block::
-
-         keytool -import -alias newname -keystore .\truststore.jks -file .\CloudSearchService.cer
-
-   In the preceding command, *newname* indicates the user-defined certificate name.
-
-   After this command is executed, you will be prompted to set the certificate password and confirm the password. Securely store the password. It will be used for accessing the cluster.
+#. :ref:`Obtaining and Uploading a Security Certificate <en-us_topic_0000001945377010__section16306122401412>`.
 
 #. **application.properties** configuration file:
 
@@ -345,7 +322,7 @@ You can use a security certificate to connect to a cluster in security mode + HT
           public RestHighLevelClient elasticsearchClient() {
               SSLContext sc = null;
               try {
-                  TrustManager[] tm = {new MyX509TrustManager(cerFilePath, cerPassword)};
+                  TrustManager[] tm = {new MyX509TrustManager(certFilePath, certPassword)};
                   sc = SSLContext.getInstance("SSL", "SunJSSE");
                   sc.init(null, tm, new SecureRandom());
               } catch (Exception e) {
@@ -365,15 +342,15 @@ You can use a security certificate to connect to a cluster in security mode + HT
 
           public static class MyX509TrustManager implements X509TrustManager {
               X509TrustManager sunJSSEX509TrustManager;
-              MyX509TrustManager(String cerFilePath, String cerPassword) throws Exception {
-                  File file = new File(cerFilePath);
+              MyX509TrustManager(String certFilePath, String certPassword) throws Exception {
+                  File file = new File(certFilePath);
                   if (!file.isFile()) {
                       throw new Exception("Wrong Certification Path");
                   }
                   System.out.println("Loading KeyStore " + file + "...");
                   InputStream in = new FileInputStream(file);
                   KeyStore ks = KeyStore.getInstance("JKS");
-                  ks.load(in, cerPassword.toCharArray());
+                  ks.load(in, certPassword.toCharArray());
                   TrustManagerFactory tmf = TrustManagerFactory.getInstance("SunX509", "SunJSSE");
                   tmf.init(ks);
                   TrustManager[] tms = tmf.getTrustManagers();
@@ -404,4 +381,45 @@ You can use a security certificate to connect to a cluster in security mode + HT
           }
       }
 
-   In the preceding command, *cerFilePath* and *cerPassword* indicate the path and password of the .jks certificate, respectively.
+   In the preceding command, *certFilePath* and *certPassword* indicate the path and password of the .jks certificate, respectively.
+
+.. _en-us_topic_0000001945377010__section16306122401412:
+
+Obtaining and Uploading a Security Certificate
+----------------------------------------------
+
+To access a security-mode Elasticsearch cluster that uses HTTPS, a security certificate must be loaded. Perform the following steps to obtain the security certificate and upload it to the client:
+
+#. Obtain the security certificate **CloudSearchService.cer**.
+
+   a. Log in to the CSS management console.
+
+   b. In the navigation pane on the left, choose **Clusters > Elasticsearch**.
+
+   c. In the cluster list, click the name of the target cluster. The cluster information page is displayed.
+
+   d. Click the **Overview** tab. In the **Configuration** area, click **Download Certificate** next to **HTTPS Access**.
+
+
+      .. figure:: /_static/images/en-us_image_0000002412557593.png
+         :alt: **Figure 1** Downloading a security certificate
+
+         **Figure 1** Downloading a security certificate
+
+#. Convert the security certificate **CloudSearchService.cer**. Upload the downloaded security certificate to the client and use keytool to convert the **.cer** certificate into a **.jks** certificate that can be read by Java.
+
+   -  In Linux, run the following command to convert the certificate:
+
+      .. code-block::
+
+         keytool -import -alias newname -keystore ./truststore.jks -file ./CloudSearchService.cer
+
+   -  In Windows, run the following command to convert the certificate:
+
+      .. code-block::
+
+         keytool -import -alias newname -keystore .\truststore.jks -file .\CloudSearchService.cer
+
+   In the preceding command, *newname* indicates the user-defined certificate name.
+
+   After this command is executed, you will be prompted to set the certificate password and confirm the password. Securely store the password. It will be used for accessing the cluster.

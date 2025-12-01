@@ -1,40 +1,47 @@
-:original_name: css_01_0407.html
+:original_name: css_01_0140.html
 
-.. _css_01_0407:
+.. _css_01_0140:
 
 Configuring Flow Control 1.0 for an Elasticsearch Cluster
 =========================================================
 
-Scenario
---------
+Configure flow control policies for your Elasticsearch cluster in both the inbound and outbound directions, ensuring cluster stability by safeguarding against abnormal traffic.
 
-Flow Control 1.0 controls traffic at the node level. You can configure blacklists and whitelists per node, the maximum concurrent HTTP connections allowed, the maximum HTTP connections allowed, the maximum heap memory used by specific request paths, and the maximum CPU usage. You can block access in one click, and collect statistics on IP addresses and URLs accessing the nodes. If flow control is enabled, requests will be blocked at the entry, which alleviates the cluster pressure in high-concurrency scenarios and reduces the likelihood of unavailability issues.
+An Elasticsearch cluster can become overloaded due to traffic surges, malicious requests, and internal resource competition, which can even lead to node failures. Through policies like client request throttling, write backpressure, and traffic pattern analysis, flow control ensures proper resource allocation, thereby protecting clusters from overload. It covers the following scenarios:
+
+-  High-concurrency write handling: mitigates the risk of out-of-memory (OOM) exceptions under heavy write loads.
+-  Security defense: controls access by IP address using both blacklists and whitelists.
+-  Emergency response: blocks malicious or abnormal traffic in one click.
+-  Performance optimization: optimizes flow control thresholds and policies based on collected statistics.
+
+How the Feature Works
+---------------------
 
 .. table:: **Table 1** Flow control policies
 
-   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-   | Policy                                 | Description                                                                                                                                                                                                                                                                                                                                                                             | Details                                                                                 |
-   +========================================+=========================================================================================================================================================================================================================================================================================================================================================================================+=========================================================================================+
-   | HTTP/HTTPS flow control                | -  You can control cluster access by client IP address or subnet through the HTTP/HTTPS blacklist or whitelist. If an IP address is in the blacklist, the client is disconnected right away and all its requests are rejected. The whitelist takes precedence over the blacklist. If a client IP address is on both the blacklist and whitelist, requests from it will not be rejected. | :ref:`Enabling HTTP/HTTPS Flow Control per Node <css_01_0407__section1023014371242>`    |
-   |                                        | -  Flow control based on concurrent HTTP/HTTPS connections limits the total number of HTTP/HTTPS connections to a node per second.                                                                                                                                                                                                                                                      |                                                                                         |
-   |                                        | -  Flow control based on new HTTP/HTTPS connections limits the number of new connections to a node.                                                                                                                                                                                                                                                                                     |                                                                                         |
-   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-   | Memory flow control                    | Memory flow control limits request paths based on heap memory usage. You can configure a whitelist for memory flow control, a global memory usage threshold, and per-path heap memory thresholds. The global memory flow control threshold takes precedence over the memory threshold of a single path. Paths on the whitelist are exempt from memory flow control.                     | :ref:`Enabling Memory Flow Control <css_01_0407__section12926193210818>`                |
-   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-   | Global path whitelist for flow control | You can configure the global path whitelist for flow control as required when you need to use custom plug-ins.                                                                                                                                                                                                                                                                          | :ref:`Adding a Global Path Whitelist for Flow Control <css_01_0407__section8250826148>` |
-   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-   | Request sampling                       | Request sampling can record the number of access requests from client IP addresses and the request paths of sampled users. Based on the statistics, you can identify and analyze access traffic by client IP addresses and request paths.                                                                                                                                               | :ref:`Enabling Request Sampling <css_01_0407__section846243514132>`                     |
-   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-   | One-click traffic blocking             | One-click traffic blocking blocks all client connections to a node. This, however, does not include connections for Kibana access or Elasticsearch monitor APIs.                                                                                                                                                                                                                        | :ref:`Enable One-Click Traffic Blocking <css_01_0407__section364216459204>`             |
-   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-   | Flow control                           | Flow control provides an independent API for checking traffic statistics and records the number API calls. You can evaluate the flow control threshold and analyze the cluster load based on these statistics.                                                                                                                                                                          | :ref:`Viewing Flow Control Information <css_01_0407__section03781045277>`               |
-   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-   | Access logging                         | Access logs record the URLs and bodies of HTTP/HTTPS requests received by nodes within a period of time. You can analyze the current traffic load based on the access logs.                                                                                                                                                                                                             | :ref:`Enabling and Viewing Access Logs <css_01_0407__section1626791610277>`             |
-   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-   | Access logging in files                | Any cluster access is recorded in the **{Cluster name\ \_access_log.log}** file. You can use the log backup function to view detailed access logs on OBS.                                                                                                                                                                                                                               | :ref:`Enabling Access Logging in Files <css_01_0407__section072285622916>`              |
-   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
-   | CPU flow control                       | You can configure the node CPU usage threshold to limit inbound traffic for each node.                                                                                                                                                                                                                                                                                                  | :ref:`Enabling CPU Flow Control <css_01_0407__section159551120113420>`                  |
-   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+   | Policy                                 | How It Works                                                                                                                                                                                                                                                                                                                                                                            | Details                                                                                                  |
+   +========================================+=========================================================================================================================================================================================================================================================================================================================================================================================+==========================================================================================================+
+   | HTTP/HTTPS flow control                | -  You can control cluster access by client IP address or subnet through the HTTP/HTTPS blacklist or whitelist. If an IP address is in the blacklist, the client is disconnected right away and all its requests are rejected. The whitelist takes precedence over the blacklist. If a client IP address is on both the blacklist and whitelist, requests from it will not be rejected. | :ref:`Enabling HTTP/HTTPS Flow Control per Node <en-us_topic_0000001965416561__section1023014371242>`    |
+   |                                        | -  Flow control based on concurrent HTTP/HTTPS connections limits the total number of HTTP/HTTPS connections to a node per second.                                                                                                                                                                                                                                                      |                                                                                                          |
+   |                                        | -  Flow control based on new HTTP/HTTPS connections limits the number of new connections to a node.                                                                                                                                                                                                                                                                                     |                                                                                                          |
+   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+   | Memory flow control                    | Memory flow control limits request paths based on heap memory usage. You can configure a whitelist for memory flow control, a global memory usage threshold, and per-path heap memory thresholds. The global memory flow control threshold takes precedence over the memory threshold of a single path. Paths on the whitelist are exempt from memory flow control.                     | :ref:`Enabling Memory Flow Control <en-us_topic_0000001965416561__section12926193210818>`                |
+   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+   | Global path whitelist for flow control | You can configure the global path whitelist for flow control as required when you need to use custom plug-ins.                                                                                                                                                                                                                                                                          | :ref:`Adding a Global Path Whitelist for Flow Control <en-us_topic_0000001965416561__section8250826148>` |
+   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+   | Request sampling                       | Request sampling can record the number of access requests from client IP addresses and the request paths of sampled users. Based on the statistics, you can identify and analyze access traffic by client IP addresses and request paths.                                                                                                                                               | :ref:`Enabling Request Sampling <en-us_topic_0000001965416561__section846243514132>`                     |
+   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+   | One-click traffic blocking             | One-click traffic blocking blocks all client connections to a node. This, however, does not include connections for Kibana access or Elasticsearch monitor APIs.                                                                                                                                                                                                                        | :ref:`Enable One-Click Traffic Blocking <en-us_topic_0000001965416561__section364216459204>`             |
+   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+   | Flow control                           | Flow control provides an independent API for checking traffic statistics and records the number API calls. You can evaluate the flow control threshold and analyze the cluster load based on these statistics.                                                                                                                                                                          | :ref:`Viewing Flow Control Information <en-us_topic_0000001965416561__section03781045277>`               |
+   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+   | Access logging                         | Access logs record the URLs and bodies of HTTP/HTTPS requests received by nodes within a period of time. You can analyze the current traffic load based on the access logs.                                                                                                                                                                                                             | :ref:`Enabling and Viewing Access Logs <en-us_topic_0000001965416561__section1626791610277>`             |
+   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+   | Access logging in files                | Any cluster access is recorded in the **{Cluster name\ \_access_log.log}** file. You can use the log backup function to view detailed access logs on OBS.                                                                                                                                                                                                                               | :ref:`Enabling Access Logging in Files <en-us_topic_0000001965416561__section072285622916>`              |
+   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+   | CPU flow control                       | You can configure the node CPU usage threshold to limit inbound traffic for each node.                                                                                                                                                                                                                                                                                                  | :ref:`Enabling CPU Flow Control <en-us_topic_0000001965416561__section159551120113420>`                  |
+   +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
 
 Constraints
 -----------
@@ -46,7 +53,7 @@ Constraints
 -  Enabling access logging may hurt cluster performance.
 -  Memory flow control and CPU flow control are based on request paths. Avoid configuring too many paths or paths that are too long, as they may hurt cluster performance.
 
-.. _css_01_0407__section1023014371242:
+.. _en-us_topic_0000001965416561__section1023014371242:
 
 Enabling HTTP/HTTPS Flow Control per Node
 -----------------------------------------
@@ -69,43 +76,43 @@ Enabling HTTP/HTTPS Flow Control per Node
 
    .. table:: **Table 2** Configuration items for HTTP/HTTPS flow control
 
-      +--------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Configuration Item             | Type                  | Description                                                                                                                                                                                                                                                                    |
-      +================================+=======================+================================================================================================================================================================================================================================================================================+
-      | flowcontrol.http.enabled       | Boolean               | Whether to enable HTTP/HTTPS flow control. HTTP/HTTPS flow control is disabled by default. Enabling it may affect node access performance.                                                                                                                                     |
-      |                                |                       |                                                                                                                                                                                                                                                                                |
-      |                                |                       | Value: **true** or **false**                                                                                                                                                                                                                                                   |
-      |                                |                       |                                                                                                                                                                                                                                                                                |
-      |                                |                       | Default value: **false**                                                                                                                                                                                                                                                       |
-      +--------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | flowcontrol.http.allow         | List<String>          | IP address whitelist.                                                                                                                                                                                                                                                          |
-      |                                |                       |                                                                                                                                                                                                                                                                                |
-      |                                |                       | It can contain multiple IP addresses and subnet masks, or lists of IP addresses. Use commas (,) to separate different items. Example: **xx.xx.xx.xx/24,xx.xx.xx.xx/24**, or **xx.xx.xx.xx,xx.xx.xx.xx**.                                                                       |
-      |                                |                       |                                                                                                                                                                                                                                                                                |
-      |                                |                       | The default value is null.                                                                                                                                                                                                                                                     |
-      +--------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | flowcontrol.http.deny          | List<String>          | IP address blacklist.                                                                                                                                                                                                                                                          |
-      |                                |                       |                                                                                                                                                                                                                                                                                |
-      |                                |                       | It can contain multiple IP addresses and subnet masks, or lists of IP addresses. Use commas (,) to separate different items.                                                                                                                                                   |
-      |                                |                       |                                                                                                                                                                                                                                                                                |
-      |                                |                       | The default value is null.                                                                                                                                                                                                                                                     |
-      +--------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | flowcontrol.http.concurrent    | Integer               | Maximum concurrent HTTP/HTTPS connections.                                                                                                                                                                                                                                     |
-      |                                |                       |                                                                                                                                                                                                                                                                                |
-      |                                |                       | Default value: Number of available cores on a node x 600.                                                                                                                                                                                                                      |
-      +--------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | flowcontrol.http.newconnect    | Integer               | Maximum new connections that can be created for HTTP/HTTPS requests per second.                                                                                                                                                                                                |
-      |                                |                       |                                                                                                                                                                                                                                                                                |
-      |                                |                       | Default value: Number of available cores on a node x 200.                                                                                                                                                                                                                      |
-      +--------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | flowcontrol.http.warmup_period | Integer               | Time required for the HTTP/HTTPS connection setup speed to reach the maximum. If **flowcontrol.http.newconnect** is set to **100** and **flowcontrol.http.warmup_period** is set to **5000ms**, it indicates the system can set up 100 connections per second 5 seconds later. |
-      |                                |                       |                                                                                                                                                                                                                                                                                |
-      |                                |                       | Value range: 0-10000                                                                                                                                                                                                                                                           |
-      |                                |                       |                                                                                                                                                                                                                                                                                |
-      |                                |                       | Unit: ms                                                                                                                                                                                                                                                                       |
-      |                                |                       |                                                                                                                                                                                                                                                                                |
-      |                                |                       | Default value: **0**                                                                                                                                                                                                                                                           |
-      +--------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      +--------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Configuration Item             | Type                  | Description                                                                                                                                                                                                                                                                          |
+      +================================+=======================+======================================================================================================================================================================================================================================================================================+
+      | flowcontrol.http.enabled       | Boolean               | Whether to enable HTTP/HTTPS flow control. HTTP/HTTPS flow control is disabled by default. Enabling it may affect node access performance.                                                                                                                                           |
+      |                                |                       |                                                                                                                                                                                                                                                                                      |
+      |                                |                       | Value: **true** or **false**                                                                                                                                                                                                                                                         |
+      |                                |                       |                                                                                                                                                                                                                                                                                      |
+      |                                |                       | Default value: **false**                                                                                                                                                                                                                                                             |
+      +--------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | flowcontrol.http.allow         | List<String>          | IP address whitelist.                                                                                                                                                                                                                                                                |
+      |                                |                       |                                                                                                                                                                                                                                                                                      |
+      |                                |                       | It can contain multiple IP addresses and subnet masks, or lists of IP addresses. Use commas (,) to separate different items. Example: **xx.xx.xx.xx/24,xx.xx.xx.xx/24**, or **xx.xx.xx.xx,xx.xx.xx.xx**.                                                                             |
+      |                                |                       |                                                                                                                                                                                                                                                                                      |
+      |                                |                       | The default value is null.                                                                                                                                                                                                                                                           |
+      +--------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | flowcontrol.http.deny          | List<String>          | IP address blacklist.                                                                                                                                                                                                                                                                |
+      |                                |                       |                                                                                                                                                                                                                                                                                      |
+      |                                |                       | It can contain multiple IP addresses and subnet masks, or lists of IP addresses. Use commas (,) to separate different items.                                                                                                                                                         |
+      |                                |                       |                                                                                                                                                                                                                                                                                      |
+      |                                |                       | The default value is null.                                                                                                                                                                                                                                                           |
+      +--------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | flowcontrol.http.concurrent    | Integer               | Maximum concurrent HTTP/HTTPS connections.                                                                                                                                                                                                                                           |
+      |                                |                       |                                                                                                                                                                                                                                                                                      |
+      |                                |                       | Default value: Number of available cores on a node x 600.                                                                                                                                                                                                                            |
+      +--------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | flowcontrol.http.newconnect    | Integer               | Maximum new connections that can be created for HTTP/HTTPS requests per second.                                                                                                                                                                                                      |
+      |                                |                       |                                                                                                                                                                                                                                                                                      |
+      |                                |                       | Default value: Number of available cores on a node x 200.                                                                                                                                                                                                                            |
+      +--------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | flowcontrol.http.warmup_period | Integer               | Time required for the HTTP/HTTPS connection setup speed to reach the maximum. If **flowcontrol.http.newconnect** is set to **100** and **flowcontrol.http.warmup_period** is set to **5000ms**, it indicates the system can create up to 100 connections per second 5 seconds later. |
+      |                                |                       |                                                                                                                                                                                                                                                                                      |
+      |                                |                       | Value range: 0-10000                                                                                                                                                                                                                                                                 |
+      |                                |                       |                                                                                                                                                                                                                                                                                      |
+      |                                |                       | Unit: ms                                                                                                                                                                                                                                                                             |
+      |                                |                       |                                                                                                                                                                                                                                                                                      |
+      |                                |                       | Default value: **0**                                                                                                                                                                                                                                                                 |
+      +--------------------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
    .. note::
 
@@ -122,14 +129,10 @@ Enabling HTTP/HTTPS Flow Control per Node
         }
       }
 
-.. _css_01_0407__section12926193210818:
+.. _en-us_topic_0000001965416561__section12926193210818:
 
 Enabling Memory Flow Control
 ----------------------------
-
-.. note::
-
-   Enabling memory flow control in Elasticsearch 5.5.1 will cause **\_mget** requests to be blocked and Kibana access to become unavailable. You can add \_mget requests to the flow control whitelist to avoid this problem.
 
 #. Enable memory flow control.
 
@@ -251,7 +254,7 @@ Enabling Memory Flow Control
            }
          }
 
-.. _css_01_0407__section8250826148:
+.. _en-us_topic_0000001965416561__section8250826148:
 
 Adding a Global Path Whitelist for Flow Control
 -----------------------------------------------
@@ -287,7 +290,7 @@ Run the following command to add a global path whitelist for flow control:
 
    If all parameters are set to **null**, they will be restored to their default values.
 
-.. _css_01_0407__section846243514132:
+.. _en-us_topic_0000001965416561__section846243514132:
 
 Enabling Request Sampling
 -------------------------
@@ -351,7 +354,7 @@ Enabling Request Sampling
         }
       }
 
-.. _css_01_0407__section364216459204:
+.. _en-us_topic_0000001965416561__section364216459204:
 
 Enable One-Click Traffic Blocking
 ---------------------------------
@@ -378,7 +381,7 @@ Enable One-Click Traffic Blocking
         }
       }
 
-.. _css_01_0407__section03781045277:
+.. _en-us_topic_0000001965416561__section03781045277:
 
 Viewing Flow Control Information
 --------------------------------
@@ -478,12 +481,12 @@ Example response:
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | rejected_cpu        | Number of requests rejected when the CPU flow control threshold is exceeded. This parameter takes effect when CPU flow control is enabled, and its value is not cleared after CPU flow control is disabled.                                                                                                                                |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | ip_address          | IP addresses and the number of requests. For details, see :ref:`Table 7 <css_01_0407__en-us_topic_0000001273451905_table8881825155010>`\ :ref:`Table 7 <css_01_0407__en-us_topic_0000001273451905_table8881825155010>`.                                                                                                                    |
+   | ip_address          | IP addresses and the number of requests. For details, see :ref:`Table 7 <en-us_topic_0000001965416561__en-us_topic_0000001273451905_table8881825155010>`\ :ref:`Table 7 <en-us_topic_0000001965416561__en-us_topic_0000001273451905_table8881825155010>`.                                                                                  |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | url_sample          | Request path sampling. The number of URLs of a request are collected based on the configured time and sampling interval. For details, see :ref:`Table 8 <css_01_0407__en-us_topic_0000001273451905_table72712520501>`.                                                                                                                     |
+   | url_sample          | Request path sampling. The number of URLs of a request are collected based on the configured time and sampling interval. For details, see :ref:`Table 8 <en-us_topic_0000001965416561__en-us_topic_0000001273451905_table72712520501>`.                                                                                                    |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-.. _css_01_0407__en-us_topic_0000001273451905_table8881825155010:
+.. _en-us_topic_0000001965416561__en-us_topic_0000001273451905_table8881825155010:
 
 .. table:: **Table 7** ip_address
 
@@ -494,7 +497,7 @@ Example response:
    method    Number of access requests from an IP address.
    ========= =============================================
 
-.. _css_01_0407__en-us_topic_0000001273451905_table72712520501:
+.. _en-us_topic_0000001965416561__en-us_topic_0000001273451905_table72712520501:
 
 .. table:: **Table 8** url_sample
 
@@ -507,7 +510,7 @@ Example response:
    count          How many times a path is sampled
    ============== ================================================
 
-.. _css_01_0407__section1626791610277:
+.. _en-us_topic_0000001965416561__section1626791610277:
 
 Enabling and Viewing Access Logs
 --------------------------------
@@ -530,29 +533,29 @@ Enabling and Viewing Access Logs
 
    .. table:: **Table 9** Configuration items for configuring access logging
 
-      +-----------------------+-----------------------+-------------------------------------------------------------------------------------------------+
-      | Configuration Item    | Type                  | Description                                                                                     |
-      +=======================+=======================+=================================================================================================+
-      | duration_limit        | String                | Duration recorded in an access log.                                                             |
-      |                       |                       |                                                                                                 |
-      |                       |                       | Value range: 10 to 120                                                                          |
-      |                       |                       |                                                                                                 |
-      |                       |                       | Unit: s                                                                                         |
-      |                       |                       |                                                                                                 |
-      |                       |                       | Default value: **30**                                                                           |
-      +-----------------------+-----------------------+-------------------------------------------------------------------------------------------------+
-      | capacity_limit        | String                | Size of an access log. When the size of an access log reaches this value, access logging stops. |
-      |                       |                       |                                                                                                 |
-      |                       |                       | Value range: 1 to 5                                                                             |
-      |                       |                       |                                                                                                 |
-      |                       |                       | Unit: MB                                                                                        |
-      |                       |                       |                                                                                                 |
-      |                       |                       | Default value: **1**                                                                            |
-      +-----------------------+-----------------------+-------------------------------------------------------------------------------------------------+
+      +-----------------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------+
+      | Configuration Item    | Type                  | Description                                                                                                             |
+      +=======================+=======================+=========================================================================================================================+
+      | duration_limit        | String                | Maximum duration of access log records. When this duration is reached, the recording stops.                             |
+      |                       |                       |                                                                                                                         |
+      |                       |                       | Value range: 10 to 120                                                                                                  |
+      |                       |                       |                                                                                                                         |
+      |                       |                       | Unit: s                                                                                                                 |
+      |                       |                       |                                                                                                                         |
+      |                       |                       | Default value: **30**                                                                                                   |
+      +-----------------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------+
+      | capacity_limit        | String                | Maximum memory size for recording access logs. When the size of an access log reaches this value, access logging stops. |
+      |                       |                       |                                                                                                                         |
+      |                       |                       | Value range: 1 to 5                                                                                                     |
+      |                       |                       |                                                                                                                         |
+      |                       |                       | Unit: MB                                                                                                                |
+      |                       |                       |                                                                                                                         |
+      |                       |                       | Default value: **1**                                                                                                    |
+      +-----------------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------+
 
    .. note::
 
-      -  Access logging stops when either **duration_limit** or **capacity_limit** reaches their thresholds.
+      -  Access logging stops when either **duration_limit** or **capacity_limit** is reached.
       -  If all parameters are set to **null**, they will be restored to their default values.
 
 #. Run the following command to check access logs:
@@ -609,19 +612,19 @@ Enabling and Viewing Access Logs
 
    .. table:: **Table 10** Response parameters
 
-      +-----------+------------------------------------------------------------------------------------------------------------------------------------------+
-      | Parameter | Description                                                                                                                              |
-      +===========+==========================================================================================================================================+
-      | name      | Node name                                                                                                                                |
-      +-----------+------------------------------------------------------------------------------------------------------------------------------------------+
-      | host      | Node IP address                                                                                                                          |
-      +-----------+------------------------------------------------------------------------------------------------------------------------------------------+
-      | count     | Number of node access requests in a statistical period                                                                                   |
-      +-----------+------------------------------------------------------------------------------------------------------------------------------------------+
-      | access    | Details about node access requests in a statistical period For details, see :ref:`Table 11 <css_01_0407__css_01_0406_table72934522332>`. |
-      +-----------+------------------------------------------------------------------------------------------------------------------------------------------+
+      +-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Parameter | Description                                                                                                                                                                |
+      +===========+============================================================================================================================================================================+
+      | name      | Node name                                                                                                                                                                  |
+      +-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | host      | Node IP address                                                                                                                                                            |
+      +-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | count     | Number of node access requests in a statistical period                                                                                                                     |
+      +-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | access    | Details about node access requests in a statistical period For details, see :ref:`Table 11 <en-us_topic_0000001965416561__en-us_topic_0000001938218516_table72934522332>`. |
+      +-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-   .. _css_01_0407__css_01_0406_table72934522332:
+   .. _en-us_topic_0000001965416561__en-us_topic_0000001938218516_table72934522332:
 
    .. table:: **Table 11** access
 
@@ -637,29 +640,18 @@ Enabling and Viewing Access Logs
 
 #. Run the following commands to delete access logs.
 
-   -  Delete access logs of all nodes in a cluster.
+   API for deleting access logs for all nodes:
 
-      .. code-block:: text
+   .. code-block:: text
 
-         DELETE /_access_log
+      DELETE /_access_log
 
-   -  Delete access logs of a specified node in a cluster.
-
-      .. code-block:: text
-
-         DELETE /_access_log/{nodeId}
-
-      **{nodeId}** indicates the node ID.
-
-.. _css_01_0407__section072285622916:
+.. _en-us_topic_0000001965416561__section072285622916:
 
 Enabling Access Logging in Files
 --------------------------------
 
-.. note::
-
-   -  When access logging in files is enabled, any cluster access is recorded in the **{Cluster name\ \_access_log.log}** file. You can use the log backup function to view detailed access logs on OBS.
-   -  You are advised to use this function for troubleshooting only. After problems are solved, disable this function.
+Typically you record access logs in files to locate faults. After faults are rectified, you should disable it.
 
 #. Run the following command to enable access logging in files:
 
@@ -674,16 +666,16 @@ Enabling Access Logging in Files
 
    .. table:: **Table 12** Configuration items for enabling access logging in files
 
-      +------------------------------+-----------------------+----------------------------------------------------------------+
-      | Parameter                    | Type                  | Description                                                    |
-      +==============================+=======================+================================================================+
-      | flowcontrol.log.file.enabled | Boolean               | Whether to record the details of each request in the log file. |
-      |                              |                       |                                                                |
-      |                              |                       | Value:                                                         |
-      |                              |                       |                                                                |
-      |                              |                       | -  true                                                        |
-      |                              |                       | -  false (default value)                                       |
-      +------------------------------+-----------------------+----------------------------------------------------------------+
+      +------------------------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Parameter                    | Type                  | Description                                                                                                                                                                               |
+      +==============================+=======================+===========================================================================================================================================================================================+
+      | flowcontrol.log.file.enabled | Boolean               | Whether to record the details of each request in the access log file. The log file name is **Cluster name_access_log.log**. You can check this file only through the log backup function. |
+      |                              |                       |                                                                                                                                                                                           |
+      |                              |                       | Value:                                                                                                                                                                                    |
+      |                              |                       |                                                                                                                                                                                           |
+      |                              |                       | -  true                                                                                                                                                                                   |
+      |                              |                       | -  false (default value)                                                                                                                                                                  |
+      +------------------------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 #. Run the following command to disable access logging in files:
 
@@ -696,7 +688,7 @@ Enabling Access Logging in Files
         }
       }
 
-.. _css_01_0407__section159551120113420:
+.. _en-us_topic_0000001965416561__section159551120113420:
 
 Enabling CPU Flow Control
 -------------------------

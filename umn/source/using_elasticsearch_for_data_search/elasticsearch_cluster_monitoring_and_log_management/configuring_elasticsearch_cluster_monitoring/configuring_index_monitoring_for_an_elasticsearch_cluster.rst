@@ -1,6 +1,6 @@
-:original_name: css_01_0428.html
+:original_name: css_01_0135.html
 
-.. _css_01_0428:
+.. _css_01_0135:
 
 Configuring Index Monitoring for an Elasticsearch Cluster
 =========================================================
@@ -17,12 +17,20 @@ Constraints
 -  Indexes starting with **monitoring-eye-css-\*** are identified as monitoring indexes and will not be monitored. Do not use this prefix for regular indexes.
 -  The index pattern of **monitoring-eye-css-\*** must not be deleted while index monitoring is enabled. Otherwise, monitoring charts will become abnormal.
 
-Accessing a Cluster
--------------------
+Logging In to Kibana
+--------------------
+
+Log in to Kibana and go to the command execution page. Elasticsearch clusters support multiple access methods. This topic uses Kibana as an example to describe the operation procedures.
 
 #. Log in to the CSS management console.
-#. On the **Clusters** page, locate the target cluster, and click **Access Kibana** in the **Operation** column to access Kibana.
-#. Click **Dev Tools** in the navigation tree on the left.
+
+#. In the navigation pane on the left, choose **Clusters > Elasticsearch**.
+
+#. In the cluster list, find the target cluster, and click **Kibana** in the **Operation** column to log in to the Kibana console.
+
+#. In the left navigation pane, choose **Dev Tools**.
+
+   The left part of the console is the command input box, and the triangle icon in its upper-right corner is the execution button. The right part shows the execution result.
 
 Enabling Index Monitoring
 -------------------------
@@ -183,15 +191,11 @@ Checking Index Monitoring Data in Kibana Charts
 
 You can check preconfigured index monitoring charts on the **Dashboard** and **Visualizations** pages of Kibana. You can also customize tables and charts.
 
-#. Log in to the CSS management console.
+-  Check index monitoring results in preconfigured dashboard charts.
 
-#. Choose **Clusters** in the navigation pane. On the **Clusters** page, locate the target cluster, and click **Access Kibana** in the **Operation** column.
+   #. In the navigation tree on the left, click **Dashboard**.
 
-#. Check index monitoring results in preconfigured dashboard charts.
-
-   a. In the navigation tree on the left, click **Dashboard**.
-
-   b. Click **[Monitoring] Index monitoring Dashboard** to check preconfigured dashboards.
+   #. Click **[Monitoring] Index monitoring Dashboard** to check preconfigured dashboards.
 
 
       .. figure:: /_static/images/en-us_image_0000001987917665.png
@@ -235,17 +239,17 @@ You can check preconfigured index monitoring charts on the **Dashboard** and **V
          | [monitoring] segment memory in bytes of index for top10         | Top 10 indexes with the largest heap memory usage of index segments.        |
          +-----------------------------------------------------------------+-----------------------------------------------------------------------------+
 
-#. Check index monitoring results in custom visualizations.
+-  Check index monitoring results in custom visualizations.
 
    The index monitoring module periodically stores the index/stats information in the **monitoring-eys-css** index. You can use the Kibana chart function to draw custom charts.
 
    The following procedure describes how to check the trend of document quantities in a chart as an example.
 
-   a. Click **Visualize** in the navigation tree on the left of the Kibana console.
+   #. Click **Visualize** in the navigation tree on the left of the Kibana console.
 
-   b. Click **Create visualization** and select **TSVB**.
+   #. Click **Create visualization** and select **TSVB**.
 
-   c. Set chart parameters and view the visualizations.
+   #. Set chart parameters and view the visualizations.
 
       On the **Data** tab page, set the parameters as needed.
 
@@ -267,41 +271,41 @@ You can check preconfigured index monitoring charts on the **Dashboard** and **V
 
          **Figure 3** Setting the interval
 
-#. If the index monitoring charts are not displayed, load them on the Kibana console again.
+If the index monitoring charts are not displayed, load them on the Kibana console again.
 
-   .. note::
+.. note::
 
-      If the preset dashboards and visualizations cannot be found for a security-mode Elasticsearch cluster, try switching to the Private or Global space. If the issue persists, import the charts and graphs again.
+   If the preset dashboards and visualizations cannot be found for a security-mode Elasticsearch cluster, try switching to the Private or Global space. If the issue persists, import the charts and graphs again.
 
-   a. .. _css_01_0428__en-us_topic_0000001272074721_li779343011306:
+#. .. _en-us_topic_0000001938218528__en-us_topic_0000001272074721_li779343011306:
 
-      Create the **monitoring-kibana.ndjson** file by referring to :ref:`kibana-monitor Configuration File <css_01_0428__section6555323124717>`.
+   Create the **monitoring-kibana.ndjson** file by referring to :ref:`kibana-monitor Configuration File <en-us_topic_0000001938218528__section6555323124717>`.
 
-   b. On the Kibana console, choose **Management > Stack Management > Saved objects**.
-
-
-      .. figure:: /_static/images/en-us_image_0000001988037837.png
-         :alt: **Figure 4** Selecting Saved Objects
-
-         **Figure 4** Selecting Saved Objects
-
-   c. Click **Import** and upload the **monitoring-kibana.ndjson** file created in :ref:`5.a <css_01_0428__en-us_topic_0000001272074721_li779343011306>`.
+#. On the Kibana console, choose **Management > Stack Management > Saved objects**.
 
 
-      .. figure:: /_static/images/en-us_image_0000001953598400.png
-         :alt: **Figure 5** Uploading a file
+   .. figure:: /_static/images/en-us_image_0000001988037837.png
+      :alt: **Figure 4** Selecting Saved Objects
 
-         **Figure 5** Uploading a file
+      **Figure 4** Selecting Saved Objects
 
-   d. After the file is uploaded, click **done**. The index monitoring charts are imported successfully.
+#. Click **Import** and upload the **monitoring-kibana.ndjson** file created in :ref:`1 <en-us_topic_0000001938218528__en-us_topic_0000001272074721_li779343011306>`.
 
 
-      .. figure:: /_static/images/en-us_image_0000001988037833.png
-         :alt: **Figure 6** Index monitoring charts imported successfully
+   .. figure:: /_static/images/en-us_image_0000001953598400.png
+      :alt: **Figure 5** Uploading a file
 
-         **Figure 6** Index monitoring charts imported successfully
+      **Figure 5** Uploading a file
 
-.. _css_01_0428__section6555323124717:
+#. After the file is uploaded, click **done**. The index monitoring charts are imported successfully.
+
+
+   .. figure:: /_static/images/en-us_image_0000001988037833.png
+      :alt: **Figure 6** Index monitoring charts imported successfully
+
+      **Figure 6** Index monitoring charts imported successfully
+
+.. _en-us_topic_0000001938218528__section6555323124717:
 
 kibana-monitor Configuration File
 ---------------------------------

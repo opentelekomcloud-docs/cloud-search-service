@@ -1,6 +1,6 @@
-:original_name: css_01_0383.html
+:original_name: css_01_0062.html
 
-.. _css_01_0383:
+.. _css_01_0062:
 
 Logging In to an Elasticsearch Cluster Through Cerebro
 ======================================================
@@ -13,7 +13,8 @@ Accessing a Cluster Through Cerebro on the CSS Console
 The Elasticsearch clusters created in CSS provide a built-in Cerebro component, using which you can quickly access these clusters.
 
 #. Log in to the CSS management console.
-#. On the **Clusters** page, locate the target cluster and click **More** > **Cerebro** in the **Operation** column to go to the Cerebro login page.
+#. In the navigation pane on the left, choose **Clusters > Elasticsearch**.
+#. In the cluster list, find the target cluster, and choose **More** > **Cerebro** in the **Operation** column. The Cerebro login page is displayed.
 
    -  Non-security cluster: Click the cluster name on the Cerebro login page to go to the Cerebro console.
    -  Security cluster: Click the cluster name on the Cerebro login page, enter the username and password, and click **Authenticate** to go to the Cerebro console. The default username is **admin** and the password is the one specified during cluster creation.
@@ -23,11 +24,11 @@ The Elasticsearch clusters created in CSS provide a built-in Cerebro component, 
 Accessing a Cluster Using an In-House Built Cerebro
 ---------------------------------------------------
 
-.. note::
+.. caution::
 
    When using in-house built Cerebro to access a cluster, make sure the network between them is connected.
 
-#. Obtain the cluster access address. For details about how to obtain the cluster access address for different network configurations, see :ref:`Network Configuration <css_01_0381__section855085010198>`.
+#. Obtain the cluster access address. For details about how to obtain the cluster access address for different network configurations, see :ref:`Network Configuration <en-us_topic_0000001975823337__section855085010198>`.
 #. Start Cerebro, and enter the cluster access address.
 
    -  For a cluster in security mode, enter https://*access address*:9200.

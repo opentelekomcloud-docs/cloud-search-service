@@ -22,7 +22,7 @@ Viewing Failed Tasks
 
 #. In the **Failed Tasks** dialog box, view all failed tasks of the current account. The following information about the failed tasks is displayed: **Name/ID**, **Task Status**, and **Failure Time**.
 
-#. Click the question mark in the **Task Status** column to view the failure cause of a task. You are advised to troubleshoot faults based on failure causes. For details about failure causes, see :ref:`Error Code <css_01_0060__en-us_topic_0000001268594529_section155001521193312>`.
+#. Click the question mark in the **Task Status** column to view the failure cause of a task. You are advised to troubleshoot faults based on failure causes. For details about failure causes, see :ref:`Error Code <en-us_topic_0000001938218168__en-us_topic_0000001268594529_section155001521193312>`.
 
 
    .. figure:: /_static/images/en-us_image_0000001965416917.png
@@ -44,7 +44,7 @@ You can delete one or all failed tasks at a time.
 
    **Figure 3** Deleting a failed task
 
-.. _css_01_0060__en-us_topic_0000001268594529_section155001521193312:
+.. _en-us_topic_0000001938218168__en-us_topic_0000001268594529_section155001521193312:
 
 Error Code
 ----------

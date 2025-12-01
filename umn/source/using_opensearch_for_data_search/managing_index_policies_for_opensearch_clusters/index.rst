@@ -1,13 +1,13 @@
-:original_name: css_01_0501.html
+:original_name: css_01_0320.html
 
-.. _css_01_0501:
+.. _css_01_0320:
 
 Managing Index Policies for OpenSearch Clusters
 ===============================================
 
 -  :ref:`Creating and Managing OpenSearch Index Policies <css_01_0319>`
--  :ref:`Automating Index Rollover in an OpenSearch Cluster Through Index Lifecycle Management <css_01_0502>`
--  :ref:`Decoupling Index Storage and Compute in an OpenSearch Cluster Through Index Lifecycle Management <css_01_0503>`
+-  :ref:`Automating Index Rollover in an OpenSearch Cluster Through Index Lifecycle Management <css_01_0209>`
+-  :ref:`Decoupling Index Storage and Compute in an OpenSearch Cluster Through Index Lifecycle Management <css_01_0211>`
 
 .. toctree::
    :maxdepth: 1

@@ -1,6 +1,6 @@
-:original_name: css_01_0427.html
+:original_name: css_01_0177.html
 
-.. _css_01_0427:
+.. _css_01_0177:
 
 Configuring Kernel Monitoring for an Elasticsearch Cluster
 ==========================================================
@@ -10,22 +10,30 @@ Scenario
 
 .. table:: **Table 1** Introduction to cluster kernel monitoring
 
-   +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------+-------------------------------------------------------------------------+
-   | Enhanced Monitoring Feature | Description                                                                                                                                                                                                                                                                                                                                               | Cluster Version                           | Details                                                                 |
-   +=============================+===========================================================================================================================================================================================================================================================================================================================================================+===========================================+=========================================================================+
-   | P99 latency                 | Open-source Elasticsearch provides only the average latency metric when monitoring responses to search requests. This may not accurately reflect the actual search performance of a cluster. To improve on this, the P99 latency metric is added in CSS to monitor the 99th percentile latency of each cluster.                                           | Elasticsearch 7.6.2, Elasticsearch 7.10.2 | :ref:`Monitoring P99 Latency <css_01_0427__section7236204762019>`       |
-   +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------+-------------------------------------------------------------------------+
-   | HTTP status codes           | When you access Elasticsearch through HTTP, you receive HTTP status codes in response to your requests. The native open-source Elasticsearch does not collect statistics on these status codes. To improve on this, HTTP status code monitoring is added in CSS, allowing you to monitor HTTP status codes and get a sense of how the service is running. | Elasticsearch 7.6.2, Elasticsearch 7.10.2 | :ref:`Monitoring HTTP Status Codes <css_01_0427__section1367052018215>` |
-   +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------+-------------------------------------------------------------------------+
+   +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------+------------------------------------------------------------------------------------------+
+   | Enhanced Monitoring Feature | Description                                                                                                                                                                                                                                                                                                                                               | Cluster Version                           | Details                                                                                  |
+   +=============================+===========================================================================================================================================================================================================================================================================================================================================================+===========================================+==========================================================================================+
+   | P99 latency                 | Open-source Elasticsearch provides only the average latency metric when monitoring responses to search requests. This may not accurately reflect the actual search performance of a cluster. To improve on this, the P99 latency metric is added in CSS to monitor the 99th percentile latency of each cluster.                                           | Elasticsearch 7.6.2, Elasticsearch 7.10.2 | :ref:`Monitoring P99 Latency <en-us_topic_0000001938377876__section7236204762019>`       |
+   +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------+------------------------------------------------------------------------------------------+
+   | HTTP status codes           | When you access Elasticsearch through HTTP, you receive HTTP status codes in response to your requests. The native open-source Elasticsearch does not collect statistics on these status codes. To improve on this, HTTP status code monitoring is added in CSS, allowing you to monitor HTTP status codes and get a sense of how the service is running. | Elasticsearch 7.6.2, Elasticsearch 7.10.2 | :ref:`Monitoring HTTP Status Codes <en-us_topic_0000001938377876__section1367052018215>` |
+   +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------+------------------------------------------------------------------------------------------+
 
-Accessing a Cluster
--------------------
+Logging In to Kibana
+--------------------
+
+Log in to Kibana and go to the command execution page. Elasticsearch clusters support multiple access methods. This topic uses Kibana as an example to describe the operation procedures.
 
 #. Log in to the CSS management console.
-#. On the **Clusters** page, locate the target cluster, and click **Access Kibana** in the **Operation** column to access Kibana.
-#. Click **Dev Tools** in the navigation tree on the left.
 
-.. _css_01_0427__section7236204762019:
+#. In the navigation pane on the left, choose **Clusters > Elasticsearch**.
+
+#. In the cluster list, find the target cluster, and click **Kibana** in the **Operation** column to log in to the Kibana console.
+
+#. In the left navigation pane, choose **Dev Tools**.
+
+   The left part of the console is the command input box, and the triangle icon in its upper-right corner is the execution button. The right part shows the execution result.
+
+.. _en-us_topic_0000001938377876__section7236204762019:
 
 Monitoring P99 Latency
 ----------------------
@@ -124,7 +132,7 @@ The command used for monitoring the P99 latency of clusters can also be used to 
         }
       }
 
-.. _css_01_0427__section1367052018215:
+.. _en-us_topic_0000001938377876__section1367052018215:
 
 Monitoring HTTP Status Codes
 ----------------------------

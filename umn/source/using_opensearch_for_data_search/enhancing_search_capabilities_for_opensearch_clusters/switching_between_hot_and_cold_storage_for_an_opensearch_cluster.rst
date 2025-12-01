@@ -1,16 +1,19 @@
-:original_name: css_01_0474.html
+:original_name: css_01_0200.html
 
-.. _css_01_0474:
+.. _css_01_0200:
 
 Switching Between Hot and Cold Storage for an OpenSearch Cluster
 ================================================================
 
-In an OpenSearch cluster that has cold data nodes, index data can switch between cold and hot storage. This helps optimize storage costs and improve query performance.
+In an OpenSearch cluster, switching between hot and cold data storage means to allocate data to nodes of different performance standards based on data temperature (that is, how often data is accessed). The goal is to achieve optimal storage costs and query performance.
 
-Hot/cold storage switchover is about allocating data to different types of data nodes in terms of their performance and costs based on how frequent data is expected to be accessed. Hot data nodes store real-time data that is frequently updated and queried. Typically, they use high-performance hardware (such as SSDs) to ensure fast read/write and retrieval. Cold data nodes store historical data that is seldom accessed. Typically, cold data nodes use lower-cost hardware to store data.
+-  Hot data: frequently accessed data, low latency required, stored using high-performance hardware (such as SSDs) to ensure fast write and query performance.
+-  Cold data: rarely accessed data, cost-optimized storage (such as HDDs).
 
-How It Works
-------------
+If your cluster stores data used for different purposes, such as real-time analytics, log analytics, and monitoring data archives, you can switch between hot and cold storage for specified indexes to balance performance and costs.
+
+How the Feature Works
+---------------------
 
 
 .. figure:: /_static/images/en-us_image_0000002096365601.png
@@ -18,75 +21,132 @@ How It Works
 
    **Figure 1** How cold/hot storage switchover works
 
-When a cluster is created, cold data nodes are tagged **cold** for cold storage, whereas regular data nodes are tagged **hot** for hot storage. Within a cluster, you can configure to have the less frequently accessed data of specified indexes stored on cold data nodes. Compared with regular data nodes, cold data nodes offer lower query performance, but also lower storage costs. Regular data nodes will be tagged **hot** only when there are cold data nodes.
+The key is to allocate index data storage by node labels and index allocation policies.
 
-You can scale cold data nodes by adding or reducing nodes or their storage capacity. For details, see :ref:`Scaling an OpenSearch Cluster <css_01_0483>`.
+-  Node labels:
+
+   -  Data node (hot): Stores real-time data by default and supports high-concurrency read/write requests.
+   -  Cold data node (cold): Stores historical data. Cold data nodes use less expensive hardware and deliver lower query performance than data nodes.
+
+-  Data allocation:
+
+   You can configure an index template or directly configure specific indexes to allocate data to data nodes or cold data nodes.
+
+Procedure: Enable cold data nodes when creating a cluster, and configure an index template or specific index settings to allocate index data storage. The cluster automatically allocates data based on your settings.
 
 Constraints
 -----------
 
-Only clusters that have cold data nodes support switchover between cold and hot data storage. Cold data nodes can be enabled only when a cluster is created. You cannot enable cold data nodes for an existing cluster. If your cluster does not have cold data nodes but you want to cut storage costs, you can try using storage-compute decoupling. For details, see :ref:`Configuring Storage-Compute Decoupling for an OpenSearch Cluster <css_01_0473>`.
+-  You cannot add cold data nodes to existing clusters that did not have such nodes enabled upon cluster creation.
+-  In comparison with data nodes, cold data nodes deliver lower query performance. Determine which type of node to use based on service needs.
 
 Switching Over Between Hot and Cold Storage
 -------------------------------------------
 
-#. Log in to the CSS management console.
+#. Check whether cold data nodes are enabled in the target cluster.
 
-#. Check whether cold data nodes are enabled in a cluster.
+   a. Log in to the CSS management console.
 
-   On the **Clusters** page, select the cluster that you want to enable storage-compute decoupling, click the cluster name to go to the cluster information page. In the **Node** area, check whether there is information about cold data nodes.
+   b. In the navigation pane on the left, choose **Clusters > OpenSearch**.
+
+   c. In the cluster list, click the name of the target cluster. The cluster information page is displayed.
+
+   d. On the **Overview** tab, check whether the **Node Information** area contains cold data node information.
 
 
-   .. figure:: /_static/images/en-us_image_0000002060245352.png
-      :alt: **Figure 2** Cold data node information
+      .. figure:: /_static/images/en-us_image_0000002364504689.png
+         :alt: **Figure 2** Cold data node information
 
-      **Figure 2** Cold data node information
+         **Figure 2** Cold data node information
 
-   -  If there is information about cold data nodes, the cluster has cold data nodes. Go to the next step.
-   -  Otherwise, the cluster does not have cold data nodes, in which case, you cannot switch between cold and hot data storage.
+      -  If there is information about cold data nodes, the cluster has cold data nodes. Go to the next step.
+      -  Otherwise, the cluster does not have cold data nodes, in which case, you cannot switch between cold and hot data storage.
 
-#. Click **Access Kibana** in the **Operation** column to log in to OpenSearch Dashboards.
+#. Log in to OpenSearch Dashboards.
 
-#. Click **Dev Tools** in the navigation tree on the left.
+   a. On the cluster information page, click **Dashboards** in the upper-right corner to log in to OpenSearch Dashboards.
 
-#. On OpenSearch Dashboards, set an index template to store index data to cold or hot data nodes.
+   b. In the left navigation pane, choose **Dev Tools**.
 
-   For example, run the following command to set a template to store indexes that start with **myindex** to cold data nodes:
+      The left part of the console is the command input box, and the triangle icon in its upper-right corner is the execution button. The right part shows the execution result.
+
+#. On OpenSearch Dashboards, configure index allocation policies.
+
+   You can configure an index template or directly configure specific indexes to allocate data to data nodes or cold data nodes.
+
+   -  **Configuring an index template**
+
+      Configure an index template to allocate indexes to cold or hot data nodes. For example, run the following command to set a template to store indexes that start with **myindex** to cold data nodes:
+
+      .. code-block:: text
+
+         PUT _template/test
+         {
+           "order": 1,
+           "index_patterns": "myindex*",
+           "settings": {
+             "refresh_interval": "30s",
+             "number_of_shards": "3",
+             "number_of_replicas": "0",
+             "routing.allocation.require.box_type": "cold"
+           }
+         }
+
+      Parameter description:
+
+      -  **index_patterns**: rule for matching index names (for example, **myindex\***).
+      -  **box_type**: node type for matching indexes. **cold** indicates cold data nodes, and **hot** indicates regular data nodes.
+
+   -  **Configuring specific indexes**
+
+      To change the node type for an existing index, run the following command:
+
+      .. code-block:: text
+
+         PUT myindex/_settings
+         {
+                 "index.routing.allocation.require.box_type": "cold"
+         }
+
+      Parameter description:
+
+      -  **myindex**: index name.
+      -  **box_type**: node type for matching indexes. **cold** indicates cold data nodes, and **hot** indicates regular data nodes.
+
+#. Verify the switchover between hot and cold storage.
+
+   Run the following command to check the distribution of index shards:
 
    .. code-block:: text
 
-      PUT _template/test
-      {
-        "order": 1,
-        "index_patterns": "myindex*",
-        "settings": {
-          "refresh_interval": "30s",
-          "number_of_shards": "3",
-          "number_of_replicas": "1",
-          "routing.allocation.require.box_type": "cold"
-        }
-      }
+      GET _cat/shards/myindex?v
 
-   Or you can simply specify cold or hot storage for existing indexes.
+   When the data volume is large, the switchover may take a long time. There may be an intermediate state where the data of an index resides on both cold data nodes and data nodes.
 
-   For example, run the following command store index **myindex** to cold data nodes:
+   As shown in the following figure, all shards of the **myindex** index are stored on the cold data node **css-e668-ess-cold-esn-1-1**.
 
-   .. code-block:: text
+   .. code-block::
 
-      PUT myindex/_settings
-       {
-              "index.routing.allocation.require.box_type": "cold"
-          }
+      index    shard prirep state       docs  store ip             node
+      myindex 1     p      STARTED 14085446 17.8gb 192.168.91.188 css-e668-ess-cold-esn-1-1
+      myindex 2     p      STARTED 14094005 17.9gb 192.168.91.188 css-e668-ess-cold-esn-1-1
+      myindex 0     p      STARTED 14094742 17.8gb 192.168.91.188 css-e668-ess-cold-esn-1-1
 
-   **myindex** indicates the index name. You can change **cold** to **hot** if you need hot storage.
+#. Roll back the cold-hot switchover configuration.
 
-#. When necessary, run the following command to cancel cold or hot storage configuration. After that, index data will be randomly and evenly distributed across cold and hot data nodes.
+   To cancel the cold-hot switchover configuration, run the following command:
 
    .. code-block:: text
 
       PUT myindex/_settings
       {
               "index.routing.allocation.require.box_type": null
-          }
+      }
 
-   **myindex** indicates the index name.
+   After the rollback, index data will be evenly and randomly allocated to both cold data nodes and data nodes.
+
+Related Operations
+------------------
+
+-  You can scale cold data nodes by adding or reducing nodes or their storage capacity. For details, see :ref:`Scaling an OpenSearch Cluster <css_01_0208>`.
+-  If your cluster does not have cold data nodes but you wish to cut storage costs, you can try using decoupled storage and compute. For details, see :ref:`Configuring Decoupled Storage and Compute for an OpenSearch Cluster <css_01_0180>`.
