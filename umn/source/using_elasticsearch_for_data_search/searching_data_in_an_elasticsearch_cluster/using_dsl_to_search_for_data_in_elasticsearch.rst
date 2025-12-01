@@ -1,6 +1,6 @@
-:original_name: css_01_0399.html
+:original_name: css_01_0007.html
 
-.. _css_01_0399:
+.. _css_01_0007:
 
 Using DSL to Search for Data in Elasticsearch
 =============================================
@@ -12,7 +12,7 @@ This topic lists some of the most commonly used Elasticsearch DSL query statemen
 DSL Usage Example
 -----------------
 
-Compile the request content in JSON format on Dev Tools of Kibana and execute the search request.
+Compile the request content in JSON format on the Dev Tools page of Kibana and execute the search request.
 
 For example, run the following command to retrieve all documents in the **test** index:
 

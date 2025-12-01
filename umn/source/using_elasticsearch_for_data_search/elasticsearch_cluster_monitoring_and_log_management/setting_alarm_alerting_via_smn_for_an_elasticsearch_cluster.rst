@@ -10,14 +10,14 @@ This topic describes how to use the open-source Open Distro alarm plugin to conf
 Scenario Description
 --------------------
 
-By default, CSS installs the open-source Open Distro alarm plugin (opendistro_alerting) for Elasticsearch clusters of versions 7.1.1, 7.6.2, and 7.10.2. This plugin has three components: Dashboard, Monitors, and Destinations. You can configure alarm alerting via SMN service using the Destinations component. When using the Open Distro alarm plugin, an Elasticsearch cluster needs to send notifications via SMN. This requires service authorization, the purpose of which is to allow CSS to access other cloud resources, such as SMN, through agency, so that alarms generated for Elasticsearch clusters can be sent via SMN notifications. For details about the Open Distro alarm plugin, see `Open Distro Monitors <https://opendistro.github.io/for-elasticsearch-docs/docs/alerting/monitors/>`__.
+By default, CSS installs the open-source Open Distro alarm plugin (opendistro_alerting) for Elasticsearch clusters of versions 7.6.2 and 7.10.2. This plugin has three components: Dashboard, Monitors, and Destinations. You can configure alarm alerting via SMN using the Destinations component. When using the Open Distro alarm plugin, an Elasticsearch cluster needs to send notifications via SMN. This requires service authorization, the purpose of which is to allow CSS to access other cloud resources, such as SMN, through agency, so that alarms generated for Elasticsearch clusters can be sent via SMN notifications. For details about the Open Distro alarm plugin, see `Open Distro Monitors <https://opendistro.github.io/for-elasticsearch-docs/docs/alerting/monitors/>`__.
 
 Constraints
 -----------
 
 By default, the open-source Open Distro alarm plugin is installed only in Elasticsearch 7.6.2 and Elasticsearch 7.10.2. Therefore, only these clusters support this feature.
 
-.. _css_01_0223__section14330827195719:
+.. _en-us_topic_0000001938218508__section14330827195719:
 
 Prerequisites
 -------------
@@ -28,23 +28,31 @@ Prerequisites
 Authorizing Users to Use SMN
 ----------------------------
 
-#. Log in to the CSS management console using an administrator account.
+#. Log in to the CSS management console.
+
+   You must log in using a CSS administrator account.
+
 #. In the navigation pane, choose **Service Authorization**.
+
 #. On the **Service Authorization** page, click **Create Agency**. In the dialog box displayed, confirm that the agency is successfully created.
 
    -  If an agency has been created, "css_smn_agency exist, no need to created." is displayed in the upper right corner.
    -  If you do not have the permission to create an agency, an error message will be displayed in the upper right corner indicating "no permission", in which case, check that the administrator account has been assigned the IAM permission.
 
-Configuring Alarm Alerting via SMN for a Cluster
-------------------------------------------------
+Setting Alarm Notifications via SMN
+-----------------------------------
 
 #. Log in to the CSS management console.
 
-#. Choose **Clusters** > **Elasticsearch**, select the target cluster and click **Access Kibana** in the **Operation** column.
+   Log in using an account with CSS permissions.
+
+#. In the navigation pane on the left, choose **Clusters > Elasticsearch**.
+
+#. In the cluster list, find the target cluster, and click **Kibana** in the **Operation** column to log in to the Kibana console.
 
 #. On the Kibana page, choose **Open Distro for Elasticsearch** > **Alerting** in the navigation pane on the left.
 
-#. .. _css_01_0223__li10273150152314:
+#. .. _en-us_topic_0000001938218508__li10273150152314:
 
    Create an SMN destination to send alert messages.
 
@@ -52,19 +60,15 @@ Configuring Alarm Alerting via SMN for a Cluster
 
       .. table:: **Table 1** Destinations parameter description
 
-         +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-         | Parameter                         | Description                                                                                                                                                      |
-         +===================================+==================================================================================================================================================================+
-         | Name                              | User-defined destination name                                                                                                                                    |
-         +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-         | Type                              | Retain the default value **SMN**.                                                                                                                                |
-         +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-         | Topic                             | Select the SMN topic you have created in :ref:`Prerequisites <css_01_0223__section14330827195719>` for sending alarm messages.                                   |
-         |                                   |                                                                                                                                                                  |
-         |                                   | .. note::                                                                                                                                                        |
-         |                                   |                                                                                                                                                                  |
-         |                                   |    For the Elasticsearch cluster of version 7.1.1, you need to manually enter the topic name. Ensure that the topic name is the same as that in the SMN service. |
-         +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+         +-----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+         | Parameter | Description                                                                                                                                     |
+         +===========+=================================================================================================================================================+
+         | Name      | User-defined destination name                                                                                                                   |
+         +-----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+         | Type      | Retain the default value **SMN**.                                                                                                               |
+         +-----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+         | Topic     | Select the SMN topic you have created in :ref:`Prerequisites <en-us_topic_0000001938218508__section14330827195719>` for sending alarm messages. |
+         +-----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
       .. figure:: /_static/images/en-us_image_0000001938218852.png
@@ -128,11 +132,11 @@ Configuring Alarm Alerting via SMN for a Cluster
          +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
          | Action name                       | Name of a trigger action                                                                                                                                                                                                                                         |
          +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-         | Destination                       | Select the SMN destination created in section :ref:`4 <css_01_0223__li10273150152314>`.                                                                                                                                                                          |
+         | Destination                       | Select the SMN destination created in section :ref:`5 <en-us_topic_0000001938218508__li10273150152314>`.                                                                                                                                                         |
          +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
          | Message subject                   | Title of the alarm message. This parameter is required only when Elasticsearch clusters of version 7.10.2 is used.                                                                                                                                               |
          +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-         | Message                           | Body of an alarm message. By default, the subject and body are defined when the destination is an email.                                                                                                                                                         |
+         | Message                           | Body of an alarm message. By default, the subject and body are defined when the destination is an email address.                                                                                                                                                 |
          +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
          | Action throttling                 | Message sending frequency. It limits the number of notification messages can be received in a specified period.                                                                                                                                                  |
          |                                   |                                                                                                                                                                                                                                                                  |
@@ -145,7 +149,7 @@ Configuring Alarm Alerting via SMN for a Cluster
 
          **Figure 3** Setting the destination of a trigger action
 
-   d. Click **Send test message**. If a subscriber receives an email, as shown in :ref:`Figure 5 <css_01_0223__fig341274195412>`, the trigger is configured successfully.
+   d. Click **Send test message**. If a subscriber receives an email, as shown in :ref:`Figure 5 <en-us_topic_0000001938218508__fig341274195412>`, the trigger is configured successfully.
 
 
       .. figure:: /_static/images/en-us_image_0000001965417225.png
@@ -153,7 +157,7 @@ Configuring Alarm Alerting via SMN for a Cluster
 
          **Figure 4** Sending test messages
 
-      .. _css_01_0223__fig341274195412:
+      .. _en-us_topic_0000001938218508__fig341274195412:
 
       .. figure:: /_static/images/en-us_image_0000001965497421.png
          :alt: **Figure 5** Email notification

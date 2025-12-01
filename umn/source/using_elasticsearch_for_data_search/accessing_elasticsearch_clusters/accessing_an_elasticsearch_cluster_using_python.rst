@@ -1,6 +1,6 @@
-:original_name: css_01_0390.html
+:original_name: css_01_0069.html
 
-.. _css_01_0390:
+.. _css_01_0069:
 
 Accessing an Elasticsearch Cluster Using Python
 ===============================================

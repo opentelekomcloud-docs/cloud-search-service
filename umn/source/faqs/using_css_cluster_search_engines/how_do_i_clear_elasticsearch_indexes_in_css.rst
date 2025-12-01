@@ -5,19 +5,23 @@
 How Do I Clear Elasticsearch Indexes in CSS?
 ============================================
 
-.. note::
+.. caution::
 
    Before deleting index data, carefully evaluate any potential impact on services.
 
 -  Have indexes automatically cleared on a regular basis.
 
-   You can create a scheduled task to execute an index deletion request periodically. CSS supports Open Distro Index State Management. For details about how to clear obsolete indexes periodically, see :ref:`Decoupling Index Storage and Compute in an Elasticsearch Cluster Through Index Lifecycle Management <css_01_0421>`.
+   You can create a scheduled task to execute an index deletion request periodically. CSS supports Open Distro Index State Management. For details about how to clear obsolete indexes periodically, see :ref:`Decoupling Index Storage and Compute in an Elasticsearch Cluster Through Index Lifecycle Management <css_01_0022>`.
 
    For details about Open Distro Index State Management, see https://opendistro.github.io/for-elasticsearch-docs/docs/im/ism/.
 
 -  Manually clear indexes.
 
-   -  Log in to Kibana and run the **DELETE / Index name** command in Dev Tools.
+   -  Log in to Kibana, go to the **Dev Tools** page, and run the following command to delete a specified index:
+
+      .. code-block:: text
+
+         DELETE /{index_name}
 
    -  Log in to Cerebro, search for the target index name, click the index name, click ****delete index****, and click **Confirm** in the displayed dialog box.
 

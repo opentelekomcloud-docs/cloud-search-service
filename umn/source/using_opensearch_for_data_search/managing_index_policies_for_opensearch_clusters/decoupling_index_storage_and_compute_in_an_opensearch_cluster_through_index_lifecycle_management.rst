@@ -1,6 +1,6 @@
-:original_name: css_01_0503.html
+:original_name: css_01_0211.html
 
-.. _css_01_0503:
+.. _css_01_0211:
 
 Decoupling Index Storage and Compute in an OpenSearch Cluster Through Index Lifecycle Management
 ================================================================================================
@@ -22,18 +22,22 @@ Prerequisites
 -------------
 
 -  There are available CSS clusters.
--  OpenSearch 1.3.6 is used.
+-  OpenSearch 1.3.6 or 2.19.0 is used.
 
 Decoupling Index Storage and Compute Through Index Lifecycle Management
 -----------------------------------------------------------------------
 
-#. Log in to the CSS management console.
+#. Log in to the OpenSearch Dashboards.
 
-#. In the navigation tree on the left, choose **Clusters** > **OpenSearch**. The cluster list is displayed.
+   a. Log in to the CSS management console.
 
-#. Click **Access Kibana** in the **Operation** column of a cluster, and log in to OpenSearch Dashboards.
+   b. In the navigation pane on the left, choose **Clusters > OpenSearch**.
 
-#. In the navigation tree on the left of OpenSearch Dashboards, choose **Dev Tools**. The command execution page is displayed.
+   c. In the cluster list, find the target cluster, and click **Dashboards** in the **Operation** column to log in to OpenSearch Dashboards.
+
+   d. In the left navigation pane, choose **Dev Tools**.
+
+      The left part of the console is the command input box, and the triangle icon in its upper-right corner is the execution button. The right part shows the execution result.
 
 #. Create a lifecycle policy named **hot_warm_policy**.
 
@@ -95,42 +99,7 @@ Decoupling Index Storage and Compute Through Index Lifecycle Management
         }
       }
 
-#. Create the index template **template_hot_warm**.
-
-   Template description: All the new indexes starting with **data** are automatically associated with the lifecycle policy **hot_warm_policy**.
-
-   .. code-block:: text
-
-      PUT _template/template_hot_warm
-      {
-        "index_patterns": "data*",
-        "settings": {
-          "number_of_replicas": 5,
-          "number_of_shards": 1,
-          "index.plugins.index_state_management.policy_id": "hot_warm_policy"
-        },
-        "mappings": {
-          "properties": {
-            "name": {
-              "type": "text"
-            }
-          }
-        }
-      }
-
-   .. table:: **Table 1** Parameter description
-
-      +------------------------------------------------+--------------------------------+
-      | Parameter                                      | Description                    |
-      +================================================+================================+
-      | number_of_shards                               | Number of index shards         |
-      +------------------------------------------------+--------------------------------+
-      | number_of_replicas                             | Number of index shard replicas |
-      +------------------------------------------------+--------------------------------+
-      | index.plugins.index_state_management.policy_id | Lifecycle policy name          |
-      +------------------------------------------------+--------------------------------+
-
-#. Create the **data-2022-06-06** index. The index automatically uses the **template_hot_warm** template and associates the index template with the lifecycle policy **hot_warm_policy**. As such, the index is frozen three days after creation and is deleted seven days after creation.
+#. Create an index named data-2022-06-06. The index is automatically associated with the lifecycle policy **hot_warm_policy**, which freezes the index three days after it is created and deletes it seven days after creation.
 
    .. code-block:: text
 

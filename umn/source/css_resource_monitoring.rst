@@ -1,11 +1,42 @@
-:original_name: css_01_0544.html
+:original_name: css_01_0250.html
 
-.. _css_01_0544:
+.. _css_01_0250:
 
 CSS Resource Monitoring
 =======================
 
-On the **Dashboard** page of the CSS management console, you can check the resource monitoring metrics and alarms of CSS.
+On the **Monitoring** and **Dashboard** pages of the CSS management console, you can check the resource monitoring metrics and alarms of CSS.
+
+Checking the Monitoring Dashboards
+----------------------------------
+
+CSS's out-of-the-box monitoring dashboards offer a one-stop resource monitoring solution. By integrating cloud resource usage data and core service metrics, the monitoring dashboards quickly build unified, intuitive monitoring views for key services, enabling more effective resource monitoring.
+
+The monitoring dashboards depend on the following:
+
+-  Metric collection: Collects key resource metrics for cloud services.
+-  Preset dashboards: Display prebuilt monitoring dashboards for key cloud services. There is no need to manually configure metrics.
+-  Data visualization: Intuitively shows resource usage, service status, and trends using charts.
+
+To check CSS's monitoring dashboards, perform the following steps:
+
+#. Log in to the CSS management console.
+
+#. In the navigation pane, choose **Monitoring** to view the default monitoring dashboards.
+
+   .. caution::
+
+      -  Monitoring dashboards are not yet available in all regions. For regions where they are unavailable, a message will be displayed indicating no support.
+      -  Custom metrics cannot be configured. Only preset dashboards are provided. To use a custom dashboard, click **More** in the upper-right corner to go to the Cloud Eye console and configure the dashboard.
+      -  Cross-region resource monitoring is not supported. You can only monitor resources in the current region.
+
+   Monitoring dashboards cover the following core metrics:
+
+   -  Resource metrics: cluster health status, average indexing speed, average query speed, maximum CPU usage, maximum JVM heap usage, maximum node loads, number of shards, maximum disk usage, total number of tasks in the write queue, and total number of tasks in the search queue.
+   -  Data metrics: current, maximum, minimum, average, and sum values.
+   -  Trend analysis: week-on-week (this week vs last week) and day-on-day (today vs yesterday) comparisons.
+
+For how to use the monitoring dashboards, see section "Overview of Dashboards" in Cloud Eye User Guide.
 
 Checking Resource Alarms
 ------------------------

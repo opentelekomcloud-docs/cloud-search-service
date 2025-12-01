@@ -1,11 +1,11 @@
-:original_name: css_01_0396.html
+:original_name: css_01_0046.html
 
-.. _css_01_0396:
+.. _css_01_0046:
 
 Using CDM to Import Data to Elasticsearch
 =========================================
 
-With CSS, you can use the web user interface of the Cloud Data Migration (CDM) service to import data from an Oracle database or OBS to an Elasticsearch or OpenSearch cluster. Only JSON files are supported.
+With CSS, you can use the web user interface of the Cloud Data Migration (CDM) service to import data from an Oracle database or OBS to an Elasticsearch cluster. Only JSON files are supported.
 
 .. table:: **Table 1** Using CDM to import data to CSS
 
@@ -13,12 +13,8 @@ With CSS, you can use the web user interface of the Cloud Data Migration (CDM) s
    | Scenario                                      | Source Data                            | Target Cluster                                      |
    +===============================================+========================================+=====================================================+
    | Importing data from an Oracle database to CSS | A local or third-party Oracle database | Elasticsearch 5.5, 6.2, 6.5, 7.1, 7.6, 7.9, or 7.10 |
-   |                                               |                                        |                                                     |
-   |                                               |                                        | OpenSearch 1.3.6                                    |
    +-----------------------------------------------+----------------------------------------+-----------------------------------------------------+
    | Importing data from OBS to CSS                | JSON files in OBS buckets              | Elasticsearch 5.5, 6.2, 6.5, 7.1, 7.6, 7.9, or 7.10 |
-   |                                               |                                        |                                                     |
-   |                                               |                                        | OpenSearch 1.3.6                                    |
    +-----------------------------------------------+----------------------------------------+-----------------------------------------------------+
 
 Preparations
@@ -28,6 +24,15 @@ Preparations
 
    For example, the source data can be the following JSON files:
 
+   For Elasticsearch 7.x or later:
+
+   .. code-block::
+
+      {"index": {"_index":"my_store"}}
+      {"productName":"Autumn new woman blouses 2019","size":"M"}
+      {"index": {"_index":"my_store"}}
+      {"productName":"Autumn new woman blouses 2019","size":"L"}
+
    For Elasticsearch earlier than 7.x:
 
    .. code-block::
@@ -35,15 +40,6 @@ Preparations
       {"index": {"_index":"my_store","_type":"products"}}
       {"productName":"Autumn new woman blouses 2019","size":"M"}
       {"index": {"_index":"my_store","_type":"products"}}
-      {"productName":"Autumn new woman blouses 2019","size":"L"}
-
-   For Elasticsearch 7.x or later or OpenSearch:
-
-   .. code-block::
-
-      {"index": {"_index":"my_store"}}
-      {"productName":"Autumn new woman blouses 2019","size":"M"}
-      {"index": {"_index":"my_store"}}
       {"productName":"Autumn new woman blouses 2019","size":"L"}
 
 #. Obtain data source information.
@@ -58,13 +54,13 @@ Importing Data
 
 #. Log in to the CSS management console.
 
-#. In the navigation pane on the left, expand **Clusters** and select a cluster type. A cluster list is displayed.
+#. In the navigation pane on the left, choose **Clusters > Elasticsearch**.
 
-#. In the cluster list, obtain the IP address of the target cluster from the **Private Network Address** column. Generally, the IP address format is *<host>*\ **:**\ *<port>* or *<host>*\ **:**\ *<port>*\ **,**\ *<host>*\ **:**\ *<port>*.
+#. In the cluster list, obtain the target cluster's private IP address from the **Private IP Address** column. Generally, the IP address format is *<host>*:*<port>* or *<host>*:*<port>*,\ *<host>*:*<port>*.
 
    If the cluster has only one node, the IP address and port number of this one node are displayed, for example, **10.62.179.32:9200**. If the cluster has multiple nodes, the IP addresses and port numbers of all nodes are displayed, for example, **10.62.179.32:9200,10.62.179.33:9200**.
 
-#. Find the row that contains the target cluster, and click **Access Kibana** in the **Operation** column.
+#. In the cluster list, locate the destination cluster, and click **Access Kibana** in the **Operation** column to log in to the Kibana console.
 
 #. In the Kibana navigation pane on the left, choose **Dev Tools**.
 
@@ -74,14 +70,36 @@ Importing Data
 
       GET _cat/indices?v
 
-   -  If indexes are available in the cluster to which you want to import data, you do not need to create an index. Go to :ref:`8 <css_01_0396__en-us_topic_0000001268314481_li10195124192412>`.
+   -  If indexes are available in the cluster to which you want to import data, you do not need to create an index. Go to :ref:`8 <en-us_topic_0000001948561400__en-us_topic_0000001268314481_li10195124192412>`.
    -  If no indexes are available in the cluster, go to the next step to create an index.
 
 #. Run the following command to create an index for storing imported data and create a custom mapping to define the data type.
 
    For example, run the following command to create index **demo**:
 
-   Run the following command for Elasticsearch earlier than 7.x:
+   For Elasticsearch 7.x or later:
+
+   .. code-block:: text
+
+      PUT /demo
+      {
+        "settings": {
+          "number_of_shards": 1
+        },
+        "mappings": {
+            "properties": {
+              "productName": {
+                "type": "text",
+                "analyzer": "ik_smart"
+              },
+              "size": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+
+   For Elasticsearch earlier than 7.x:
 
    .. code-block:: text
 
@@ -105,28 +123,6 @@ Importing Data
         }
       }
 
-   Run the following command for Elasticsearch 7.x or later or OpenSearch:
-
-   .. code-block:: text
-
-      PUT /demo
-      {
-        "settings": {
-          "number_of_shards": 1
-        },
-        "mappings": {
-            "properties": {
-              "productName": {
-                "type": "text",
-                "analyzer": "ik_smart"
-              },
-              "size": {
-                "type": "keyword"
-              }
-            }
-          }
-        }
-
    The command is successfully executed if the following information is displayed.
 
    .. code-block::
@@ -137,11 +133,11 @@ Importing Data
         "index" : "demo"
       }
 
-#. .. _css_01_0396__en-us_topic_0000001268314481_li10195124192412:
+#. .. _en-us_topic_0000001948561400__en-us_topic_0000001268314481_li10195124192412:
 
-   Log in to the CDM management console and import Oracle or OBS data to the Elasticsearch or OpenSearch cluster through a CDM cluster.
+   Use CDM to import data from Oracle or OBS to the Elasticsearch cluster.
 
-#. After the data migration is complete, go to the Kibana console of the Elasticsearch or OpenSearch cluster again, and search for the imported data.
+#. After the data migration is complete, go to the Kibana console of the Elasticsearch cluster again, and search for the imported data.
 
    Run the following command to search for data. If the imported data is consistent with the source data, data importing is successful.
 

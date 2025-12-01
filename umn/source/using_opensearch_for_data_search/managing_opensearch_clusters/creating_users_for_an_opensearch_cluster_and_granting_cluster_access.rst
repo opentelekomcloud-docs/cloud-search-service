@@ -20,19 +20,19 @@ CSS uses the opendistro_security plug-in to provide security cluster capabilitie
 
 .. table:: **Table 1** Parameters for creating and authorizing a user on OpenSearch Dashboards
 
-   +--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-   +==============+====================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================+
-   | Permission   | A single permission, for example, creating an index (for example, **indices:admin/create**).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-   +--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Action group | An action group is a group of permissions. For example, the predefined **SEARCH** action group grants roles permissions to use **\_search** and **\_msearchAPI**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-   +--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Role         | A role is a combination of permissions or action groups, including operation permissions on clusters, indexes, documents, or fields.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-   +--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | User         | A user can send operation requests to an OpenSearch cluster. The user has credentials such as username and password, and zero or multiple backend roles and custom attributes.                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-   +--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Role mapping | A user will be assigned a role after successful authentication. Role mapping means to map a role to a user (or a backend role). For example, the mapping from **kibana_user** (role) to **jdoe** (user) means that John Doe obtains all permissions of **kibana_user** after being authenticated by **kibana_user**. Similarly, the mapping from **all_access** (role) to **admin** (backend role) means that any user with the backend role **admin** (from the LDAP/Active Directory server) has all the permissions of role **all_access** after being authenticated. You can map each role to multiple users or backend roles. |
-   +--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+   +==============+==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================+
+   | Permission   | A single permission, for example, creating an index (for example, **indices:admin/create**).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+   +--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Action group | An action group is a group of permissions. For example, the predefined **SEARCH** action group grants roles permissions to use **\_search** and **\_msearch** APIs.                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+   +--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Role         | A role is a combination of permissions or action groups, including operation permissions on clusters, indexes, documents, or fields.                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+   +--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | User         | A user can send operation requests to an OpenSearch cluster. The user has credentials such as username and password, and zero or multiple backend roles and custom attributes.                                                                                                                                                                                                                                                                                                                                                                                                                               |
+   +--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Role mapping | A user will be assigned a role after successful authentication. Role mapping means to map a role to a user (or a backend role). For example, the mapping from **Dashboards_user** (role) to **Bob** (user) means that Bob obtains all permissions of **Dashboards_user** after authentication. Similarly, the mapping from **all_access** (role) to **admin** (backend role) means that any user with the backend role **admin** (from the LDAP/Active Directory server) has all the permissions of role **all_access** after being authenticated. You can map each role to multiple users or backend roles. |
+   +--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 On OpenSearch Dashboards, you can configure user permissions on the OpenSearch cluster under **Security** to implement fine-grained access control at four levels: cluster, index, document, and field.
 
@@ -53,19 +53,11 @@ Creating a User and Granting Permissions
 #. Log in to the OpenSearch Dashboards.
 
    a. Log in to the CSS management console.
-   b. In the navigation pane, choose **Clusters** > **OpenSearch**.
-   c. Choose **Clusters** in the navigation pane. On the **Clusters** page, locate the target cluster and click **Access Kibana** in the **Operation** column.
-   d. Enter the administrator username and password to log in to the OpenSearch Dashboards.
+   b. In the navigation pane on the left, choose **Clusters** > **OpenSearch**.
+   c. In the cluster list, find the target cluster, click **Dashboards** in the **Operation** column, and use an administrator account to log in to OpenSearch Dashboards.
 
       -  Username: **admin** (default administrator account name)
-
       -  Password: Enter the administrator password you set when creating the cluster in security mode.
-
-
-         .. figure:: /_static/images/en-us_image_0000001938378000.png
-            :alt: **Figure 2** Logging in to OpenSearch
-
-            **Figure 2** Logging in to OpenSearch
 
 #. Creating a user.
 
@@ -73,17 +65,17 @@ Creating a User and Granting Permissions
 
 
       .. figure:: /_static/images/en-us_image_0000001965417001.png
-         :alt: **Figure 3** Going to the Security page
+         :alt: **Figure 2** Going to the Security page
 
-         **Figure 3** Going to the Security page
+         **Figure 2** Going to the Security page
 
    b. Choose **Internal users** on the left. The user creation page is displayed.
 
 
       .. figure:: /_static/images/en-us_image_0000001965416993.png
-         :alt: **Figure 4** Creating a user
+         :alt: **Figure 3** Creating a user
 
-         **Figure 4** Creating a user
+         **Figure 3** Creating a user
 
    c. Click **Create internal user**. The user information configuration page is displayed.
 
@@ -91,17 +83,17 @@ Creating a User and Granting Permissions
 
 
       .. figure:: /_static/images/en-us_image_0000001965497221.png
-         :alt: **Figure 5** Entering the username and password
+         :alt: **Figure 4** Entering the username and password
 
-         **Figure 5** Entering the username and password
+         **Figure 4** Entering the username and password
 
    e. Click **Create**. After the user is created, it is displayed in the user list.
 
 
       .. figure:: /_static/images/en-us_image_0000001965497225.png
-         :alt: **Figure 6** User information
+         :alt: **Figure 5** User information
 
-         **Figure 6** User information
+         **Figure 5** User information
 
 #. Create a role and grant permissions to the role.
 
@@ -113,33 +105,33 @@ Creating a User and Granting Permissions
 
 
       .. figure:: /_static/images/en-us_image_0000001938218636.png
-         :alt: **Figure 7** Setting a role name
+         :alt: **Figure 6** Setting a role name
 
-         **Figure 7** Setting a role name
+         **Figure 6** Setting a role name
 
    d. On the **Cluster Permissions** page, set the cluster permission. Set cluster permissions based on service requirements. If this parameter is not specified for a role, the role has no cluster-level permissions.
 
 
       .. figure:: /_static/images/en-us_image_0000001938377996.png
-         :alt: **Figure 8** Assigning cluster-level permissions
+         :alt: **Figure 7** Assigning cluster-level permissions
 
-         **Figure 8** Assigning cluster-level permissions
+         **Figure 7** Assigning cluster-level permissions
 
    e. In the **Index Permissions** area, set the index permission.
 
 
       .. figure:: /_static/images/en-us_image_0000001938218644.png
-         :alt: **Figure 9** Setting index permissions
+         :alt: **Figure 8** Setting index permissions
 
-         **Figure 9** Setting index permissions
+         **Figure 8** Setting index permissions
 
    f. On the **Tenant Permissions** page, set role permissions.
 
 
       .. figure:: /_static/images/en-us_image_0000001938218648.png
-         :alt: **Figure 10** Role permissions
+         :alt: **Figure 9** Role permissions
 
-         **Figure 10** Role permissions
+         **Figure 9** Role permissions
 
       After the setting is complete, you can view the created role on the **Roles** page.
 

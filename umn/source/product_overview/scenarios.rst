@@ -44,7 +44,7 @@ When you search for unstructured data, such as images, videos, and corpuses, the
 -  Easy learning: CSS is fully compatible with the open-source Elasticsearch ecosystem.
 
 
-.. figure:: /_static/images/en-us_image_0000001981470337.png
+.. figure:: /_static/images/en-us_image_0000002506074335.png
    :alt: **Figure 1** Vector search
 
    **Figure 1** Vector search

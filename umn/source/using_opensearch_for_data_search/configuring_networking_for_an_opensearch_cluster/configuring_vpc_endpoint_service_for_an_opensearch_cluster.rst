@@ -1,153 +1,148 @@
-:original_name: css_01_0477.html
+:original_name: css_01_0291.html
 
-.. _css_01_0477:
+.. _css_01_0291:
 
 Configuring VPC Endpoint Service for an OpenSearch Cluster
 ==========================================================
 
-VPC Endpoint Service enables you to access resources across Virtual Private Clouds (VPCs) using a dedicated gateway, without exposing the network information of servers. When VPC Endpoint Service is enabled, a VPC endpoint will be created by default. You can select Private Domain Name Creation if necessary. Users will be able to access this cluster across VPCs through node IP addresses or a private domain name.
+VPC Endpoint enables you to access resources across VPCs using a dedicated gateway, without exposing the network information of servers. A VPC endpoint can be accessed via an IPv4 address or private domain name.
 
-VPC Endpoint uses a shared load balancer for intranet access. If your workloads require quicker access, you are advised to use a dedicated load balancer to connect to your cluster. For details about its configuration, see :ref:`Configuring a Dedicated Load Balancer for an Elasticsearch Cluster <css_01_0413>`.
+-  An IPv4 address is automatically allocated when VPC Endpoint is enabled.
+-  A private domain name is allocated only when you enable private domain names.
+
+VPC Endpoint uses a shared load balancer for internal network access. If your workloads require faster access, we recommend that you use a dedicated load balancer to handle access to your cluster. For details, see :ref:`Configuring a Dedicated Load Balancer for an OpenSearch Cluster <css_01_0182>`.
+
+Impact on Billing
+-----------------
+
+VPC endpoints, if created for the cluster, will incur extra fees, depending on the resource usage. For details, see section "Billing" in *VPC Endpoint User Guide*.
 
 Constraints
 -----------
 
--  VPC endpoint creation requires specific permissions. For details, see the "Permissions" section in the *VPC Endpoint User Guide*.
+-  You need specific permissions to create VPC endpoints. For details, see the "Permissions" section in the *VPC Endpoint User Guide*.
 -  Public network access and the VPC Endpoint service share a load balancer. If you configure a whitelist for public network access, and because this whitelist is deployed to the shared load balancer, it will control not only access from the public network, but also access using private IP addresses through VPCEP. In this case, you need to add IP address **198.19.128.0/17** to the public network access whitelist to allow traffic through VPCEP.
--  After VPCEP is enabled, access to CSS through a VPCEP IP address or private domain name is not controlled by any cluster security group rules. Rather, you need to configure a VPCEP whitelist to implement access control.
+-  After VPCEP is enabled, access to CSS through a VPCEP IP address or private domain name from within the internal network is not controlled by any cluster security group rules. Rather, you need to configure a VPCEP whitelist to implement access control. For details, see section "Configuring Access Control for an Interface VPC Endpoint" in *VPC Endpoint User Guide*.
 
-Enabling the VPC Endpoint Service
----------------------------------
+Enabling VPC Endpoint
+---------------------
 
-#. Log in to the CSS management console.
-#. Click **Create Cluster** in the upper right corner.
-#. On the **Create Cluster** page, set **Advanced Settings** to **Custom**. Enable the VPC endpoint service.
-
-   .. table:: **Table 1** Configuring VPC Endpoint Service
-
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Parameter                         | Description                                                                                                                                                                                                                                                                    |
-      +===================================+================================================================================================================================================================================================================================================================================+
-      | Private Domain Name Creation      | If **Private Domain Name Creation** is selected, the system generates a node IP address and also automatically creates a private domain name, which enables users to access this cluster from within the same VPC. If it is not selected, only a node IP address is generated. |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Create professional endpoints     | Choose whether to create professional endpoints.                                                                                                                                                                                                                               |
-      |                                   |                                                                                                                                                                                                                                                                                |
-      |                                   | -  If unselected, a basic endpoint will be created.                                                                                                                                                                                                                            |
-      |                                   | -  If selected, a professional endpoint will be created.                                                                                                                                                                                                                       |
-      |                                   |                                                                                                                                                                                                                                                                                |
-      |                                   | .. note::                                                                                                                                                                                                                                                                      |
-      |                                   |                                                                                                                                                                                                                                                                                |
-      |                                   |    If the region where the cluster is located does not support professional endpoints, this option is unavailable. By default, a basic endpoint is created.                                                                                                                    |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | IPv4/IPv6 dual stack network      | Whether to enable IPv4/IPv6 dual-stack networking. This option is available only when IPv6 is enabled for the VPC subnet of the cluster and you have selected **Create professional endpoints** earlier.                                                                       |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | VPC Endpoint Service Whitelist    | In **VPC Endpoint Service Whitelist**, you can add accounts that are allowed to access the cluster using a node IP address or private domain name.                                                                                                                             |
-      |                                   |                                                                                                                                                                                                                                                                                |
-      |                                   | -  Click **Add** to add accounts in **Authorized Account ID**. If the authorized account ID is set to **\***, all users are allowed to access the cluster.                                                                                                                     |
-      |                                   | -  Click **Delete** in the **Operation** column to delete accounts.                                                                                                                                                                                                            |
-      |                                   |                                                                                                                                                                                                                                                                                |
-      |                                   | .. note::                                                                                                                                                                                                                                                                      |
-      |                                   |                                                                                                                                                                                                                                                                                |
-      |                                   |    To obtain your authorized account ID, point to your username in the upper right corner, and choose **My Credentials**. Copy the value of **Account ID**.                                                                                                                    |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-Enabling the VPC Endpoint Service for an Existing Cluster
----------------------------------------------------------
-
-You can enable the VPC endpoint service while creating a cluster. Alternatively, you can do that by performing the following steps after cluster creation.
+If VPC Endpoint was not enabled when the cluster was created, you can enable it as follows:
 
 #. Log in to the CSS management console.
 
-#. Choose **Clusters** in the navigation pane. On the **Clusters** page, click the name of the target cluster.
+#. In the navigation pane on the left, choose **Clusters > OpenSearch**.
 
-#. Click the **VPC Endpoint Service** tab, and turn on the button next to **VPC Endpoint Service**.
+#. In the cluster list, click the name of the target cluster. The cluster information page is displayed.
 
-   .. table:: **Table 2** Configuring VPC Endpoint Service
-
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Parameter                         | Description                                                                                                                                                                                                                                                                    |
-      +===================================+================================================================================================================================================================================================================================================================================+
-      | Private Domain Name Creation      | If **Private Domain Name Creation** is selected, the system generates a node IP address and also automatically creates a private domain name, which enables users to access this cluster from within the same VPC. If it is not selected, only a node IP address is generated. |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Create professional endpoints     | Choose whether to create professional endpoints.                                                                                                                                                                                                                               |
-      |                                   |                                                                                                                                                                                                                                                                                |
-      |                                   | -  If unselected, a basic endpoint will be created.                                                                                                                                                                                                                            |
-      |                                   | -  If selected, a professional endpoint will be created.                                                                                                                                                                                                                       |
-      |                                   |                                                                                                                                                                                                                                                                                |
-      |                                   | .. note::                                                                                                                                                                                                                                                                      |
-      |                                   |                                                                                                                                                                                                                                                                                |
-      |                                   |    If the region where the cluster is located does not support professional endpoints, this option is unavailable. By default, a basic endpoint is created.                                                                                                                    |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | IPv4/IPv6 dual stack network      | Whether to enable IPv4/IPv6 dual-stack networking. This option is available only when IPv6 is enabled for the VPC subnet of the cluster and you have selected **Create professional endpoints** earlier.                                                                       |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | VPC Endpoint Service Whitelist    | In **VPC Endpoint Service Whitelist**, you can add accounts that are allowed to access the cluster using a node IP address or private domain name.                                                                                                                             |
-      |                                   |                                                                                                                                                                                                                                                                                |
-      |                                   | -  Click **Add** to add accounts in **Authorized Account ID**. If the authorized account ID is set to **\***, all users are allowed to access the cluster.                                                                                                                     |
-      |                                   | -  Click **Delete** in the **Operation** column to delete accounts.                                                                                                                                                                                                            |
-      |                                   |                                                                                                                                                                                                                                                                                |
-      |                                   | .. note::                                                                                                                                                                                                                                                                      |
-      |                                   |                                                                                                                                                                                                                                                                                |
-      |                                   |    To obtain your authorized account ID, point to your username in the upper right corner, and choose **My Credentials**. Copy the value of **Account ID**.                                                                                                                    |
-      +-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-#. Manage VPC endpoints.
-
-   The **VPC Endpoint Service** page displays all VPC endpoints connected to the current cluster. You can obtain the service address and private domain name of VPC endpoints.
+#. On the **Overview** tab, check the cluster's subnet information in the **Configuration** area. When you add a VPC endpoint, an IP address that belongs to the current subnet of the cluster is automatically assigned to it.
 
 
-   .. figure:: /_static/images/en-us_image_0000001965497373.png
-      :alt: **Figure 1** Managing VPC endpoints
+   .. figure:: /_static/images/en-us_image_0000002272229236.png
+      :alt: **Figure 1** Checking the current subnet
 
-      **Figure 1** Managing VPC endpoints
+      **Figure 1** Checking the current subnet
 
-   Click **Accept** or **Reject** in the **Operation** column to change the node status. If you reject the connection with a VPC endpoint, you cannot access the cluster through the private domain name generated by that VPC endpoint.
+   If you want to use another subnet, switch the subnet first, and then enable VPC Endpoint. For details, see :ref:`Can I Expand the Subnet for an Elasticsearch or OpenSearch Cluster? <css_02_0081>`
 
-Disabling the VPC Endpoint Service
-----------------------------------
+#. Choose **Cluster Access** > **VPC Endpoint**.
 
-.. note::
+#. Toggle on **VPC Endpoint**. In the displayed dialog box, select relevant options.
 
-   After the VPC endpoint service is disabled, the cluster can no longer be accessed through the VPCEP IP address or a private domain name. If you disable the VPC endpoint service and then re-enable it, the VPCEP IP address or private domain name for accessing the cluster may change. Exercise caution.
+   .. table:: **Table 1** Options for enabling VPC Endpoint
+
+      +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Option                            | Description                                                                                                                                                                                                    |
+      +===================================+================================================================================================================================================================================================================+
+      | Create Private Domain Name        | Whether to create a private domain name for the VPC endpoint.                                                                                                                                                  |
+      |                                   |                                                                                                                                                                                                                |
+      |                                   | -  Enable: The system automatically assigns a private domain name to the VPC endpoint. After cluster creation, you can check this private domain name on the **VPC Endpoint** tab of the cluster details page. |
+      |                                   | -  Disable: No private domain name will be configured for the VPC endpoint. The cluster can only be accessed through an IP address assigned to the VPC endpoint.                                               |
+      +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+#. Click **OK** to enable VPC Endpoint. After the VPC endpoint is enabled, its information is displayed below. When its status changes to **Accepted**, the current cluster can be accessed through the VPC endpoint.
+
+Managing VPC Endpoints
+----------------------
+
+After VPC Endpoint is enabled for a cluster, you can set access control, check VPC endpoint information, and deny access from specific VPC endpoints.
 
 #. Log in to the CSS management console.
-#. Choose **Clusters** in the navigation pane. On the **Clusters** page, click the name of the target cluster.
-#. Choose **VPC Endpoint Service** in the navigation pane, and toggle off the button next to **VPC Endpoint Service**.
 
-Accessing a Cluster Using a Node IP Address or Private Domain Name
-------------------------------------------------------------------
+#. In the navigation pane on the left, choose **Clusters > OpenSearch**.
 
-#. Obtain the cluster's private domain name or node IP address.
+#. In the cluster list, click the name of the target cluster. The cluster information page is displayed.
 
-   Log in to the CSS console, click the target cluster name and go to the **Cluster Information** page. Click the **VPC Endpoint Service** tab and check the service address and private domain name.
+#. Choose **Cluster Access** > **VPC Endpoint**.
 
-#. On an ECS, run a cURL command to access the cluster by calling an API.
+#. **Configure access control for a VPC endpoint**.
 
-   The ECS must meet the following requirements:
+   a. Click **Modify** on the right of **VPC Endpoint Whitelist**. In the displayed dialog box, add accounts that are allowed to access the cluster through the VPC endpoint. If no account is added or the account ID is set to **\***, all users are allowed to access the cluster through the VPC endpoint.
 
-   -  Sufficient disk space is allocated for the ECS.
+      -  Click **Add** to add accounts in **Account ID**. To obtain your authorized account ID, point to your username in the upper right corner, and choose **My Credentials**. Copy the value of **Account ID**.
+      -  Click **Delete** in the **Operation** column to delete an authorized account.
 
-   -  The ECS and the cluster must be in the same VPC. After enabling the VPC endpoint service, you can access the cluster from the ECS even when the cluster is not in the same VPC as the ECS.
+   b. Click **OK**.
 
-   -  The security group of the ECS must be the same as that of the cluster.
+#. **Check VPC endpoint information.**
 
-      If this requirement is not met, modify the ECS security group or configure the inbound and outbound rules of the ECS security group to allow the ECS security group to be accessed by all security groups of the cluster. For details, see `Configuring Security Group Rules <https://docs.otc.t-systems.com/en-us/usermanual/ecs/en-us_topic_0030878383.html>`__.
+   The VPC endpoint list shows the VPC endpoints created for the current cluster. You can obtain their **Status**, **Service Address**, and **Private Domain Name**.
 
-   -  Configure security group rule settings of the target CSS cluster. Set **Protocol** to **TCP** and **Port Range** to **9200** or a port range including port **9200** for both the outbound and inbound directions.
 
-   -  If the cluster you access does not have the security mode enabled, run the following command:
+   .. figure:: /_static/images/en-us_image_0000002306909041.png
+      :alt: **Figure 2** Managing VPC endpoints
+
+      **Figure 2** Managing VPC endpoints
+
+#. .. _en-us_topic_0000001992165621__en-us_topic_0000001938377836_li1433652424013:
+
+   **Modify VPC endpoint status** to make the cluster accessible or inaccessible through specific endpoints.
+
+   -  In the VPC endpoint list, select the target endpoint and click **Reject** in the **Operation** column. If the endpoint status changes to **Rejected**, it means the cluster is no longer accessible through this endpoint.
+   -  Select an endpoint whose status is **Rejected**. Click **Accept** in the **Operation** column. If the endpoint status changes to **Accepted**, it means the cluster is accessible again through this endpoint.
+
+Disabling VPC Endpoint
+----------------------
+
+If the cluster no longer requires cross-VPC access via VPC endpoints, disable VPC Endpoint to release resources.
+
+.. warning::
+
+   After VPC Endpoint is disabled, the cluster is no longer accessible through a VPCEP IP address or private domain name. If you disable VPC Endpoint and then re-enable it, the VPCEP IP address or private domain name for accessing the cluster may change. When it happens, you may need to update the client connection. If you just need to temporarily disable VPC Endpoint (rather than permanently releasing its resources), do so by rejecting specific VPC endpoints. For details, see :ref:`7 <en-us_topic_0000001992165621__en-us_topic_0000001938377836_li1433652424013>`.
+
+#. Log in to the CSS management console.
+#. In the navigation pane on the left, choose **Clusters > OpenSearch**.
+#. In the cluster list, click the name of the target cluster. The cluster information page is displayed.
+#. Choose **Cluster Access** > **VPC Endpoint**.
+#. Toggle off **VPC Endpoint**. In the displayed dialog box, enter **CONFIRM** and click **OK**.
+
+Accessing a Cluster Through a VPC Endpoint
+------------------------------------------
+
+#. Obtain the private domain name or IP address of a VPC endpoint.
+
+   In the VPC endpoint list, check **Service Address** or **Private Domain Name**.
+
+#. On the client (e.g., an ECS), run the curl command to access the cluster.
+
+   For example, run the following command to check the cluster's index information:
+
+   -  For a cluster with the security mode disabled:
 
       .. code-block::
 
-         curl 'http://vpcep-7439f7f6-2c66-47d4-b5f3-790db4204b8d.region01.example.com:9200/_cat/indices'
+         curl "http://<host>:9200/_cat/indices"
 
-   -  If the cluster you access has the security mode enabled and uses HTTP, access the cluster using HTTP and provide the username and password by using **-u** in the cURL command.
-
-      .. code-block::
-
-         curl -u username:password  'http:// vpcep-7439f7f6-2c66-47d4-b5f3-790db4204b8d.region01.example.com:9200/cat/indices'
-
-   -  If the cluster you access has the security mode enabled and uses HTTPS, access the cluster using HTTPS and provide the username and password by using **-u** in the cURL command.
+   -  For a security-mode cluster that uses HTTP:
 
       .. code-block::
 
-         curl -u username:password -k 'https://vpcep-7439f7f6-2c66-47d4-b5f3-790db4204b8d.region01.example.com:9200/_cat/indices'
+         curl -u <user>:<password> "http://<host>:9200/_cat/indices"
+
+   -  For a security-mode cluster that uses HTTPS:
+
+      .. code-block::
+
+         curl -u <user>:<password> -k "https://<host>:9200/_cat/indices"
+
+   where, **user** and **password** are the username and password used for access the cluster, and **host** indicates the VPC endpoint's private domain name or IP address.

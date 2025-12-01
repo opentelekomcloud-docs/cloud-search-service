@@ -5,9 +5,9 @@
 Managing Index Policies for an Elasticsearch Cluster
 ====================================================
 
--  :ref:`Creating and Managing Index Policies for an Elasticsearch Cluster <css_01_0419>`
--  :ref:`Automating Index Rollover in an Elasticsearch Cluster Through Index Lifecycle Management <css_01_0420>`
--  :ref:`Decoupling Index Storage and Compute in an Elasticsearch Cluster Through Index Lifecycle Management <css_01_0421>`
+-  :ref:`Creating and Managing Index Policies for an Elasticsearch Cluster <css_01_0093>`
+-  :ref:`Automating Index Rollover in an Elasticsearch Cluster Through Index Lifecycle Management <css_01_0021>`
+-  :ref:`Decoupling Index Storage and Compute in an Elasticsearch Cluster Through Index Lifecycle Management <css_01_0022>`
 
 .. toctree::
    :maxdepth: 1

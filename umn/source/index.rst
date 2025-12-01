@@ -7,7 +7,7 @@ Cloud Search Service - User Guide
 
    product_overview/index
    getting_started/index
-   css_service_permission_management/index
+   css_permissions_management/index
    using_elasticsearch_for_data_search/index
    using_opensearch_for_data_search/index
    css_resource_monitoring

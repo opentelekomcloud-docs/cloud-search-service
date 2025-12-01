@@ -1,6 +1,6 @@
-:original_name: en-us_topic_0000002098695185.html
+:original_name: css_08_0003.html
 
-.. _en-us_topic_0000002098695185:
+.. _css_08_0003:
 
 Using OpenSearch for Data Search
 ================================
@@ -10,38 +10,42 @@ This section provides an example of how an e-commerce website uses a CSS OpenSea
 Scenario Description
 --------------------
 
-A women's clothing brand runs an e-commerce website. It has been using traditional databases to power a product search function for customers. However, as the website traffic increases, these traditional databases are struggling to keep up, leading to slow responses and low search accuracy. To improve shopping experience for customers, the e-commerce website plans to use Cloud Search Service (CSS) to provide the product search function.
+A women's clothing brand runs an e-commerce website. It has been using traditional databases to power a product search function on this website. However, as the website traffic increases, these traditional databases are struggling to keep up, leading to slow responses and low search accuracy. To improve shopping experience for customers, the e-commerce website plans to use Cloud Search Service (CSS) to provide the product search function.
 
-Assume that the e-commerce website has the following data:
+Assume that the e-commerce website has the data shown in :ref:`Table 1 <en-us_topic_0000001995777890__table157036273511>`:
 
-.. code-block::
+.. _en-us_topic_0000001995777890__table157036273511:
 
-   {
-   "products":[
-   {"productName":"Latest elegant shirts in autumn 2017","size":"L"}
-   {"productName":"Latest elegant shirts in autumn 2017","size":"M"}
-   {"productName":"Latest elegant shirts in autumn 2017","size":"S"}
-   {"productName":"Latest jeans in spring 2018","size":"M"}
-   {"productName":"Latest jeans in spring 2018","size":"S"}
-   {"productName":"Latest casual pants in spring 2017","size":"L"}
-   {"productName":"Latest casual pants in spring 2017","size":"S"}
-   ]
-   }
+.. table:: **Table 1** Products sold by one e-commerce website
+
+   ============================================ ====
+   productName                                  size
+   ============================================ ====
+   Latest art shirts for women in autumn 2017   L
+   Latest art shirts for women in autumn 2017   M
+   Latest art shirts for women in autumn 2017   S
+   Latest jeans for women in spring 2018        M
+   Latest jeans for women in spring 2018        S
+   Latest casual pants for women in spring 2017 L
+   Latest casual pants for women in spring 2017 S
+   ============================================ ====
 
 Procedure
 ---------
 
 The following describes how to use an OpenSearch cluster to implement a website search function.
 
-#. :ref:`Step 1: Creating a Cluster <en-us_topic_0000002098695185__en-us_topic_0000001995777890_en-us_topic_0000001223434400_section96881833619>`: Create a non-security mode OpenSearch cluster for data search.
-#. :ref:`Step 2: Importing Data <en-us_topic_0000002098695185__en-us_topic_0000001995777890_en-us_topic_0000001223434400_section398512163445>`: Use an open-source Elasticsearch API to import data on OpenSearch Dashboards.
-#. :ref:`Step 3: Searching for Data <en-us_topic_0000002098695185__en-us_topic_0000001995777890_en-us_topic_0000001223434400_section167624221443>`: Perform full-text search and result aggregation and display on data in the OpenSearch cluster.
-#. :ref:`Step 4: Deleting Indexes <en-us_topic_0000002098695185__en-us_topic_0000001995777890_section342432816441>`: Delete indexes that you no longer need to reclaim resources.
+#. :ref:`Step 1: Creating a Cluster (Old Version) <en-us_topic_0000001995777890__en-us_topic_0000001223434400_section96881833619>`: Create a non-security mode OpenSearch cluster for data search.
+#. :ref:`Step 2: Logging In to OpenSearch Dashboards <en-us_topic_0000001995777890__section5871145214010>`: Log in to the cluster through OpenSearch Dashboards.
+#. :ref:`Step 3: Creating an Index <en-us_topic_0000001995777890__section15991155514203>`: Create indexes in the cluster through OpenSearch Dashboards.
+#. :ref:`Step 4: Importing Data <en-us_topic_0000001995777890__en-us_topic_0000001223434400_section398512163445>`: Use an Open-Source OpenSearch API to import data on OpenSearch Dashboards.
+#. :ref:`Step 5: Searching for Data <en-us_topic_0000001995777890__en-us_topic_0000001223434400_section167624221443>`: Perform full-text search and result aggregation and display on data in the OpenSearch cluster.
+#. :ref:`Step 6: Deleting Indexes <en-us_topic_0000001995777890__section342432816441>`: Delete indexes that you no longer need to reclaim resources.
 
-.. _en-us_topic_0000002098695185__en-us_topic_0000001995777890_en-us_topic_0000001223434400_section96881833619:
+.. _en-us_topic_0000001995777890__en-us_topic_0000001223434400_section96881833619:
 
-Step 1: Creating a Cluster
---------------------------
+Step 1: Creating a Cluster (Old Version)
+----------------------------------------
 
 Create a non-security mode OpenSearch cluster for data search.
 
@@ -49,11 +53,11 @@ Create a non-security mode OpenSearch cluster for data search.
 
 #. In the navigation pane on the left, choose **Clusters** > **OpenSearch**.
 
-#. Click **Create Cluster** in the upper right corner. The **Create Cluster** page is displayed.
+#. Click **Create Cluster** in the upper-right corner. The **Create Cluster** page is displayed.
 
 #. Configure Billing Mode and AZ for the cluster.
 
-   .. table:: **Table 1** Billing mode and AZ parameters
+   .. table:: **Table 2** Billing mode and AZ parameters
 
       +-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
       | Parameter             | Description                                                                                                                                                      | Example Value         |
@@ -73,21 +77,23 @@ Create a non-security mode OpenSearch cluster for data search.
 
       **Figure 1** Configuring cluster information
 
-   .. table:: **Table 2** Basic configuration parameters
+   .. table:: **Table 3** Basic configuration parameters
 
-      +--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
-      | Parameter    | Description                                                                                                                                                  | Example Value    |
-      +==============+==============================================================================================================================================================+==================+
-      | Cluster Type | Choose **OpenSearch**.                                                                                                                                       | OpenSearch       |
-      +--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
-      | Version      | Select a cluster version from the drop-down list box.                                                                                                        | 1.3.6            |
-      +--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
-      | Name         | Cluster name, which contains 4 to 32 characters. Only letters, numbers, hyphens (-), and underscores (_) are allowed and the value must start with a letter. | Sample-OSCluster |
-      +--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+
+      +---------------------+---------------------------------------------------------+------------------+
+      | Parameter           | Description                                             | Example Value    |
+      +=====================+=========================================================+==================+
+      | Cluster Type        | Choose **OpenSearch**.                                  | OpenSearch       |
+      +---------------------+---------------------------------------------------------+------------------+
+      | Cluster Version     | Select a cluster version from the drop-down list.       | 1.3.6            |
+      +---------------------+---------------------------------------------------------+------------------+
+      | Cluster Name        | User-defined cluster name.                              | Sample-OSCluster |
+      +---------------------+---------------------------------------------------------+------------------+
+      | Cluster Description | Add a description for the cluster for easy recognition. | /                |
+      +---------------------+---------------------------------------------------------+------------------+
 
 #. Configure the cluster's node specifications.
 
-   .. table:: **Table 3** Specification parameters
+   .. table:: **Table 4** Specification parameters
 
       +-----------------------+-----------------------------------------------------------------------------------------------------------------------------+---------------+
       | Parameter             | Description                                                                                                                 | Example Value |
@@ -121,7 +127,7 @@ Create a non-security mode OpenSearch cluster for data search.
 
       **Figure 2** Configuring networking
 
-   .. table:: **Table 4** Network configuration parameters
+   .. table:: **Table 5** Network configuration parameters
 
       +-----------------------+------------------------------------------------------------------------------------------------------------------+-----------------------+
       | Parameter             | Description                                                                                                      | Example Value         |
@@ -138,7 +144,7 @@ Create a non-security mode OpenSearch cluster for data search.
       |                       |                                                                                                                  |                       |
       |                       | .. note::                                                                                                        |                       |
       |                       |                                                                                                                  |                       |
-      |                       |    For enable cluster access, ensure that port 9200 is allowed by the security group.                            |                       |
+      |                       |    To enable cluster access, ensure that port 9200 is allowed by the security group.                             |                       |
       +-----------------------+------------------------------------------------------------------------------------------------------------------+-----------------------+
       | Security Mode         | After the security mode is enabled, communication will be encrypted and authentication required for the cluster. | Disable               |
       +-----------------------+------------------------------------------------------------------------------------------------------------------+-----------------------+
@@ -157,82 +163,96 @@ Create a non-security mode OpenSearch cluster for data search.
 
       **Figure 3** Creating a cluster
 
-.. _en-us_topic_0000002098695185__en-us_topic_0000001995777890_en-us_topic_0000001223434400_section398512163445:
+.. _en-us_topic_0000001995777890__section5871145214010:
 
-Step 2: Importing Data
+Step 2: Logging In to OpenSearch Dashboards
+-------------------------------------------
+
+After an OpenSearch cluster is created, you can access the cluster through OpenSearch Dashboards.
+
+#. From the OpenSearch cluster list, select the created **Sample-OSCluster** cluster and click **Dashboards** in the **Operation** column to access the OpenSearch Dashboards console.
+
+#. In the left navigation pane on the OpenSearch Dashboards console, click **Dev Tools**.
+
+   The left part of the console is the command input box, and the triangle icon in its upper-right corner is the execution button. The right part shows the execution result.
+
+
+   .. figure:: /_static/images/en-us_image_0000002295062266.png
+      :alt: **Figure 4** OpenSearch Dashboards console
+
+      **Figure 4** OpenSearch Dashboards console
+
+.. _en-us_topic_0000001995777890__section15991155514203:
+
+Step 3: Creating an Index
+-------------------------
+
+Create an index in the OpenSearch cluster to store data.
+
+Run the following command on OpenSearch Dashboards to create an index named **my_store**:
+
+.. code-block:: text
+
+   PUT /my_store
+   {
+     "settings": {
+       "number_of_shards": 1
+     },
+     "mappings": {
+       "properties": {
+         "productName": {
+           "type": "text",
+           "analyzer": "ik_smart"
+           },
+           "size": {
+             "type": "keyword"
+           }
+         }
+       }
+     }
+
+The command output is similar to the following:
+
+.. code-block::
+
+   {
+     "acknowledged" : true,
+     "shards_acknowledged" : true,
+     "index" : "my_store"
+   }
+
+.. _en-us_topic_0000001995777890__en-us_topic_0000001223434400_section398512163445:
+
+Step 4: Importing Data
 ----------------------
 
-There are many ways to import data to an OpenSearch cluster. In this example, we use an open-source Elasticsearch API to import data on OpenSearch Dashboards.
+There are several ways to import data to an OpenSearch cluster. In this example, we use an open-source OpenSearch API to import data on OpenSearch Dashboards.
 
-#. On the OpenSearch cluster management page, select the created **Sample-OSCluster** cluster and click **Access Kibana** in the **Operation** column to access the OpenSearch Dashboards console.
+On the OpenSearch Dashboards console, run the following command to import data to the index named **my_store**:
 
-#. In the OpenSearch Dashboards navigation pane on the left, choose **Dev Tools**.
+.. code-block:: text
 
-   The text box on the left is the input box. The triangle icon in the upper right corner of the input box is the command execution button. The text box on the right area is the result output box.
+   POST /my_store/_bulk
+   {"index":{}}
+   {"productName":"Latest art shirts for women in autumn 2017","size":"L"}
+   {"index":{}}
+   {"productName":"Latest art shirts for women in autumn 2017","size":"M"}
+   {"index":{}}
+   {"productName":"Latest art shirts for women in autumn 2017","size":"S"}
+   {"index":{}}
+   {"productName":"Latest jeans for women in spring 2018","size":"M"}
+   {"index":{}}
+   {"productName":"Latest jeans for women in spring 2018","size":"S"}
+   {"index":{}}
+   {"productName":"Latest casual pants for women in spring 2017","size":"L"}
+   {"index":{}}
+   {"productName":"Latest casual pants for women in spring 2017","size":"S"}
 
+If the value of the **errors** field in the command output is **false**, the data is imported successfully.
 
-   .. figure:: /_static/images/en-us_image_0000002032097685.png
-      :alt: **Figure 4** Console page
+.. _en-us_topic_0000001995777890__en-us_topic_0000001223434400_section167624221443:
 
-      **Figure 4** Console page
-
-#. On the **Console** page, run the following command to create an index named **my_store**:
-
-   .. code-block:: text
-
-      PUT /my_store
-      {
-        "settings": {
-          "number_of_shards": 1
-        },
-        "mappings": {
-          "properties": {
-            "productName": {
-              "type": "text",
-              "analyzer": "ik_smart"
-              },
-              "size": {
-                "type": "keyword"
-              }
-            }
-          }
-        }
-
-   The command output is similar to the following:
-
-   .. code-block::
-
-      {
-        "acknowledged" : true,
-        "shards_acknowledged" : true,
-        "index" : "my_store"
-      }
-
-#. On the **Console** page, run the following command to import data to the index named **my_store**:
-
-   .. code-block:: text
-
-      POST /my_store/_doc/_bulk
-      {"index":{}}
-      {"productName":"Latest elegant shirts in autumn 2017","size":"L"}
-      {"index":{}}
-      {"productName":"Latest elegant shirts in autumn 2017","size":"M"}
-      {"index":{}}
-      {"productName":"Latest elegant shirts in autumn 2017","size":"S"}
-      {"index":{}}
-      {"productName":"Latest jeans in spring 2018","size":"M"}
-      {"index":{}}
-      {"productName":"Latest jeans in spring 2018","size":"S"}
-      {"index":{}}
-      {"productName":"Latest casual pants in spring 2017","size":"L"}
-      {"index":{}}
-      {"productName":"Latest casual pants in spring 2017","size":"S"}
-
-   If the value of the **errors** field in the command output is **false**, the data is imported successfully.
-
-.. _en-us_topic_0000002098695185__en-us_topic_0000001995777890_en-us_topic_0000001223434400_section167624221443:
-
-Step 3: Searching for Data
+Step 5: Searching for Data
 --------------------------
 
 Perform full-text search and result aggregation and display in the OpenSearch cluster.
@@ -278,7 +298,7 @@ Perform full-text search and result aggregation and display in the OpenSearch cl
               "_id" : "9xf6VHIBfClt6SDjw7H5",
               "_score" : 1.7965372,
               "_source" : {
-                "productName": "Latest jeans in spring 2018",
+                "productName": "Latest jeans for women in spring 2018",
                 "size" : "M"
               }
             },
@@ -288,7 +308,7 @@ Perform full-text search and result aggregation and display in the OpenSearch cl
               "_id" : "-Bf6VHIBfClt6SDjw7H5",
               "_score" : 1.7965372,
               "_source" : {
-                "productName": "Latest jeans in spring 2018",
+                "productName": "Latest jeans for women in spring 2018",
                 "size" : "S"
               }
             },
@@ -298,7 +318,7 @@ Perform full-text search and result aggregation and display in the OpenSearch cl
               "_id" : "-Rf6VHIBfClt6SDjw7H5",
               "_score" : 0.5945667,
               "_source" : {
-                "productName": "Latest casual pants in spring 2017",
+                "productName": "Latest casual pants for women in spring 2017",
                 "size" : "L"
               }
             },
@@ -308,7 +328,7 @@ Perform full-text search and result aggregation and display in the OpenSearch cl
               "_id" : "-hf6VHIBfClt6SDjw7H5",
               "_score" : 0.5945667,
               "_source" : {
-                "productName": "Latest casual pants in spring 2017",
+                "productName": "Latest casual pants for women in spring 2017",
                 "size" : "S"
               }
             }
@@ -316,10 +336,10 @@ Perform full-text search and result aggregation and display in the OpenSearch cl
         }
       }
 
-   -  OpenSearch supports IK word segmentation. The command above segments "spring jeans" into "spring" and "jeans".
-   -  OpenSearch supports full-text search. The command above searches for the information about all items whose names include "spring" or "jeans".
+   -  OpenSearch supports IK word segmentation. The search command above segments "spring jeans" into "spring" and "jeans".
+   -  OpenSearch supports full-text search. The command above searches for all items whose names include "spring" or "jeans".
    -  Unlike traditional databases, OpenSearch can return results in milliseconds by using inverted indexes.
-   -  OpenSearch supports ranking by score. In the command output, information about the first two items contains both "spring" and "jeans", while that about the last two items contain only "spring". Therefore, the first two items rank higher than the last two due to high keyword match.
+   -  OpenSearch supports ranking by score. In the command output, the first two items contains both "spring" and "jeans", while the last two items contain only "spring". Therefore, the first two items rank higher than the last two as they are more relevant to the search word.
 
 -  **Aggregated result display**
 
@@ -331,15 +351,19 @@ Perform full-text search and result aggregation and display in the OpenSearch cl
 
       GET /my_store/_search
       {
-      "query": {
-      "match": { "productName": "spring" }
-      },
-      "size": 0,
-      "aggs": {
-      "sizes": {
-      "terms": { "field": "size" }
-      }
-      }
+        "query": {
+          "match": {
+            "productName": "Spring",
+          }
+        },
+        "size": 0,
+        "aggs": {
+          "sizes": {
+            "terms": {
+              "field": "size"
+            }
+          }
+        }
       }
 
    The command output is similar to the following:
@@ -385,9 +409,9 @@ Perform full-text search and result aggregation and display in the OpenSearch cl
         }
       }
 
-.. _en-us_topic_0000002098695185__en-us_topic_0000001995777890_section342432816441:
+.. _en-us_topic_0000001995777890__section342432816441:
 
-Step 4: Deleting Indexes
+Step 6: Deleting Indexes
 ------------------------
 
 If an index is no longer used, run the following command on OpenSearch Dashboards to delete the index to reclaim resources:
@@ -409,7 +433,7 @@ Follow-up Operations
 
 You can delete the cluster if you no longer need it.
 
-.. note::
+.. warning::
 
    After you delete a cluster, its data cannot be restored. Exercise caution when deleting a cluster.
 

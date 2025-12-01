@@ -5,8 +5,8 @@
 What Is Cloud Search Service?
 =============================
 
-CSS
----
+About Cloud Search Service (CSS)
+--------------------------------
 
 CSS is a fully managed, distributed search service based on open source Elasticsearch and OpenSearch. You can use it for structured and unstructured data search, and enable vector-based composite search, statistics generation, and reporting. CSS is a fully hosted cloud service of the ELK Stack and is compatible with open-source Elasticsearch, Logstash, Kibana, and Cerebro.
 

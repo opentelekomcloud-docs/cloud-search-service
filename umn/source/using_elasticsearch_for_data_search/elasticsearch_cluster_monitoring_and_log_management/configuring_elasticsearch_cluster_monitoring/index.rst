@@ -1,13 +1,13 @@
-:original_name: css_01_0426.html
+:original_name: css_01_0026.html
 
-.. _css_01_0426:
+.. _css_01_0026:
 
 Configuring Elasticsearch Cluster Monitoring
 ============================================
 
 -  :ref:`Using Cloud Eye to Monitor Elasticsearch Clusters <css_01_0155>`
--  :ref:`Configuring Kernel Monitoring for an Elasticsearch Cluster <css_01_0427>`
--  :ref:`Configuring Index Monitoring for an Elasticsearch Cluster <css_01_0428>`
+-  :ref:`Configuring Kernel Monitoring for an Elasticsearch Cluster <css_01_0177>`
+-  :ref:`Configuring Index Monitoring for an Elasticsearch Cluster <css_01_0135>`
 
 .. toctree::
    :maxdepth: 1

@@ -5,15 +5,15 @@
 Accessing Elasticsearch Clusters
 ================================
 
--  :ref:`Elasticsearch Cluster Access Methods <css_01_0381>`
--  :ref:`Logging In to an Elasticsearch Cluster Using Kibana <css_01_0382>`
--  :ref:`Logging In to an Elasticsearch Cluster Through Cerebro <css_01_0383>`
--  :ref:`Accessing an Elasticsearch Cluster Using cURL Commands <css_01_0384>`
--  :ref:`Accessing an Elasticsearch Cluster Using Java <css_01_0385>`
--  :ref:`Accessing an Elasticsearch Cluster Using Python <css_01_0390>`
--  :ref:`Accessing an Elasticsearch Cluster Through the MRS Hive Client <css_01_0391>`
--  :ref:`Accessing an Elasticsearch Cluster Using Go <css_01_0392>`
--  :ref:`Accessing an Elasticsearch Cluster Using LDAP <css_01_0393>`
+-  :ref:`Elasticsearch Cluster Access Methods <css_01_0190>`
+-  :ref:`Logging In to an Elasticsearch Cluster Using Kibana <css_01_0108>`
+-  :ref:`Logging In to an Elasticsearch Cluster Through Cerebro <css_01_0062>`
+-  :ref:`Accessing an Elasticsearch Cluster Using cURL Commands <css_01_0063>`
+-  :ref:`Accessing an Elasticsearch Cluster Using Java <css_01_0064>`
+-  :ref:`Accessing an Elasticsearch Cluster Using Python <css_01_0069>`
+-  :ref:`Accessing an Elasticsearch Cluster Through the MRS Hive Client <css_01_0071>`
+-  :ref:`Accessing an Elasticsearch Cluster Using Go <css_01_0073>`
+-  :ref:`Accessing an Elasticsearch Cluster Using LDAP <css_01_0017>`
 
 .. toctree::
    :maxdepth: 1

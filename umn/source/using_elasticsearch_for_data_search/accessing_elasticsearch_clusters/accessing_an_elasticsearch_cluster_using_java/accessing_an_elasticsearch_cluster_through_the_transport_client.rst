@@ -1,17 +1,18 @@
-:original_name: css_01_0388.html
+:original_name: css_01_0067.html
 
-.. _css_01_0388:
+.. _css_01_0067:
 
 Accessing an Elasticsearch Cluster Through the Transport Client
 ===============================================================
 
-You can use Transport Client to access a CSS cluster in non-security mode. For a cluster in security mode, you are advised to use :ref:`Accessing an Elasticsearch Cluster Through the Rest High Level Client <css_01_0386>`.
+You can use Transport Client to access a CSS cluster with the security mode disabled. For a cluster in security mode, you are advised to use :ref:`Accessing an Elasticsearch Cluster Through the High Level REST Client <css_01_0065>`.
 
 Precautions
 -----------
 
--  You are advised to use the Transport Client version that matches the Elasticsearch version. For example, use Transport Client 7.6.2 to access an Elasticsearch 7.6.2 cluster.
+-  You are advised to use a Transport Client version that matches the Elasticsearch version. For example, use Transport Client 7.6.2 to access an Elasticsearch 7.6.2 cluster.
 -  This solution is suitable for clusters that are not using the security mode. Such clusters can only be accessed through private IP addresses.
+-  Transport Client has been deprecated in Elasticsearch 7.x. You are advised to use High Level Rest Client to access clusters instead.
 
 Prerequisites
 -------------
@@ -61,7 +62,7 @@ The following code is an example of using Transport Client to connect to the Ela
    public class Main {
        public static void main(String[] args) throws ExecutionException, InterruptedException, UnknownHostException {
            String cluster_name = "xxx";
-           String host1 = "x.x.x.x";
+           String host1 = "xx.xx.xx.xx";
            String host2 = "y.y.y.y";
            Settings settings = Settings.builder()
                .put("client.transport.sniff",false)

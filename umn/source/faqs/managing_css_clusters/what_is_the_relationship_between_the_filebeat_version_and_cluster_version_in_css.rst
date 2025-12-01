@@ -5,5 +5,5 @@
 What Is the Relationship Between the Filebeat Version and Cluster Version in CSS?
 =================================================================================
 
--  Clusters in non-security mode: no restrictions.
--  Clusters in security mode: The Filebeat OSS version must match the cluster version. For details on how to download the Filebeat OSS version, see `Past Releases of Elastic Stack Software <https://www.elastic.co/downloads/past-releases>`__.
+-  Clusters with the security mode disabled: no restrictions.
+-  Clusters with the security mode enabled: The Filebeat OSS version must match the cluster version. For the correct Filebeat OSS version to download, see `https://www.elastic.co/downloads/past-releases#filebeat-oss <https://www.elastic.co/cn/downloads/past-releases#filebeat-oss>`__.

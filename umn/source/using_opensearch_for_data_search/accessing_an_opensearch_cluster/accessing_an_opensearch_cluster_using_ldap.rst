@@ -1,6 +1,6 @@
-:original_name: css_01_0452.html
+:original_name: css_01_0248.html
 
-.. _css_01_0452:
+.. _css_01_0248:
 
 Accessing an OpenSearch Cluster Using LDAP
 ==========================================
@@ -21,20 +21,17 @@ Accessing a Cluster
 #. Install an LDAP service on an ECS. If the LDAP service and user data have already been prepared, skip this step.
 
    a. Create an ECS. The ECS must run a Windows OS and must be in the same VPC and security group as the security-mode Elasticsearch cluster of CSS. The Windows Server running on the ECS provides the built-in Active Directory service that supports the LDAP protocol.
-
-      For how to create an ECS, see .
-
    b. Log in to the ECS, and enable the Active Directory service. Create a domain, administrator, users, and user groups.
 
-#. Modify the parameter settings of the security-mode OpenSearch cluster on CSS. Configure a static parameter in **elasticsearch.yml** to connect the cluster to the LDAP service.
+#. Modify the parameter settings of the security-mode OpenSearch cluster on CSS. Configure a static parameter in **opensearch.yml** to connect the cluster to the LDAP service.
 
    a. Log in to the CSS management console.
 
-   b. In the navigation pane on the left, choose **Clusters > OpenSearch** to go to the cluster list.
+   b. In the navigation pane on the left, choose **Clusters > OpenSearch**.
 
-   c. Choose **Clusters** in the navigation pane. On the **Clusters** page, click the name of the target cluster. The cluster information page is displayed.
+   c. In the cluster list, click the name of the target cluster. The cluster information page is displayed.
 
-   d. In the navigation pane on the left, choose **Parameter Configurations**. Click **Edit**, and add the following to the **Custom** module:
+   d. Choose **Cluster Settings** > **Parameter Settings**, and click **Edit**. Expand **Custom**, and add the following parameter and value.
 
       -  **Parameter**: plugins.security.unsupported.restapi.allow_securityconfig_modification
       -  **Value**: true
@@ -43,38 +40,36 @@ Accessing a Cluster
 
       If **Status** is **Succeeded** in the parameter change list, the change has been saved. Up to 20 change records can be displayed.
 
-   f. Return to the cluster list and choose **More** > **Restart** in the **Operation** column to restart the cluster and make the change take effect.
+   f. After the changes are saved, click **Restart** in the upper right corner to restart the cluster, thus applying the changes.
 
-      -  You need to restart the cluster after modification, or **Configuration not updated** will be displayed in the **Task Status** column on the **Clusters** page.
-      -  If the cluster is restarted after the change, and **Task Status** still shows **Configuration error**, the parameter configuration file has failed to be modified.
+      -  You need to restart the cluster after the change, or **Configuration not updated** will be displayed in the **Task Status** column in the cluster list.
+      -  If you restart the cluster after the change, and **Task Status** displays **Configuration error** in the cluster list, the parameter configuration file has failed to be modified.
 
-#. Configure a custom route for the cluster on the CSS console to connect the cluster to the LDAP service.
+#. Configure a route for an OpenSearch cluster on the CSS console to connect the cluster to the LDAP service.
 
-   .. important::
+   a. On the cluster information page, click the **Overview** tab.
+   b. In the **Configuration** area, click **Add Route** next to **Cluster Route**.
+   c. In the displayed dialog box, configure the route information.
 
-      The permission to configure custom routes for clusters is controlled using a whitelist. If you need this permission, submit a service ticket to apply for it.
+      .. table:: **Table 1** Adding a route
 
-   a. Log in to the CSS management console.
-   b. In the navigation pane on the left, choose **Clusters**, and click a cluster type to go to the cluster list (Elasticsearch in this example).
-   c. Choose **Clusters** in the navigation pane. On the **Clusters** page, click the name of the target cluster. The cluster information page is displayed.
-   d. On the Cluster Information page, locate **Cluster Routing**, and click **Modify**.
+         +-------------+---------------------------------------------------------------------------------------------------------------------+
+         | Parameter   | Description                                                                                                         |
+         +=============+=====================================================================================================================+
+         | IP Address  | Enter the IP address of the LDAP server. If the LDAP service on the ECS is used, enter the IP address of the ECS.   |
+         +-------------+---------------------------------------------------------------------------------------------------------------------+
+         | Subnet Mask | Enter the subnet mask of the LDAP server. If the LDAP service on the ECS is used, enter the subnet mask of the ECS. |
+         +-------------+---------------------------------------------------------------------------------------------------------------------+
 
-      -  **IP Address**: Enter the IP address of the LDAP server. If the LDAP service on the ECS is used, enter the IP address of the ECS. **Subnet Mask**: Enter the subnet mask of the LDAP server. If the LDAP service on the ECS is used, enter the subnet mask of the ECS.
-      -  **Modification Type**: Select **Add**.
-
-   e. Click **OK**.
+   d. Click OK.
 
 #. Configure LDAP authentication for a security-mode OpenSearch cluster.
 
-   a. Log in to the CSS management console.
+   a. On the cluster information page, click **Dashboards** in the upper-right corner to log in to OpenSearch Dashboards.
 
-   b. In the navigation pane on the left, choose **Clusters > OpenSearch** to go to the cluster list.
+   b. On OpenSearch Dashboards, expand the menu in the upper-left corner, and choose **Dev Tools**.
 
-   c. In the cluster list, locate the target cluster, and click **Kibana** in the **Operation** column.
-
-   d. On the OpenSearch Dashboards console, click **Dev Tools** in the navigation tree on the left.
-
-   e. Run the following commands to configure LDAP authentication.
+   c. Run the following commands to configure LDAP authentication.
 
       .. note::
 
@@ -167,11 +162,11 @@ Accessing a Cluster
              }
          }
 
-      The parameters in :ref:`Table 1 <css_01_0452__en-us_topic_0000001934179690_table111741414338>` need to be modified based on the actual environment.
+      The parameters in :ref:`Table 2 <en-us_topic_0000002003441200__en-us_topic_0000001934179690_table111741414338>` need to be modified based on the actual environment.
 
-      .. _css_01_0452__en-us_topic_0000001934179690_table111741414338:
+      .. _en-us_topic_0000002003441200__en-us_topic_0000001934179690_table111741414338:
 
-      .. table:: **Table 1** Parameter description
+      .. table:: **Table 2** Parameter description
 
          +-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
          | Parameter | Description                                                                                                                                                                |
@@ -189,24 +184,18 @@ Accessing a Cluster
 
 #. Configure the mapping between LDAP user permissions and OpenSearch permissions in the OpenSearch security-mode cluster to enable fine-grained access control.
 
-   The rolebase permissions group of the LDAP server must be mapped to the roles in the OpenSearch cluster. :ref:`Figure 1 <css_01_0452__fig196302320392>` illustrates the mapping. For details about the configuration, see :ref:`Creating Users for an OpenSearch Cluster and Granting Cluster Access <css_01_0329>`.
+   The rolebase permissions group of the LDAP server must be mapped to the roles in the OpenSearch cluster. :ref:`Figure 1 <en-us_topic_0000002003441200__fig196302320392>` illustrates the mapping. For details about the configuration, see :ref:`Creating Users for an OpenSearch Cluster and Granting Cluster Access <css_01_0329>`.
 
-   .. _css_01_0452__fig196302320392:
+   .. _en-us_topic_0000002003441200__fig196302320392:
 
    .. figure:: /_static/images/en-us_image_0000002003441216.png
       :alt: **Figure 1** Permissions mapping
 
       **Figure 1** Permissions mapping
 
-   a. Log in to the CSS management console.
+   a. On OpenSearch Dashboards, expand the menu in the upper-left corner, and choose **Security**. The **Security** page is displayed.
 
-   b. In the navigation pane on the left, choose **Clusters > OpenSearch** to go to the cluster list.
-
-   c. In the cluster list, locate the target cluster, and click **Kibana** in the **Operation** column. Log in to OpenSearch Dashboards as user admin.
-
-   d. Choose **Security** in the navigation tree on the left. The **Security** page is displayed.
-
-   e. .. _css_01_0452__li12898131717474:
+   b. .. _en-us_topic_0000002003441200__li12898131717474:
 
       Click **Roles** to go to the Open Distro Security Roles page. Click **Create Role**, set **Name**, **Cluster Permissions**, **Index Permissions**, and **Tenant Permissions**. Then click **Save Role Definition** to save the role settings. The parameters are as follows:
 
@@ -215,9 +204,9 @@ Accessing a Cluster
       -  Index permissions
       -  Tenant permissions
 
-   f. Click the newly created role, select **Mapped users**, enter a permissions group of the LDAP service in **Backend roles**, and click **Map**.
+   c. Click the newly created role, select **Mapped users**, enter a permissions group of the LDAP service in **Backend roles**, and click **Map**.
 
-   g. .. _css_01_0452__li1408144916524:
+   d. .. _en-us_topic_0000002003441200__li1408144916524:
 
       Check the configuration result.
 
@@ -227,14 +216,14 @@ Accessing a Cluster
 
          **Figure 2** Permissions mapping
 
-   h. Repeat :ref:`5.e <css_01_0452__li12898131717474>` to :ref:`5.g <css_01_0452__li1408144916524>` to map other permissions groups.
+   e. Repeat :ref:`5.b <en-us_topic_0000002003441200__li12898131717474>` to :ref:`5.d <en-us_topic_0000002003441200__li1408144916524>` to map other permissions groups.
 
-#. Verify the result.
+#. Log in to OpenSearch Dashboards using the LDAP user to verify the configuration.
 
    a. Log in to the CSS management console.
 
-   b. In the navigation pane on the left, choose **Clusters > OpenSearch** to go to the cluster list.
+   b. In the navigation pane on the left, choose **Clusters > OpenSearch**.
 
-   c. In the cluster list, locate the target cluster, and click **Kibana** in the **Operation** column. Use an LDAP user to log in to the OpenSearch Dashboards page.
+   c. In the cluster list, find the target cluster, and click **Dashboards** in the **Operation** column. Use the LDAP user to log in to OpenSearch Dashboards.
 
       If the login is successful, the configuration is successful, and users can access the OpenSearch cluster through LDAP. The specific permissions authorized are controlled by role permissions configured in OpenSearch.
