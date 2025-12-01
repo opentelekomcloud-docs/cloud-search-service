@@ -8,7 +8,8 @@ Cloud Search Service - API Reference
    before_you_start
    api_overview
    calling_apis/index
-   apis/index
+   api_v2/index
+   api_v1/index
    examples/index
    appendixes/index
    change_history

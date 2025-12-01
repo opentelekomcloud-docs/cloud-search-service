@@ -1,0 +1,138 @@
+:original_name: RollingRestartV2.html
+
+.. _RollingRestartV2:
+
+Rolling Restart
+===============
+
+Function
+--------
+
+This API is used to restart nodes one by one, which requires a long time when the nodes have a large number of indexes.
+
+.. note::
+
+   Rolling restart is supported only when the cluster has more than three nodes (including master nodes, client nodes, and cold data nodes). When the cluster is available, ensure that the cluster has stopped handling service requests (such as importing data and searching for data). Otherwise, the cluster restart may cause data loss.
+
+Calling Method
+--------------
+
+For details, see :ref:`Calling APIs <css_03_0077>`.
+
+URI
+---
+
+POST /v2.0/{project_id}/clusters/{cluster_id}/rolling-restart
+
+.. table:: **Table 1** Path Parameters
+
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                               |
+   +=================+=================+=================+===========================================================================================================================================+
+   | project_id      | Yes             | String          | **Definition**:                                                                                                                           |
+   |                 |                 |                 |                                                                                                                                           |
+   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.          |
+   |                 |                 |                 |                                                                                                                                           |
+   |                 |                 |                 | **Constraints**:                                                                                                                          |
+   |                 |                 |                 |                                                                                                                                           |
+   |                 |                 |                 | N/A                                                                                                                                       |
+   |                 |                 |                 |                                                                                                                                           |
+   |                 |                 |                 | **Value range**:                                                                                                                          |
+   |                 |                 |                 |                                                                                                                                           |
+   |                 |                 |                 | Project ID of the account.                                                                                                                |
+   |                 |                 |                 |                                                                                                                                           |
+   |                 |                 |                 | **Default value**:                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                           |
+   |                 |                 |                 | N/A                                                                                                                                       |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                           |
+   |                 |                 |                 |                                                                                                                                           |
+   |                 |                 |                 | ID of the cluster you want to restart. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
+   |                 |                 |                 |                                                                                                                                           |
+   |                 |                 |                 | **Constraints**:                                                                                                                          |
+   |                 |                 |                 |                                                                                                                                           |
+   |                 |                 |                 | N/A                                                                                                                                       |
+   |                 |                 |                 |                                                                                                                                           |
+   |                 |                 |                 | **Value range**:                                                                                                                          |
+   |                 |                 |                 |                                                                                                                                           |
+   |                 |                 |                 | Cluster ID.                                                                                                                               |
+   |                 |                 |                 |                                                                                                                                           |
+   |                 |                 |                 | **Default value**:                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                           |
+   |                 |                 |                 | N/A                                                                                                                                       |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+
+Request Parameters
+------------------
+
+.. table:: **Table 2** Request body parameters
+
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                                    |
+   +=================+=================+=================+================================================================================================================================================+
+   | type            | Yes             | String          | Operation role. Its type can only be **role**.                                                                                                 |
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
+   | value           | Yes             | String          | Instance type. (At least one data node is required when you configure instance types.) Use commas (,) to separate multiple types. For example: |
+   |                 |                 |                 |                                                                                                                                                |
+   |                 |                 |                 | -  **ess-master** indicates a master node.                                                                                                     |
+   |                 |                 |                 |                                                                                                                                                |
+   |                 |                 |                 | -  **ess-client** indicates a client node.                                                                                                     |
+   |                 |                 |                 |                                                                                                                                                |
+   |                 |                 |                 | -  **ess-cold** indicates a cold data node.                                                                                                    |
+   |                 |                 |                 |                                                                                                                                                |
+   |                 |                 |                 | -  **ess** indicates a data node.                                                                                                              |
+   |                 |                 |                 |                                                                                                                                                |
+   |                 |                 |                 | -  **all** indicates all nodes.                                                                                                                |
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Response Parameters
+-------------------
+
+**Status code: 200**
+
+Request succeeded.
+
+None
+
+Example Requests
+----------------
+
+Restart the node.
+
+.. code-block:: text
+
+   POST https://{Endpoint}/v2.0/{project_id}/clusters/4f3deec3-efa8-4598-bf91-560aad1377a3/rolling-restart
+
+   {
+     "type" : "role",
+     "value" : "ess"
+   }
+
+Example Responses
+-----------------
+
+None
+
+Status Codes
+------------
+
++-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Status Code                       | Description                                                                                                                                                                          |
++===================================+======================================================================================================================================================================================+
+| 200                               | Request succeeded.                                                                                                                                                                   |
++-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 400                               | The request is invalid.                                                                                                                                                              |
+|                                   |                                                                                                                                                                                      |
+|                                   | Do not retry the request without modifying it.                                                                                                                                       |
++-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 409                               | The request cannot be processed due to a conflict.                                                                                                                                   |
+|                                   |                                                                                                                                                                                      |
+|                                   | This status code indicates that the resource that the client attempts to create already exists, or the request failed to be processed because of the update of the conflict request. |
++-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 412                               | The server did not meet one of the preconditions contained in the request.                                                                                                           |
++-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Error Codes
+-----------
+
+See :ref:`Error Codes <css_03_0076>`.

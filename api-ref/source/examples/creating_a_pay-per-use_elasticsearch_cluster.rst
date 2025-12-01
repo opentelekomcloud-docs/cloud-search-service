@@ -9,7 +9,7 @@ This section describes how to create a CSS cluster by using APIs. :ref:`Figure 1
 
 .. _css_03_0062__en-us_topic_0171541475_en-us_topic_0171174235_fig4812113917173:
 
-.. figure:: /_static/images/en-us_image_0000002119117513.png
+.. figure:: /_static/images/en-us_image_0000002426197049.png
    :alt: **Figure 1** API calling process
 
    **Figure 1** API calling process

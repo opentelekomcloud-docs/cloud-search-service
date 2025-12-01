@@ -35,7 +35,7 @@ You can search for information you need according to :ref:`Table 1 <css_03_0001_
 Supported versions
 ------------------
 
-In CSS, Elasticsearch 7.6.2, 7.9.3, and 7.10.2 and Kibana 7.6.2, 7.9.3, and 7.10.2 are supported.
+In CSS, Elasticsearch 7.6.2, 7.9.3, and 7.10.2; Kibana 7.6.2, 7.9.3, and 7.10.2; and OpenSearch 1.3.6 and 2.19.0 are supported.
 
 Restrictions and Limitations
 ----------------------------
@@ -47,7 +47,7 @@ Restrictions and Limitations
 Regions and Endpoints
 ---------------------
 
-An endpoint is the **request address** for calling an API. Endpoints vary depending on services and regions. For more information, see `Regions and Endpoints <https://docs.otc.t-systems.com/en-us/endpoint/index.html>`__.
+An endpoint is the **request address** for calling an API. Endpoints vary with services and regions. For the endpoints of all services, see `Regions and Endpoints <https://docs.otc.t-systems.com/en-us/endpoint/index.html>`__.
 
 Concepts
 --------

@@ -10,9 +10,9 @@ A project ID or project name is required in some API requests. You need to obtai
 Obtaining a Project ID and Name from the Console
 ------------------------------------------------
 
-#. Log in to the console.
+#. Log in to the CSS management console.
 
-#. In the upper right corner of the page, click the username and choose **My Credentials** from the drop-down list. The **API Credentials** page is displayed.
+#. In the upper-right corner of the page, hover your mouse over the username and choose **My Credentials** from the drop-down list. The **API Credentials** page is displayed.
 
 #. In the project list, view the **Project ID** and **Project Name**.
 

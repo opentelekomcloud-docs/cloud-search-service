@@ -84,12 +84,20 @@ Obtaining the Cluster ID from the GaussDB(DWS) Console
 
 #. In the navigation pane on the left, click **Clusters**.
 
-#. In the cluster list, find the target cluster and click the cluster name. The **Cluster Information** page is displayed.
+#. In the cluster list, find the cluster and copy the cluster ID in the **Name/ID** column.
+
+
+   .. figure:: /_static/images/en-us_image_0000002396491200.png
+      :alt: **Figure 1** Copying the cluster ID
+
+      **Figure 1** Copying the cluster ID
+
+#. Alternatively, click the cluster name to go to its details page.
 
 #. Check the cluster ID under cluster information.
 
 
-   .. figure:: /_static/images/en-us_image_0000002105031992.png
-      :alt: **Figure 1** Checking the cluster ID
+   .. figure:: /_static/images/en-us_image_0000002396499922.png
+      :alt: **Figure 2** Checking the cluster ID
 
-      **Figure 1** Checking the cluster ID
+      **Figure 2** Checking the cluster ID

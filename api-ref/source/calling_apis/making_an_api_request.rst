@@ -5,7 +5,7 @@
 Making an API Request
 =====================
 
-This section describes the structure of a RESTful API request, and uses the IAM API for obtain a user token as an example to describe how to call an API.
+This section describes the structure of a RESTful API request, and uses the IAM API for obtaining a user token as an example to describe how to call an API.
 
 Request URI
 -----------
@@ -82,7 +82,7 @@ You can also add additional fields to a request, such as the fields required by 
    |                       |                                    |                                                                                                                                                                                                                                            |
    |                       |                                    | The format is YYYYMMDD'T'HHMMSS'Z'. The value is the current GMT time of the system.                                                                                                                                                       |
    +-----------------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Authorization         | Mandatory for AK/SK authentication | Signature authentication information, When AK/SK authentication is enabled, this field is automatically specified when SDK is used to sign the request.                                                                                    |
+   | Authorization         | Mandatory for AK/SK authentication | Signature authentication information. When AK/SK authentication is enabled, this field is automatically specified when SDK is used to sign the request.                                                                                    |
    |                       |                                    |                                                                                                                                                                                                                                            |
    |                       |                                    | For details, see :ref:`Authentication <css_03_0079>`.                                                                                                                                                                                      |
    +-----------------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
