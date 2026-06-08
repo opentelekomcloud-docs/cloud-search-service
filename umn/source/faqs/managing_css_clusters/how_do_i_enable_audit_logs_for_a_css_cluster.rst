@@ -17,12 +17,23 @@ Audit logs are disabled for Elasticsearch clusters by default.
 
 #. Choose **Cluster Settings** > **Parameter Settings**.
 
+#. Click the **OpenSearch** or **Elasticsearch** tab, depending on your cluster type.
+
 #. Click **Edit**, expand **Custom**, and click **Add**.
 
-   -  For an Elasticsearch cluster, set **Key** to **opendistro_security.audit.type** and **Value** to **internal_elasticsearch**.
-   -  For an OpenSearch cluster, set **Key** to **plugins.security.audit.type** and **Value** to **internal_opensearch**.
+   -  For an Elasticsearch cluster, add the following parameter:
 
-#. After the change is complete, click **Submit**.In the displayed **Submit Configuration** dialog box, select the box indicating "I understand that the modification will take effect after the cluster is restarted." and click **Yes**.
+      Parameter: opendistro_security.audit.type
+
+      Value: internal_elasticsearch
+
+   -  For an OpenSearch cluster, add the following parameter:
+
+      Parameter: plugins.security.audit.type
+
+      Value: internal_opensearch
+
+#. After the change is complete, click **Submit**. In the displayed dialog box, confirm the settings, select the box indicating "I understand that the modification will take effect after the cluster is restarted." and click **Yes**.
 
    If the **Status** is **Succeeded** in the parameter change list, the change has been saved.
 
@@ -34,7 +45,7 @@ Audit logs are disabled for Elasticsearch clusters by default.
 
    b. Expand the menu in the upper-left corner, and choose **Dev Tools**.
 
-   c. Run the following command. If the result contains indexes whose name contain **.*audit\***, audit logs have been enabled.
+   c. Run the following command. If the result contains indexes whose names contain **.*audit\***, audit logs have been enabled.
 
       .. code-block:: text
 

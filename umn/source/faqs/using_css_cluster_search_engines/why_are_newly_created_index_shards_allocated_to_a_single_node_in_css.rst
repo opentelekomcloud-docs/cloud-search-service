@@ -28,7 +28,7 @@ cluster.routing.allocation.balance.shard (default value: **0.55f**)
 Solution
 --------
 
-To prevent the all the shards of an index from being allocated to a single node, use either of the following methods:
+To prevent all the shards of an index from being allocated to a single node, use either of the following methods:
 
 #. To create an index during cluster scale-out, configure the following parameter:
 

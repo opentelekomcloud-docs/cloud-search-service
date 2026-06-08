@@ -59,23 +59,17 @@ Create a non-security mode Elasticsearch cluster for data search.
 
    .. table:: **Table 2** Billing mode and AZ parameters
 
-      +-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
-      | Parameter             | Description                                                                                                                                                      | Example Value         |
-      +=======================+==================================================================================================================================================================+=======================+
-      | Region                | Select the region where the cluster is located.                                                                                                                  | xxx                   |
-      |                       |                                                                                                                                                                  |                       |
-      |                       | ECSs in different regions cannot communicate with each other over an intranet. For lower network latency and quicker resource access, select the nearest region. |                       |
-      +-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
-      | AZ                    | Select AZs associated with the cluster region. A maximum of three AZs can be configured.                                                                         | AZ 1                  |
-      +-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+      +-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+      | Parameter             | Description                                                                                                                                                                   | Example Value         |
+      +=======================+===============================================================================================================================================================================+=======================+
+      | Region                | Select the region where the cluster is located.                                                                                                                               | xxx                   |
+      |                       |                                                                                                                                                                               |                       |
+      |                       | Resources in different regions cannot communicate with each other over an internal network. For lower network latency and quicker resource access, select the nearest region. |                       |
+      +-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+      | AZ                    | Select AZs associated with the cluster region. A maximum of three AZs can be configured.                                                                                      | AZ 1                  |
+      +-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
 
 #. Configure basic cluster information.
-
-
-   .. figure:: /_static/images/en-us_image_0000001995777910.png
-      :alt: **Figure 1** Configuring cluster information
-
-      **Figure 1** Configuring cluster information
 
    .. table:: **Table 3** Basic configuration parameters
 
@@ -121,12 +115,6 @@ Create a non-security mode Elasticsearch cluster for data search.
 
 #. Click **Next: Network** to configure the cluster network.
 
-
-   .. figure:: /_static/images/en-us_image_0000002032217241.png
-      :alt: **Figure 2** Configuring networking
-
-      **Figure 2** Configuring networking
-
    .. table:: **Table 5** Network configuration parameters
 
       +-----------------------+------------------------------------------------------------------------------------------------------------------+-----------------------+
@@ -159,9 +147,9 @@ Create a non-security mode Elasticsearch cluster for data search.
 
 
    .. figure:: /_static/images/en-us_image_0000001995618190.png
-      :alt: **Figure 3** Creating a cluster
+      :alt: **Figure 1** Creating a cluster
 
-      **Figure 3** Creating a cluster
+      **Figure 1** Creating a cluster
 
 .. _en-us_topic_0000001995777894__section5871145214010:
 
@@ -175,12 +163,6 @@ After an Elasticsearch cluster is created, you can access the cluster through Ki
 #. In the left navigation pane on the Kibana console, click **Dev Tools**.
 
    The left part of the console is the command input box, and the triangle icon in its upper-right corner is the execution button. The right part shows the execution result.
-
-
-   .. figure:: /_static/images/en-us_image_0000002295063054.png
-      :alt: **Figure 4** Kibana console
-
-      **Figure 4** Kibana console
 
 .. _en-us_topic_0000001995777894__section1651413823111:
 
@@ -203,13 +185,13 @@ Run the following command on Kibana to create an index named **my_store**:
          "productName": {
            "type": "text",
            "analyzer": "ik_smart"
-           },
-           "size": {
-             "type": "keyword"
-           }
+         },
+         "size": {
+           "type": "keyword"
          }
        }
      }
+   }
 
 The command output is similar to the following:
 
@@ -267,9 +249,11 @@ Perform full-text search and result aggregation and display on data in the Elast
 
       GET /my_store/_search
       {
-        "query": {"match": {
-          "productName": "spring jeans"
-        }}
+        "query": {
+          "match": {
+            "productName": "Spring jeans"
+          }
+        }
       }
 
    The command output is similar to the following:
@@ -353,7 +337,7 @@ Perform full-text search and result aggregation and display on data in the Elast
       {
         "query": {
           "match": {
-            "productName": "Spring",
+            "productName": "Spring"
           }
         },
         "size": 0,

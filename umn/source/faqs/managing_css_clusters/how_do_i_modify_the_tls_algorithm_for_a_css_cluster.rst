@@ -15,14 +15,25 @@ The TLS algorithm can be modified for Elasticsearch 7.6.2 and later as well as O
 
 #. Choose **Cluster Settings** > **Parameter Settings**.
 
+#. Click the **OpenSearch** or **Elasticsearch** tab, depending on your cluster type.
+
 #. Click **Edit**, expand **Custom**, and click **Add**.
 
-   -  For an Elasticsearch cluster, add the **opendistro_security.ssl.http.enabled_ciphers** parameter and set it to **['TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256', 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384']**.
-   -  For an OpenSearch cluster, add the **plugins.security.ssl.http.enabled_ciphers** parameter and set it to **['TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256', 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384']**.
+   -  For an Elasticsearch cluster, add the following parameter:
 
-   If the parameter value contains multiple algorithms, enclose the value with a pair of square brackets ([]). If the parameter value is a single algorithm, enclose the value with a pair of single quotation marks(' ').
+      Parameter: opendistro_security.ssl.http.enabled_ciphers
 
-#. After the change is complete, click **Submit**.In the displayed **Submit Configuration** dialog box, select the box indicating "I understand that the modification will take effect after the cluster is restarted." and click **Yes**.
+      Value: ['TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256', 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384']
+
+   -  For an OpenSearch cluster, add the following parameter:
+
+      Parameter: plugins.security.ssl.http.enabled_ciphers
+
+      Value: ['TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256', 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384']
+
+   If **Value** contains multiple algorithms/protocols, enclose them using a pair of square brackets. If it contains only a single algorithm/protocol, enclose it using a pair of single quotation marks.
+
+#. After the change is complete, click **Submit**. In the displayed dialog box, confirm the settings, select the box indicating "I understand that the modification will take effect after the cluster is restarted." and click **Yes**.
 
    If the **Status** is **Succeeded** in the parameter change list, the change has been saved.
 

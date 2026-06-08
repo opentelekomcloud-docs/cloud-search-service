@@ -28,7 +28,8 @@ Obtaining Cluster Information
 #. In the navigation pane, choose **Clusters** > **Elasticsearch** or **Clusters** > **OpenSearch**.
 #. In the cluster list, click the name of the target cluster. The cluster information page is displayed.
 #. Click the **Overview** tab.
-#. In the **Configuration** area, obtain the cluster's **Region**, **VPC**, **Current Subnet**, and **Private IPv4 Address**.
+#. In the **Basic Information** area, obtain the cluster's **Region**.
+#. In the **Network Information** area, obtain the cluster's **VPC**, **Current Subnet**, and **Private IPv4 Address**.
 
 .. _en-us_topic_0000001933318494__en-us_topic_0182065775_section13091155184816:
 
@@ -59,21 +60,21 @@ Configuring a NAT Gateway
 
    .. table:: **Table 2** Adding a DNAT rule
 
-      +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Parameter                         | Description                                                                                                                                                         |
-      +===================================+=====================================================================================================================================================================+
-      | Public IP Address Type            | Select **EIP**.                                                                                                                                                     |
-      |                                   |                                                                                                                                                                     |
-      |                                   | Remember the configured IP address, which will be needed for accessing the cluster from the public network.                                                         |
-      +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Public Port                       | A custom port can be configured.                                                                                                                                    |
-      |                                   |                                                                                                                                                                     |
-      |                                   | Remember the configured port, which will be needed for accessing the cluster from the public network.                                                               |
-      +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Private IP Address                | Enter the cluster's private IPv4 address obtained :ref:`Obtaining Cluster Information <en-us_topic_0000001933318494__en-us_topic_0182065775_section9324115816273>`. |
-      +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Private Port                      | Enter 9200.                                                                                                                                                         |
-      +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Parameter                         | Description                                                                                                                                                            |
+      +===================================+========================================================================================================================================================================+
+      | Public IP Address Type            | Select **EIP**.                                                                                                                                                        |
+      |                                   |                                                                                                                                                                        |
+      |                                   | Remember the configured IP address, which will be needed for accessing the cluster from the public network.                                                            |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Public Port                       | A custom port can be configured.                                                                                                                                       |
+      |                                   |                                                                                                                                                                        |
+      |                                   | Remember the configured port, which will be needed for accessing the cluster from the public network.                                                                  |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Private IP Address                | Enter the cluster's private IPv4 address obtained in :ref:`Obtaining Cluster Information <en-us_topic_0000001933318494__en-us_topic_0182065775_section9324115816273>`. |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+      | Private Port                      | Enter 9200.                                                                                                                                                            |
+      +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
    .. caution::
 
@@ -88,7 +89,7 @@ Modifying Security Group Rules for the Cluster
 #. In the navigation pane, choose **Clusters** > **Elasticsearch** or **Clusters** > **OpenSearch**.
 #. In the cluster list, click the name of the target cluster. The cluster information page is displayed.
 #. Click the **Overview** tab.
-#. In the **Configuration** area, find **Security Group**, and click the security group name to go to the details page.
+#. In the **Network Information** area, find **Security Group**, and click the security group name to go to its details page.
 #. Click the **Inbound Rules** tab.
 #. Click **Add Rule** to add an inbound rule to allow port 9200.
 #. Click **OK**.

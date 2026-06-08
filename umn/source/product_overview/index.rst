@@ -5,15 +5,16 @@
 Product Overview
 ================
 
--  :ref:`What Is Cloud Search Service? <css_04_0001>`
+-  :ref:`What's Cloud Search Service (CSS)? <css_04_0001>`
 -  :ref:`Advantages <css_04_0010>`
--  :ref:`Product Components <css_04_0007>`
 -  :ref:`Scenarios <css_04_0002>`
+-  :ref:`Features <css_04_0003>`
 -  :ref:`Differences Between Elasticsearch Cluster Versions <css_04_0047>`
 -  :ref:`Differences Between Elasticsearch and OpenSearch <css_04_0042>`
--  :ref:`Permissions Management <css_04_0014>`
+-  :ref:`Permissions Management <css_04_0033>`
 -  :ref:`Constraints <css_04_0005>`
--  :ref:`Performance Metrics <css_04_0008>`
+-  :ref:`Quotas <css_04_0006>`
+-  :ref:`Product Performance <css_04_0008>`
 -  :ref:`Related Services <css_04_0004>`
 -  :ref:`Basic Concepts <css_04_0012>`
 
@@ -21,14 +22,15 @@ Product Overview
    :maxdepth: 1
    :hidden: 
 
-   what_is_cloud_search_service
+   whats_cloud_search_service_css
    advantages
-   product_components
    scenarios
+   features
    differences_between_elasticsearch_cluster_versions
    differences_between_elasticsearch_and_opensearch
    permissions_management
    constraints
-   performance_metrics
+   quotas
+   product_performance/index
    related_services
    basic_concepts

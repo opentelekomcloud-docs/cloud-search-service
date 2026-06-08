@@ -13,6 +13,6 @@ How Do I Check the Total Disk Usage of a CSS Cluster?
 
 #. Click the **Overview** tab.
 
-#. In the **Cluster Information** area, obtain **Cluster Storage Capacity (GB)** and **Used Cluster Storage (GB)**.
+#. In the **Node Information** area, obtain the value of **Cluster Storage Capacity (GB)**.
 
-   The cluster's total disk usage = Used cluster storage/Cluster storage capacity
+   Total disk usage of the cluster = Used/Quota

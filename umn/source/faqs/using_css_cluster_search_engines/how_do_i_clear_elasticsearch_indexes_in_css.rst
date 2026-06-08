@@ -11,7 +11,7 @@ How Do I Clear Elasticsearch Indexes in CSS?
 
 -  Have indexes automatically cleared on a regular basis.
 
-   You can create a scheduled task to execute an index deletion request periodically. CSS supports Open Distro Index State Management. For details about how to clear obsolete indexes periodically, see :ref:`Decoupling Index Storage and Compute in an Elasticsearch Cluster Through Index Lifecycle Management <css_01_0022>`.
+   You can create a scheduled task to execute an index deletion request periodically. CSS supports Open Distro Index State Management. For details about how to clear obsolete indexes periodically, see :ref:`Decoupling Storage and Compute Using ISM <css_01_0022>`.
 
    For details about Open Distro Index State Management, see https://opendistro.github.io/for-elasticsearch-docs/docs/im/ism/.
 

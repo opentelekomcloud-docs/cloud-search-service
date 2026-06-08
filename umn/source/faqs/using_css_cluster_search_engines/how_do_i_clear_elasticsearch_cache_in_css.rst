@@ -7,7 +7,7 @@ How Do I Clear Elasticsearch Cache in CSS?
 
 -  **Clear the fielddata**
 
-   During aggregation and sorting, data are converted to the fielddata structure, which occupies a large amount of memory.
+   During aggregation and sorting, data is converted to the fielddata structure, which consumes extensive memory.
 
    #. Run the following command on Kibana to query the fielddata cache status:
 

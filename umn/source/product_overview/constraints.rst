@@ -5,7 +5,7 @@
 Constraints
 ===========
 
-This topic describes limits on the node quantity and resource quotas of a CSS cluster. For details about the limits and limitations of different features provided by CSS, see relevant topics in the CSS User Guide.
+This topic describes limits on the node quantity and resource quotas of a CSS cluster. For details about the limits and constraints of different features provided by CSS, see relevant topics in the CSS User Guide.
 
 Maximum and Minimum Numbers of Nodes in a Cluster
 -------------------------------------------------
@@ -14,12 +14,35 @@ The following tables provide the maximum and minimum numbers of nodes each CSS c
 
 .. table:: **Table 1** Maximum and minimum numbers of nodes in an Elasticsearch or OpenSearch cluster
 
-   ==================================== =====
-   Number of Nodes                      Limit
-   ==================================== =====
-   Maximum number of nodes in a cluster 32
-   Minimum number of nodes in a cluster 1
-   ==================================== =====
+   +-----------------------------------+-------------------------------------+
+   | Node Type                         | Limit                               |
+   +===================================+=====================================+
+   | Data nodes                        | Mandatory node type.                |
+   |                                   |                                     |
+   |                                   | -  Max:                             |
+   |                                   |                                     |
+   |                                   |    -  200 with master nodes         |
+   |                                   |    -  32 without master nodes       |
+   |                                   |                                     |
+   |                                   | -  Min: 1                           |
+   +-----------------------------------+-------------------------------------+
+   | Master nodes                      | Optional node type.                 |
+   |                                   |                                     |
+   |                                   | -  Max: 9                           |
+   |                                   | -  Min: 3                           |
+   |                                   |                                     |
+   |                                   | The quantity must be an odd number. |
+   +-----------------------------------+-------------------------------------+
+   | Client nodes                      | Optional node type.                 |
+   |                                   |                                     |
+   |                                   | -  Max: 64                          |
+   |                                   | -  Min: 1                           |
+   +-----------------------------------+-------------------------------------+
+   | Cold data nodes                   | Optional node type.                 |
+   |                                   |                                     |
+   |                                   | -  Max: 32                          |
+   |                                   | -  Min: 1                           |
+   +-----------------------------------+-------------------------------------+
 
 Quotas
 ------

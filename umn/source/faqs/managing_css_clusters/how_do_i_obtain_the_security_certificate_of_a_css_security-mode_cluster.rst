@@ -15,7 +15,7 @@ The security certificate (**CloudSearchService.cer**) can be downloaded only for
 
    #. In the cluster list, click the name of the target cluster. The cluster information page is displayed.
 
-   #. Click the **Overview** tab. In the **Configuration** area, click **Download Certificate** next to **HTTPS Access**.
+   #. Click the **Overview** tab. In the **Network Information** area, click **Download Certificate** below **HTTPS Access**.
 
 
       .. figure:: /_static/images/en-us_image_0000002412557593.png
@@ -28,4 +28,4 @@ The security certificate (**CloudSearchService.cer**) can be downloaded only for
    #. Log in to the CSS management console.
    #. In the navigation pane on the left, choose **Clusters > OpenSearch**.
    #. In the cluster list, click the name of the target cluster. The cluster information page is displayed.
-   #. Click the **Overview** tab. In the **Configuration** area, click **Download Certificate** next to **HTTPS Access**.
+   #. Click the **Overview** tab. In the **Network Information** area, click **Download Certificate** below **HTTPS Access**.

@@ -11,10 +11,10 @@ CSS provides a fully managed cloud search service based on open-source engines. 
 -  A wide range of use cases: log analytics, enterprise search, big data analytics, vector search, semantic search, RAG, etc.
 -  Enhanced features: deep optimization based on open-source versions, high performance, high availability, cost effective, and fully managed
 
-A Comparison of Core Functions
-------------------------------
+A Comparison of Key Features
+----------------------------
 
-.. table:: **Table 1** A comparison of core functions between Elasticsearch and OpenSearch
+.. table:: **Table 1** A comparison of key features between Elasticsearch and OpenSearch
 
    +-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
    | Dimension             | CSS Elasticsearch                                                                                                                          | CSS OpenSearch                                                                                                       |
@@ -43,7 +43,7 @@ Engine Selection Suggestions
    |                                                                 |                             | -  Compatible with later-version Elasticsearch SDKs                                |
    |                                                                 |                             | -  Backed by the unique strengths of CSS (such as vector search)                   |
    +-----------------------------------------------------------------+-----------------------------+------------------------------------------------------------------------------------+
-   | New features of Elasticsearch 8+ are required                   | **OpenSearch**              | -  Inherits Elasticsearch capabilities while keeps evolving                        |
+   | New features available in Elasticsearch 8.x are required        | **OpenSearch**              | -  Inherits Elasticsearch capabilities while keeps evolving                        |
    |                                                                 |                             | -  Backed by the unique strengths of CSS (such as vector search)                   |
    +-----------------------------------------------------------------+-----------------------------+------------------------------------------------------------------------------------+
    | Smooth migration of existing Elasticsearch 7.x clusters         | Elasticsearch or OpenSearch | Both are compatible with Elasticsearch 7.10.2 APIs, with a similar migration cost. |

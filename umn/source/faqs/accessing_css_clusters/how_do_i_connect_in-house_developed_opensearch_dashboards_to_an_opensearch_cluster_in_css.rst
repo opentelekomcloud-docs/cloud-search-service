@@ -19,7 +19,7 @@ Procedure
    -  Port 5601 must be allowed by the security group associated with the ECS.
    -  An EIP must be allocated to the ECS.
 
-   For details, see Elastic Cloud Server User Guide.
+   For details, see *Elastic Cloud Server User Guide*.
 
 #. Obtain the address for accessing the OpenSearch cluster of CSS.
 
@@ -27,9 +27,9 @@ Procedure
 
    b. In the navigation pane on the left, choose **Clusters > OpenSearch**.
 
-   c. In the cluster list, obtain the target cluster's private IP address from the **Private IP Address** column. Generally, the IP address format is *<host>*:*<port>* or *<host>*:*<port>*,\ *<host>*:*<port>*.
+   c. In the cluster list, obtain the target cluster's internal network address from the **Internal Network Address** column. Typical address format: *<host>*:*<port>* or *<host>*:*<port>*,\ *<host>*:*<port>*. Example: **10.62.179.32:9200,10.62.179.33:9200**.
 
-      If the cluster has only one node, the IP address and port number of this single node are displayed, for example, **10.62.179.32:9200**. If the cluster has multiple nodes and all of them are data nodes, the IP addresses and port numbers of all these nodes are displayed; if some of them are client nodes, only the IP addresses and port numbers of these client nodes are displayed; for example, **10.62.179.32:9200,10.62.179.33:9200**.
+      If the cluster has client nodes, only the IP addresses and ports of all the client nodes are displayed. Otherwise, the IP addresses and ports of all data nodes and cold data nodes are displayed.
 
 #. Install OpenSearch Dashboards on the ECS and modify the **opensearch_dashboards.yml** configuration file.
 
@@ -56,7 +56,7 @@ Procedure
 
       .. note::
 
-         To access a security-mode cluster, the opendistro_security_kibana plug-in must be installed. For details, see `security-kibana-plugin <https://github.com/opendistro-for-elasticsearch/security-kibana-plugin/tags?after=v1.3.0.0>`__. The plug-in version must be the same as that of the cluster. To check the plug-in version, run the **GET \_cat/plugins** command.
+         To access a security-mode cluster, the opensearch_security_dashboards plug-in must be installed. For details, see `security-dashboards-plugin <https://github.com/opensearch-project/security-dashboards-plugin/tags?after=v1.3.6.0>`__. The plug-in version must be the same as that of the cluster. To check the plug-in version, run the **GET \_cat/plugins** command.
 
    -  The following is an example of the configuration file for a non-security mode cluster:
 

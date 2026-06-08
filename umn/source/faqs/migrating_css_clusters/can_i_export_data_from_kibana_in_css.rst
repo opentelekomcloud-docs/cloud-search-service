@@ -7,12 +7,12 @@ Can I Export Data from Kibana in CSS?
 
 -  With Elasticsearch 7.10.2 (with an image version no earlier than 7.10.2_24.3.3_x.x.x), Kibana supports one-click data export in CSV.
 
-   .. important::
+   .. caution::
 
       -  A maximum of 10 MB of data can be exported. If the data you want to export exceeds 10 MB, only the first 10 MB is exported.
       -  Any special characters such as **=+-@** in exported CSV files may be identified as part of some formulas, leading to data export failures.
 
-   On the **Discover** page of Kibana, choose **Share > Data Export** in the upper right corner, and select **Export CSV**.
+   On the **Discover** page of Kibana, click **Save** in the upper right corner to save the data. Then, choose **Share > Data Export** and select **Export CSV**.
 
 
    .. figure:: /_static/images/en-us_image_0000002008857332.png
