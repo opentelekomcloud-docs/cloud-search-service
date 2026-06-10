@@ -16,7 +16,6 @@ Managing CSS Clusters
 -  :ref:`How Do I Enable Audit Logs for a CSS Cluster? <css_02_0150>`
 -  :ref:`Can I Stop a CSS Cluster? <css_02_0121>`
 -  :ref:`How Do I Query the Index Size on OBS After the Freezing of Indexes for a CSS Cluster? <css_02_0151>`
--  :ref:`How Do I Check the List of Default Plugins for a CSS Cluster? <css_02_0078>`
 -  :ref:`How Do I Plan the Quantity of Index Shards for a Cluster? <css_02_0084>`
 
 .. toctree::
@@ -34,5 +33,4 @@ Managing CSS Clusters
    how_do_i_enable_audit_logs_for_a_css_cluster
    can_i_stop_a_css_cluster
    how_do_i_query_the_index_size_on_obs_after_the_freezing_of_indexes_for_a_css_cluster
-   how_do_i_check_the_list_of_default_plugins_for_a_css_cluster
    how_do_i_plan_the_quantity_of_index_shards_for_a_cluster

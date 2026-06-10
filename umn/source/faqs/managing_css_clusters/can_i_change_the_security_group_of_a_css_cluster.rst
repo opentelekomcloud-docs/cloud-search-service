@@ -20,5 +20,6 @@ Changing the Security Group
 #. Log in to the CSS management console.
 #. In the navigation pane on the left, expand **Clusters**. Select a cluster type based on the target cluster. The cluster list is displayed.
 #. In the cluster list, click the name of the target cluster. The cluster information page is displayed.
-#. Click the **Overview** tab. In the **Configuration** area, click **Change Security Group** on the right of **Security Group**.
+#. Click the **Overview** tab.
+#. In the **Network Information** area, click **Change Security Group** under **Security Group**.
 #. In the **Change Security Group** dialog box, select a new security group and click **OK**.

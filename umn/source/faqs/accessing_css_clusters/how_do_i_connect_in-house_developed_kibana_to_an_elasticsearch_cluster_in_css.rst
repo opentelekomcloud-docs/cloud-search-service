@@ -19,7 +19,7 @@ Procedure
    -  Port 5601 must be allowed by the security group associated with the ECS.
    -  An EIP must be allocated to the ECS.
 
-   For details, see Elastic Cloud Server User Guide.
+   For details, see *Elastic Cloud Server User Guide*.
 
 #. Obtain the address for accessing the Elasticsearch cluster of CSS.
 
@@ -27,9 +27,9 @@ Procedure
 
    b. In the navigation pane on the left, choose **Clusters > Elasticsearch**.
 
-   c. In the cluster list, obtain the target cluster's private IP address from the **Private IP Address** column. Generally, the IP address format is *<host>*:*<port>* or *<host>*:*<port>*,\ *<host>*:*<port>*.
+   c. In the cluster list, obtain the target cluster's internal network address from the **Internal Network Address** column. Typical address format: *<host>*:*<port>* or *<host>*:*<port>*,\ *<host>*:*<port>*. Example: **10.62.179.32:9200,10.62.179.33:9200**.
 
-      If the cluster has only one node, the IP address and port number of this single node are displayed, for example, **10.62.179.32:9200**. If the cluster has multiple nodes and all of them are data nodes, the IP addresses and port numbers of all these nodes are displayed; if some of them are client nodes, only the IP addresses and port numbers of these client nodes are displayed; for example, **10.62.179.32:9200,10.62.179.33:9200**.
+      If the cluster has client nodes, only the IP addresses and ports of all the client nodes are displayed. Otherwise, the IP addresses and ports of all data nodes and cold data nodes are displayed.
 
 #. Install Kibana on the ECS and modify the **kibana.yml** configuration file.
 

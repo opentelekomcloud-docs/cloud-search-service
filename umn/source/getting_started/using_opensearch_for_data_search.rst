@@ -59,15 +59,15 @@ Create a non-security mode OpenSearch cluster for data search.
 
    .. table:: **Table 2** Billing mode and AZ parameters
 
-      +-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
-      | Parameter             | Description                                                                                                                                                      | Example Value         |
-      +=======================+==================================================================================================================================================================+=======================+
-      | Region                | Select the region where the cluster is located.                                                                                                                  | xxx                   |
-      |                       |                                                                                                                                                                  |                       |
-      |                       | ECSs in different regions cannot communicate with each other over an intranet. For lower network latency and quicker resource access, select the nearest region. |                       |
-      +-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
-      | AZ                    | Select AZs associated with the cluster region. A maximum of three AZs can be configured.                                                                         | AZ 1                  |
-      +-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+      +-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+      | Parameter             | Description                                                                                                                                                                   | Example Value         |
+      +=======================+===============================================================================================================================================================================+=======================+
+      | Region                | Select the region where the cluster is located.                                                                                                                               | xxx                   |
+      |                       |                                                                                                                                                                               |                       |
+      |                       | Resources in different regions cannot communicate with each other over an internal network. For lower network latency and quicker resource access, select the nearest region. |                       |
+      +-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+      | AZ                    | Select AZs associated with the cluster region. A maximum of three AZs can be configured.                                                                                      | AZ 1                  |
+      +-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
 
 #. Configure basic cluster information.
 
@@ -121,12 +121,6 @@ Create a non-security mode OpenSearch cluster for data search.
 
 #. Click **Next: Network** to configure the cluster network.
 
-
-   .. figure:: /_static/images/en-us_image_0000002032217241.png
-      :alt: **Figure 2** Configuring networking
-
-      **Figure 2** Configuring networking
-
    .. table:: **Table 5** Network configuration parameters
 
       +-----------------------+------------------------------------------------------------------------------------------------------------------+-----------------------+
@@ -159,9 +153,9 @@ Create a non-security mode OpenSearch cluster for data search.
 
 
    .. figure:: /_static/images/en-us_image_0000002032097693.png
-      :alt: **Figure 3** Creating a cluster
+      :alt: **Figure 2** Creating a cluster
 
-      **Figure 3** Creating a cluster
+      **Figure 2** Creating a cluster
 
 .. _en-us_topic_0000001995777890__section5871145214010:
 
@@ -178,9 +172,9 @@ After an OpenSearch cluster is created, you can access the cluster through OpenS
 
 
    .. figure:: /_static/images/en-us_image_0000002295062266.png
-      :alt: **Figure 4** OpenSearch Dashboards console
+      :alt: **Figure 3** OpenSearch Dashboards console
 
-      **Figure 4** OpenSearch Dashboards console
+      **Figure 3** OpenSearch Dashboards console
 
 .. _en-us_topic_0000001995777890__section15991155514203:
 
@@ -203,13 +197,13 @@ Run the following command on OpenSearch Dashboards to create an index named **my
          "productName": {
            "type": "text",
            "analyzer": "ik_smart"
-           },
-           "size": {
-             "type": "keyword"
-           }
+         },
+         "size": {
+           "type": "keyword"
          }
        }
      }
+   }
 
 The command output is similar to the following:
 
@@ -267,9 +261,11 @@ Perform full-text search and result aggregation and display in the OpenSearch cl
 
       GET /my_store/_search
       {
-        "query": {"match": {
-          "productName": "spring jeans"
-        }}
+        "query": {
+          "match": {
+            "productName": "Spring jeans"
+          }
+        }
       }
 
    The command output is similar to the following:
@@ -353,7 +349,7 @@ Perform full-text search and result aggregation and display in the OpenSearch cl
       {
         "query": {
           "match": {
-            "productName": "Spring",
+            "productName": "Spring"
           }
         },
         "size": 0,

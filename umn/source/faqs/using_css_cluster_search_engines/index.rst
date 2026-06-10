@@ -15,7 +15,7 @@ Using CSS Cluster Search Engines
 -  :ref:`How Do I Update Index Lifecycle Policies for an Elasticsearch Cluster of CSS? <css_02_0119>`
 -  :ref:`How Do I Clear Elasticsearch Indexes in CSS? <css_02_0067>`
 -  :ref:`How Do I Clear Elasticsearch Cache in CSS? <css_02_0130>`
--  :ref:`Why Does the Disk Usage Increase After the delete_by_query Command Was Executed to Delete Data in an Elasticsearch Cluster? <css_02_0126>`
+-  :ref:`Why Does Disk Usage Increase After Running delete_by_query to Delete Data in an Elasticsearch Cluster? <css_02_0126>`
 -  :ref:`Do CSS Elasticsearch Clusters Support script dotProduct? <css_02_0133>`
 
 .. toctree::
@@ -32,5 +32,5 @@ Using CSS Cluster Search Engines
    how_do_i_update_index_lifecycle_policies_for_an_elasticsearch_cluster_of_css
    how_do_i_clear_elasticsearch_indexes_in_css
    how_do_i_clear_elasticsearch_cache_in_css
-   why_does_the_disk_usage_increase_after_the_delete_by_query_command_was_executed_to_delete_data_in_an_elasticsearch_cluster
+   why_does_disk_usage_increase_after_running_delete_by_query_to_delete_data_in_an_elasticsearch_cluster
    do_css_elasticsearch_clusters_support_script_dotproduct

@@ -7,9 +7,10 @@ Cloud Search Service - User Guide
 
    product_overview/index
    getting_started/index
-   css_permissions_management/index
-   using_elasticsearch_for_data_search/index
-   using_opensearch_for_data_search/index
-   css_resource_monitoring
+   using_iam_to_grant_access_to_css/index
+   elasticsearch/index
+   opensearch/index
+   vector_database/index
+   css_resource_monitoring_and_alarms
    faqs/index
    change_history

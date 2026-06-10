@@ -25,10 +25,10 @@ Solution
 
    .. code-block::
 
-      curl -k -XPUT 'http://localhost:9200/_all/_setting?preserve_existing=true'-d
-      {
-      "index.max_result_window":"1000000"
-      }
+      curl -k -XPUT 'http://localhost:9200/*/_settings?preserve_existing=true' -d \
+      '{
+        "index.max_result_window": "1000000"
+      }'
 
    **localhost** indicates the address of the Elasticsearch cluster.
 

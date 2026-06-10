@@ -5,19 +5,19 @@
 Scenarios
 =========
 
-CSS can be used to build search boxes for websites and apps to improve user experience. You can also build a log analysis platform with it, facilitating data-driven O&M and business operations. CSS vector search can help you quickly build smart applications, such as AI-based image search, recommendation, and semantic search.
+CSS can be used to build search boxes for websites and apps to improve user experience. You can also build a log analytics platform with it, facilitating data-driven O&M and business operations. CSS vector search can help you quickly build intelligent applications, such as AI-enabled image search, recommendations, and semantic search.
 
 Site Search
 -----------
 
-CSS can be used to search for website content by keyword as well as search for and recommend commodities on e-commerce sites.
+CSS can be used to search for website content by keyword as well as search for and recommend products on e-commerce sites.
 
 -  Real-time search: When site content is updated, you can find the updated content in your search within minutes, or even just seconds.
 -  Categorized statistics: You can apply search filters to sort products by category.
 -  Custom highlight style: You can define how the search results are highlighted.
 
-All-Scenario Log Analysis
--------------------------
+All-Scenario Log Analytics
+--------------------------
 
 Analyze the logs of Elastic Load Balance (ELB), servers, containers, and applications. In CSS, the Kafka message buffer queue is used to balance loads in peak and off-peak hours. Logstash is used for data extract, transform and load (ETL). Elasticsearch retrieves and analyzes data. The analysis results are visualized by Kibana and presented to you.
 
@@ -43,8 +43,11 @@ When you search for unstructured data, such as images, videos, and corpuses, the
 -  Abundant indexes: Multiple indexing algorithms and similarity measurement methods are available and can meet diverse needs.
 -  Easy learning: CSS is fully compatible with the open-source Elasticsearch ecosystem.
 
+OpenSearch Observability Solution
+---------------------------------
 
-.. figure:: /_static/images/en-us_image_0000002506074335.png
-   :alt: **Figure 1** Vector search
+CSS OpenSearch clusters support the full-stack observability solution. A unified platform integrates logs, metrics, and traces to enable end-to-end monitoring, from infrastructure to application services.
 
-   **Figure 1** Vector search
+-  Unified full-stack data analysis: Seamlessly integrates application logs, performance metrics, and distributed traces via the standard OpenTelemetry protocol, breaking data silos and enabling unified, context-aware observability across services.
+-  Intelligent root cause locating: The built-in Trace Analytics displays the complete call chain for each microservice in an intuitive manner. Used with a PPL query engine, it can quickly identify performance bottlenecks, significantly accelerating troubleshooting.
+-  Real-time association analysis: Supports real-time association query and analysis of logs, metrics, and traces. A single platform handles the end-to-end troubleshooting process, from detection to root cause locating, significantly enhancing O&M efficiency.

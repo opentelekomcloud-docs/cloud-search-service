@@ -5,66 +5,18 @@
 Advantages
 ==========
 
-CSS has the following features and advantages.
+CSS offers a powerful, full-managed enterprise search service. This topic introduces its key advantages.
 
-Efficient and Ease of Use
+Efficient and Easy to Use
 -------------------------
 
-You can get insights from terabyte-scale data in milliseconds. In addition, you can use the visualized platform for data display and analysis.
+Gain insights from terabytes of data in milliseconds, and use an intuitive visualization platform for data display and analysis.
 
-Flexible and Scalable
----------------------
+Open-source Compatibility
+-------------------------
 
-You can request resources as needed and perform capacity expansion online with zero service interruption.
-
-Easy O&M
---------
-
-CSS is a fully-managed, out-of-the-box service. You can start using it with several clicks, instead of managing clusters.
-
-Kernel Enhancement
-------------------
-
--  **Vector search**
-
-   When you search for unstructured data, such as images, videos, and corpuses, the nearest neighbors or approximate nearest neighbors are searched based on feature vectors.
-
--  **Decoupled storage and compute**
-
-   CSS provides an API for freezing indexes. Hot data stored on SSD can be dumped to OBS to reduce data storage costs and decouple compute from storage.
-
--  **Flow control**
-
-   CSS can control traffic at the node level. You can configure the blacklist and whitelist, the maximum concurrent HTTPS connections, and the maximum HTTP connections for a node. Each function has an independent control switch.
-
--  **Large query isolation**
-
-   CSS allows you to separately manage large queries. You can isolate query requests that consume a large amount of memory or take a long period of time.
-
--  **Index monitoring**
-
-   CSS monitors various metrics of the running status and change trend of cluster indexes to measure service usage and handle potential risks in a timely manner, ensuring that clusters can run stably.
-
--  **Enhanced monitoring**
-
-   CSS supports enhanced cluster monitoring. It can monitor the P99 latency of cluster search requests and the HTTP status codes of clusters.
-
-High Reliability
-----------------
-
-You can choose to trigger snapshots manually or on a periodic basis for backup and restore snapshots to the current or other clusters. Snapshots of a cluster can be restored to another cluster to implement cluster data migration.
-
--  Automatic backup using snapshots
-
-   CSS provides the backup function. You can enable the automatic backup function on the CSS management console and set the backup period based on the actual requirements.
-
-   Automatic backup is to back up the index data of a cluster. Index backup is implemented by creating cluster snapshots. For backup of the first time, you are advised to back up all index data.
-
-   CSS allows you to store the snapshot data of Elasticsearch instances to OBS, thereby achieving cross-region backup with the cross-region replication function of OBS.
-
--  Restoring data using snapshots
-
-   If data loss occurs or you want to retrieve data of a certain period, click **Restore** in the **Operation** column in the **Snapshots** area to restore the backup index data to the specified cluster by using existing snapshots.
+-  Freely use native Elasticsearch and OpenSearch APIs and other software in the ecosystem, such as Logstash, Beats, and Kibana.
+-  A few simple configurations allow you to smoothly connect to multiple data sources, such as FTP, OBS, HBase, and Kafka. No extra coding is required.
 
 High Security
 -------------
@@ -94,7 +46,26 @@ CSS uses network isolation in addition to various host and data security measure
 
    Cloud Trace Service (CTS) can be used to perform auditing on key logs and operations.
 
-High Availability
------------------
+Enhanced Kernel
+---------------
 
-To prevent data loss and minimize the cluster downtime in case of service interruption, CSS supports cross-AZ cluster deployment. When creating a cluster, you can select two or three AZs in the same region. The system will automatically allocate nodes to these AZs. If an AZ is faulty, the remaining AZs can still run properly, significantly enhancing cluster availability and improving service stability.
+CSS introduces several kernel enhancement features, such as ingestion performance enhancement, decoupled storage and compute, and read/write splitting.
+
+-  Log ingestion performance is improved by 50%.
+-  Aggregation acceleration results in 200% higher performance in statistical analysis by sorting fields.
+-  With decoupled storage and compute, the cost of cold data storage is reduced by 80%.
+-  Zstandard (ZSTD) compression reduces the storage footprint by 20%.
+-  Stability is enhanced with heartbeat isolation, flow control, authentication optimization, million-shard optimization, and metadata optimization.
+
+Intelligent O&M
+---------------
+
+-  CSS is a fully-managed service that can be made instantly available and supports one-click operations.
+-  The intelligent O&M module scans clusters for potential risks, provides mitigation suggestions, and triggers alerts when necessary.
+
+Enhanced Semantic Search
+------------------------
+
+-  A proprietary vector search engine delivers remarkable search throughput and low latency, creating a solid foundation for vector databases.
+-  Semantic search relies on the collaboration between an AI search model and Elasticsearch/OpenSearch.
+-  A well-designed text embeddings model enhances semantic search performance.
