@@ -2,13 +2,15 @@
 
 .. _ResetPassword:
 
-Changing the Password of a Cluster
-==================================
+Changing the Cluster Administrator Password
+===========================================
 
 Function
 --------
 
-This API is used to change cluster passwords to enhance cluster security.
+This API is used to change the admin password for a security-mode cluster.
+
+A security-mode cluster is a cluster for which the security mode is enabled. This parameter is available only for Elasticsearch and OpenSearch clusters.
 
 Calling Method
 --------------
@@ -68,7 +70,7 @@ Request Parameters
    +=================+=================+=================+============================================================================================================================================+
    | newpassword     | Yes             | String          | **Definition**:                                                                                                                            |
    |                 |                 |                 |                                                                                                                                            |
-   |                 |                 |                 | Password of the administrator admin for a security-mode cluster.                                                                           |
+   |                 |                 |                 | New password of the cluster admin account.                                                                                                 |
    |                 |                 |                 |                                                                                                                                            |
    |                 |                 |                 | **Constraints**:                                                                                                                           |
    |                 |                 |                 |                                                                                                                                            |

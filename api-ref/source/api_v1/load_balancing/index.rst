@@ -1,14 +1,14 @@
-:original_name: topic_300000011.html
+:original_name: topic_300000013.html
 
-.. _topic_300000011:
+.. _topic_300000013:
 
 Load Balancing
 ==============
 
--  :ref:`Querying ELB V3 Load Balancers Supported by a Cluster <listelbs>`
+-  :ref:`Querying Dedicated Load Balancers Supported by a Cluster <listelbs>`
 -  :ref:`Enabling or Disabling Load Balancers for a Cluster <enableordisableelb>`
 -  :ref:`Obtain information about the load balancers of a cluster. <showelbdetail>`
--  :ref:`Configuring Load Balancing Listeners for a Cluster <createelblistener>`
+-  :ref:`Configuring a Cluster Load Balancer Listener <createelblistener>`
 -  :ref:`Updating Load Balancing Listeners for a Cluster <updateeslistener>`
 -  :ref:`Querying the Certificate List <listelbcerts>`
 
@@ -16,9 +16,9 @@ Load Balancing
    :maxdepth: 1
    :hidden: 
 
-   querying_elb_v3_load_balancers_supported_by_a_cluster
+   querying_dedicated_load_balancers_supported_by_a_cluster
    enabling_or_disabling_load_balancers_for_a_cluster
    obtain_information_about_the_load_balancers_of_a_cluster.
-   configuring_load_balancing_listeners_for_a_cluster
+   configuring_a_cluster_load_balancer_listener
    updating_load_balancing_listeners_for_a_cluster
    querying_the_certificate_list

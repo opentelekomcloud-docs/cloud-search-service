@@ -247,7 +247,7 @@ Example Requests
    {
      "need_check_replica" : false,
      "new_flavor_id" : "HIGH",
-
+     "is_auto_pay" : 1,
      "need_check_cluster_status" : true,
      "operation_type" : "volume",
      "cluster_load_check" : true

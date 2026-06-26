@@ -22,41 +22,41 @@ GET /v1.0/{project_id}/clusters/{cluster_id}/vpcepservice/connections
 
 .. table:: **Table 1** Path Parameters
 
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                             |
-   +=================+=================+=================+=========================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Constraints**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Value range**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | Project ID of the account.                                                                                                              |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Default value**:                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                     |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | ID of the cluster you want to query. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Constraints**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Value range**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | Cluster ID.                                                                                                                             |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Default value**:                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                     |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                         |
+   +=================+=================+=================+=====================================================================================================================================+
+   | project_id      | Yes             | String          | **Definition**:                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.    |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Constraints**:                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | N/A                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Value range**:                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | Project ID of the account.                                                                                                          |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Default value**:                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | N/A                                                                                                                                 |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
+   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | ID of the cluster to be queried. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Constraints**:                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | N/A                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Value range**:                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | Cluster ID.                                                                                                                         |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Default value**:                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | N/A                                                                                                                                 |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
 
 .. table:: **Table 2** Query Parameters
 
@@ -73,7 +73,7 @@ GET /v1.0/{project_id}/clusters/{cluster_id}/vpcepservice/connections
    |                 |                 |                 |                                                                          |
    |                 |                 |                 | **Value range**:                                                         |
    |                 |                 |                 |                                                                          |
-   |                 |                 |                 | 0-1000                                                                   |
+   |                 |                 |                 | Greater than or equal to 0.                                              |
    |                 |                 |                 |                                                                          |
    |                 |                 |                 | **Default value**:                                                       |
    |                 |                 |                 |                                                                          |

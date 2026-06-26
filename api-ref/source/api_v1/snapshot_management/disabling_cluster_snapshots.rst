@@ -1,14 +1,19 @@
-:original_name: StartTargetClusterConnectivityTest.html
+:original_name: StopSnapshot.html
 
-.. _StartTargetClusterConnectivityTest:
+.. _StopSnapshot:
 
-Test connectivity.
-==================
+Disabling Cluster Snapshots
+===========================
 
 Function
 --------
 
-This API is used to test the connectivity between two clusters. CSS clusters provide a log collection function, allowing users to collect clusters' run logs in real time and save them to a specified index of a specified CSS cluster. The target cluster can be the current cluster or another cluster. If logs are to be saved to another cluster, you need to use the connectivity testing API to test connectivity to the target cluster. If the target cluster cannot be reached, you need to select another cluster.
+This API is used to disable cluster snapshots. If cluster snapshots are no longer required, you can disable them to reduce storage costs.
+
+Constraints
+-----------
+
+Disabling cluster snapshots does not automatically delete existing snapshots. Instead, you need to manually delete them on the OBS console.
 
 Calling Method
 --------------
@@ -18,7 +23,7 @@ For details, see :ref:`Calling APIs <css_03_0077>`.
 URI
 ---
 
-POST /v1.0/{project_id}/clusters/{cluster_id}/logs/connectivity
+DELETE /v1.0/{project_id}/clusters/{cluster_id}/index_snapshots
 
 .. table:: **Table 1** Path Parameters
 
@@ -43,7 +48,7 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/logs/connectivity
    +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
    | cluster_id      | Yes             | String          | **Definition**:                                                                                                                  |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | Cluster ID. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`.                   |
+   |                 |                 |                 | Specifies the cluster ID. For details, see :ref:`Obtaining a Cluster ID <css_03_0101>`.                                          |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | **Constraints**:                                                                                                                 |
    |                 |                 |                 |                                                                                                                                  |
@@ -61,27 +66,7 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/logs/connectivity
 Request Parameters
 ------------------
 
-.. table:: **Table 2** Request body parameters
-
-   +-------------------+-----------------+-----------------+---------------------------------+
-   | Parameter         | Mandatory       | Type            | Description                     |
-   +===================+=================+=================+=================================+
-   | target_cluster_id | Yes             | String          | **Definition**:                 |
-   |                   |                 |                 |                                 |
-   |                   |                 |                 | Target cluster ID.              |
-   |                   |                 |                 |                                 |
-   |                   |                 |                 | **Constraints**:                |
-   |                   |                 |                 |                                 |
-   |                   |                 |                 | Only cluster IDs are supported. |
-   |                   |                 |                 |                                 |
-   |                   |                 |                 | **Value range**:                |
-   |                   |                 |                 |                                 |
-   |                   |                 |                 | N/A                             |
-   |                   |                 |                 |                                 |
-   |                   |                 |                 | **Default value**:              |
-   |                   |                 |                 |                                 |
-   |                   |                 |                 | N/A                             |
-   +-------------------+-----------------+-----------------+---------------------------------+
+None
 
 Response Parameters
 -------------------
@@ -95,15 +80,11 @@ None
 Example Requests
 ----------------
 
-Test connectivity to the target cluster.
+Disable cluster snapshots.
 
 .. code-block:: text
 
-   POST /v1.0/6204a5bd270343b5885144cf9c8c158d/clusters/4f3deec3-efa8-4598-bf91-560aad1377a3/logs/connectivity
-
-   {
-     "target_cluster_id" : "4f3deec3-efa8-4598-bf91-560aad1377a4"
-   }
+   DELETE https://{Endpoint}/v1.0/{project_id}/clusters/ea244205-d641-45d9-9dcb-ab2236bcd07e/index_snapshots
 
 Example Responses
 -----------------
@@ -113,21 +94,13 @@ None
 Status Codes
 ------------
 
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-| Status Code                       | Description                                                                                                                                      |
-+===================================+==================================================================================================================================================+
-| 200                               | Request succeeded.                                                                                                                               |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-| 400                               | The request could not be understood by the server due to malformed syntax.                                                                       |
-|                                   |                                                                                                                                                  |
-|                                   | Modify the request instead of retrying.                                                                                                          |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-| 409                               | The request cannot be processed due to a conflict.                                                                                               |
-|                                   |                                                                                                                                                  |
-|                                   | This status code indicates that the resource that the client attempts to create already exits, or the requested update failed due to a conflict. |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-| 412                               | The server does not meet one of the requirements that the requester puts on the request.                                                         |
-+-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------+---------------------------------------------------------------------------------------------------+
+| Status Code | Description                                                                                       |
++=============+===================================================================================================+
+| 200         | Request succeeded.                                                                                |
++-------------+---------------------------------------------------------------------------------------------------+
+| 406         | The server could not fulfill the request according to the content characteristics of the request. |
++-------------+---------------------------------------------------------------------------------------------------+
 
 Error Codes
 -----------

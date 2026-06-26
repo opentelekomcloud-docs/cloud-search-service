@@ -89,19 +89,21 @@ Response Parameters
    |                       |                                                                                                           |                                                                                                                 |
    |                       |                                                                                                           | N/A                                                                                                             |
    +-----------------------+-----------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | type                  | String                                                                                                    | **Parameter description**:                                                                                      |
+   | type                  | String                                                                                                    | **Definition**:                                                                                                 |
    |                       |                                                                                                           |                                                                                                                 |
    |                       |                                                                                                           | Instance type.                                                                                                  |
    |                       |                                                                                                           |                                                                                                                 |
-   |                       |                                                                                                           | **Options**:                                                                                                    |
+   |                       |                                                                                                           | **Value range**:                                                                                                |
    |                       |                                                                                                           |                                                                                                                 |
    |                       |                                                                                                           | -  **ess**: data node                                                                                           |
    |                       |                                                                                                           |                                                                                                                 |
    |                       |                                                                                                           | -  **ess-cold**: cold data node                                                                                 |
    |                       |                                                                                                           |                                                                                                                 |
-   |                       |                                                                                                           | -  **ess-master**: master node.                                                                                 |
+   |                       |                                                                                                           | -  **ess-master**: master node                                                                                  |
    |                       |                                                                                                           |                                                                                                                 |
-   |                       |                                                                                                           |    -  **ess-client**: client node                                                                               |
+   |                       |                                                                                                           | -  **ess-client**: client node                                                                                  |
+   |                       |                                                                                                           |                                                                                                                 |
+   |                       |                                                                                                           | -  **lgs**: Logstash node                                                                                       |
    +-----------------------+-----------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
 
 .. _listflavors__response_esflavorsversionsflavorsresp:
@@ -192,7 +194,7 @@ Request succeeded.
          "cpu" : 4,
          "ram" : 32,
          "name" : "ess.spec-4u32g",
-         "region" : "xx-xxx-xx",
+         "region" : "azcode-1",
          "diskrange" : "40,2560",
          "availableAZ" : "xx-xxx-xx,xx-xxx-xx",
          "flavor_id" : "2d8daf1b-873f-4c2e-a7b9-2f9cbcf2f213"
@@ -200,7 +202,7 @@ Request succeeded.
          "cpu" : 8,
          "ram" : 64,
          "name" : "ess.spec-8u64g",
-         "region" : "xx-xxx-xx",
+         "region" : "azcode-1",
          "diskrange" : "80,5120",
          "availableAZ" : "xx-xxx-xx,xx-xxx-xx",
          "flavor_id" : "b3d33ec6-d58a-40f0-aa51-4f671ce64b2a"
@@ -208,7 +210,7 @@ Request succeeded.
          "cpu" : 16,
          "ram" : 128,
          "name" : "ess.spec-16u128g",
-         "region" : "xx-xxx-xx",
+         "region" : "azcode-1",
          "diskrange" : "160,10240",
          "availableAZ" : "xx-xxx-xx,xx-xxx-xx",
          "flavor_id" : "f74419ca-bc91-4558-b4e2-90eeefb37c6e"

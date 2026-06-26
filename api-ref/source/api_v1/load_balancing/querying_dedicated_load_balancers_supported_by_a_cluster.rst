@@ -1,14 +1,14 @@
-:original_name: ListElbCerts.html
+:original_name: ListElbs.html
 
-.. _ListElbCerts:
+.. _ListElbs:
 
-Querying the Certificate List
-=============================
+Querying Dedicated Load Balancers Supported by a Cluster
+========================================================
 
 Function
 --------
 
-This API is used to query the certificate list.
+This API is used to query the dedicated load balancers supported by an Elasticsearch or OpenSearch cluster.
 
 Calling Method
 --------------
@@ -18,7 +18,7 @@ For details, see :ref:`Calling APIs <css_03_0077>`.
 URI
 ---
 
-GET /v1.0/{project_id}/clusters/{cluster_id}/elb/certificates
+GET /v1.0/{project_id}/clusters/{cluster_id}/loadbalancers
 
 .. table:: **Table 1** Path Parameters
 
@@ -70,60 +70,64 @@ Response Parameters
 
 .. table:: **Table 2** Response body parameters
 
-   +-----------------------+--------------------------------------------------------------------------------------------+-------------------------------+
-   | Parameter             | Type                                                                                       | Description                   |
-   +=======================+============================================================================================+===============================+
-   | certificates          | Array of :ref:`CertificatesResource <listelbcerts__response_certificatesresource>` objects | **Definition**:               |
-   |                       |                                                                                            |                               |
-   |                       |                                                                                            | Certificate list information. |
-   |                       |                                                                                            |                               |
-   |                       |                                                                                            | **Value range**:              |
-   |                       |                                                                                            |                               |
-   |                       |                                                                                            | N/A                           |
-   +-----------------------+--------------------------------------------------------------------------------------------+-------------------------------+
+   +-----------------------+------------------------------------------------------------------------------------------+-----------------------------------+
+   | Parameter             | Type                                                                                     | Description                       |
+   +=======================+==========================================================================================+===================================+
+   | loadbalancers         | Array of :ref:`LoadbalancersResource <listelbs__response_loadbalancersresource>` objects | **Definition**:                   |
+   |                       |                                                                                          |                                   |
+   |                       |                                                                                          | List of dedicated load balancers. |
+   +-----------------------+------------------------------------------------------------------------------------------+-----------------------------------+
 
-.. _listelbcerts__response_certificatesresource:
+.. _listelbs__response_loadbalancersresource:
 
-.. table:: **Table 3** CertificatesResource
+.. table:: **Table 3** LoadbalancersResource
 
-   +-----------------------+-----------------------+------------------------------------+
-   | Parameter             | Type                  | Description                        |
-   +=======================+=======================+====================================+
-   | id                    | String                | **Definition**:                    |
-   |                       |                       |                                    |
-   |                       |                       | Certificate ID.                    |
-   |                       |                       |                                    |
-   |                       |                       | **Value range**:                   |
-   |                       |                       |                                    |
-   |                       |                       | N/A                                |
-   +-----------------------+-----------------------+------------------------------------+
-   | name                  | String                | **Definition**:                    |
-   |                       |                       |                                    |
-   |                       |                       | Certificate name.                  |
-   |                       |                       |                                    |
-   |                       |                       | **Value range**:                   |
-   |                       |                       |                                    |
-   |                       |                       | N/A                                |
-   +-----------------------+-----------------------+------------------------------------+
-   | type                  | String                | **Definition**:                    |
-   |                       |                       |                                    |
-   |                       |                       | Type of the SL certificate.        |
-   |                       |                       |                                    |
-   |                       |                       | **Value range**:                   |
-   |                       |                       |                                    |
-   |                       |                       | -  **server**: server certificates |
-   |                       |                       |                                    |
-   |                       |                       | -  **client**: CA certificates     |
-   +-----------------------+-----------------------+------------------------------------+
+   +-----------------------+-----------------------+----------------------------------------------+
+   | Parameter             | Type                  | Description                                  |
+   +=======================+=======================+==============================================+
+   | id                    | String                | **Definition**:                              |
+   |                       |                       |                                              |
+   |                       |                       | Load balancer ID.                            |
+   |                       |                       |                                              |
+   |                       |                       | **Value range**:                             |
+   |                       |                       |                                              |
+   |                       |                       | N/A                                          |
+   +-----------------------+-----------------------+----------------------------------------------+
+   | name                  | String                | **Definition**:                              |
+   |                       |                       |                                              |
+   |                       |                       | Load balancer name.                          |
+   |                       |                       |                                              |
+   |                       |                       | **Value range**:                             |
+   |                       |                       |                                              |
+   |                       |                       | N/A                                          |
+   +-----------------------+-----------------------+----------------------------------------------+
+   | l7_flavor_id          | String                | **Definition**:                              |
+   |                       |                       |                                              |
+   |                       |                       | Layer-7 protocol ID.                         |
+   |                       |                       |                                              |
+   |                       |                       | **Value range**:                             |
+   |                       |                       |                                              |
+   |                       |                       | N/A                                          |
+   +-----------------------+-----------------------+----------------------------------------------+
+   | ip_target_enable      | Boolean               | **Definition**:                              |
+   |                       |                       |                                              |
+   |                       |                       | Whether to enable the cross-VPC backend.     |
+   |                       |                       |                                              |
+   |                       |                       | **Value range**:                             |
+   |                       |                       |                                              |
+   |                       |                       | -  **true**: Enable the cross-VPC backend.   |
+   |                       |                       |                                              |
+   |                       |                       | -  **false**: Disable the cross-VPC backend. |
+   +-----------------------+-----------------------+----------------------------------------------+
 
 Example Requests
 ----------------
 
-This API is used to query the certificate list.
+Query dedicated load balancers supported by a cluster.
 
 .. code-block:: text
 
-   GET https://{Endpoint}/v1.0/{project_id}/clusters/58ee0f27-70b3-47e0-ac72-9e3df6cd15cd/elb/certificates
+   GET https://{Endpoint}/v1.0/{project_id}/clusters/4f3deec3-efa8-4598-bf91-560aad1377a3/loadbalancers
 
 Example Responses
 -----------------
@@ -135,18 +139,16 @@ Request succeeded.
 .. code-block::
 
    {
-     "certificates" : [ {
-       "id" : "8c415d2e2f4c4fdbbfc9c21c98d7832b",
-       "name" : "server1",
-       "type" : "server"
+     "loadbalancers" : [ {
+       "id" : "5d45faad-6cb3-479b-96b8-3e2de0cc6268",
+       "name" : "elb-css",
+       "l7_flavor_id" : "9c8c2425-e061-4bf8-ac65-cd1db92b18e1",
+       "ip_target_enable" : true
      }, {
-       "id" : "8c415d2e2f4c4fdbbfc9c21c98d7832b",
-       "name" : "ca1",
-       "type" : "client"
-     }, {
-       "id" : "8c415d2e2f4c4fdbbfc9c21c98d7832b",
-       "name" : "server-css",
-       "type" : "server"
+       "id" : "5d45faad-6cb3-479b-96b8-3e2de0cc6269",
+       "name" : "elb-b832",
+       "l7_flavor_id" : "9c8c2425-e061-4bf8-ac65-cd1db92b18e1",
+       "ip_target_enable" : true
      } ]
    }
 

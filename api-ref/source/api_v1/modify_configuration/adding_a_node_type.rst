@@ -2,13 +2,13 @@
 
 .. _AddIndependentNode:
 
-Adding Independent Masters and Clients
-======================================
+Adding a Node Type
+==================
 
 Function
 --------
 
-This API is used to add dedicated master and client nodes to an existing cluster that previously does not have such nodes.
+This API is used to add dedicated master or client nodes or cold data nodes to an existing cluster that previously does not have such nodes. (When planning a cluster, you cannot always accurately predict future changes in data volumes. Add dedicated master or client nodes or cold data nodes is an effective way to scale up a cluster.)
 
 Calling Method
 --------------
@@ -187,7 +187,7 @@ Response Parameters
 Example Requests
 ----------------
 
-Add independent master and client nodes.
+Add dedicated master or client nodes or cold data nodes.
 
 .. code-block:: text
 
@@ -197,7 +197,8 @@ Add independent master and client nodes.
      "type" : {
        "flavor_ref" : "d9dc06ae-b9c4-4ef4-acd8-953ef4205e27",
        "node_size" : 3,
-       "volume_type" : "COMMON"
+       "volume_type" : "COMMON",
+       "volume_size" : 40
      }
    }
 

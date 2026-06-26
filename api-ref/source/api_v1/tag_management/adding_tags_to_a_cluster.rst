@@ -10,9 +10,12 @@ Function
 
 Tags are cluster identifiers. You can add tags to clusters to identify and manage cluster resources.
 
-You can add tags to a cluster when creating a cluster or add them on the details page of a created cluster.
-
 This API is used to add tags to a cluster.
+
+Constraints
+-----------
+
+Each cluster can have a maximum of 20 tags.
 
 Calling Method
 --------------

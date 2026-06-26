@@ -8,9 +8,7 @@ Scaling Out a Cluster (Discarded)
 Function
 --------
 
-This API is used to add instances to a cluster (only Elasticsearch instances can be added). This API can only scale out clusters that only have common nodes. Clusters with master, client, or cold data nodes cannot use this API.
-
-For details about how to configure the number and storage capacity of instances in a cluster, see the API for :ref:`Adding Instances and Expanding Instance Storage Capacity <updateextendinstancestorage>`.
+This API is used to add data nodes to an Elasticsearch or OpenSearch cluster. You are advised to use :ref:`Adding Instances and Expanding Instance Storage Capacity <updateextendinstancestorage>`.
 
 Calling Method
 --------------
@@ -131,7 +129,8 @@ Change the number of instances in the current cluster.
      "grow" : {
        "modifySize" : 4
      },
-    }
+     "isAutoPay" : 1
+   }
 
 Example Responses
 -----------------

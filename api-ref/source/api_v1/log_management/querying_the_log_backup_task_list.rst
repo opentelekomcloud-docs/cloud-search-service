@@ -73,7 +73,7 @@ GET /v1.0/{project_id}/clusters/{cluster_id}/logs/records
    |                 |                 |                 |                                                                                                                             |
    |                 |                 |                 | **Value range**:                                                                                                            |
    |                 |                 |                 |                                                                                                                             |
-   |                 |                 |                 | 1-1000                                                                                                                      |
+   |                 |                 |                 | Greater than or equal to 1.                                                                                                 |
    |                 |                 |                 |                                                                                                                             |
    |                 |                 |                 | **Default value**:                                                                                                          |
    |                 |                 |                 |                                                                                                                             |
@@ -139,6 +139,14 @@ Response Parameters
    |                       |                                                                                   |                                   |
    |                       |                                                                                   | N/A                               |
    +-----------------------+-----------------------------------------------------------------------------------+-----------------------------------+
+   | totalSize             | Integer                                                                           | **Definition**:                   |
+   |                       |                                                                                   |                                   |
+   |                       |                                                                                   | Total number of log records.      |
+   |                       |                                                                                   |                                   |
+   |                       |                                                                                   | **Value range**:                  |
+   |                       |                                                                                   |                                   |
+   |                       |                                                                                   | N/A                               |
+   +-----------------------+-----------------------------------------------------------------------------------+-----------------------------------+
 
 .. _listlogsjob__response_clusterlogrecord:
 
@@ -185,7 +193,7 @@ Response Parameters
    |                       |                       |                                                                                            |
    |                       |                       | **Value range**:                                                                           |
    |                       |                       |                                                                                            |
-   |                       |                       | -  **RUNNING**: The backup is ongoing.                                                     |
+   |                       |                       | -  RUNNING: Backup is in progress.                                                         |
    |                       |                       |                                                                                            |
    |                       |                       | -  **SUCCESS**: The backup is successful.                                                  |
    |                       |                       |                                                                                            |

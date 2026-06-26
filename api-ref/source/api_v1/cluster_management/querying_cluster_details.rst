@@ -8,7 +8,7 @@ Querying Cluster Details
 Function
 --------
 
-This API is used to query and display details about a single cluster, including the cluster's search type, node list, network information, cluster name, cluster ID, and cluster status, so that you can check whether the created cluster meets your expectation. You can also log in to the official website, access the CSS console, and obtain the cluster's private IP address, public IP address, version, and node information on the cluster information page.
+This API is used to query and display the details of a single cluster. It provides information such as the cluster search type, node object list, network information, cluster name, cluster ID, and cluster status, so that you can verify whether the created cluster meets expectations. You can also log in to the CSS console and view the cluster overview page to obtain information such as the private IP address, public IP address, version, and nodes of the cluster.
 
 Calling Method
 --------------
@@ -22,41 +22,41 @@ GET /v1.0/{project_id}/clusters/{cluster_id}
 
 .. table:: **Table 1** Path Parameters
 
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                             |
-   +=================+=================+=================+=========================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Constraints**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Value range**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | Project ID of the account.                                                                                                              |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Default value**:                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                     |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | ID of the cluster you want to query. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Constraints**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Value range**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | Cluster ID.                                                                                                                             |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Default value**:                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                     |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                         |
+   +=================+=================+=================+=====================================================================================================================================+
+   | project_id      | Yes             | String          | **Definition**:                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.    |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Constraints**:                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | N/A                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Value range**:                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | Project ID of the account.                                                                                                          |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Default value**:                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | N/A                                                                                                                                 |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
+   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | ID of the cluster to be queried. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Constraints**:                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | N/A                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Value range**:                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | Cluster ID.                                                                                                                         |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Default value**:                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | N/A                                                                                                                                 |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
 
 Request Parameters
 ------------------
@@ -91,7 +91,7 @@ Response Parameters
    +-----------------------+-----------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | publicKibanaResp      | :ref:`publicKibanaRespBody <showclusterdetail__response_publickibanarespbody>` object               | **Definition**:                                                                                                                                                                                                                             |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
-   |                       |                                                                                                     | Kibana public network access information.                                                                                                                                                                                                   |
+   |                       |                                                                                                     | Public network access information for Kibana/Dashboards, including the IP address, whitelist, and bandwidth.                                                                                                                                |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
    |                       |                                                                                                     | **Value range**:                                                                                                                                                                                                                            |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
@@ -99,7 +99,7 @@ Response Parameters
    +-----------------------+-----------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | elbWhiteList          | :ref:`elbWhiteListResp <showclusterdetail__response_elbwhitelistresp>` object                       | **Definition**:                                                                                                                                                                                                                             |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
-   |                       |                                                                                                     | Kibana public network access control information.                                                                                                                                                                                           |
+   |                       |                                                                                                     | Public network access control information.                                                                                                                                                                                                  |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
    |                       |                                                                                                     | **Value range**:                                                                                                                                                                                                                            |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
@@ -129,6 +129,14 @@ Response Parameters
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
    |                       |                                                                                                     | N/A                                                                                                                                                                                                                                         |
    +-----------------------+-----------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | snapshotPolicy        | :ref:`SnapshotPolicyResp <showclusterdetail__response_snapshotpolicyresp>` object                   | **Definition**:                                                                                                                                                                                                                             |
+   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
+   |                       |                                                                                                     | Information about an automatic snapshot creation policy.                                                                                                                                                                                    |
+   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
+   |                       |                                                                                                     | **Value range**:                                                                                                                                                                                                                            |
+   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
+   |                       |                                                                                                     | N/A                                                                                                                                                                                                                                         |
+   +-----------------------+-----------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | created               | String                                                                                              | **Definition**:                                                                                                                                                                                                                             |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
    |                       |                                                                                                     | Time when a cluster was created.                                                                                                                                                                                                            |
@@ -145,23 +153,25 @@ Response Parameters
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
    |                       |                                                                                                     | N/A                                                                                                                                                                                                                                         |
    +-----------------------+-----------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | status                | String                                                                                              | **Parameter description**:                                                                                                                                                                                                                  |
+   | status                | String                                                                                              | **Definition**:                                                                                                                                                                                                                             |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
    |                       |                                                                                                     | Cluster status.                                                                                                                                                                                                                             |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
-   |                       |                                                                                                     | **Options**:                                                                                                                                                                                                                                |
+   |                       |                                                                                                     | **Value range**:                                                                                                                                                                                                                            |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
    |                       |                                                                                                     | **100**: An operation, such as creation, is in progress.                                                                                                                                                                                    |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
-   |                       |                                                                                                     | -  **200**: Available                                                                                                                                                                                                                       |
+   |                       |                                                                                                     | -  **200**: available                                                                                                                                                                                                                       |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
-   |                       |                                                                                                     | -  **303**: unavailable, for example, due to a creation failure.                                                                                                                                                                            |
+   |                       |                                                                                                     | -  **300**: unavailable                                                                                                                                                                                                                     |
+   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
+   |                       |                                                                                                     | -  **303**: creation failed                                                                                                                                                                                                                 |
    +-----------------------+-----------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | endpoint              | String                                                                                              | **Definition**:                                                                                                                                                                                                                             |
+   | endpoint              | String                                                                                              | **Definition**                                                                                                                                                                                                                              |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
-   |                       |                                                                                                     | IPv4 address and port number accessed from the cluster's private network. [If the cluster type is KooSearch, this field indicates the internal address and port number for accessing the knowledge management service.] (tag:white)         |
+   |                       |                                                                                                     | The internal IPv4 address and port used for cluster access. [If the cluster type is a KooSearch cluster, this field indicates the internal access address and port for knowledge management within the cluster.] (tag:non_helpcenter)       |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
-   |                       |                                                                                                     | **Value range**:                                                                                                                                                                                                                            |
+   |                       |                                                                                                     | **Range**                                                                                                                                                                                                                                   |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
    |                       |                                                                                                     | N/A                                                                                                                                                                                                                                         |
    +-----------------------+-----------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -267,13 +277,33 @@ Response Parameters
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
    |                       |                                                                                                     | **Value range**:                                                                                                                                                                                                                            |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
-   |                       |                                                                                                     | -  **REBOOTING**                                                                                                                                                                                                                            |
+   |                       |                                                                                                     | -  REBOOTING                                                                                                                                                                                                                                |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
-   |                       |                                                                                                     | -  **GROWING**                                                                                                                                                                                                                              |
+   |                       |                                                                                                     | -  GROWING                                                                                                                                                                                                                                  |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
    |                       |                                                                                                     | -  RESTORING: The cluster is being restored.                                                                                                                                                                                                |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
    |                       |                                                                                                     | -  SNAPSHOTTING: A snapshot is being created.                                                                                                                                                                                               |
+   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
+   |                       |                                                                                                     | -  BIND_FAILURE: failed to associate with an EIP.                                                                                                                                                                                           |
+   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
+   |                       |                                                                                                     | -  SHRINKING: scaling down or in.                                                                                                                                                                                                           |
+   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
+   |                       |                                                                                                     | -  REPLACE_NODE: replacing nodes.                                                                                                                                                                                                           |
+   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
+   |                       |                                                                                                     | -  AZ_MIGRATION: switching AZs.                                                                                                                                                                                                             |
+   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
+   |                       |                                                                                                     | -  RESIZING_FLAVOR: changing node specifications.                                                                                                                                                                                           |
+   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
+   |                       |                                                                                                     | -  MODE_CHANGING: changing the security mode.                                                                                                                                                                                               |
+   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
+   |                       |                                                                                                     | -  SG_CHANGING: changing the security group.                                                                                                                                                                                                |
+   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
+   |                       |                                                                                                     | -  UPGRADING: upgrading.                                                                                                                                                                                                                    |
+   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
+   |                       |                                                                                                     | -  RESETTING_PASSWORD: The password is being reset.                                                                                                                                                                                         |
+   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
+   |                       |                                                                                                     | -  CONFIGURED: The configuration has been updated and cluster restart is pending.                                                                                                                                                           |
    +-----------------------+-----------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | enterpriseProjectId   | String                                                                                              | **Definition**:                                                                                                                                                                                                                             |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
@@ -345,17 +375,9 @@ Response Parameters
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
    |                       |                                                                                                     | Cluster description.                                                                                                                                                                                                                        |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
-   |                       |                                                                                                     | **Constraints**:                                                                                                                                                                                                                            |
-   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
-   |                       |                                                                                                     | The value can contain up to 128 characters. display_name and desc cannot be null at the same time.                                                                                                                                          |
-   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
    |                       |                                                                                                     | **Value range**:                                                                                                                                                                                                                            |
    |                       |                                                                                                     |                                                                                                                                                                                                                                             |
-   |                       |                                                                                                     | N/A                                                                                                                                                                                                                                         |
-   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
-   |                       |                                                                                                     | **Default value**:                                                                                                                                                                                                                          |
-   |                       |                                                                                                     |                                                                                                                                                                                                                                             |
-   |                       |                                                                                                     | N/A                                                                                                                                                                                                                                         |
+   |                       |                                                                                                     | It can contain a maximum of 128 characters.                                                                                                                                                                                                 |
    +-----------------------+-----------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. _showclusterdetail__response_clusterdetaildatastore:
@@ -418,101 +440,103 @@ Response Parameters
 
 .. table:: **Table 4** ClusterDetailInstances
 
-   +-----------------------+---------------------------------------------------------------------------------------+------------------------------------------------------------------+
-   | Parameter             | Type                                                                                  | Description                                                      |
-   +=======================+=======================================================================================+==================================================================+
-   | status                | String                                                                                | **Parameter description**:                                       |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | Node status.                                                     |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | **Options**:                                                     |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | -  **100**: creating                                             |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | -  **200**: Available                                            |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | -  **303**: unavailable, for example, due to a creation failure. |
-   +-----------------------+---------------------------------------------------------------------------------------+------------------------------------------------------------------+
-   | resourceId            | String                                                                                | **Definition**:                                                  |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | Instance resource ID.                                            |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | **Value range**:                                                 |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | N/A                                                              |
-   +-----------------------+---------------------------------------------------------------------------------------+------------------------------------------------------------------+
-   | type                  | String                                                                                | **Definition**:                                                  |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | Node type.                                                       |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | **Value range**:                                                 |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | -  **ess**: data node                                            |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | -  **ess-cold**: cold data node                                  |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | -  **ess-client**: client node                                   |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | -  **ess-master**: master node                                   |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | -  **lgs**: Logstash node                                        |
-   +-----------------------+---------------------------------------------------------------------------------------+------------------------------------------------------------------+
-   | id                    | String                                                                                | **Definition**:                                                  |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | Instance ID.                                                     |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | **Value range**:                                                 |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | N/A                                                              |
-   +-----------------------+---------------------------------------------------------------------------------------+------------------------------------------------------------------+
-   | name                  | String                                                                                | **Definition**:                                                  |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | Instance name.                                                   |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | **Value range**:                                                 |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | N/A                                                              |
-   +-----------------------+---------------------------------------------------------------------------------------+------------------------------------------------------------------+
-   | specCode              | String                                                                                | **Definition**:                                                  |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | Node flavor name.                                                |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | **Value range**:                                                 |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | N/A                                                              |
-   +-----------------------+---------------------------------------------------------------------------------------+------------------------------------------------------------------+
-   | azCode                | String                                                                                | **Definition**:                                                  |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | AZ of the node.                                                  |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | **Value range**:                                                 |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | N/A                                                              |
-   +-----------------------+---------------------------------------------------------------------------------------+------------------------------------------------------------------+
-   | ip                    | String                                                                                | **Definition**:                                                  |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | Instance IP address.                                             |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | **Value range**:                                                 |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | N/A                                                              |
-   +-----------------------+---------------------------------------------------------------------------------------+------------------------------------------------------------------+
-   | volume                | :ref:`ShowClusterVolumeRsp <showclusterdetail__response_showclustervolumersp>` object | **Definition**:                                                  |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | Instance disk information.                                       |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | **Value range**:                                                 |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | N/A                                                              |
-   +-----------------------+---------------------------------------------------------------------------------------+------------------------------------------------------------------+
-   | subnetId              | String                                                                                | **Definition**:                                                  |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | Subnet ID of the current node.                                   |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | **Value range**:                                                 |
-   |                       |                                                                                       |                                                                  |
-   |                       |                                                                                       | N/A                                                              |
-   +-----------------------+---------------------------------------------------------------------------------------+------------------------------------------------------------------+
+   +-----------------------+---------------------------------------------------------------------------------------+---------------------------------+
+   | Parameter             | Type                                                                                  | Description                     |
+   +=======================+=======================================================================================+=================================+
+   | status                | String                                                                                | **Definition**:                 |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | Node status.                    |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | **Value range**:                |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | -  **100**: creating            |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | -  **200**: available           |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | -  **300**: unavailable         |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | -  **303**: creation failed     |
+   +-----------------------+---------------------------------------------------------------------------------------+---------------------------------+
+   | resourceId            | String                                                                                | **Definition**:                 |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | Instance resource ID.           |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | **Value range**:                |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | N/A                             |
+   +-----------------------+---------------------------------------------------------------------------------------+---------------------------------+
+   | type                  | String                                                                                | **Definition**:                 |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | Node type.                      |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | **Value range**:                |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | -  **ess**: data node           |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | -  **ess-cold**: cold data node |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | -  **ess-client**: client node  |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | -  **ess-master**: master node  |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | -  **lgs**: Logstash node       |
+   +-----------------------+---------------------------------------------------------------------------------------+---------------------------------+
+   | id                    | String                                                                                | **Definition**:                 |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | Instance ID.                    |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | **Value range**:                |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | N/A                             |
+   +-----------------------+---------------------------------------------------------------------------------------+---------------------------------+
+   | name                  | String                                                                                | **Definition**:                 |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | Instance name.                  |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | **Value range**:                |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | N/A                             |
+   +-----------------------+---------------------------------------------------------------------------------------+---------------------------------+
+   | specCode              | String                                                                                | **Definition**:                 |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | Node flavor name.               |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | **Value range**:                |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | N/A                             |
+   +-----------------------+---------------------------------------------------------------------------------------+---------------------------------+
+   | azCode                | String                                                                                | **Definition**:                 |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | AZ of the node.                 |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | **Value range**:                |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | N/A                             |
+   +-----------------------+---------------------------------------------------------------------------------------+---------------------------------+
+   | ip                    | String                                                                                | **Definition**:                 |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | Instance IP address.            |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | **Value range**:                |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | N/A                             |
+   +-----------------------+---------------------------------------------------------------------------------------+---------------------------------+
+   | volume                | :ref:`ShowClusterVolumeRsp <showclusterdetail__response_showclustervolumersp>` object | **Definition**:                 |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | Instance disk information.      |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | **Value range**:                |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | N/A                             |
+   +-----------------------+---------------------------------------------------------------------------------------+---------------------------------+
+   | subnetId              | String                                                                                | **Definition**:                 |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | Subnet ID of the current node.  |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | **Value range**:                |
+   |                       |                                                                                       |                                 |
+   |                       |                                                                                       | N/A                             |
+   +-----------------------+---------------------------------------------------------------------------------------+---------------------------------+
 
 .. _showclusterdetail__response_showclustervolumersp:
 
@@ -550,97 +574,155 @@ Response Parameters
 
 .. table:: **Table 6** publicKibanaRespBody
 
-   +-----------------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------+
-   | Parameter             | Type                                                                                      | Description                                             |
-   +=======================+===========================================================================================+=========================================================+
-   | eipSize               | Integer                                                                                   | **Definition**:                                         |
-   |                       |                                                                                           |                                                         |
-   |                       |                                                                                           | The bandwidth size in Mbit/s.                           |
-   |                       |                                                                                           |                                                         |
-   |                       |                                                                                           | **Value range**:                                        |
-   |                       |                                                                                           |                                                         |
-   |                       |                                                                                           | N/A                                                     |
-   +-----------------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------+
-   | elbWhiteListResp      | :ref:`kibanaElbWhiteListResp <showclusterdetail__response_kibanaelbwhitelistresp>` object | **Definition**:                                         |
-   |                       |                                                                                           |                                                         |
-   |                       |                                                                                           | Kibana public network access control information.       |
-   |                       |                                                                                           |                                                         |
-   |                       |                                                                                           | **Value range**:                                        |
-   |                       |                                                                                           |                                                         |
-   |                       |                                                                                           | N/A                                                     |
-   +-----------------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------+
-   | publicKibanaIp        | String                                                                                    | **Definition**:                                         |
-   |                       |                                                                                           |                                                         |
-   |                       |                                                                                           | Specifies the IP address for accessing Kibana.          |
-   |                       |                                                                                           |                                                         |
-   |                       |                                                                                           | **Value range**:                                        |
-   |                       |                                                                                           |                                                         |
-   |                       |                                                                                           | N/A                                                     |
-   +-----------------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------+
-   | bandwidthResourceId   | String                                                                                    | **Definition**:                                         |
-   |                       |                                                                                           |                                                         |
-   |                       |                                                                                           | Resource ID corresponding to the Kibana public network. |
-   |                       |                                                                                           |                                                         |
-   |                       |                                                                                           | **Value range**:                                        |
-   |                       |                                                                                           |                                                         |
-   |                       |                                                                                           | N/A                                                     |
-   +-----------------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------+
+   +-----------------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------+
+   | Parameter             | Type                                                                                      | Description                                                               |
+   +=======================+===========================================================================================+===========================================================================+
+   | eipSize               | Integer                                                                                   | **Definition**:                                                           |
+   |                       |                                                                                           |                                                                           |
+   |                       |                                                                                           | The bandwidth size in Mbit/s.                                             |
+   |                       |                                                                                           |                                                                           |
+   |                       |                                                                                           | **Value range**:                                                          |
+   |                       |                                                                                           |                                                                           |
+   |                       |                                                                                           | N/A                                                                       |
+   +-----------------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------+
+   | elbWhiteListResp      | :ref:`kibanaElbWhiteListResp <showclusterdetail__response_kibanaelbwhitelistresp>` object | **Definition**:                                                           |
+   |                       |                                                                                           |                                                                           |
+   |                       |                                                                                           | Kibana public network access control information.                         |
+   |                       |                                                                                           |                                                                           |
+   |                       |                                                                                           | **Value range**:                                                          |
+   |                       |                                                                                           |                                                                           |
+   |                       |                                                                                           | N/A                                                                       |
+   +-----------------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------+
+   | publicKibanaIp        | String                                                                                    | **Definition**:                                                           |
+   |                       |                                                                                           |                                                                           |
+   |                       |                                                                                           | IP address for accessing Kibana or Dashboards through the public network. |
+   |                       |                                                                                           |                                                                           |
+   |                       |                                                                                           | **Value range**:                                                          |
+   |                       |                                                                                           |                                                                           |
+   |                       |                                                                                           | N/A                                                                       |
+   +-----------------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------+
+   | bandwidthResourceId   | String                                                                                    | **Definition**:                                                           |
+   |                       |                                                                                           |                                                                           |
+   |                       |                                                                                           | Resource ID for Kibana/Dashboards public network access.                  |
+   |                       |                                                                                           |                                                                           |
+   |                       |                                                                                           | **Value range**:                                                          |
+   |                       |                                                                                           |                                                                           |
+   |                       |                                                                                           | N/A                                                                       |
+   +-----------------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------+
 
 .. _showclusterdetail__response_kibanaelbwhitelistresp:
 
 .. table:: **Table 7** kibanaElbWhiteListResp
 
-   +-----------------------+-----------------------+---------------------------------------------+
-   | Parameter             | Type                  | Description                                 |
-   +=======================+=======================+=============================================+
-   | enableWhiteList       | Boolean               | **Definition**:                             |
-   |                       |                       |                                             |
-   |                       |                       | Whether to enable Kibana access control.    |
-   |                       |                       |                                             |
-   |                       |                       | **Value range**:                            |
-   |                       |                       |                                             |
-   |                       |                       | -  **true**: Access control is enabled.     |
-   |                       |                       |                                             |
-   |                       |                       | -  **false**: Access control is disabled.   |
-   +-----------------------+-----------------------+---------------------------------------------+
-   | whiteList             | String                | **Definition**:                             |
-   |                       |                       |                                             |
-   |                       |                       | Whitelist for Kibana public network access. |
-   |                       |                       |                                             |
-   |                       |                       | **Value range**:                            |
-   |                       |                       |                                             |
-   |                       |                       | N/A                                         |
-   +-----------------------+-----------------------+---------------------------------------------+
+   +-----------------------+-----------------------+----------------------------------------------------------------------------------------------------------+
+   | Parameter             | Type                  | Description                                                                                              |
+   +=======================+=======================+==========================================================================================================+
+   | enableWhiteList       | Boolean               | **Definition**:                                                                                          |
+   |                       |                       |                                                                                                          |
+   |                       |                       | Whether to enable the whitelist that controls public network access for Kibana or OpenSearch Dashboards. |
+   |                       |                       |                                                                                                          |
+   |                       |                       | **Value range**:                                                                                         |
+   |                       |                       |                                                                                                          |
+   |                       |                       | -  true: Enable the access control whitelist.                                                            |
+   |                       |                       |                                                                                                          |
+   |                       |                       | -  false: Disable the access control whitelist.                                                          |
+   +-----------------------+-----------------------+----------------------------------------------------------------------------------------------------------+
+   | whiteList             | String                | **Definition**:                                                                                          |
+   |                       |                       |                                                                                                          |
+   |                       |                       | Whitelist for Kibana public network access.                                                              |
+   |                       |                       |                                                                                                          |
+   |                       |                       | **Value range**:                                                                                         |
+   |                       |                       |                                                                                                          |
+   |                       |                       | N/A                                                                                                      |
+   +-----------------------+-----------------------+----------------------------------------------------------------------------------------------------------+
 
 .. _showclusterdetail__response_elbwhitelistresp:
 
 .. table:: **Table 8** elbWhiteListResp
 
-   +-----------------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter             | Type                  | Description                                                                                                                                                                                                 |
-   +=======================+=======================+=============================================================================================================================================================================================================+
-   | enableWhiteList       | Boolean               | **Definition**:                                                                                                                                                                                             |
-   |                       |                       |                                                                                                                                                                                                             |
-   |                       |                       | Whether to enable public network access control via ELB. If a whitelist is set, only IP addresses on the whitelist can access the cluster. If no whitelist is set, all IP addresses can access the cluster. |
-   |                       |                       |                                                                                                                                                                                                             |
-   |                       |                       | **Value range**:                                                                                                                                                                                            |
-   |                       |                       |                                                                                                                                                                                                             |
-   |                       |                       | -  **true**: Public network access control is enabled.                                                                                                                                                      |
-   |                       |                       |                                                                                                                                                                                                             |
-   |                       |                       | -  **false**: Public network access control is disabled.                                                                                                                                                    |
-   +-----------------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | whiteList             | String                | **Definition**:                                                                                                                                                                                             |
-   |                       |                       |                                                                                                                                                                                                             |
-   |                       |                       | Whitelist for public network access.                                                                                                                                                                        |
-   |                       |                       |                                                                                                                                                                                                             |
-   |                       |                       | **Value range**:                                                                                                                                                                                            |
-   |                       |                       |                                                                                                                                                                                                             |
-   |                       |                       | N/A                                                                                                                                                                                                         |
-   +-----------------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter             | Type                  | Description                                                                                                                                                                                         |
+   +=======================+=======================+=====================================================================================================================================================================================================+
+   | enableWhiteList       | Boolean               | **Definition**:                                                                                                                                                                                     |
+   |                       |                       |                                                                                                                                                                                                     |
+   |                       |                       | Whether to enable public network access control. If a whitelist is set, only IP addresses on the whitelist can access the cluster. If no whitelist is set, all IP addresses can access the cluster. |
+   |                       |                       |                                                                                                                                                                                                     |
+   |                       |                       | **Value range**:                                                                                                                                                                                    |
+   |                       |                       |                                                                                                                                                                                                     |
+   |                       |                       | -  **true**: Public network access control is enabled.                                                                                                                                              |
+   |                       |                       |                                                                                                                                                                                                     |
+   |                       |                       | -  **false**: Public network access control is disabled.                                                                                                                                            |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | whiteList             | String                | **Definition**:                                                                                                                                                                                     |
+   |                       |                       |                                                                                                                                                                                                     |
+   |                       |                       | Whitelist for public network access.                                                                                                                                                                |
+   |                       |                       |                                                                                                                                                                                                     |
+   |                       |                       | **Value range**:                                                                                                                                                                                    |
+   |                       |                       |                                                                                                                                                                                                     |
+   |                       |                       | IP address.                                                                                                                                                                                         |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+.. _showclusterdetail__response_snapshotpolicyresp:
+
+.. table:: **Table 9** SnapshotPolicyResp
+
+   +-----------------------+-----------------------+--------------------------------------------------------+
+   | Parameter             | Type                  | Description                                            |
+   +=======================+=======================+========================================================+
+   | backupEnable          | Boolean               | **Definition**:                                        |
+   |                       |                       |                                                        |
+   |                       |                       | Whether to enable automatic snapshots for the cluster. |
+   |                       |                       |                                                        |
+   |                       |                       | **Value range**:                                       |
+   |                       |                       |                                                        |
+   |                       |                       | -  **true**: Yes                                       |
+   |                       |                       |                                                        |
+   |                       |                       | -  **false**: No                                       |
+   +-----------------------+-----------------------+--------------------------------------------------------+
+   | bakPeriod             | String                | **Definition**:                                        |
+   |                       |                       |                                                        |
+   |                       |                       | Snapshot creation time.                                |
+   |                       |                       |                                                        |
+   |                       |                       | **Value range**:                                       |
+   |                       |                       |                                                        |
+   |                       |                       | N/A                                                    |
+   +-----------------------+-----------------------+--------------------------------------------------------+
+   | bakFrequency          | String                | **Definition**                                         |
+   |                       |                       |                                                        |
+   |                       |                       | Snapshot backup interval.                              |
+   |                       |                       |                                                        |
+   |                       |                       | **Range**                                              |
+   |                       |                       |                                                        |
+   |                       |                       | -  **DAY**: Every day.                                 |
+   |                       |                       |                                                        |
+   |                       |                       | -  **MON**: Every Monday.                              |
+   |                       |                       |                                                        |
+   |                       |                       | -  **TUE**: Every Tuesday.                             |
+   |                       |                       |                                                        |
+   |                       |                       | -  **WED**: Every Wednesday.                           |
+   |                       |                       |                                                        |
+   |                       |                       | -  **THU**: Every Thursday.                            |
+   |                       |                       |                                                        |
+   |                       |                       | -  **FRI**: Every Friday.                              |
+   |                       |                       |                                                        |
+   |                       |                       | -  **SAT**: Every Saturday.                            |
+   |                       |                       |                                                        |
+   |                       |                       | -  **SUN**: Every Sunday.                              |
+   |                       |                       |                                                        |
+   |                       |                       | -  **HOUR**: Every hour.                               |
+   +-----------------------+-----------------------+--------------------------------------------------------+
+   | bakKeepDay            | Integer               | **Definition**:                                        |
+   |                       |                       |                                                        |
+   |                       |                       | Number of retained snapshots.                          |
+   |                       |                       |                                                        |
+   |                       |                       | **Value range**:                                       |
+   |                       |                       |                                                        |
+   |                       |                       | N/A                                                    |
+   +-----------------------+-----------------------+--------------------------------------------------------+
 
 .. _showclusterdetail__response_clusterdetailtags:
 
-.. table:: **Table 9** ClusterDetailTags
+.. table:: **Table 10** ClusterDetailTags
 
    +-----------------------+-----------------------+-----------------------+
    | Parameter             | Type                  | Description           |
@@ -664,7 +746,7 @@ Response Parameters
 
 .. _showclusterdetail__response_clusterdetailfailedreasons:
 
-.. table:: **Table 10** ClusterDetailFailedReasons
+.. table:: **Table 11** ClusterDetailFailedReasons
 
    +-----------------------+-----------------------+-----------------------------------------------------------+
    | Parameter             | Type                  | Description                                               |
@@ -737,7 +819,7 @@ Request succeeded.
          },
          "ip": "192.168.0.122",
          "resourceId": "{RESOURCE_ID}",
-        "subnetId": "{SUBNET_ID}" //Subnet ID used by the node
+         "subnetId": "{SUBNET_ID}"
        }
      ],
      "publicKibanaResp": {
@@ -752,13 +834,20 @@ Request succeeded.
      },
      "updated": "2023-10-09T02:07:13",
      "name": "css-8bc5",
+     "desc": "csscluster"
+     "snapshotPolicy": {
+       "backupEnable": false,
+       "bakPeriod": "",
+       "bakFrequency": "",
+       "bakKeepDay": 1
+     },
      "publicIp": "100.85.222.202",
      "created": "2023-10-09T02:07:13",
      "id": "{CLUSTER_ID}",
      "status": "200",
      "endpoint": "192.168.0.122:9200",
-   "vpcId": "{VPC_ID}", //VPC ID used by the cluster
-   "subnetId": "{SUBNET_ID}", //Subnet ID used by all nodes in the cluster. Typically, a cluster uses only one subnet.
+     "vpcId": "{VPC_ID}",
+     "subnetId": "{SUBNET_ID}",
      "securityGroupId": "{SECURITY_GROUP_ID}",
      "bandwidthResourceId": "{BANDWIDTH_RESOURCE_ID}",
      "bandwidthSize": 3,
@@ -772,7 +861,7 @@ Request succeeded.
      "tags": [],
      "period": true,
      "supportVpcep": true,
-   "currentSubnetIds":"{SUBNET_ID}" //Default subnet ID of the cluster, which is used to assign new IP addresses to newly added nodes during a cluster scale-out operation when a VPC endpoint is created.
+     "currentSubnetIds": "{SUBNET_ID}"
    }
 
 Status Codes

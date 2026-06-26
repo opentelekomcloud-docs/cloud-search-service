@@ -63,123 +63,131 @@ Request Parameters
 
 .. table:: **Table 2** Request body parameters
 
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                     |
-   +=================+=================+=================+=================================================================================================================================================================+
-   | instance_name   | Yes             | String          | **Definition**:                                                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | Node name. Obtain the **name** attribute in instances by referring to :ref:`Querying Cluster Details <showclusterdetail>`.                                      |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | N/A                                                                                                                                                             |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Value range**:                                                                                                                                                |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | N/A                                                                                                                                                             |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Default value**:                                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | N/A                                                                                                                                                             |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | level           | No              | String          | **Definition**:                                                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | Queried log level.                                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | N/A                                                                                                                                                             |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Value range**:                                                                                                                                                |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | -  DEBUG: Queries DEBUG logs.                                                                                                                                   |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | -  INFO: Queries INFO logs.                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | -  WARN: Queries WARN logs.                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | -  ERROR: Queries ERROR logs.                                                                                                                                   |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | -  ALL: Queries logs of all levels.                                                                                                                             |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | .. note::                                                                                                                                                       |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 |    If multiple log levels are required, separate them with vertical bars (|), for example, WARN|ERROR.                                                          |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Default value**:                                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | ALL                                                                                                                                                             |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | log_type        | Yes             | String          | **Definition**:                                                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | Queried log type.                                                                                                                                               |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | N/A                                                                                                                                                             |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Value range**:                                                                                                                                                |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | -  deprecation: Queries deprecation logs. (Deprecation operation logs can be queried only when all log levels are selected.)                                    |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | -  indexingSlow: Queries slow indexing logs.                                                                                                                    |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | -  searchSlow: Queries slow query logs.                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | -  instance: Queries run logs.                                                                                                                                  |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Default value**:                                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | N/A                                                                                                                                                             |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | limit           | No              | Integer         | **Definition**:                                                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | Number of log records returned. By default, 100 log records are returned. A maximum of 10,000 log records can be returned, and the log size cannot exceed 1 MB. |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | N/A                                                                                                                                                             |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Value range**:                                                                                                                                                |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | 1-10000                                                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Default value**:                                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | 100                                                                                                                                                             |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | time_index      | No              | String          | **Definition**:                                                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | Returns logs generated before a specified time.                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | The time format is yyyy-MM-ddTHH:mm:ss,SSS.                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Value range**:                                                                                                                                                |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | N/A                                                                                                                                                             |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Default value**:                                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | N/A                                                                                                                                                             |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | keyword         | No              | String          | **Definition**:                                                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | Keyword used for filtering.                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | N/A                                                                                                                                                             |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Value range**:                                                                                                                                                |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | Only letters, digits, underscores (_), hyphens (-), periods (.), spaces, and square brackets are allowed. Maximum length: 64 characters.                        |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Default value**:                                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | N/A                                                                                                                                                             |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                                                      |
+   +=================+=================+=================+==================================================================================================================================================================================================+
+   | instance_name   | Yes             | String          | **Definition**:                                                                                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | Node name. Obtain the **name** attribute in instances by referring to :ref:`Querying Cluster Details <showclusterdetail>`.                                                                       |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Constraints**:                                                                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | N/A                                                                                                                                                                                              |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Value range**:                                                                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | N/A                                                                                                                                                                                              |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Default value**:                                                                                                                                                                               |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | N/A                                                                                                                                                                                              |
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | level           | No              | String          | **Definition**                                                                                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | Log level to query.                                                                                                                                                                              |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Constraints**                                                                                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | -  When **log_type** is set to **deprecation** , only **ALL** is supported.                                                                                                                      |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | -  This parameter does not take effect when querying a Logstash cluster. For Logstash clusters, all log levels are queried by default.                                                           |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Range**                                                                                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | -  **DEBUG** : Queries logs at the DEBUG level.                                                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | -  **INFO** : Queries logs at the INFO level.                                                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | -  **WARN** : Queries logs at the WARN level.                                                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | -  **ERROR** : Queries logs at the ERROR level.                                                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | -  **ALL** : All log levels, including DEBUG, INFO, WARN, ERROR, and TRACE logs.                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Default Value**                                                                                                                                                                                |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | -  **ALL**                                                                                                                                                                                       |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | .. note::                                                                                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 |    -  You can combine multiple log levels using **\|** , for example, **WARN|ERROR** , which means logs at both WARN and ERROR levels are queried. **ALL** cannot be combined with other values. |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 |    -  Before querying TRACE logs, you must enable TRACE logging. Then use **ALL** to query all log levels and locate TRACE-level logs.                                                           |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 |    -  To enable TRACE logging for an Elasticsearch cluster, see                                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 |    . To enable TRACE logging for an OpenSearch cluster, see .                                                                                                                                    |
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | log_type        | Yes             | String          | **Definition**:                                                                                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | Queried log type.                                                                                                                                                                                |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Constraints**:                                                                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | N/A                                                                                                                                                                                              |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Value range**:                                                                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | -  deprecation: Queries deprecation logs. (Deprecation operation logs can be queried only when all log levels are selected.)                                                                     |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | -  indexingSlow: Queries slow indexing logs.                                                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | -  searchSlow: Queries slow query logs.                                                                                                                                                          |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | -  instance: Queries run logs.                                                                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Default value**:                                                                                                                                                                               |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | N/A                                                                                                                                                                                              |
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | limit           | No              | Integer         | **Definition**:                                                                                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | Number of log records returned. By default, 100 log records are returned. A maximum of 10,000 log records can be returned, and the log size cannot exceed 1 MB.                                  |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Constraints**:                                                                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | N/A                                                                                                                                                                                              |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Value range**:                                                                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | 1-10000                                                                                                                                                                                          |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Default value**:                                                                                                                                                                               |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | 100                                                                                                                                                                                              |
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | time_index      | No              | String          | **Definition**:                                                                                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | Returns logs generated before a specified time.                                                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Constraints**:                                                                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | The time format is yyyy-MM-ddTHH:mm:ss,SSS.                                                                                                                                                      |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Value range**:                                                                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | N/A                                                                                                                                                                                              |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Default value**:                                                                                                                                                                               |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | N/A                                                                                                                                                                                              |
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | keyword         | No              | String          | **Definition**:                                                                                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | Keyword used for filtering.                                                                                                                                                                      |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Constraints**:                                                                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | N/A                                                                                                                                                                                              |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Value range**:                                                                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | Only letters, digits, underscores (_), hyphens (-), periods (.), spaces, and square brackets are allowed. Maximum length: 64 characters.                                                         |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | **Default value**:                                                                                                                                                                               |
+   |                 |                 |                 |                                                                                                                                                                                                  |
+   |                 |                 |                 | N/A                                                                                                                                                                                              |
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Response Parameters
 -------------------
@@ -188,69 +196,81 @@ Response Parameters
 
 .. table:: **Table 3** Response body parameters
 
-   +-----------------------+-------------------------------------------------------------------+----------------------------------------------+
-   | Parameter             | Type                                                              | Description                                  |
-   +=======================+===================================================================+==============================================+
-   | logList               | Array of :ref:`logList <showlogbackup__response_loglist>` objects | **Parameter description**:                   |
-   |                       |                                                                   |                                              |
-   |                       |                                                                   | Log list.                                    |
-   |                       |                                                                   |                                              |
-   |                       |                                                                   | **Options**:                                 |
-   |                       |                                                                   |                                              |
-   |                       |                                                                   | N/A                                          |
-   +-----------------------+-------------------------------------------------------------------+----------------------------------------------+
-   | type                  | String                                                            | **Definition**:                              |
-   |                       |                                                                   |                                              |
-   |                       |                                                                   | Queried log type.                            |
-   |                       |                                                                   |                                              |
-   |                       |                                                                   | **Value range**:                             |
-   |                       |                                                                   |                                              |
-   |                       |                                                                   | -  deprecation: Queries deprecation logs.    |
-   |                       |                                                                   |                                              |
-   |                       |                                                                   | -  indexingSlow: Queries slow indexing logs. |
-   |                       |                                                                   |                                              |
-   |                       |                                                                   | -  searchSlow: Queries slow query logs.      |
-   |                       |                                                                   |                                              |
-   |                       |                                                                   | -  instance: Queries run logs.               |
-   +-----------------------+-------------------------------------------------------------------+----------------------------------------------+
+   +-----------------------+-------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter             | Type                                                              | Description                                                                                                                                                                     |
+   +=======================+===================================================================+=================================================================================================================================================================================+
+   | logList               | Array of :ref:`logList <showlogbackup__response_loglist>` objects | **Parameter description**:                                                                                                                                                      |
+   |                       |                                                                   |                                                                                                                                                                                 |
+   |                       |                                                                   | Log list.                                                                                                                                                                       |
+   |                       |                                                                   |                                                                                                                                                                                 |
+   |                       |                                                                   | **Options**:                                                                                                                                                                    |
+   |                       |                                                                   |                                                                                                                                                                                 |
+   |                       |                                                                   | N/A                                                                                                                                                                             |
+   +-----------------------+-------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | type                  | String                                                            | **Definition**:                                                                                                                                                                 |
+   |                       |                                                                   |                                                                                                                                                                                 |
+   |                       |                                                                   | Queried log type.                                                                                                                                                               |
+   |                       |                                                                   |                                                                                                                                                                                 |
+   |                       |                                                                   | **Value range**:                                                                                                                                                                |
+   |                       |                                                                   |                                                                                                                                                                                 |
+   |                       |                                                                   | -  deprecation: Queries deprecation logs.                                                                                                                                       |
+   |                       |                                                                   |                                                                                                                                                                                 |
+   |                       |                                                                   | -  indexingSlow: Queries slow indexing logs.                                                                                                                                    |
+   |                       |                                                                   |                                                                                                                                                                                 |
+   |                       |                                                                   | -  searchSlow: Queries slow query logs.                                                                                                                                         |
+   |                       |                                                                   |                                                                                                                                                                                 |
+   |                       |                                                                   | -  instance: Queries run logs.                                                                                                                                                  |
+   +-----------------------+-------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | completed             | Boolean                                                           | **Definition**:                                                                                                                                                                 |
+   |                       |                                                                   |                                                                                                                                                                                 |
+   |                       |                                                                   | Whether all log files have been queried.                                                                                                                                        |
+   |                       |                                                                   |                                                                                                                                                                                 |
+   |                       |                                                                   | **Value range**:                                                                                                                                                                |
+   |                       |                                                                   |                                                                                                                                                                                 |
+   |                       |                                                                   | -  true: All log files have been queried. There are no more results.                                                                                                            |
+   |                       |                                                                   |                                                                                                                                                                                 |
+   |                       |                                                                   | -  false: Only some of the log files have been queried. The query result is returned because the number of requested records has been reached or the log size has reached 1 MB. |
+   +-----------------------+-------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. _showlogbackup__response_loglist:
 
 .. table:: **Table 4** logList
 
-   +-----------------------+-----------------------+-------------------------------+
-   | Parameter             | Type                  | Description                   |
-   +=======================+=======================+===============================+
-   | content               | String                | **Parameter description**:    |
-   |                       |                       |                               |
-   |                       |                       | Log content.                  |
-   |                       |                       |                               |
-   |                       |                       | **Options**:                  |
-   |                       |                       |                               |
-   |                       |                       | N/A                           |
-   +-----------------------+-----------------------+-------------------------------+
-   | date                  | String                | **Definition**:               |
-   |                       |                       |                               |
-   |                       |                       | Date                          |
-   |                       |                       |                               |
-   |                       |                       | **Value range**:              |
-   |                       |                       |                               |
-   |                       |                       | N/A                           |
-   +-----------------------+-----------------------+-------------------------------+
-   | level                 | String                | **Definition**:               |
-   |                       |                       |                               |
-   |                       |                       | Queried log level.            |
-   |                       |                       |                               |
-   |                       |                       | **Value range**:              |
-   |                       |                       |                               |
-   |                       |                       | -  DEBUG: Queries DEBUG logs. |
-   |                       |                       |                               |
-   |                       |                       | -  INFO: Queries INFO logs.   |
-   |                       |                       |                               |
-   |                       |                       | -  WARN: Queries WARN logs.   |
-   |                       |                       |                               |
-   |                       |                       | -  ERROR: Queries ERROR logs. |
-   +-----------------------+-----------------------+-------------------------------+
+   +-----------------------+-----------------------+----------------------------+
+   | Parameter             | Type                  | Description                |
+   +=======================+=======================+============================+
+   | content               | String                | **Parameter description**: |
+   |                       |                       |                            |
+   |                       |                       | Log content.               |
+   |                       |                       |                            |
+   |                       |                       | **Options**:               |
+   |                       |                       |                            |
+   |                       |                       | N/A                        |
+   +-----------------------+-----------------------+----------------------------+
+   | date                  | String                | **Definition**:            |
+   |                       |                       |                            |
+   |                       |                       | Date                       |
+   |                       |                       |                            |
+   |                       |                       | **Value range**:           |
+   |                       |                       |                            |
+   |                       |                       | N/A                        |
+   +-----------------------+-----------------------+----------------------------+
+   | level                 | String                | **Definition**:            |
+   |                       |                       |                            |
+   |                       |                       | Queried log level.         |
+   |                       |                       |                            |
+   |                       |                       | **Value range**:           |
+   |                       |                       |                            |
+   |                       |                       | -  **DEBUG**: DEBUG logs.  |
+   |                       |                       |                            |
+   |                       |                       | -  **INFO**: INFO logs.    |
+   |                       |                       |                            |
+   |                       |                       | -  **WARN**: WARN logs.    |
+   |                       |                       |                            |
+   |                       |                       | -  **ERROR**: ERROR logs.  |
+   |                       |                       |                            |
+   |                       |                       | -  **TRACE**: TRACE logs.  |
+   +-----------------------+-----------------------+----------------------------+
 
 Example Requests
 ----------------
@@ -285,7 +305,8 @@ Request succeeded.
        "date" : "2021-10-08T03:55:54,718",
        "level" : "INFO"
      } ],
-     "type" : "instance"
+     "type" : "instance",
+     "completed" : true
    }
 
 Status Codes

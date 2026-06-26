@@ -73,7 +73,7 @@ GET /v1.0/{project_id}/clusters/{cluster_id}/upgrade/detail
    |                 |                 |                 |                                                                                                             |
    |                 |                 |                 | **Value range**:                                                                                            |
    |                 |                 |                 |                                                                                                             |
-   |                 |                 |                 | 1-1000                                                                                                      |
+   |                 |                 |                 | Greater than or equal to 1.                                                                                 |
    |                 |                 |                 |                                                                                                             |
    |                 |                 |                 | **Default value**:                                                                                          |
    |                 |                 |                 |                                                                                                             |

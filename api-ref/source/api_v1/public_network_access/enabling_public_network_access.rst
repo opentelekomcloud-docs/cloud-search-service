@@ -12,6 +12,10 @@ Public network access is supported only when Security Mode and HTTPS Access are 
 
 To enable public network access for Elasticsearch or OpenSearch clusters, a shared load balancer is typically used for load balancing. If your workloads require quicker access, you are advised to use a dedicated load balancer to connect to your clusters. For details about its configuration, see section "Configuring a Dedicated Load Balancer for an Elasticsearch Cluster."
 
+.. note::
+
+   If no whitelist is configured when public network access is enabled, all IP addresses are allowed to access your cluster. Use caution.
+
 Calling Method
 --------------
 
@@ -65,41 +69,41 @@ Request Parameters
 
 .. table:: **Table 2** Request body parameters
 
-   +-----------------+-----------------+-----------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type                                                                        | Description                                                                                                 |
-   +=================+=================+=============================================================================+=============================================================================================================+
-   | eip             | Yes             | :ref:`BindPublicReqEip <createbindpublic__request_bindpublicreqeip>` object | **Definition**:                                                                                             |
-   |                 |                 |                                                                             |                                                                                                             |
-   |                 |                 |                                                                             | EIP for public network access.                                                                              |
-   |                 |                 |                                                                             |                                                                                                             |
-   |                 |                 |                                                                             | **Constraints**:                                                                                            |
-   |                 |                 |                                                                             |                                                                                                             |
-   |                 |                 |                                                                             | N/A                                                                                                         |
-   |                 |                 |                                                                             |                                                                                                             |
-   |                 |                 |                                                                             | **Value range**:                                                                                            |
-   |                 |                 |                                                                             |                                                                                                             |
-   |                 |                 |                                                                             | N/A                                                                                                         |
-   |                 |                 |                                                                             |                                                                                                             |
-   |                 |                 |                                                                             | **Default value**:                                                                                          |
-   |                 |                 |                                                                             |                                                                                                             |
-   |                 |                 |                                                                             | N/A                                                                                                         |
-   +-----------------+-----------------+-----------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | white_list      | No              | String                                                                      | **Definition**:                                                                                             |
-   |                 |                 |                                                                             |                                                                                                             |
-   |                 |                 |                                                                             | Public network access control whitelist.                                                                    |
-   |                 |                 |                                                                             |                                                                                                             |
-   |                 |                 |                                                                             | **Constraints**:                                                                                            |
-   |                 |                 |                                                                             |                                                                                                             |
-   |                 |                 |                                                                             | Separate the whitelisted CIDR blocks or IP addresses with commas (,), and make sure each of them is unique. |
-   |                 |                 |                                                                             |                                                                                                             |
-   |                 |                 |                                                                             | **Value range**:                                                                                            |
-   |                 |                 |                                                                             |                                                                                                             |
-   |                 |                 |                                                                             | N/A                                                                                                         |
-   |                 |                 |                                                                             |                                                                                                             |
-   |                 |                 |                                                                             | **Default value**:                                                                                          |
-   |                 |                 |                                                                             |                                                                                                             |
-   |                 |                 |                                                                             | N/A                                                                                                         |
-   +-----------------+-----------------+-----------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type                                                                        | Description                                                                                                                                                   |
+   +=================+=================+=============================================================================+===============================================================================================================================================================+
+   | eip             | Yes             | :ref:`BindPublicReqEip <createbindpublic__request_bindpublicreqeip>` object | **Definition**:                                                                                                                                               |
+   |                 |                 |                                                                             |                                                                                                                                                               |
+   |                 |                 |                                                                             | EIP for public network access.                                                                                                                                |
+   |                 |                 |                                                                             |                                                                                                                                                               |
+   |                 |                 |                                                                             | **Constraints**:                                                                                                                                              |
+   |                 |                 |                                                                             |                                                                                                                                                               |
+   |                 |                 |                                                                             | N/A                                                                                                                                                           |
+   |                 |                 |                                                                             |                                                                                                                                                               |
+   |                 |                 |                                                                             | **Value range**:                                                                                                                                              |
+   |                 |                 |                                                                             |                                                                                                                                                               |
+   |                 |                 |                                                                             | N/A                                                                                                                                                           |
+   |                 |                 |                                                                             |                                                                                                                                                               |
+   |                 |                 |                                                                             | **Default value**:                                                                                                                                            |
+   |                 |                 |                                                                             |                                                                                                                                                               |
+   |                 |                 |                                                                             | N/A                                                                                                                                                           |
+   +-----------------+-----------------+-----------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | white_list      | No              | String                                                                      | **Definition**                                                                                                                                                |
+   |                 |                 |                                                                             |                                                                                                                                                               |
+   |                 |                 |                                                                             | Public access control whitelist. Add the IP addresses or CIDR blocks to be whitelisted, separated by commas (,). Valid examples: **192.168.1.1,10.0.0.0/24**. |
+   |                 |                 |                                                                             |                                                                                                                                                               |
+   |                 |                 |                                                                             | **Constraints**                                                                                                                                               |
+   |                 |                 |                                                                             |                                                                                                                                                               |
+   |                 |                 |                                                                             | The following are not supported: 0.0.0.0,x.x.x.x/0, non-standard formats such as 192.168.1, or duplicate entries.                                             |
+   |                 |                 |                                                                             |                                                                                                                                                               |
+   |                 |                 |                                                                             | **Range**                                                                                                                                                     |
+   |                 |                 |                                                                             |                                                                                                                                                               |
+   |                 |                 |                                                                             | Valid CIDR blocks or IP addresses.                                                                                                                            |
+   |                 |                 |                                                                             |                                                                                                                                                               |
+   |                 |                 |                                                                             | **Default Value**                                                                                                                                             |
+   |                 |                 |                                                                             |                                                                                                                                                               |
+   |                 |                 |                                                                             | N/A                                                                                                                                                           |
+   +-----------------+-----------------+-----------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. _createbindpublic__request_bindpublicreqeip:
 
@@ -113,14 +117,6 @@ Request Parameters
    |                 |                 |                                                                                               | Public network bandwidth. |
    |                 |                 |                                                                                               |                           |
    |                 |                 |                                                                                               | **Constraints**:          |
-   |                 |                 |                                                                                               |                           |
-   |                 |                 |                                                                                               | N/A                       |
-   |                 |                 |                                                                                               |                           |
-   |                 |                 |                                                                                               | **Value range**:          |
-   |                 |                 |                                                                                               |                           |
-   |                 |                 |                                                                                               | N/A                       |
-   |                 |                 |                                                                                               |                           |
-   |                 |                 |                                                                                               | **Default value**:        |
    |                 |                 |                                                                                               |                           |
    |                 |                 |                                                                                               | N/A                       |
    +-----------------+-----------------+-----------------------------------------------------------------------------------------------+---------------------------+
@@ -142,7 +138,7 @@ Request Parameters
    |                 |                 |                 |                                      |
    |                 |                 |                 | **Value range**:                     |
    |                 |                 |                 |                                      |
-   |                 |                 |                 | N/A                                  |
+   |                 |                 |                 | 1-200                                |
    |                 |                 |                 |                                      |
    |                 |                 |                 | **Default value**:                   |
    |                 |                 |                 |                                      |
@@ -183,8 +179,7 @@ Enable public network access.
          "size" : 5
        }
      },
-     "white_list" : "127.0.0.1",
-     "is_auto_pay" : 1
+     "white_list" : "127.0.0.1"
    }
 
 Example Responses

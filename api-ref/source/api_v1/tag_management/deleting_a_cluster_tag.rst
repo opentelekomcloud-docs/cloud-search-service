@@ -10,9 +10,7 @@ Function
 
 Tags are cluster identifiers. You can add tags to clusters to identify and manage cluster resources.
 
-You can add tags to a cluster when creating a cluster or add them on the details page of a created cluster.
-
-This API is used to delete cluster tags. You can delete unnecessary cluster tags to facilitate cluster management.
+This API is used to delete cluster tags that are no longer needed.
 
 Calling Method
 --------------

@@ -192,11 +192,11 @@ Example Requests
       {
         "needCheckReplica" : false,
         "newFlavorId" : "35b060a4-f152-48ce-8773-36559ceb81f2",
-
+        "isAutoPay" : 1,
         "needCheckClusterStatus" : true
       }
 
--  Disk type after the change.
+-  Change the disk type.
 
    .. code-block:: text
 
@@ -206,7 +206,7 @@ Example Requests
         "needCheckReplica" : false,
         "newFlavorId" : "ULTRAHIGH",
         "operationType" : "volume",
-
+        "isAutoPay" : 1,
         "clusterLoadCheck" : true
       }
 

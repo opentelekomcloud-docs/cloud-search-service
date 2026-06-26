@@ -73,7 +73,7 @@ GET /v1.0/{project_id}/clusters/{cluster_id}/ymls/joblists
    |                 |                 |                 |                                                                                                             |
    |                 |                 |                 | **Value range**:                                                                                            |
    |                 |                 |                 |                                                                                                             |
-   |                 |                 |                 | 1-1000                                                                                                      |
+   |                 |                 |                 | Greater than or equal to 1.                                                                                 |
    |                 |                 |                 |                                                                                                             |
    |                 |                 |                 | **Default value**:                                                                                          |
    |                 |                 |                 |                                                                                                             |
@@ -114,6 +114,14 @@ Response Parameters
    | configList            | Array of :ref:`configListRsp <listymlsjob__response_configlistrsp>` objects | **Definition**:                           |
    |                       |                                                                             |                                           |
    |                       |                                                                             | List of historical configuration changes. |
+   |                       |                                                                             |                                           |
+   |                       |                                                                             | **Value range**:                          |
+   |                       |                                                                             |                                           |
+   |                       |                                                                             | N/A                                       |
+   +-----------------------+-----------------------------------------------------------------------------+-------------------------------------------+
+   | totalSize             | Integer                                                                     | **Definition**:                           |
+   |                       |                                                                             |                                           |
+   |                       |                                                                             | Number of configuration tasks.            |
    |                       |                                                                             |                                           |
    |                       |                                                                             | **Value range**:                          |
    |                       |                                                                             |                                           |
@@ -187,6 +195,14 @@ Response Parameters
    |                       |                       |                                                                                        |
    |                       |                       | N/A                                                                                    |
    +-----------------------+-----------------------+----------------------------------------------------------------------------------------+
+   | instType              | String                | **Definition**                                                                         |
+   |                       |                       |                                                                                        |
+   |                       |                       | Node type.                                                                             |
+   |                       |                       |                                                                                        |
+   |                       |                       | **Range**                                                                              |
+   |                       |                       |                                                                                        |
+   |                       |                       | N/A                                                                                    |
+   +-----------------------+-----------------------+----------------------------------------------------------------------------------------+
 
 Example Requests
 ----------------
@@ -214,7 +230,8 @@ Request succeeded.
        "status" : "success",
        "finishedAt" : "1755745355000,",
        "modifyDeleteReset" : "{\"modify\":{\"elasticsearch.yml\":{\"thread_pool.force_merge.size\":\"1\"}}}",
-       "failedMsg" : ""
+       "failedMsg" : "",
+       "instType" : ""
      } ]
    }
 

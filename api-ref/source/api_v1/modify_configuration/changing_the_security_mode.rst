@@ -2,8 +2,8 @@
 
 .. _ChangeMode:
 
-Configuring the Security Mode.
-==============================
+Changing the Security Mode
+==========================
 
 Function
 --------
@@ -47,7 +47,7 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/mode/change
    +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
    | cluster_id      | Yes             | String          | **Definition**:                                                                                                                  |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | ID of the target cluster For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`.      |
+   |                 |                 |                 | ID of the target cluster. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`.     |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | **Constraints**:                                                                                                                 |
    |                 |                 |                 |                                                                                                                                  |
@@ -114,11 +114,11 @@ Request Parameters
    |                  |                 |                 |                                                                                                                                                                           |
    |                  |                 |                 | -  HTTPS access can be disabled only for OpenSearch 1.3.6 and 2.19.0 security-mode clusters. For other versions, HTTPS access is forcibly enabled and cannot be disabled. |
    |                  |                 |                 |                                                                                                                                                                           |
-   |                  |                 |                 | -  true: Enable HTTPS.                                                                                                                                                    |
-   |                  |                 |                 |                                                                                                                                                                           |
-   |                  |                 |                 | -  false: Disable HTTPS.                                                                                                                                                  |
-   |                  |                 |                 |                                                                                                                                                                           |
    |                  |                 |                 | **Value range**:                                                                                                                                                          |
+   |                  |                 |                 |                                                                                                                                                                           |
+   |                  |                 |                 | -  **true**: Enable HTTPS.                                                                                                                                                |
+   |                  |                 |                 |                                                                                                                                                                           |
+   |                  |                 |                 | -  **false**: Disable HTTPS.                                                                                                                                              |
    |                  |                 |                 |                                                                                                                                                                           |
    |                  |                 |                 | **Default value**:                                                                                                                                                        |
    |                  |                 |                 |                                                                                                                                                                           |
@@ -145,7 +145,7 @@ Change the security mode of the current cluster.
 
    {
      "authority_enable" : true,
-     "admin_pwd" : "admin@1234",
+     "admin_pwd" : "password",
      "https_enable" : true
    }
 
