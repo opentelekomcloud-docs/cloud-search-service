@@ -8,7 +8,7 @@ Changing the Subnet of a Cluster
 Function
 --------
 
-This API is used to bind a new subnet to newly added nodes after cluster creation, or in the case of a cluster subnet change.
+If the subnet where the cluster resides does not have insufficient IP addresses and nodes cannot be added as a result, for example, during a cluster scale-out, you can use this API to switch to another subnet. After subnet switching, the new subnet will be used to create new nodes, but the subnet of existing nodes will remain unchanged.
 
 .. note::
 
@@ -67,25 +67,25 @@ Request Parameters
 
 .. table:: **Table 2** Request body parameters
 
-   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                   |
-   +=================+=================+=================+===============================================================================+
-   | subnet_id       | Yes             | String          | **Definition**:                                                               |
-   |                 |                 |                 |                                                                               |
-   |                 |                 |                 | Subnet ID.                                                                    |
-   |                 |                 |                 |                                                                               |
-   |                 |                 |                 | **Constraints**:                                                              |
-   |                 |                 |                 |                                                                               |
-   |                 |                 |                 | The value must be standard UUID format: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx. |
-   |                 |                 |                 |                                                                               |
-   |                 |                 |                 | **Value range**:                                                              |
-   |                 |                 |                 |                                                                               |
-   |                 |                 |                 | The value must be standard UUID format: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx. |
-   |                 |                 |                 |                                                                               |
-   |                 |                 |                 | **Default value**:                                                            |
-   |                 |                 |                 |                                                                               |
-   |                 |                 |                 | N/A                                                                           |
-   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                          |
+   +=================+=================+=================+======================================================================================================================================+
+   | subnet_id       | Yes             | String          | **Definition**:                                                                                                                      |
+   |                 |                 |                 |                                                                                                                                      |
+   |                 |                 |                 | Subnet ID.                                                                                                                           |
+   |                 |                 |                 |                                                                                                                                      |
+   |                 |                 |                 | **Constraints**:                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                      |
+   |                 |                 |                 | If automatic IPv6 address assignment is enabled for the cluster, the cluster can only be switched to a new subnet with IPv6 enabled. |
+   |                 |                 |                 |                                                                                                                                      |
+   |                 |                 |                 | **Value range**:                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                      |
+   |                 |                 |                 | The subnet must be within the same VPC as the current cluster.                                                                       |
+   |                 |                 |                 |                                                                                                                                      |
+   |                 |                 |                 | **Default value**:                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                      |
+   |                 |                 |                 | N/A                                                                                                                                  |
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
 
 Response Parameters
 -------------------
@@ -99,11 +99,11 @@ None
 Example Requests
 ----------------
 
-Modify the subnet of a cluster.
+Change the subnet of a cluster.
 
 .. code-block:: text
 
-   POST /v1.0/6204a5bd270343b5885144cf9c8c158d/clusters/ea244205-d641-45d9-9dcb-ab2236bcd07e/subnet/change
+   POST https://{Endpoint}/v1.0/6204a5bd270343b5885144cf9c8c158d/clusters/ea244205-d641-45d9-9dcb-ab2236bcd07e/subnet/change
 
    {
      "subnet_id" : "b1234567-1f77-4ae9-b64d-9af56e123456"
@@ -117,19 +117,21 @@ None
 Status Codes
 ------------
 
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Status Code                       | Description                                                                                                                                          |
-+===================================+======================================================================================================================================================+
-| 200                               | Request succeeded.                                                                                                                                   |
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 400                               | Invalid request.                                                                                                                                     |
-|                                   |                                                                                                                                                      |
-|                                   | Modify the request and then retry.                                                                                                                   |
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 403                               | Request rejected.                                                                                                                                    |
-|                                   |                                                                                                                                                      |
-|                                   | The server has received the request and understood it, but refuses to respond to it. The client should not repeat the request without modifications. |
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Status Code                       | Description                                                                                                                                                                          |
++===================================+======================================================================================================================================================================================+
+| 200                               | Request succeeded.                                                                                                                                                                   |
++-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 400                               | Invalid request.                                                                                                                                                                     |
+|                                   |                                                                                                                                                                                      |
+|                                   | Modify the request and then retry.                                                                                                                                                   |
++-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 409                               | The request could not be processed due to a conflict.                                                                                                                                |
+|                                   |                                                                                                                                                                                      |
+|                                   | This status code indicates that the resource that the client attempts to create already exists, or the request failed to be processed because of the update of the conflict request. |
++-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 412                               | The server does not meet one of the preconditions that the requester puts on the request.                                                                                            |
++-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Error Codes
 -----------

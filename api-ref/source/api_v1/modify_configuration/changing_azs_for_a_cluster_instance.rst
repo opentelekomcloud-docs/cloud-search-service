@@ -213,8 +213,8 @@ Change AZs for the current cluster.
    POST https://{Endpoint}/v1.0/{project_id}/clusters/ea244205-d641-45d9-9dcb-ab2236bcd07e/inst-type/all/azmigrate
 
    {
-     "source_az" : "cn-north-4c",
-     "target_az" : "cn-north-4a",
+     "source_az" : "azcode-1",
+     "target_az" : "azcode-1",
      "migrate_type" : "az_migrate",
      "agency" : "css-test-agency"
    }

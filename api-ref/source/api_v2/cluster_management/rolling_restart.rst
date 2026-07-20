@@ -74,15 +74,15 @@ Request Parameters
    +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
    | value           | Yes             | String          | Instance type. (At least one data node is required when you configure instance types.) Use commas (,) to separate multiple types. For example: |
    |                 |                 |                 |                                                                                                                                                |
-   |                 |                 |                 | -  **ess-master** indicates a master node.                                                                                                     |
+   |                 |                 |                 | -  **ess**: data node.                                                                                                                         |
    |                 |                 |                 |                                                                                                                                                |
-   |                 |                 |                 | -  **ess-client** indicates a client node.                                                                                                     |
+   |                 |                 |                 | -  **ess-cold**: cold data node                                                                                                                |
    |                 |                 |                 |                                                                                                                                                |
-   |                 |                 |                 | -  **ess-cold** indicates a cold data node.                                                                                                    |
+   |                 |                 |                 | -  **ess-client**: client node                                                                                                                 |
    |                 |                 |                 |                                                                                                                                                |
-   |                 |                 |                 | -  **ess** indicates a data node.                                                                                                              |
+   |                 |                 |                 | -  **ess-master**: master node                                                                                                                 |
    |                 |                 |                 |                                                                                                                                                |
-   |                 |                 |                 | -  **all** indicates all nodes.                                                                                                                |
+   |                 |                 |                 | -  **all**: all nodes.                                                                                                                         |
    +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Response Parameters

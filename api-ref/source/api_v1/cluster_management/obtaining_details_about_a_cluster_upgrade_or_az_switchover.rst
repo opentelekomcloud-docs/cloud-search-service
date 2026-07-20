@@ -482,8 +482,8 @@ Request succeeded.
           "completedNodes" : "css-test-ess-esn-2-1",
           "currentNodeName" : "css-test-ess-esn-1-1",
           "executeTimes" : "1",
-          "migrateParam" : "{\"instType\":\"ess\",\"migrateType\":\"az_migrate\",\"sourceAz\":\"cn-north-4a\",\"targetAz\":\"cn-north-4c\"}",
-          "finalAzInfoMap" : "{\"cn-north-4c\":\"css-test-ess-esn-2-1,css-test-ess-esn-1-1,css-test-ess-esn-3-1\"}",
+          "migrateParam" : "{\"instType\":\"ess\",\"migrateType\":\"az_migrate\",\"sourceAz\":\"azcode-1\",\"targetAz\":\"azcode-1\"}",
+          "finalAzInfoMap" : "{\"azcode-1\":\"css-test-ess-esn-2-1,css-test-ess-esn-1-1,css-test-ess-esn-3-1\"}",
           "currentNodeDetail" : [ {
             "order" : 0,
             "name" : "Data migration",

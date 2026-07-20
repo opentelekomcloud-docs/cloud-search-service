@@ -408,8 +408,6 @@ Request Parameters
    |                 |                 |                 |                                                                                                                                   |
    |                 |                 |                 | **Options**:                                                                                                                      |
    |                 |                 |                 |                                                                                                                                   |
-   |                 |                 |                 | -  **COMMON**: common I/O                                                                                                         |
-   |                 |                 |                 |                                                                                                                                   |
    |                 |                 |                 | -  **HIGH**: high I/O                                                                                                             |
    |                 |                 |                 |                                                                                                                                   |
    |                 |                 |                 | -  **ULTRAHIGH**: ultra-high I/O                                                                                                  |

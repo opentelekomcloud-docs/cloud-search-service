@@ -94,10 +94,10 @@ Obtaining the Cluster ID from the GaussDB(DWS) Console
 
 #. Alternatively, click the cluster name to go to its details page.
 
-#. Check the cluster ID under cluster information.
+#. Check the cluster ID under **Basic Information**.
 
 
-   .. figure:: /_static/images/en-us_image_0000002396499922.png
+   .. figure:: /_static/images/en-us_image_0000002483999810.png
       :alt: **Figure 2** Checking the cluster ID
 
       **Figure 2** Checking the cluster ID
