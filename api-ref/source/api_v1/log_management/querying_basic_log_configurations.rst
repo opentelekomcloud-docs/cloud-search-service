@@ -314,7 +314,7 @@ Request succeeded.
         "logConfiguration" : {
           "id" : "00032118-aff5-40e8-b19a-dd4bb576e572",
           "clusterId" : "e3201ceb-1a3e-49f3-bb2f-23a816440b20",
-          "obsBucket" : "css-autobk-notdel-cn-north-7",
+          "obsBucket" : "css-autobk-notdel-azcode-1",
           "agency" : "css_obs_agency",
           "updateAt" : 1639624882000,
           "basePath" : "css/log",

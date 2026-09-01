@@ -80,7 +80,7 @@ Example Responses
 
 **Status code: 200**
 
-Request succeeded.
+Request succeeded. File stream returned.
 
 .. code-block::
 
@@ -92,7 +92,7 @@ Status Codes
 +-----------------------------------+--------------------------------------------+
 | Status Code                       | Description                                |
 +===================================+============================================+
-| 200                               | Request succeeded.                         |
+| 200                               | Request succeeded. File stream returned.   |
 +-----------------------------------+--------------------------------------------+
 | 400                               | Invalid request.                           |
 |                                   |                                            |

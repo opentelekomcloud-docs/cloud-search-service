@@ -8,17 +8,14 @@
 Function
 --------
 
-This API is used to automatically set basic configurations for a cluster snapshot, including configuring OBS buckets and IAM agency.
+This API is used to configure basic settings for automatic cluster snapshot creation, including automatically creating an IAM agency and the OBS bucket and file path used for storing snapshots. This API also enables cluster snapshots. Cluster snapshots enhance data protection and restoration capabilities for clusters.
 
--  **OBS Bucket**: Enter the location of the OBS bucket used for storing snapshots.
+Constraints
+-----------
 
--  **Backup Path**: Enter the storage path of the snapshot in the OBS bucket.
+-  This API automatically creates an OBS bucket and agency for the snapshot. If there are multiple clusters, an OBS bucket will be created for each cluster via this API. As a result, the OBS quota may be insufficient, and many OBS buckets are difficult to maintain. You are advised to use the API :ref:`Enabling or Modifying the Cluster Snapshot Function <updatesnapshotsetting>`.
 
--  **IAM Agency**: Authorize you to use OBS in IAM so that snapshots must be stored in OBS.
-
-.. note::
-
-   The API will automatically create an OBS bucket and an agency for automatic snapshot creation. If there are multiple clusters, each cluster will create a different OBS bucket using this API, which may exhaust the OBS quota and create the inconvenience of maintaining a large number of OBS buckets. You are advised to use the API for :ref:`Modifying Basic Settings of Cluster Snapshots <updatesnapshotsetting>`.
+-  When snapshots are enabled for a cluster, the API will use the previous configuration to ensure consistency. If snapshots are enabled for the first, the system automatically creates an OBS bucket and file path and preferentially uses an existing agency. If there are no agencies, the system automatically creates an agency named css-obs-agency.
 
 Calling Method
 --------------

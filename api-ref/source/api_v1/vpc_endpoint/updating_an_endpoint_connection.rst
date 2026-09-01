@@ -8,7 +8,7 @@ Updating an Endpoint Connection
 Function
 --------
 
-This API is used to update the VPCEP connection of a cluster.
+The VPC endpoint service enables secure and reliable access across VPCs through a dedicated gateway, without exposing the network information of servers. This API is used to update VPC endpoint connections for the cluster.
 
 Calling Method
 --------------
@@ -63,17 +63,35 @@ Request Parameters
 
 .. table:: **Table 2** Request body parameters
 
-   +------------------+-----------------+------------------+--------------------------------------+
-   | Parameter        | Mandatory       | Type             | Description                          |
-   +==================+=================+==================+======================================+
-   | action           | Yes             | String           | Expected behavior.                   |
-   |                  |                 |                  |                                      |
-   |                  |                 |                  | -  receive: Accept the VPC endpoint. |
-   |                  |                 |                  |                                      |
-   |                  |                 |                  | -  reject: Reject the VPC endpoint.  |
-   +------------------+-----------------+------------------+--------------------------------------+
-   | endpoint_id_list | Yes             | Array of strings | Lists VPC endpoint IDs.              |
-   +------------------+-----------------+------------------+--------------------------------------+
+   +------------------+-----------------+------------------+------------------------------------------+
+   | Parameter        | Mandatory       | Type             | Description                              |
+   +==================+=================+==================+==========================================+
+   | action           | Yes             | String           | **Definition**:                          |
+   |                  |                 |                  |                                          |
+   |                  |                 |                  | Operation type.                          |
+   |                  |                 |                  |                                          |
+   |                  |                 |                  | **Constraints**:                         |
+   |                  |                 |                  |                                          |
+   |                  |                 |                  | N/A                                      |
+   |                  |                 |                  |                                          |
+   |                  |                 |                  | **Value range**:                         |
+   |                  |                 |                  |                                          |
+   |                  |                 |                  | -  **receive**: Accept the VPC endpoint. |
+   |                  |                 |                  |                                          |
+   |                  |                 |                  | -  **reject**: Reject the VPC endpoint.  |
+   |                  |                 |                  |                                          |
+   |                  |                 |                  | **Default value**:                       |
+   |                  |                 |                  |                                          |
+   |                  |                 |                  | N/A.                                     |
+   +------------------+-----------------+------------------+------------------------------------------+
+   | endpoint_id_list | Yes             | Array of strings | **Definition**:                          |
+   |                  |                 |                  |                                          |
+   |                  |                 |                  | IDs of the VPC endpoints to operate on.  |
+   |                  |                 |                  |                                          |
+   |                  |                 |                  | **Constraints**:                         |
+   |                  |                 |                  |                                          |
+   |                  |                 |                  | N/A                                      |
+   +------------------+-----------------+------------------+------------------------------------------+
 
 Response Parameters
 -------------------

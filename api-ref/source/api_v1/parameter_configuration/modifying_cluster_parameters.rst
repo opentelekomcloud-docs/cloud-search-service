@@ -8,11 +8,14 @@ Modifying Cluster Parameters
 Function
 --------
 
-This API is used to modify the parameter settings of a cluster. Before calling this API, obtain the parameter configuration list, check the parameter settings, and modify them as required.
+The core configuration information of an Elasticsearch cluster is stored in the **elasticsearch.yml** and **kibana.yml** files, while that of an OpenSearch cluster is stored in the **opensearch.yml** and **opensearch_dashboards.yml** files. You can modify a cluster's configuration file for purposes like accelerating queries, modifying cross-domain access configuration, adjusting the internal cache size, and managing the task queue size.
 
-.. note::
+Before calling this API, call the :ref:`Obtaining the Parameter Configuration List <listymls>` API to verify the cluster's parameter settings, and modify them as required.
 
-   Set the values of any custom parameters to those that are supported by Elasticsearch. Otherwise, the cluster will fail to be restarted. Exercise caution when performing this operation.
+Constraints
+-----------
+
+Set the values of any custom parameters to those supported by Elasticsearch. Otherwise, the cluster may fail to restart. Exercise caution when performing this operation.
 
 Calling Method
 --------------
@@ -67,85 +70,103 @@ Request Parameters
 
 .. table:: **Table 2** Request body parameters
 
-   +-----------------+-----------------+-------------------------------------------------------------------------+---------------------------------+
-   | Parameter       | Mandatory       | Type                                                                    | Description                     |
-   +=================+=================+=========================================================================+=================================+
-   | edit            | Yes             | :ref:`UpdateYmlsReqEdit <updateymls__request_updateymlsreqedit>` object | **Definition**:                 |
-   |                 |                 |                                                                         |                                 |
-   |                 |                 |                                                                         | Configuration file information. |
-   |                 |                 |                                                                         |                                 |
-   |                 |                 |                                                                         | **Constraints**:                |
-   |                 |                 |                                                                         |                                 |
-   |                 |                 |                                                                         | N/A                             |
-   +-----------------+-----------------+-------------------------------------------------------------------------+---------------------------------+
+   +-----------------+-----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type                                                                    | Description                                                                                         |
+   +=================+=================+=========================================================================+=====================================================================================================+
+   | edit            | Yes             | :ref:`UpdateYmlsReqEdit <updateymls__request_updateymlsreqedit>` object | **Definition**:                                                                                     |
+   |                 |                 |                                                                         |                                                                                                     |
+   |                 |                 |                                                                         | Configuration file information.                                                                     |
+   |                 |                 |                                                                         |                                                                                                     |
+   |                 |                 |                                                                         | **Constraints**:                                                                                    |
+   |                 |                 |                                                                         |                                                                                                     |
+   |                 |                 |                                                                         | N/A                                                                                                 |
+   +-----------------+-----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+   | inst_type       | No              | String                                                                  | **Definition**:                                                                                     |
+   |                 |                 |                                                                         |                                                                                                     |
+   |                 |                 |                                                                         | Node type.                                                                                          |
+   |                 |                 |                                                                         |                                                                                                     |
+   |                 |                 |                                                                         | **Constraints**:                                                                                    |
+   |                 |                 |                                                                         |                                                                                                     |
+   |                 |                 |                                                                         | Different node types used in KooSearch clusters. Other types of clusters do not use this parameter. |
+   |                 |                 |                                                                         |                                                                                                     |
+   |                 |                 |                                                                         | **Value range**:                                                                                    |
+   |                 |                 |                                                                         |                                                                                                     |
+   |                 |                 |                                                                         | -  kos: KooSearch central control node                                                              |
+   |                 |                 |                                                                         |                                                                                                     |
+   |                 |                 |                                                                         | -  kos-doc: KooSearch document parsing node                                                         |
+   |                 |                 |                                                                         |                                                                                                     |
+   |                 |                 |                                                                         | **Default value**:                                                                                  |
+   |                 |                 |                                                                         |                                                                                                     |
+   |                 |                 |                                                                         | N/A                                                                                                 |
+   +-----------------+-----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
 
 .. _updateymls__request_updateymlsreqedit:
 
 .. table:: **Table 3** UpdateYmlsReqEdit
 
-   +-----------------+-----------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type                                                                                | Description                                                                                                    |
-   +=================+=================+=====================================================================================+================================================================================================================+
-   | modify          | No              | :ref:`UpdateYmlsReqEditModify <updateymls__request_updateymlsreqeditmodify>` object | **Definition**:                                                                                                |
-   |                 |                 |                                                                                     |                                                                                                                |
-   |                 |                 |                                                                                     | Modify parameter settings.                                                                                     |
-   |                 |                 |                                                                                     |                                                                                                                |
-   |                 |                 |                                                                                     | **Constraints**:                                                                                               |
-   |                 |                 |                                                                                     |                                                                                                                |
-   |                 |                 |                                                                                     | -  modify, delete, and reset: at least one of them will take effect, and each operation can be used only once. |
-   |                 |                 |                                                                                     |                                                                                                                |
-   |                 |                 |                                                                                     | -  Cannot perform multiple operations on the same parameter at the same time.                                  |
-   +-----------------+-----------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
-   | delete          | No              | :ref:`UpdateYmlsReqEditModify <updateymls__request_updateymlsreqeditmodify>` object | **Definition**:                                                                                                |
-   |                 |                 |                                                                                     |                                                                                                                |
-   |                 |                 |                                                                                     | Delete custom parameter settings.                                                                              |
-   |                 |                 |                                                                                     |                                                                                                                |
-   |                 |                 |                                                                                     | **Constraints**:                                                                                               |
-   |                 |                 |                                                                                     |                                                                                                                |
-   |                 |                 |                                                                                     | -  Irrelevant to the input parameter value.                                                                    |
-   |                 |                 |                                                                                     |                                                                                                                |
-   |                 |                 |                                                                                     | -  modify, delete, and reset: at least one of them will take effect, and each operation can be used only once. |
-   |                 |                 |                                                                                     |                                                                                                                |
-   |                 |                 |                                                                                     | -  Cannot perform multiple operations on the same parameter at the same time.                                  |
-   +-----------------+-----------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
-   | reset           | No              | :ref:`UpdateYmlsReqEditModify <updateymls__request_updateymlsreqeditmodify>` object | **Definition**:                                                                                                |
-   |                 |                 |                                                                                     |                                                                                                                |
-   |                 |                 |                                                                                     | Reset parameter settings.                                                                                      |
-   |                 |                 |                                                                                     |                                                                                                                |
-   |                 |                 |                                                                                     | **Constraints**:                                                                                               |
-   |                 |                 |                                                                                     |                                                                                                                |
-   |                 |                 |                                                                                     | -  Irrelevant to the input parameter value.                                                                    |
-   |                 |                 |                                                                                     |                                                                                                                |
-   |                 |                 |                                                                                     | -  Custom parameters cannot be reset.                                                                          |
-   |                 |                 |                                                                                     |                                                                                                                |
-   |                 |                 |                                                                                     | -  modify, delete, and reset: at least one of them will take effect, and each operation can be used only once. |
-   |                 |                 |                                                                                     |                                                                                                                |
-   |                 |                 |                                                                                     | -  Cannot perform multiple operations on the same parameter at the same time.                                  |
-   +-----------------+-----------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type                                                                                | Description                                                                                                              |
+   +=================+=================+=====================================================================================+==========================================================================================================================+
+   | modify          | No              | :ref:`UpdateYmlsReqEditModify <updateymls__request_updateymlsreqeditmodify>` object | **Definition**:                                                                                                          |
+   |                 |                 |                                                                                     |                                                                                                                          |
+   |                 |                 |                                                                                     | Modify parameter settings.                                                                                               |
+   |                 |                 |                                                                                     |                                                                                                                          |
+   |                 |                 |                                                                                     | **Constraints**:                                                                                                         |
+   |                 |                 |                                                                                     |                                                                                                                          |
+   |                 |                 |                                                                                     | -  modify, delete, and reset: at least one of them will take effect, and each operation can only be used once each time. |
+   |                 |                 |                                                                                     |                                                                                                                          |
+   |                 |                 |                                                                                     | -  Cannot perform multiple operations on the same parameter at the same time.                                            |
+   +-----------------+-----------------+-------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
+   | delete          | No              | :ref:`UpdateYmlsReqEditModify <updateymls__request_updateymlsreqeditmodify>` object | **Definition**:                                                                                                          |
+   |                 |                 |                                                                                     |                                                                                                                          |
+   |                 |                 |                                                                                     | Delete custom parameter settings.                                                                                        |
+   |                 |                 |                                                                                     |                                                                                                                          |
+   |                 |                 |                                                                                     | **Constraints**:                                                                                                         |
+   |                 |                 |                                                                                     |                                                                                                                          |
+   |                 |                 |                                                                                     | -  Irrelevant to the input parameter value.                                                                              |
+   |                 |                 |                                                                                     |                                                                                                                          |
+   |                 |                 |                                                                                     | -  modify, delete, and reset: at least one of them will take effect, and each operation can be used only once.           |
+   |                 |                 |                                                                                     |                                                                                                                          |
+   |                 |                 |                                                                                     | -  Cannot perform multiple operations on the same parameter at the same time.                                            |
+   +-----------------+-----------------+-------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
+   | reset           | No              | :ref:`UpdateYmlsReqEditModify <updateymls__request_updateymlsreqeditmodify>` object | **Definition**:                                                                                                          |
+   |                 |                 |                                                                                     |                                                                                                                          |
+   |                 |                 |                                                                                     | Reset parameter settings.                                                                                                |
+   |                 |                 |                                                                                     |                                                                                                                          |
+   |                 |                 |                                                                                     | **Constraints**:                                                                                                         |
+   |                 |                 |                                                                                     |                                                                                                                          |
+   |                 |                 |                                                                                     | -  Irrelevant to the input parameter value.                                                                              |
+   |                 |                 |                                                                                     |                                                                                                                          |
+   |                 |                 |                                                                                     | -  Custom parameters cannot be reset.                                                                                    |
+   |                 |                 |                                                                                     |                                                                                                                          |
+   |                 |                 |                                                                                     | -  modify, delete, and reset: at least one of them will take effect, and each operation can be used only once.           |
+   |                 |                 |                                                                                     |                                                                                                                          |
+   |                 |                 |                                                                                     | -  Cannot perform multiple operations on the same parameter at the same time.                                            |
+   +-----------------+-----------------+-------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
 
 .. _updateymls__request_updateymlsreqeditmodify:
 
 .. table:: **Table 4** UpdateYmlsReqEditModify
 
-   +-------------------+-----------------+-----------------+--------------------------------------------------------------------------+
-   | Parameter         | Mandatory       | Type            | Description                                                              |
-   +===================+=================+=================+==========================================================================+
-   | elasticsearch.yml | Yes             | Object          | **Definition**:                                                          |
-   |                   |                 |                 |                                                                          |
-   |                   |                 |                 | Parameter configuration list. The value is the JSON data to be modified. |
-   |                   |                 |                 |                                                                          |
-   |                   |                 |                 | **Constraints**:                                                         |
-   |                   |                 |                 |                                                                          |
-   |                   |                 |                 | N/A                                                                      |
-   |                   |                 |                 |                                                                          |
-   |                   |                 |                 | **Value range**:                                                         |
-   |                   |                 |                 |                                                                          |
-   |                   |                 |                 | N/A                                                                      |
-   |                   |                 |                 |                                                                          |
-   |                   |                 |                 | **Default value**:                                                       |
-   |                   |                 |                 |                                                                          |
-   |                   |                 |                 | N/A                                                                      |
-   +-------------------+-----------------+-----------------+--------------------------------------------------------------------------+
+   +-------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter         | Mandatory       | Type            | Description                                                                                                                                                                                                                         |
+   +===================+=================+=================+=====================================================================================================================================================================================================================================+
+   | elasticsearch.yml | No              | Object          | **Definition**:                                                                                                                                                                                                                     |
+   |                   |                 |                 |                                                                                                                                                                                                                                     |
+   |                   |                 |                 | Parameter configuration list. The value is the JSON data to be modified. This parameter is also used for OpenSearch clusters. When you modify the opensearch.yml file, you need to set this parameter to elasticsearch.yml as well. |
+   |                   |                 |                 |                                                                                                                                                                                                                                     |
+   |                   |                 |                 | **Constraints**:                                                                                                                                                                                                                    |
+   |                   |                 |                 |                                                                                                                                                                                                                                     |
+   |                   |                 |                 | N/A                                                                                                                                                                                                                                 |
+   +-------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | kibana.yml        | No              | Object          | **Definition**:                                                                                                                                                                                                                     |
+   |                   |                 |                 |                                                                                                                                                                                                                                     |
+   |                   |                 |                 | Parameter configuration list. The value is the JSON data to be modified. This parameter is also used for OpenSearch clusters. That is, when modifying opensearch_dashboards.yml, set this parameter to kibana.yml as well.          |
+   |                   |                 |                 |                                                                                                                                                                                                                                     |
+   |                   |                 |                 | **Constraints**:                                                                                                                                                                                                                    |
+   |                   |                 |                 |                                                                                                                                                                                                                                     |
+   |                   |                 |                 | N/A                                                                                                                                                                                                                                 |
+   +-------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Response Parameters
 -------------------
@@ -187,21 +208,53 @@ Response Parameters
 Example Requests
 ----------------
 
-Modify parameter settings.
+-  Modify parameter settings.
 
-.. code-block:: text
+   .. code-block:: text
 
-   POST https://{Endpoint}/v1.0/{project_id}/clusters/4f3deec3-efa8-4598-bf91-560aad1377a3/ymls/update
+      POST https://{Endpoint}/v1.0/{project_id}/clusters/4f3deec3-efa8-4598-bf91-560aad1377a3/ymls/update
 
-   {
-     "edit" : {
-       "modify" : {
-         "elasticsearch.yml" : {
-           "thread_pool.force_merge.size" : 1
-         }
-       }
-     }
-   }
+      {
+        "edit" : {
+          "modify" : {
+            "elasticsearch.yml" : {
+              "thread_pool.force_merge.size" : 1
+            }
+          }
+        }
+      }
+
+-  Delete custom parameter settings.
+
+   .. code-block:: text
+
+      POST https://{Endpoint}/v1.0/{project_id}/clusters/4f3deec3-efa8-4598-bf91-560aad1377a3/ymls/update
+
+      {
+        "edit" : {
+          "delete" : {
+            "elasticsearch.yml" : {
+              "thread_pool.force_merge.size" : 1
+            }
+          }
+        }
+      }
+
+-  Reset parameter settings
+
+   .. code-block:: text
+
+      POST https://{Endpoint}/v1.0/{project_id}/clusters/4f3deec3-efa8-4598-bf91-560aad1377a3/ymls/update
+
+      {
+        "edit" : {
+          "reset" : {
+            "elasticsearch.yml" : {
+              "http.cors.allow-credentials" : "false"
+            }
+          }
+        }
+      }
 
 Example Responses
 -----------------
@@ -213,7 +266,9 @@ Request succeeded.
 .. code-block::
 
    {
-     "acknowledged" : true
+     "acknowledged" : true,
+     "externalMessage" : null,
+     "httpErrorResponse" : null
    }
 
 Status Codes

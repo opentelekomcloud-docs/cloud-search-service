@@ -8,7 +8,14 @@ Disabling the Log Backup or Collection Function
 Function
 --------
 
-This API is used to disable log backup or log ingestion for a cluster. Log backup and log ingestion can be disabled separately. After log backup is disabled, any automatic log backup policy configured earlier becomes invalid, and cluster logs cannot be manually back up to OBS either. Disabling log collection for a cluster stops the logs of that cluster from being collected and saved to a specified cluster.
+This API is used to disable log backup or log ingestion for a cluster. When log backup or log ingestion is no longer required, you can disable it to reduce storage costs.
+
+Constraints
+-----------
+
+-  Disabling log backup does not automatically delete existing log backups. Instead, you need to manually delete them on the OBS console.
+
+-  Disabling log ingestion does not automatically remove ingested log data. Rather, it will be deleted by the system upon expiration of its retention period. You can also manually delete it from the target cluster before the retention period expires.
 
 Calling Method
 --------------
@@ -60,27 +67,27 @@ PUT /v1.0/{project_id}/clusters/{cluster_id}/logs/close
 
 .. table:: **Table 2** Query Parameters
 
-   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                                                      |
-   +=================+=================+=================+==================================================================================================================================================================================================+
-   | action          | No              | String          | **Definition**:                                                                                                                                                                                  |
-   |                 |                 |                 |                                                                                                                                                                                                  |
-   |                 |                 |                 | Disables log backup or log collection.                                                                                                                                                           |
-   |                 |                 |                 |                                                                                                                                                                                                  |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                                                                                  |
-   |                 |                 |                 | You can disable log backup or log ingestion only when they have been enabled for the cluster. For details about how to enable log backup or log ingestion, see :ref:`Enabling Logs <startlogs>`. |
-   |                 |                 |                 |                                                                                                                                                                                                  |
-   |                 |                 |                 | **Value range**:                                                                                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                                                                                  |
-   |                 |                 |                 | -  base_log_collect: Disables log backup.                                                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                                                                                  |
-   |                 |                 |                 | -  real_time_log_collect: Stops log collection.                                                                                                                                                  |
-   |                 |                 |                 |                                                                                                                                                                                                  |
-   |                 |                 |                 | **Default value**:                                                                                                                                                                               |
-   |                 |                 |                 |                                                                                                                                                                                                  |
-   |                 |                 |                 | base_log_collect                                                                                                                                                                                 |
-   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                              |
+   +=================+=================+=================+==========================================================================================================================================================================+
+   | action          | No              | String          | **Definition**:                                                                                                                                                          |
+   |                 |                 |                 |                                                                                                                                                                          |
+   |                 |                 |                 | Disables log backup or log collection.                                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                                                          |
+   |                 |                 |                 | **Constraints**:                                                                                                                                                         |
+   |                 |                 |                 |                                                                                                                                                                          |
+   |                 |                 |                 | You can disable log backup or log collection only when it is enabled. For details about how to enable log backup or log ingestion, see :ref:`Enabling Logs <startlogs>`. |
+   |                 |                 |                 |                                                                                                                                                                          |
+   |                 |                 |                 | **Value range**:                                                                                                                                                         |
+   |                 |                 |                 |                                                                                                                                                                          |
+   |                 |                 |                 | -  base_log_collect: Disables log backup.                                                                                                                                |
+   |                 |                 |                 |                                                                                                                                                                          |
+   |                 |                 |                 | -  real_time_log_collect: Stops log ingestion.                                                                                                                           |
+   |                 |                 |                 |                                                                                                                                                                          |
+   |                 |                 |                 | **Default value**:                                                                                                                                                       |
+   |                 |                 |                 |                                                                                                                                                                          |
+   |                 |                 |                 | base_log_collect                                                                                                                                                         |
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Request Parameters
 ------------------
@@ -99,13 +106,15 @@ None
 Example Requests
 ----------------
 
--  Disable log backup or log ingestion.
+-  Disable log backup.
 
    .. code-block:: text
 
       PUT https://{Endpoint}/v1.0/{project_id}/clusters/5c77b71c-5b35-4f50-8984-76387e42451a/logs/close?action=base_log_collect
 
--  .. code-block:: text
+-  Disable log ingestion.
+
+   .. code-block:: text
 
       PUT https://{Endpoint}/v1.0/{project_id}/clusters/5c77b71c-5b35-4f50-8984-76387e42451a/logs/close?action=real_time_log_collect
 

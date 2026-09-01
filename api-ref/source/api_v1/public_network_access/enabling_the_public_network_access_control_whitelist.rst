@@ -8,7 +8,7 @@ Enabling the Public Network Access Control Whitelist
 Function
 --------
 
-This API is used to enable the public network access control whitelist.
+If public network access is enabled for a cluster, you can use this API to configure a whitelist for public network access control.
 
 Calling Method
 --------------
@@ -63,11 +63,25 @@ Request Parameters
 
 .. table:: **Table 2** Request body parameters
 
-   +------------+-----------+--------+-----------------------------------------------------------+
-   | Parameter  | Mandatory | Type   | Description                                               |
-   +============+===========+========+===========================================================+
-   | white_list | Yes       | String | IP address of the user for whom the whitelist is enabled. |
-   +------------+-----------+--------+-----------------------------------------------------------+
+   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                   |
+   +=================+=================+=================+===============================================================================================================================================================+
+   | white_list      | Yes             | String          | **Definition**                                                                                                                                                |
+   |                 |                 |                 |                                                                                                                                                               |
+   |                 |                 |                 | Public access control whitelist. Add the IP addresses or CIDR blocks to be whitelisted, separated by commas (,). Valid examples: **192.168.1.1,10.0.0.0/24**. |
+   |                 |                 |                 |                                                                                                                                                               |
+   |                 |                 |                 | **Constraints**                                                                                                                                               |
+   |                 |                 |                 |                                                                                                                                                               |
+   |                 |                 |                 | The following are not supported: 0.0.0.0,x.x.x.x/0, non-standard formats such as 192.168.1, or duplicate entries.                                             |
+   |                 |                 |                 |                                                                                                                                                               |
+   |                 |                 |                 | **Range**                                                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                                               |
+   |                 |                 |                 | Valid CIDR blocks or IP addresses.                                                                                                                            |
+   |                 |                 |                 |                                                                                                                                                               |
+   |                 |                 |                 | **Default Value**                                                                                                                                             |
+   |                 |                 |                 |                                                                                                                                                               |
+   |                 |                 |                 | N/A                                                                                                                                                           |
+   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Response Parameters
 -------------------
@@ -88,7 +102,7 @@ Enable the public network access control whitelist.
    POST https://{Endpoint}/v1.0/{project_id}/clusters/4f3deec3-efa8-4598-bf91-560aad1377a3/public/whitelist/update
 
    {
-     "white_list" : "192.168.0.xx"
+     "white_list" : "192.168.0.1"
    }
 
 Example Responses

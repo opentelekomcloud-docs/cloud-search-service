@@ -8,17 +8,18 @@ Deleting a Snapshot
 Function
 --------
 
-CSS allows you to use snapshots to back up and restore Elasticsearch cluster data. By storing a snapshot in an OBS bucket, you save a point-in-time copy of the cluster's data. By restoring this snapshot, you can restore the cluster to a previous state. There are two ways to create snapshots to back up a CSS cluster: automatic and manual.
-
--  Automatic snapshot creation: Snapshots are created periodically based on a preset time policy, for example, daily or weekly, to ensure continuous data protection. This reduces manual effort and improves backup reliability and efficiency.
-
--  Manual snapshot creation: You can manually create snapshots when necessary, for example, before performing a mission-critical operation (such as a cluster upgrade), so you can use these snapshots to quickly restore the cluster to a previous state in case anything goes wrong. Manual snapshots provide more flexibility.
+Delete snapshots that are no longer needed to reclaim storage spaces.
 
 This API is used to delete a snapshot.
 
 .. note::
 
    After a snapshot is deleted, its data cannot be restored. Exercise caution.
+
+Constraints
+-----------
+
+After a snapshot is deleted, its data cannot be restored. Exercise caution.
 
 Calling Method
 --------------
@@ -69,7 +70,7 @@ DELETE /v1.0/{project_id}/clusters/{cluster_id}/index_snapshot/{snapshot_id}
    +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | snapshot_id     | Yes             | String          | **Definition**:                                                                                                                                                 |
    |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | ID of the snapshot you want to delete.                                                                                                                          |
+   |                 |                 |                 | ID of the snapshot you want to delete. For details, see :ref:`Querying Snapshots <listsnapshots>`.                                                              |
    |                 |                 |                 |                                                                                                                                                                 |
    |                 |                 |                 | **Constraints**:                                                                                                                                                |
    |                 |                 |                 |                                                                                                                                                                 |

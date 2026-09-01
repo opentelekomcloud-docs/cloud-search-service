@@ -188,6 +188,20 @@ Response Parameters
    |                       |                                                                                                           | -  **HOUR**                                              |
    |                       |                                                                                                           |                                                          |
    |                       |                                                                                                           | -  **DAY**                                               |
+   |                       |                                                                                                           |                                                          |
+   |                       |                                                                                                           | -  SUN: Sunday                                           |
+   |                       |                                                                                                           |                                                          |
+   |                       |                                                                                                           | -  MON: Monday                                           |
+   |                       |                                                                                                           |                                                          |
+   |                       |                                                                                                           | -  TUE: Tuesday                                          |
+   |                       |                                                                                                           |                                                          |
+   |                       |                                                                                                           | -  WED: Wednesday                                        |
+   |                       |                                                                                                           |                                                          |
+   |                       |                                                                                                           | -  THU: Thursday                                         |
+   |                       |                                                                                                           |                                                          |
+   |                       |                                                                                                           | -  FRI: Friday                                           |
+   |                       |                                                                                                           |                                                          |
+   |                       |                                                                                                           | -  SAT: Saturday                                         |
    +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
    | indices               | String                                                                                                    | **Definition**:                                          |
    |                       |                                                                                                           |                                                          |
@@ -307,14 +321,12 @@ Request succeeded.
        "clusterName" : "Es-xfx",
        "name" : "snapshot-002",
        "status" : "COMPLETED",
-       "updated" : "2018-03-07T07:40:12",
        "backupType" : "1",
        "backupMethod" : "manual",
        "backupFrequency" : "HOUR",
        "indices" : ".kibanawebsite2",
        "totalShards" : 6,
        "failedShards" : 0,
-       "version" : "x.x.x",
        "restoreStatus" : "success",
        "startTime" : 1520408087099,
        "endTime" : 1520408412219,
@@ -331,13 +343,11 @@ Request succeeded.
        "clusterName" : "Es-xfx",
        "name" : "snapshot-001",
        "status" : "COMPLETED",
-       "updated" : "2018-03-06T15:48:04",
        "backupType" : "1",
        "backupMethod" : "manual",
        "indices" : ".kibana",
        "totalShards" : 1,
        "failedShards" : 0,
-       "version" : "x.x.x",
        "restoreStatus" : "none",
        "startTime" : 1520350957275,
        "endTime" : 1520351284357,

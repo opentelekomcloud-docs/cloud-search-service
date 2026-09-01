@@ -73,14 +73,6 @@ Request Parameters
    |                 |                 |                                                                                                    | **Constraints**:          |
    |                 |                 |                                                                                                    |                           |
    |                 |                 |                                                                                                    | N/A                       |
-   |                 |                 |                                                                                                    |                           |
-   |                 |                 |                                                                                                    | **Value range**:          |
-   |                 |                 |                                                                                                    |                           |
-   |                 |                 |                                                                                                    | N/A                       |
-   |                 |                 |                                                                                                    |                           |
-   |                 |                 |                                                                                                    | **Default value**:        |
-   |                 |                 |                                                                                                    |                           |
-   |                 |                 |                                                                                                    | N/A                       |
    +-----------------+-----------------+----------------------------------------------------------------------------------------------------+---------------------------+
 
 .. _updatepublicbandwidth__request_bindpublicreqeipbandwidth:
@@ -100,7 +92,7 @@ Request Parameters
    |                 |                 |                 |                                      |
    |                 |                 |                 | **Value range**:                     |
    |                 |                 |                 |                                      |
-   |                 |                 |                 | N/A                                  |
+   |                 |                 |                 | 1-200                                |
    |                 |                 |                 |                                      |
    |                 |                 |                 | **Default value**:                   |
    |                 |                 |                 |                                      |

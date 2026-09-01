@@ -10,10 +10,6 @@ Function
 
 This API is used to delete a cluster. All resources of the deleted cluster, including customer data, will be released. If you want to retain the data in a customer cluster, create a snapshot before deleting the cluster.
 
-.. note::
-
-   Clusters frozen for public security reasons cannot be deleted. Deleting a cluster will also clear its data. Exercise caution.
-
 Calling Method
 --------------
 

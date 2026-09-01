@@ -8,7 +8,7 @@ Disabling Public Network Access
 Function
 --------
 
-This API is used to disable public network access.
+After public network access is configured for an Elasticsearch or OpenSearch cluster, you can use this API to disable it.
 
 .. note::
 
@@ -67,11 +67,17 @@ Request Parameters
 
 .. table:: **Table 2** Request body parameters
 
-   +-----------+-----------+-----------------------------------------------------------------------------------------+------------------+
-   | Parameter | Mandatory | Type                                                                                    | Description      |
-   +===========+===========+=========================================================================================+==================+
-   | eip       | No        | :ref:`UnBindPublicReqEipReq <updateunbindpublic__request_unbindpublicreqeipreq>` object | EIP information. |
-   +-----------+-----------+-----------------------------------------------------------------------------------------+------------------+
+   +-----------------+-----------------+-----------------------------------------------------------------------------------------+------------------------------------+
+   | Parameter       | Mandatory       | Type                                                                                    | Description                        |
+   +=================+=================+=========================================================================================+====================================+
+   | eip             | No              | :ref:`UnBindPublicReqEipReq <updateunbindpublic__request_unbindpublicreqeipreq>` object | **Definition**:                    |
+   |                 |                 |                                                                                         |                                    |
+   |                 |                 |                                                                                         | Public network access information. |
+   |                 |                 |                                                                                         |                                    |
+   |                 |                 |                                                                                         | **Constraints**:                   |
+   |                 |                 |                                                                                         |                                    |
+   |                 |                 |                                                                                         | N/A.                               |
+   +-----------------+-----------------+-----------------------------------------------------------------------------------------+------------------------------------+
 
 .. _updateunbindpublic__request_unbindpublicreqeipreq:
 
@@ -85,14 +91,6 @@ Request Parameters
    |                 |                 |                                                                                                 | Public network bandwidth. |
    |                 |                 |                                                                                                 |                           |
    |                 |                 |                                                                                                 | **Constraints**:          |
-   |                 |                 |                                                                                                 |                           |
-   |                 |                 |                                                                                                 | N/A                       |
-   |                 |                 |                                                                                                 |                           |
-   |                 |                 |                                                                                                 | **Value range**:          |
-   |                 |                 |                                                                                                 |                           |
-   |                 |                 |                                                                                                 | N/A                       |
-   |                 |                 |                                                                                                 |                           |
-   |                 |                 |                                                                                                 | **Default value**:        |
    |                 |                 |                                                                                                 |                           |
    |                 |                 |                                                                                                 | N/A                       |
    +-----------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------+
@@ -114,7 +112,7 @@ Request Parameters
    |                 |                 |                 |                                      |
    |                 |                 |                 | **Value range**:                     |
    |                 |                 |                 |                                      |
-   |                 |                 |                 | N/A                                  |
+   |                 |                 |                 | 1-200                                |
    |                 |                 |                 |                                      |
    |                 |                 |                 | **Default value**:                   |
    |                 |                 |                 |                                      |
@@ -128,11 +126,17 @@ Response Parameters
 
 .. table:: **Table 5** Response body parameters
 
-   +-----------+--------+---------------------------------------------------------------------------------------------+
-   | Parameter | Type   | Description                                                                                 |
-   +===========+========+=============================================================================================+
-   | action    | String | Operations. The fixed value is **unbindZone**, indicating that the unbinding is successful. |
-   +-----------+--------+---------------------------------------------------------------------------------------------+
+   +-----------------------+-----------------------+----------------------------------------------------------+
+   | Parameter             | Type                  | Description                                              |
+   +=======================+=======================+==========================================================+
+   | action                | String                | **Definition**:                                          |
+   |                       |                       |                                                          |
+   |                       |                       | Disable public network access.                           |
+   |                       |                       |                                                          |
+   |                       |                       | **Value range**:                                         |
+   |                       |                       |                                                          |
+   |                       |                       | unbindZone: Public network access disabled successfully. |
+   +-----------------------+-----------------------+----------------------------------------------------------+
 
 Example Requests
 ----------------

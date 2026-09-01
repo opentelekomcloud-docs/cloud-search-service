@@ -54,6 +54,7 @@ For example, in the URI of the API for obtaining a user token, the request metho
 
 .. code-block::
 
+
    POST https://{iam-endpoint}/v3/auth/tokens
 
 Request Header

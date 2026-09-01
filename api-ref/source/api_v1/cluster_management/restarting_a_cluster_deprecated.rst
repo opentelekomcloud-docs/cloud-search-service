@@ -8,11 +8,12 @@ Restarting a Cluster (Deprecated)
 Function
 --------
 
-This API is used to restart a data node in a cluster, which will interrupt services. To restart all nodes in a cluster, you are advised to use [Restart Cluster V2] (RestartClusterMultiRole.xml).
+This API is used to restart the data nodes of an Elasticsearch or OpenSearch cluster. Services will be interrupted during the restart. To restart all nodes or other types of nodes in a cluster, you are advised to use :ref:`Restarting a Cluster V2 <restartclustermultirole>`.
 
-.. note::
+Constraints
+-----------
 
-   When the cluster is available, ensure that the cluster has stopped processing service data (such as importing data and searching for data). Otherwise, data may be lost when the cluster is restarted.
+If a cluster is available, ensure that it has stopped processing service requests, such as importing and searching for data. Otherwise, data may be lost when the cluster is restarted.
 
 Calling Method
 --------------
@@ -78,6 +79,8 @@ None
 
 Example Requests
 ----------------
+
+Restart the data nodes of a cluster.
 
 .. code-block:: text
 
