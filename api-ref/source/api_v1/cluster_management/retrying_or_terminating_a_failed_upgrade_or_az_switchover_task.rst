@@ -8,7 +8,7 @@ Retrying or Terminating a Failed Upgrade or AZ Switchover Task
 Function
 --------
 
-The upgrade or AZ change may take a long time and may fail due to network issues. This API can be used to retry or stop a failed task.
+This API is used to retry the upgrade or AZ change of an Elasticsearch or OpenSearch cluster. The upgrade or AZ change may take a long time and may fail due to network issues. You can use this API to retry or stop a failed upgrade task.
 
 Constraints
 -----------
@@ -31,79 +31,79 @@ PUT /v1.0/{project_id}/clusters/{cluster_id}/upgrade/{action_id}/retry
 
 .. table:: **Table 1** Path Parameters
 
-   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                          |
-   +=================+=================+=================+======================================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                                     |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | N/A                                                                                                                                                                  |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Value range**:                                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | Project ID of the account.                                                                                                                                           |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Default value**:                                                                                                                                                   |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | N/A                                                                                                                                                                  |
-   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | ID of the cluster for which you want to retry the failed task. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`.    |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | N/A                                                                                                                                                                  |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Value range**:                                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | Cluster ID.                                                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Default value**:                                                                                                                                                   |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | N/A                                                                                                                                                                  |
-   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | action_id       | Yes             | String          | **Definition**:                                                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | ID of the task to be retried. For details about how to obtain the cluster ID, see :ref:`Obtaining Details About a Cluster Upgrade or AZ Switchover <upgradedetail>`. |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | ID of a failed task.                                                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Value range**:                                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | N/A                                                                                                                                                                  |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Default value**:                                                                                                                                                   |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | N/A                                                                                                                                                                  |
-   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                       |
+   +=================+=================+=================+===================================================================================================================================================================+
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                                  |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | **Constraints**                                                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | N/A                                                                                                                                                               |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | **Range**                                                                                                                                                         |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                                           |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | **Default Value**                                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | N/A                                                                                                                                                               |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | ID of the cluster for which you want to retry the failed task. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | **Constraints**                                                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | N/A                                                                                                                                                               |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | **Range**                                                                                                                                                         |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | **Default Value**                                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | N/A                                                                                                                                                               |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | action_id       | Yes             | String          | **Definition**                                                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | ID of the task to be retried. For details, see :ref:`Obtaining Details About a Cluster Upgrade or AZ Switchover <upgradedetail>`.                                 |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | **Constraints**                                                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | ID of the failed task, in UUID format.                                                                                                                            |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | **Range**                                                                                                                                                         |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | N/A                                                                                                                                                               |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | **Default Value**                                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                                                   |
+   |                 |                 |                 | N/A                                                                                                                                                               |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. table:: **Table 2** Query Parameters
 
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                             |
-   +=================+=================+=================+=========================================================================================================================================+
-   | retry_mode      | No              | String          | **Definition**:                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | Select a retry mode. When this parameter is set, the upgrade task will be terminated. When it is not, the upgrade task will be retried. |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Constraints**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | Currently, its value can only be **abort**.                                                                                             |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Value range**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **abort**: Terminates the upgrade task.                                                                                                 |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Default value**:                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                     |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                                              |
+   +=================+=================+=================+==========================================================================================================================================================+
+   | retry_mode      | No              | String          | **Definition**                                                                                                                                           |
+   |                 |                 |                 |                                                                                                                                                          |
+   |                 |                 |                 | Retry mode. When **retry_mode** is set to **abort**, the upgrade task is terminated. When this parameter is not configured, the upgrade task is retried. |
+   |                 |                 |                 |                                                                                                                                                          |
+   |                 |                 |                 | **Constraints**                                                                                                                                          |
+   |                 |                 |                 |                                                                                                                                                          |
+   |                 |                 |                 | Only **abort** is currently supported.                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                                          |
+   |                 |                 |                 | **Range**                                                                                                                                                |
+   |                 |                 |                 |                                                                                                                                                          |
+   |                 |                 |                 | **abort**: Terminate the upgrade task.                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                                          |
+   |                 |                 |                 | **Default Value**                                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                                          |
+   |                 |                 |                 | If not configured, the upgrade task is retried by default.                                                                                               |
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Request Parameters
 ------------------
@@ -114,8 +114,6 @@ Response Parameters
 -------------------
 
 **Status code: 200**
-
-Request succeeded.
 
 None
 

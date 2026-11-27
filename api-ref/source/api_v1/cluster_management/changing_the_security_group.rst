@@ -27,73 +27,73 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/sg/change
 
 .. table:: **Table 1** Path Parameters
 
-   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                   |
-   +=================+=================+=================+===============================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                               |
-   |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                              |
-   |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | **Constraints**:                                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | N/A                                                                                                                                                           |
-   |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | **Value range**:                                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | Project ID of the account.                                                                                                                                    |
-   |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | **Default value**:                                                                                                                                            |
-   |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | N/A                                                                                                                                                           |
-   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                               |
-   |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | ID of the cluster whose security group you want to change. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
-   |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | **Constraints**:                                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | N/A                                                                                                                                                           |
-   |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | **Value range**:                                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | Cluster ID.                                                                                                                                                   |
-   |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | **Default value**:                                                                                                                                            |
-   |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | N/A                                                                                                                                                           |
-   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                    |
+   +=================+=================+=================+================================================================================================================================================================+
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                                                |
+   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                               |
+   |                 |                 |                 |                                                                                                                                                                |
+   |                 |                 |                 | **Constraints**                                                                                                                                                |
+   |                 |                 |                 |                                                                                                                                                                |
+   |                 |                 |                 | N/A                                                                                                                                                            |
+   |                 |                 |                 |                                                                                                                                                                |
+   |                 |                 |                 | **Range**                                                                                                                                                      |
+   |                 |                 |                 |                                                                                                                                                                |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                                        |
+   |                 |                 |                 |                                                                                                                                                                |
+   |                 |                 |                 | **Default Value**                                                                                                                                              |
+   |                 |                 |                 |                                                                                                                                                                |
+   |                 |                 |                 | N/A                                                                                                                                                            |
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                                                |
+   |                 |                 |                 | ID of the cluster whose security group you want to change. It can be obtained by calling the :ref:`Obtaining the Cluster ID <css_03_0101>` API.                |
+   |                 |                 |                 |                                                                                                                                                                |
+   |                 |                 |                 | **Constraints**                                                                                                                                                |
+   |                 |                 |                 |                                                                                                                                                                |
+   |                 |                 |                 | The cluster must be in the available state. Security group change is not supported when the cluster is in states such as creating, scaling out, or restarting. |
+   |                 |                 |                 |                                                                                                                                                                |
+   |                 |                 |                 | **Range**                                                                                                                                                      |
+   |                 |                 |                 |                                                                                                                                                                |
+   |                 |                 |                 | UUID format, 36 characters.                                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                                                |
+   |                 |                 |                 | **Default Value**                                                                                                                                              |
+   |                 |                 |                 |                                                                                                                                                                |
+   |                 |                 |                 | N/A                                                                                                                                                            |
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Request Parameters
 ------------------
 
 .. table:: **Table 2** Request body parameters
 
-   +--------------------+-----------------+-----------------+----------------------------------+
-   | Parameter          | Mandatory       | Type            | Description                      |
-   +====================+=================+=================+==================================+
-   | security_group_ids | Yes             | String          | **Definition**:                  |
-   |                    |                 |                 |                                  |
-   |                    |                 |                 | ID of the target security group. |
-   |                    |                 |                 |                                  |
-   |                    |                 |                 | **Constraints**:                 |
-   |                    |                 |                 |                                  |
-   |                    |                 |                 | N/A                              |
-   |                    |                 |                 |                                  |
-   |                    |                 |                 | **Value range**:                 |
-   |                    |                 |                 |                                  |
-   |                    |                 |                 | N/A                              |
-   |                    |                 |                 |                                  |
-   |                    |                 |                 | **Default value**:               |
-   |                    |                 |                 |                                  |
-   |                    |                 |                 | N/A                              |
-   +--------------------+-----------------+-----------------+----------------------------------+
+   +--------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter          | Mandatory       | Type            | Description                                                                                                                                                                                                                                                                         |
+   +====================+=================+=================+=====================================================================================================================================================================================================================================================================================+
+   | security_group_ids | Yes             | String          | **Definition**                                                                                                                                                                                                                                                                      |
+   |                    |                 |                 |                                                                                                                                                                                                                                                                                     |
+   |                    |                 |                 | Target security group ID. It can be obtained by calling the API. After the switch, the cluster will use the new security group rules, and the original security group rules will no longer take effect. Ensure that the new security group is configured with correct access rules. |
+   |                    |                 |                 |                                                                                                                                                                                                                                                                                     |
+   |                    |                 |                 | **Constraints**                                                                                                                                                                                                                                                                     |
+   |                    |                 |                 |                                                                                                                                                                                                                                                                                     |
+   |                    |                 |                 | -  Only one security group ID is supported.                                                                                                                                                                                                                                         |
+   |                    |                 |                 |                                                                                                                                                                                                                                                                                     |
+   |                    |                 |                 | -  The target security group must be in the same VPC as the cluster, and necessary ports such as 9200 must be opened. Otherwise, the cluster may not be accessible after the switch.                                                                                                |
+   |                    |                 |                 |                                                                                                                                                                                                                                                                                     |
+   |                    |                 |                 | **Range**                                                                                                                                                                                                                                                                           |
+   |                    |                 |                 |                                                                                                                                                                                                                                                                                     |
+   |                    |                 |                 | UUID format, 36 characters.                                                                                                                                                                                                                                                         |
+   |                    |                 |                 |                                                                                                                                                                                                                                                                                     |
+   |                    |                 |                 | **Default Value**                                                                                                                                                                                                                                                                   |
+   |                    |                 |                 |                                                                                                                                                                                                                                                                                     |
+   |                    |                 |                 | N/A                                                                                                                                                                                                                                                                                 |
+   +--------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Response Parameters
 -------------------
 
 **Status code: 200**
-
-Request succeeded.
 
 None
 

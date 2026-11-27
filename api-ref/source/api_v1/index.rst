@@ -15,6 +15,7 @@ API V1
 -  :ref:`Snapshot Management <snapshot_management>`
 -  :ref:`VPC Endpoint <vpecp_management>`
 -  :ref:`Parameter Configuration <ymls_management>`
+-  :ref:`Intelligent O&M <intelligent_maintenance>`
 -  :ref:`Load Balancing <topic_300000013>`
 
 .. toctree::
@@ -31,4 +32,5 @@ API V1
    snapshot_management/index
    vpc_endpoint/index
    parameter_configuration/index
+   intelligent_o_and_m/index
    load_balancing/index

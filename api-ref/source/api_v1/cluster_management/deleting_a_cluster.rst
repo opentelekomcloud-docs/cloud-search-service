@@ -10,6 +10,10 @@ Function
 
 This API is used to delete a cluster. All resources of the deleted cluster, including customer data, will be released. If you want to retain the data in a customer cluster, create a snapshot before deleting the cluster.
 
+.. note::
+
+   This API can also be used to unsubscribe from yearly/monthly clusters. Clusters frozen for public security reasons cannot be deleted. Deleting a cluster will also clear its data. Exercise caution.
+
 Calling Method
 --------------
 
@@ -22,41 +26,41 @@ DELETE /v1.0/{project_id}/clusters/{cluster_id}
 
 .. table:: **Table 1** Path Parameters
 
-   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                              |
-   +=================+=================+=================+==========================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                          |
-   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.         |
-   |                 |                 |                 |                                                                                                                                          |
-   |                 |                 |                 | **Constraints**:                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                          |
-   |                 |                 |                 | N/A                                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                          |
-   |                 |                 |                 | **Value range**:                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                          |
-   |                 |                 |                 | Project ID of the account.                                                                                                               |
-   |                 |                 |                 |                                                                                                                                          |
-   |                 |                 |                 | **Default value**:                                                                                                                       |
-   |                 |                 |                 |                                                                                                                                          |
-   |                 |                 |                 | N/A                                                                                                                                      |
-   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                          |
-   |                 |                 |                 | ID of the cluster you want to delete. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
-   |                 |                 |                 |                                                                                                                                          |
-   |                 |                 |                 | **Constraints**:                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                          |
-   |                 |                 |                 | N/A                                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                          |
-   |                 |                 |                 | **Value range**:                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                          |
-   |                 |                 |                 | Cluster ID.                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                          |
-   |                 |                 |                 | **Default value**:                                                                                                                       |
-   |                 |                 |                 |                                                                                                                                          |
-   |                 |                 |                 | N/A                                                                                                                                      |
-   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                         |
+   +=================+=================+=================+=====================================================================================================================================+
+   | project_id      | Yes             | String          | **Definition**                                                                                                                      |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | Project ID. For details about how to obtain the project ID, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.             |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Constraints**                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | N/A                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Range**                                                                                                                           |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | The value is a 32-character string consisting of lowercase letters and digits.                                                      |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Default Value**                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | N/A                                                                                                                                 |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                      |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | ID of the cluster to be deleted. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Constraints**                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | N/A                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Range**                                                                                                                           |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                       |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Default Value**                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | N/A                                                                                                                                 |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
 
 Request Parameters
 ------------------
@@ -68,8 +72,6 @@ Response Parameters
 
 **Status code: 200**
 
-Request succeeded.
-
 None
 
 Example Requests
@@ -79,7 +81,7 @@ Delete a cluster.
 
 .. code-block:: text
 
-   DELETE https://{Endpoint}/v1.0/{project_id}/clusters/2a197c4d-5467-4003-931d-83ec49939cf
+   DELETE https://{Endpoint}/v1.0/{project_id}/clusters/{cluster_id}
 
 Example Responses
 -----------------

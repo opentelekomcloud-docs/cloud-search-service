@@ -8,9 +8,9 @@ Changing the Cluster Administrator Password
 Function
 --------
 
-This API is used to change the admin password for a security-mode cluster.
+This API is used to change the password of the administrator account **admin** of a security cluster.
 
-A security-mode cluster is a cluster for which the security mode is enabled. This parameter is available only for Elasticsearch and OpenSearch clusters.
+A cluster with the security mode set to enabled is a security cluster. This API applies only to Elasticsearch/OpenSearch clusters.
 
 Calling Method
 --------------
@@ -27,35 +27,35 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/password/reset
    +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                                             |
    +=================+=================+=================+=========================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                         |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                          |
    |                 |                 |                 |                                                                                                                                                         |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                        |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Constraints**:                                                                                                                                        |
+   |                 |                 |                 | **Constraints**                                                                                                                                         |
    |                 |                 |                 |                                                                                                                                                         |
    |                 |                 |                 | N/A                                                                                                                                                     |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Value range**:                                                                                                                                        |
+   |                 |                 |                 | **Range**                                                                                                                                               |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | Project ID of the account.                                                                                                                              |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                                 |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Default value**:                                                                                                                                      |
+   |                 |                 |                 | **Default Value**                                                                                                                                       |
    |                 |                 |                 |                                                                                                                                                         |
    |                 |                 |                 | N/A                                                                                                                                                     |
    +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                         |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                          |
    |                 |                 |                 |                                                                                                                                                         |
    |                 |                 |                 | ID of the cluster whose password you want to change. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Constraints**:                                                                                                                                        |
+   |                 |                 |                 | **Constraints**                                                                                                                                         |
    |                 |                 |                 |                                                                                                                                                         |
    |                 |                 |                 | N/A                                                                                                                                                     |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Value range**:                                                                                                                                        |
+   |                 |                 |                 | **Range**                                                                                                                                               |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | Cluster ID.                                                                                                                                             |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                                           |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Default value**:                                                                                                                                      |
+   |                 |                 |                 | **Default Value**                                                                                                                                       |
    |                 |                 |                 |                                                                                                                                                         |
    |                 |                 |                 | N/A                                                                                                                                                     |
    +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -65,36 +65,32 @@ Request Parameters
 
 .. table:: **Table 2** Request body parameters
 
-   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                                |
-   +=================+=================+=================+============================================================================================================================================+
-   | newpassword     | Yes             | String          | **Definition**:                                                                                                                            |
-   |                 |                 |                 |                                                                                                                                            |
-   |                 |                 |                 | New password of the cluster admin account.                                                                                                 |
-   |                 |                 |                 |                                                                                                                                            |
-   |                 |                 |                 | **Constraints**:                                                                                                                           |
-   |                 |                 |                 |                                                                                                                                            |
-   |                 |                 |                 | This API is available only when **authorityEnable** is set to **true** during cluster creation.                                            |
-   |                 |                 |                 |                                                                                                                                            |
-   |                 |                 |                 | **Value range**:                                                                                                                           |
-   |                 |                 |                 |                                                                                                                                            |
-   |                 |                 |                 | -  Must contain 8 to 32 characters.                                                                                                        |
-   |                 |                 |                 |                                                                                                                                            |
-   |                 |                 |                 | -  Must contain at least three of the following character types: letters, digits, and special characters ``~!@#$%^&*()-_=+\|[{}];:,<.>/?`` |
-   |                 |                 |                 |                                                                                                                                            |
-   |                 |                 |                 | -  Do not use the administrator name, or the administrator name spelled backwards, as the password.                                        |
-   |                 |                 |                 |                                                                                                                                            |
-   |                 |                 |                 | **Default value**:                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                            |
-   |                 |                 |                 | N/A                                                                                                                                        |
-   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                                                                            |
+   +=================+=================+=================+========================================================================================================================================================================================================================+
+   | newpassword     | Yes             | String          | **Definition**                                                                                                                                                                                                         |
+   |                 |                 |                 |                                                                                                                                                                                                                        |
+   |                 |                 |                 | New password of the cluster administrator **admin**.                                                                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                                                                                                        |
+   |                 |                 |                 | **Constraints**                                                                                                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                                                                                                        |
+   |                 |                 |                 | -  This API is available only when **authorityEnable** is **true** during cluster creation.                                                                                                                            |
+   |                 |                 |                 |                                                                                                                                                                                                                        |
+   |                 |                 |                 | -  The password cannot be the same as the administrator account name or the administrator account name spelled backwards.                                                                                              |
+   |                 |                 |                 |                                                                                                                                                                                                                        |
+   |                 |                 |                 | **Range**                                                                                                                                                                                                              |
+   |                 |                 |                 |                                                                                                                                                                                                                        |
+   |                 |                 |                 | 8 to 32 characters. The password must contain at least three of the following four character types: uppercase letters, lowercase letters, digits, and the following special characters: ``~!@#$%&*()-_=|[{}];:,<.>/?`` |
+   |                 |                 |                 |                                                                                                                                                                                                                        |
+   |                 |                 |                 | **Default Value**                                                                                                                                                                                                      |
+   |                 |                 |                 |                                                                                                                                                                                                                        |
+   |                 |                 |                 | N/A                                                                                                                                                                                                                    |
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Response Parameters
 -------------------
 
 **Status code: 200**
-
-Request succeeded.
 
 None
 
@@ -108,7 +104,7 @@ Change the administrator password of the current cluster.
    POST https://{Endpoint}/v1.0/{project_id}/clusters/4f3deec3-efa8-4598-bf91-560aad1377a3/password/reset
 
    {
-     "newpassword" : "xxxxxx"
+     "newpassword" : "{newpassword}"
    }
 
 Example Responses

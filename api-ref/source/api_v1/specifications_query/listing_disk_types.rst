@@ -25,19 +25,19 @@ GET /v1.0/{project_id}/disktypes
    +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                      |
    +=================+=================+=================+==================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                  |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                   |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`. |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Constraints**:                                                                                                                 |
+   |                 |                 |                 | **Constraints**                                                                                                                  |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | N/A                                                                                                                              |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Value range**:                                                                                                                 |
+   |                 |                 |                 | **Range**                                                                                                                        |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | Project ID of the account.                                                                                                       |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                          |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Default value**:                                                                                                               |
+   |                 |                 |                 | **Default Value**                                                                                                                |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | N/A                                                                                                                              |
    +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
@@ -54,45 +54,37 @@ Response Parameters
 
 .. table:: **Table 2** Response body parameters
 
-   +-----------------------+--------------------------------------------------------------------+-----------------------+
-   | Parameter             | Type                                                               | Description           |
-   +=======================+====================================================================+=======================+
-   | diskTypes             | Array of :ref:`DiskType <listdisktype__response_disktype>` objects | **Definition**:       |
-   |                       |                                                                    |                       |
-   |                       |                                                                    | Disk type list.       |
-   |                       |                                                                    |                       |
-   |                       |                                                                    | **Value range**:      |
-   |                       |                                                                    |                       |
-   |                       |                                                                    | N/A                   |
-   +-----------------------+--------------------------------------------------------------------+-----------------------+
+   +-----------------------+--------------------------------------------------------------------+------------------------------------------------------------------+
+   | Parameter             | Type                                                               | Description                                                      |
+   +=======================+====================================================================+==================================================================+
+   | diskTypes             | Array of :ref:`DiskType <listdisktype__response_disktype>` objects | **Definition**                                                   |
+   |                       |                                                                    |                                                                  |
+   |                       |                                                                    | Disk type list, including the specifications and AZ information. |
+   |                       |                                                                    |                                                                  |
+   |                       |                                                                    | **Range**                                                        |
+   |                       |                                                                    |                                                                  |
+   |                       |                                                                    | N/A                                                              |
+   +-----------------------+--------------------------------------------------------------------+------------------------------------------------------------------+
 
 .. _listdisktype__response_disktype:
 
 .. table:: **Table 3** DiskType
 
-   +-----------------------+-----------------------+----------------------------+
-   | Parameter             | Type                  | Description                |
-   +=======================+=======================+============================+
-   | availabilityZone      | String                | **Definition**:            |
-   |                       |                       |                            |
-   |                       |                       | Availability zone (AZ).    |
-   |                       |                       |                            |
-   |                       |                       | **Value range**:           |
-   |                       |                       |                            |
-   |                       |                       | N/A                        |
-   +-----------------------+-----------------------+----------------------------+
-   | volumeNames           | Array of strings      | **Definition**:            |
-   |                       |                       |                            |
-   |                       |                       | Storage type.              |
-   |                       |                       |                            |
-   |                       |                       | **Value range**:           |
-   |                       |                       |                            |
-   |                       |                       | -  **SAS**: high I/O       |
-   |                       |                       |                            |
-   |                       |                       | -  **SSD**: ultra-high I/O |
-   |                       |                       |                            |
-   |                       |                       | -  **ESSD**: extreme SSD   |
-   +-----------------------+-----------------------+----------------------------+
+   +-----------------------+-----------------------+--------------------------------------------------------------------------------------------------+
+   | Parameter             | Type                  | Description                                                                                      |
+   +=======================+=======================+==================================================================================================+
+   | availabilityZone      | String                | **Definition**:                                                                                  |
+   |                       |                       |                                                                                                  |
+   |                       |                       | Availability zone (AZ).                                                                          |
+   |                       |                       |                                                                                                  |
+   |                       |                       | **Value range**:                                                                                 |
+   |                       |                       |                                                                                                  |
+   |                       |                       | N/A                                                                                              |
+   +-----------------------+-----------------------+--------------------------------------------------------------------------------------------------+
+   | volumeNames           | Array of strings      | **Definition**                                                                                   |
+   |                       |                       |                                                                                                  |
+   |                       |                       | Disk type. Options are **SAS** (high I/O), **SSD** (ultra-high I/O), and **ESSD** (extreme SSD). |
+   +-----------------------+-----------------------+--------------------------------------------------------------------------------------------------+
 
 Example Requests
 ----------------
@@ -108,19 +100,17 @@ Example Responses
 
 **Status code: 200**
 
-Request succeeded.
-
 .. code-block::
 
    {
      "diskTypes" : [ {
-       "availabilityZone" : "xx-north-1a",
+       "availabilityZone" : "az_code_a",
        "volumeNames" : [ "SATA" ]
      }, {
-       "availabilityZone" : "azcode-1",
+       "availabilityZone" : "az_code_b",
        "volumeNames" : [ "SATA", "SAS" ]
      }, {
-       "availabilityZone" : "azcode-1",
+       "availabilityZone" : "az_code_c",
        "volumeNames" : [ "SATA", "SAS", "SSD" ]
      } ]
    }

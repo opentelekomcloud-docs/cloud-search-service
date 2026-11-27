@@ -8,7 +8,7 @@ Obtaining Details About a Cluster Upgrade or AZ Switchover
 Function
 --------
 
-By deploying a CSS cluster across multiple AZs, you can increase the cluster's availability, lower the likelihood of data loss, and minimize service downtime. You can deploy a cluster across two or three AZs within a region. The upgrade may take a long time. This API can be used to check phase-by-phase information during a cluster upgrade or AZ switchover.
+By deploying a CSS cluster across multiple AZs, you can increase the cluster's availability, lower the likelihood of data loss, and minimize service downtime. You can deploy a cluster across two or three AZs within a region. The upgrade may take a long time. This API can be used to check phase-by-phase information during an Elasticsearch or OpenSearch cluster upgrade or AZ switchover.
 
 Calling Method
 --------------
@@ -25,35 +25,35 @@ GET /v1.0/{project_id}/clusters/{cluster_id}/upgrade/detail
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                          |
    +=================+=================+=================+======================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                      |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                       |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.     |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Constraints**:                                                                                                                     |
+   |                 |                 |                 | **Constraints**                                                                                                                      |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                  |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Value range**:                                                                                                                     |
+   |                 |                 |                 | **Range**                                                                                                                            |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | Project ID of the account.                                                                                                           |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                              |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Default value**:                                                                                                                   |
+   |                 |                 |                 | **Default Value**                                                                                                                    |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                  |
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                      |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                       |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | ID of the cluster to be upgraded. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Constraints**:                                                                                                                     |
+   |                 |                 |                 | **Constraints**                                                                                                                      |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                  |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Value range**:                                                                                                                     |
+   |                 |                 |                 | **Range**                                                                                                                            |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | Cluster ID.                                                                                                                          |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                        |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Default value**:                                                                                                                   |
+   |                 |                 |                 | **Default Value**                                                                                                                    |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                  |
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
@@ -161,19 +161,19 @@ Response Parameters
    |                       |                                                                                       |                                                                                                                                                 |
    |                       |                                                                                       | N/A                                                                                                                                             |
    +-----------------------+---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-   | startTime             | String                                                                                | **Definition**:                                                                                                                                 |
+   | startTime             | String                                                                                | **Definition**                                                                                                                                  |
    |                       |                                                                                       |                                                                                                                                                 |
-   |                       |                                                                                       | Start time of an upgrade or AZ change task.                                                                                                     |
+   |                       |                                                                                       | Start time of the upgrade or AZ switchover task. The format is yyyy-MM-dd'T'HH:mm:ss.                                                           |
    |                       |                                                                                       |                                                                                                                                                 |
-   |                       |                                                                                       | **Value range**:                                                                                                                                |
+   |                       |                                                                                       | **Range**                                                                                                                                       |
    |                       |                                                                                       |                                                                                                                                                 |
    |                       |                                                                                       | N/A                                                                                                                                             |
    +-----------------------+---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-   | endTime               | String                                                                                | **Definition**:                                                                                                                                 |
+   | endTime               | String                                                                                | **Definition**                                                                                                                                  |
    |                       |                                                                                       |                                                                                                                                                 |
-   |                       |                                                                                       | End time of an upgrade or AZ change task.                                                                                                       |
+   |                       |                                                                                       | End time of the upgrade or AZ switchover task. The format is yyyy-MM-dd'T'HH:mm:ss.                                                             |
    |                       |                                                                                       |                                                                                                                                                 |
-   |                       |                                                                                       | **Value range**:                                                                                                                                |
+   |                       |                                                                                       | **Range**                                                                                                                                       |
    |                       |                                                                                       |                                                                                                                                                 |
    |                       |                                                                                       | N/A                                                                                                                                             |
    +-----------------------+---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -191,11 +191,11 @@ Response Parameters
    |                       |                                                                                       |                                                                                                                                                 |
    |                       |                                                                                       | -  **PARTIAL_FAILED**: The task failed partially.                                                                                               |
    +-----------------------+---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-   | agencyName            | String                                                                                | **Definition**:                                                                                                                                 |
+   | agencyName            | String                                                                                | **Definition**                                                                                                                                  |
    |                       |                                                                                       |                                                                                                                                                 |
-   |                       |                                                                                       | Agency name. You can create an agency to allow CSS to call other cloud services.                                                                |
+   |                       |                                                                                       | Name of the IAM agency used to authorize CSS to access and use ELB resources.                                                                   |
    |                       |                                                                                       |                                                                                                                                                 |
-   |                       |                                                                                       | **Value range**:                                                                                                                                |
+   |                       |                                                                                       | **Range**                                                                                                                                       |
    |                       |                                                                                       |                                                                                                                                                 |
    |                       |                                                                                       | N/A                                                                                                                                             |
    +-----------------------+---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -207,27 +207,27 @@ Response Parameters
    |                       |                                                                                       |                                                                                                                                                 |
    |                       |                                                                                       | N/A                                                                                                                                             |
    +-----------------------+---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-   | totalNodes            | String                                                                                | **Definition**:                                                                                                                                 |
+   | totalNodes            | String                                                                                | **Definition**                                                                                                                                  |
    |                       |                                                                                       |                                                                                                                                                 |
    |                       |                                                                                       | Names of all nodes that need to be upgraded or switched to another AZ.                                                                          |
    |                       |                                                                                       |                                                                                                                                                 |
-   |                       |                                                                                       | **Value range**:                                                                                                                                |
+   |                       |                                                                                       | **Range**                                                                                                                                       |
    |                       |                                                                                       |                                                                                                                                                 |
    |                       |                                                                                       | N/A                                                                                                                                             |
    +-----------------------+---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-   | completedNodes        | String                                                                                | **Definition**:                                                                                                                                 |
+   | completedNodes        | String                                                                                | **Definition**                                                                                                                                  |
    |                       |                                                                                       |                                                                                                                                                 |
    |                       |                                                                                       | Nodes where upgrade or AZ change tasks have been completed.                                                                                     |
    |                       |                                                                                       |                                                                                                                                                 |
-   |                       |                                                                                       | **Value range**:                                                                                                                                |
+   |                       |                                                                                       | **Range**                                                                                                                                       |
    |                       |                                                                                       |                                                                                                                                                 |
    |                       |                                                                                       | N/A                                                                                                                                             |
    +-----------------------+---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-   | currentNodeName       | String                                                                                | **Definition**:                                                                                                                                 |
+   | currentNodeName       | String                                                                                | **Definition**                                                                                                                                  |
    |                       |                                                                                       |                                                                                                                                                 |
    |                       |                                                                                       | Name of the node that is being upgraded or switched to another AZ.                                                                              |
    |                       |                                                                                       |                                                                                                                                                 |
-   |                       |                                                                                       | **Value range**:                                                                                                                                |
+   |                       |                                                                                       | **Range**                                                                                                                                       |
    |                       |                                                                                       |                                                                                                                                                 |
    |                       |                                                                                       | N/A                                                                                                                                             |
    +-----------------------+---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -344,63 +344,63 @@ Response Parameters
 
 .. table:: **Table 6** CurrentNodeDetail
 
-   +-----------------------+-----------------------+----------------------------------------------------------------------+
-   | Parameter             | Type                  | Description                                                          |
-   +=======================+=======================+======================================================================+
-   | order                 | Integer               | **Definition**:                                                      |
-   |                       |                       |                                                                      |
-   |                       |                       | SN of the upgrade or AZ switchover task.                             |
-   |                       |                       |                                                                      |
-   |                       |                       | **Value range**:                                                     |
-   |                       |                       |                                                                      |
-   |                       |                       | N/A                                                                  |
-   +-----------------------+-----------------------+----------------------------------------------------------------------+
-   | name                  | String                | **Definition**:                                                      |
-   |                       |                       |                                                                      |
-   |                       |                       | Name of the upgrade or AZ switchover task.                           |
-   |                       |                       |                                                                      |
-   |                       |                       | **Value range**:                                                     |
-   |                       |                       |                                                                      |
-   |                       |                       | N/A                                                                  |
-   +-----------------------+-----------------------+----------------------------------------------------------------------+
-   | status                | String                | **Definition**:                                                      |
-   |                       |                       |                                                                      |
-   |                       |                       | Status of the upgrade or AZ change task of the current cluster.      |
-   |                       |                       |                                                                      |
-   |                       |                       | **Value range**:                                                     |
-   |                       |                       |                                                                      |
-   |                       |                       | -  **RUNNING**: running                                              |
-   |                       |                       |                                                                      |
-   |                       |                       | -  **SUCCESS**                                                       |
-   |                       |                       |                                                                      |
-   |                       |                       | -  **FAILED**                                                        |
-   |                       |                       |                                                                      |
-   |                       |                       | -  **WAITING**                                                       |
-   +-----------------------+-----------------------+----------------------------------------------------------------------+
-   | desc                  | String                | **Definition**:                                                      |
-   |                       |                       |                                                                      |
-   |                       |                       | Description of the upgrade or AZ change task of the current cluster. |
-   |                       |                       |                                                                      |
-   |                       |                       | **Value range**:                                                     |
-   |                       |                       |                                                                      |
-   |                       |                       | N/A                                                                  |
-   +-----------------------+-----------------------+----------------------------------------------------------------------+
-   | beginTime             | String                | **Definition**:                                                      |
-   |                       |                       |                                                                      |
-   |                       |                       | Start time of the upgrade or AZ change task of the current cluster.  |
-   |                       |                       |                                                                      |
-   |                       |                       | **Value range**:                                                     |
-   |                       |                       |                                                                      |
-   |                       |                       | N/A                                                                  |
-   +-----------------------+-----------------------+----------------------------------------------------------------------+
-   | endTime               | String                | **Definition**:                                                      |
-   |                       |                       |                                                                      |
-   |                       |                       | End time of the upgrade or AZ change task of the current cluster.    |
-   |                       |                       |                                                                      |
-   |                       |                       | **Value range**:                                                     |
-   |                       |                       |                                                                      |
-   |                       |                       | N/A                                                                  |
-   +-----------------------+-----------------------+----------------------------------------------------------------------+
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------+
+   | Parameter             | Type                  | Description                                                                                   |
+   +=======================+=======================+===============================================================================================+
+   | order                 | Integer               | **Definition**:                                                                               |
+   |                       |                       |                                                                                               |
+   |                       |                       | SN of the upgrade or AZ switchover task.                                                      |
+   |                       |                       |                                                                                               |
+   |                       |                       | **Value range**:                                                                              |
+   |                       |                       |                                                                                               |
+   |                       |                       | N/A                                                                                           |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------+
+   | name                  | String                | **Definition**:                                                                               |
+   |                       |                       |                                                                                               |
+   |                       |                       | Name of the upgrade or AZ switchover task.                                                    |
+   |                       |                       |                                                                                               |
+   |                       |                       | **Value range**:                                                                              |
+   |                       |                       |                                                                                               |
+   |                       |                       | N/A                                                                                           |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------+
+   | status                | String                | **Definition**:                                                                               |
+   |                       |                       |                                                                                               |
+   |                       |                       | Status of the upgrade or AZ change task of the current cluster.                               |
+   |                       |                       |                                                                                               |
+   |                       |                       | **Value range**:                                                                              |
+   |                       |                       |                                                                                               |
+   |                       |                       | -  **RUNNING**: running                                                                       |
+   |                       |                       |                                                                                               |
+   |                       |                       | -  **SUCCESS**                                                                                |
+   |                       |                       |                                                                                               |
+   |                       |                       | -  **FAILED**                                                                                 |
+   |                       |                       |                                                                                               |
+   |                       |                       | -  **WAITING**                                                                                |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------+
+   | desc                  | String                | **Definition**:                                                                               |
+   |                       |                       |                                                                                               |
+   |                       |                       | Description of the upgrade or AZ change task of the current cluster.                          |
+   |                       |                       |                                                                                               |
+   |                       |                       | **Value range**:                                                                              |
+   |                       |                       |                                                                                               |
+   |                       |                       | N/A                                                                                           |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------+
+   | beginTime             | String                | **Definition**                                                                                |
+   |                       |                       |                                                                                               |
+   |                       |                       | Start time of the cluster upgrade or AZ switchover task. The format is yyyy-MM-dd'T'HH:mm:ss. |
+   |                       |                       |                                                                                               |
+   |                       |                       | **Range**                                                                                     |
+   |                       |                       |                                                                                               |
+   |                       |                       | N/A                                                                                           |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------+
+   | endTime               | String                | **Definition**                                                                                |
+   |                       |                       |                                                                                               |
+   |                       |                       | End time of the cluster upgrade or AZ switchover task. The format is yyyy-MM-dd'T'HH:mm:ss.   |
+   |                       |                       |                                                                                               |
+   |                       |                       | **Range**                                                                                     |
+   |                       |                       |                                                                                               |
+   |                       |                       | N/A                                                                                           |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------+
 
 Example Requests
 ----------------
@@ -421,8 +421,6 @@ Example Responses
 -----------------
 
 **Status code: 200**
-
-Request succeeded.
 
 -  Example response for querying cluster upgrade details.
 
@@ -482,8 +480,8 @@ Request succeeded.
           "completedNodes" : "css-test-ess-esn-2-1",
           "currentNodeName" : "css-test-ess-esn-1-1",
           "executeTimes" : "1",
-          "migrateParam" : "{\"instType\":\"ess\",\"migrateType\":\"az_migrate\",\"sourceAz\":\"azcode-1\",\"targetAz\":\"azcode-1\"}",
-          "finalAzInfoMap" : "{\"azcode-1\":\"css-test-ess-esn-2-1,css-test-ess-esn-1-1,css-test-ess-esn-3-1\"}",
+          "migrateParam" : "{\"instType\":\"ess\",\"migrateType\":\"az_migrate\",\"sourceAz\":\"az_code_a\",\"targetAz\":\"az_code_c\"}",
+          "finalAzInfoMap" : "{\"az_code_c\":\"css-test-ess-esn-2-1,css-test-ess-esn-1-1,css-test-ess-esn-3-1\"}",
           "currentNodeDetail" : [ {
             "order" : 0,
             "name" : "Data migration",

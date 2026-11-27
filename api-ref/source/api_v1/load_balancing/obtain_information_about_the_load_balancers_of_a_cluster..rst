@@ -8,9 +8,9 @@ Obtain information about the load balancers of a cluster.
 Function
 --------
 
-CSS integrates shared load balancers and allows you to bind public network access and enable the VPC Endpoint service. Dedicated load balancers provide more functions and higher performance than shared load balancers.
+CSS integrates shared load balancers, through which you can enable access to a cluster from the public network as well as through the VPC Endpoint service. Dedicated load balancers provide more functions and higher performance than shared load balancers.
 
-This API is used to obtain the ELB load balancer information of a cluster, including the server certificate name, server certificate ID, ELB switch information, load balancers, listeners, and health check results.
+This API is used to obtain the load balancer information of an Elasticsearch or OpenSearch cluster, including the server certificate name, server certificate ID, ELB switch information, load balancers, listeners, and health check results.
 
 Calling Method
 --------------
@@ -27,35 +27,35 @@ GET /v1.0/{project_id}/clusters/{cluster_id}/es-listeners
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                         |
    +=================+=================+=================+=====================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                     |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                      |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.    |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Constraints**:                                                                                                                    |
+   |                 |                 |                 | **Constraints**                                                                                                                     |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                 |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Value range**:                                                                                                                    |
+   |                 |                 |                 | **Range**                                                                                                                           |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | Project ID of the account.                                                                                                          |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                             |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Default value**:                                                                                                                  |
+   |                 |                 |                 | **Default Value**                                                                                                                   |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                 |
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                     |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                      |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | ID of the cluster to be queried. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Constraints**:                                                                                                                    |
+   |                 |                 |                 | **Constraints**                                                                                                                     |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                 |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Value range**:                                                                                                                    |
+   |                 |                 |                 | **Range**                                                                                                                           |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | Cluster ID.                                                                                                                         |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                       |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Default value**:                                                                                                                  |
+   |                 |                 |                 | **Default Value**                                                                                                                   |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                 |
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
@@ -328,49 +328,65 @@ Response Parameters
 
 .. table:: **Table 7** Elbv3Listener
 
-   +-----------------------+-------------------------------------------------------------------------+---------------------------------------------+
-   | Parameter             | Type                                                                    | Description                                 |
-   +=======================+=========================================================================+=============================================+
-   | id                    | String                                                                  | **Definition**:                             |
-   |                       |                                                                         |                                             |
-   |                       |                                                                         | Listener ID.                                |
-   |                       |                                                                         |                                             |
-   |                       |                                                                         | **Value range**:                            |
-   |                       |                                                                         |                                             |
-   |                       |                                                                         | N/A                                         |
-   +-----------------------+-------------------------------------------------------------------------+---------------------------------------------+
-   | name                  | String                                                                  | **Definition**:                             |
-   |                       |                                                                         |                                             |
-   |                       |                                                                         | Listener name.                              |
-   |                       |                                                                         |                                             |
-   |                       |                                                                         | **Value range**:                            |
-   |                       |                                                                         |                                             |
-   |                       |                                                                         | N/A                                         |
-   +-----------------------+-------------------------------------------------------------------------+---------------------------------------------+
-   | protocol              | String                                                                  | **Definition**:                             |
-   |                       |                                                                         |                                             |
-   |                       |                                                                         | Protocol used by the listener.              |
-   |                       |                                                                         |                                             |
-   |                       |                                                                         | **Value range**:                            |
-   |                       |                                                                         |                                             |
-   |                       |                                                                         | N/A                                         |
-   +-----------------------+-------------------------------------------------------------------------+---------------------------------------------+
-   | protocol_port         | Integer                                                                 | **Definition**:                             |
-   |                       |                                                                         |                                             |
-   |                       |                                                                         | Port used by the listener.                  |
-   |                       |                                                                         |                                             |
-   |                       |                                                                         | **Value range**:                            |
-   |                       |                                                                         |                                             |
-   |                       |                                                                         | N/A                                         |
-   +-----------------------+-------------------------------------------------------------------------+---------------------------------------------+
-   | ipgroup               | :ref:`ListenerIpGroup <showelbdetail__response_listeneripgroup>` object | **Definition**:                             |
-   |                       |                                                                         |                                             |
-   |                       |                                                                         | ipgroup information in the listener object. |
-   |                       |                                                                         |                                             |
-   |                       |                                                                         | **Value range**:                            |
-   |                       |                                                                         |                                             |
-   |                       |                                                                         | N/A                                         |
-   +-----------------------+-------------------------------------------------------------------------+---------------------------------------------+
+   +-----------------------------+-------------------------------------------------------------------------+---------------------------------------------+
+   | Parameter                   | Type                                                                    | Description                                 |
+   +=============================+=========================================================================+=============================================+
+   | id                          | String                                                                  | **Definition**:                             |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | Listener ID.                                |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | **Value range**:                            |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | N/A                                         |
+   +-----------------------------+-------------------------------------------------------------------------+---------------------------------------------+
+   | name                        | String                                                                  | **Definition**:                             |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | Listener name.                              |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | **Value range**:                            |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | N/A                                         |
+   +-----------------------------+-------------------------------------------------------------------------+---------------------------------------------+
+   | protocol                    | String                                                                  | **Definition**:                             |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | Protocol used by the listener.              |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | **Value range**:                            |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | N/A                                         |
+   +-----------------------------+-------------------------------------------------------------------------+---------------------------------------------+
+   | default_tls_container_ref   | String                                                                  | **Definition**                              |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | Server certificate of an ELB listener.      |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | **Range**                                   |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | N/A                                         |
+   +-----------------------------+-------------------------------------------------------------------------+---------------------------------------------+
+   | client_ca_tls_container_ref | String                                                                  | **Definition**                              |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | CA certificate of an ELB listener.          |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | **Range**                                   |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | N/A                                         |
+   +-----------------------------+-------------------------------------------------------------------------+---------------------------------------------+
+   | protocol_port               | Integer                                                                 | **Definition**:                             |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | Port used by the listener.                  |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | **Value range**:                            |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | N/A                                         |
+   +-----------------------------+-------------------------------------------------------------------------+---------------------------------------------+
+   | ipgroup                     | :ref:`ListenerIpGroup <showelbdetail__response_listeneripgroup>` object | **Definition**:                             |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | ipgroup information in the listener object. |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | **Value range**:                            |
+   |                             |                                                                         |                                             |
+   |                             |                                                                         | N/A                                         |
+   +-----------------------------+-------------------------------------------------------------------------+---------------------------------------------+
 
 .. _showelbdetail__response_listeneripgroup:
 
@@ -387,7 +403,7 @@ Response Parameters
    |                       |                       |                                                                                                                                         |
    |                       |                       | -  **white**: Whitelist. Only specified IP addresses are allowed.                                                                       |
    |                       |                       |                                                                                                                                         |
-   |                       |                       | -  **black**: Blacklist. Specified IP addresses are denied.                                                                             |
+   |                       |                       | -  **black**: Blacklist. Specified IP addresses are not allowed.                                                                        |
    +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
    | ipgroup_id            | String                | **Definition**:                                                                                                                         |
    |                       |                       |                                                                                                                                         |
@@ -397,15 +413,15 @@ Response Parameters
    |                       |                       |                                                                                                                                         |
    |                       |                       | N/A                                                                                                                                     |
    +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-   | enable_ipgroup        | Boolean               | **Definition**:                                                                                                                         |
+   | enable_ipgroup        | Boolean               | **Definition**                                                                                                                          |
    |                       |                       |                                                                                                                                         |
    |                       |                       | Status of an access control group.                                                                                                      |
    |                       |                       |                                                                                                                                         |
-   |                       |                       | **Value range**:                                                                                                                        |
+   |                       |                       | **Range**                                                                                                                               |
    |                       |                       |                                                                                                                                         |
-   |                       |                       | -  True: Access control is enabled.                                                                                                     |
+   |                       |                       | -  **true**: Access control is enabled.                                                                                                 |
    |                       |                       |                                                                                                                                         |
-   |                       |                       | -  False: Access control is disabled.                                                                                                   |
+   |                       |                       | -  **false**: Access control is disabled.                                                                                               |
    +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 
 .. _showelbdetail__response_member:
@@ -482,65 +498,60 @@ Example Responses
 
 **Status code: 200**
 
-Request succeeded.
-
 .. code-block::
 
    {
-       "loadBalancer" : {
-           "id" : "5d45faad-6cb3-479b-96b8-3e2de0cc6268",
-           "name" : "elb-css",
-           "guaranteed" : "true",
-           "description" : "",
-           "listeners" : [{
-                   "id" : "011d14fa-908b-4cd9-b0d6-0768ddc6cb71"
-               }, {
-                   "id" : "04b86029-c281-4490-a3bd-5ea1266658ba"
-               }
-           ],
-           "publicips" : [{
-                   "publicip_id" : "f678e23c-96a5-49e8-8ea2-bd8b47d41e78",
-                   "publicip_address" : "100.1.1.1",
-                   "ip_version" : 4
-               }
-           ],
-           "vpc_id" : "4f3deec3-efa8-4598-bf91-560aad1377a3",
-           "provisioning_status" : "ACTIVE",
-           "vip_address" : "10.0.0.1",
-           "ipv6_vip_address" : "2409:27ff:2003:3e:1fd::f3"
+     "loadBalancer" : {
+       "id" : "5d45faad-6cb3-479b-96b8-3e2de0cc6268",
+       "name" : "elb-css",
+       "guaranteed" : "true",
+       "description" : "",
+       "listeners" : [ {
+         "id" : "011d14fa-908b-4cd9-b0d6-0768ddc6cb71"
+       }, {
+         "id" : "04b86029-c281-4490-a3bd-5ea1266658ba"
+       } ],
+       "publicips" : [ {
+         "publicip_id" : "f678e23c-96a5-49e8-8ea2-bd8b47d41e78",
+         "publicip_address" : "100.66.96.69",
+         "ip_version" : 4
+       } ],
+       "vpc_id" : "4f3deec3-efa8-4598-bf91-560aad1377a3",
+       "provisioning_status" : "ACTIVE",
+       "vip_address" : "10.0.0.1",
+       "ipv6_vip_address" : "2409:27ff:2003:3e:1fd::f3"
+     },
+     "listener" : {
+       "id" : "41ff041d-c7b9-4142-9167-fa93d54f97da",
+       "name" : "css-searchServer",
+       "protocol" : "HTTPS",
+       "ipgroup" : {
+         "ipgroup_id" : "4f3deec3-efa8-4598-bf91-560aad1377a3",
+         "enable_ipgroup" : true,
+         "type" : "white"
        },
-       "listener" : {
-           "id" : "41ff041d-c7b9-4142-9167-fa93d54f97da",
-           "name" : "css-searchServer",
-           "protocol" : "HTTPS",
-           "ipgroup" : {
-               "ipgroup_id" : "4f3deec3-efa8-4598-bf91-560aad1377a3",
-               "enable_ipgroup" : true,
-               "type" : "white"
-           }
-           "protocol_port" : 9200,
-           "default_tls_container_ref" : "b5c45f342bcd435abc18760a13976a1d",
-           "client_ca_tls_container_ref" : "4a2053a825a0471ba85a60468afa80cf"
-       },
-       "healthmonitors" : [{
-               "id" : "47e85eca-f4da-4a74-91f3-f4506e084481",
-               "instance_id" : "bac86342-2222-43e6-817f-57f040a174a6",
-               "name" : "",
-               "address" : "10.0.0.87",
-               "protocol_port" : 9200,
-               "operating_status" : "ONLINE"
-           }, {
-               "instance_id" : "d935b82c-f94b-4ae0-9997-ddc90885d8c6",
-               "name" : "",
-               "address" : "10.0.0.61",
-               "protocol_port" : 9200,
-               "operating_status" : "ONLINE"
-           }
-       ],
-       "serverCertName" : "server1",
-       "serverCertId" : "82375af01c0d40f6a44c15962c570625",
-       "elb_enable" : true,
-       "authentication_type" : "single"
+       "protocol_port" : 9200,
+       "default_tls_container_ref" : "b5c45f342bcd435abc18760a13976a1d",
+       "client_ca_tls_container_ref" : "4a2053a825a0471ba85a60468afa80cf"
+     },
+     "healthmonitors" : [ {
+       "id" : "47e85eca-f4da-4a74-91f3-f4506e084481",
+       "instance_id" : "bac86342-2222-43e6-817f-57f040a174a6",
+       "name" : "",
+       "address" : "10.0.0.87",
+       "protocol_port" : 9200,
+       "operating_status" : "ONLINE"
+     }, {
+       "instance_id" : "d935b82c-f94b-4ae0-9997-ddc90885d8c6",
+       "name" : "",
+       "address" : "10.0.0.61",
+       "protocol_port" : 9200,
+       "operating_status" : "ONLINE"
+     } ],
+     "serverCertName" : "server1",
+     "serverCertId" : "82375af01c0d40f6a44c15962c570625",
+     "elb_enable" : true,
+     "authentication_type" : "single"
    }
 
 Status Codes

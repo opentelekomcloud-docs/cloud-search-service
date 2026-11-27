@@ -8,7 +8,7 @@ Updating an Endpoint Connection
 Function
 --------
 
-The VPC endpoint service enables secure and reliable access across VPCs through a dedicated gateway, without exposing the network information of servers. This API is used to update VPC endpoint connections for the cluster.
+The VPC endpoint service enables secure and reliable access across VPCs through a dedicated gateway, without exposing the network information of servers. This API is used to update VPC endpoint connections for an Elasticsearch or OpenSearch cluster.
 
 Calling Method
 --------------
@@ -25,35 +25,35 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/vpcepservice/connections
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                                                 |
    +=================+=================+=================+=============================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                             |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                              |
    |                 |                 |                 |                                                                                                                                                             |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                            |
    |                 |                 |                 |                                                                                                                                                             |
-   |                 |                 |                 | **Constraints**:                                                                                                                                            |
+   |                 |                 |                 | **Constraints**                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                             |
    |                 |                 |                 | N/A                                                                                                                                                         |
    |                 |                 |                 |                                                                                                                                                             |
-   |                 |                 |                 | **Value range**:                                                                                                                                            |
+   |                 |                 |                 | **Range**                                                                                                                                                   |
    |                 |                 |                 |                                                                                                                                                             |
-   |                 |                 |                 | Project ID of the account.                                                                                                                                  |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                                     |
    |                 |                 |                 |                                                                                                                                                             |
-   |                 |                 |                 | **Default value**:                                                                                                                                          |
+   |                 |                 |                 | **Default Value**                                                                                                                                           |
    |                 |                 |                 |                                                                                                                                                             |
    |                 |                 |                 | N/A                                                                                                                                                         |
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                             |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                              |
    |                 |                 |                 |                                                                                                                                                             |
    |                 |                 |                 | ID of the cluster whose VPC endpoint you want to update. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                                             |
-   |                 |                 |                 | **Constraints**:                                                                                                                                            |
+   |                 |                 |                 | **Constraints**                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                             |
    |                 |                 |                 | N/A                                                                                                                                                         |
    |                 |                 |                 |                                                                                                                                                             |
-   |                 |                 |                 | **Value range**:                                                                                                                                            |
+   |                 |                 |                 | **Range**                                                                                                                                                   |
    |                 |                 |                 |                                                                                                                                                             |
-   |                 |                 |                 | Cluster ID.                                                                                                                                                 |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                                               |
    |                 |                 |                 |                                                                                                                                                             |
-   |                 |                 |                 | **Default value**:                                                                                                                                          |
+   |                 |                 |                 | **Default Value**                                                                                                                                           |
    |                 |                 |                 |                                                                                                                                                             |
    |                 |                 |                 | N/A                                                                                                                                                         |
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -63,42 +63,40 @@ Request Parameters
 
 .. table:: **Table 2** Request body parameters
 
-   +------------------+-----------------+------------------+------------------------------------------+
-   | Parameter        | Mandatory       | Type             | Description                              |
-   +==================+=================+==================+==========================================+
-   | action           | Yes             | String           | **Definition**:                          |
-   |                  |                 |                  |                                          |
-   |                  |                 |                  | Operation type.                          |
-   |                  |                 |                  |                                          |
-   |                  |                 |                  | **Constraints**:                         |
-   |                  |                 |                  |                                          |
-   |                  |                 |                  | N/A                                      |
-   |                  |                 |                  |                                          |
-   |                  |                 |                  | **Value range**:                         |
-   |                  |                 |                  |                                          |
-   |                  |                 |                  | -  **receive**: Accept the VPC endpoint. |
-   |                  |                 |                  |                                          |
-   |                  |                 |                  | -  **reject**: Reject the VPC endpoint.  |
-   |                  |                 |                  |                                          |
-   |                  |                 |                  | **Default value**:                       |
-   |                  |                 |                  |                                          |
-   |                  |                 |                  | N/A.                                     |
-   +------------------+-----------------+------------------+------------------------------------------+
-   | endpoint_id_list | Yes             | Array of strings | **Definition**:                          |
-   |                  |                 |                  |                                          |
-   |                  |                 |                  | IDs of the VPC endpoints to operate on.  |
-   |                  |                 |                  |                                          |
-   |                  |                 |                  | **Constraints**:                         |
-   |                  |                 |                  |                                          |
-   |                  |                 |                  | N/A                                      |
-   +------------------+-----------------+------------------+------------------------------------------+
+   +------------------+-----------------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter        | Mandatory       | Type             | Description                                                                                                                                              |
+   +==================+=================+==================+==========================================================================================================================================================+
+   | action           | Yes             | String           | **Definition**:                                                                                                                                          |
+   |                  |                 |                  |                                                                                                                                                          |
+   |                  |                 |                  | Operation type.                                                                                                                                          |
+   |                  |                 |                  |                                                                                                                                                          |
+   |                  |                 |                  | **Constraints**:                                                                                                                                         |
+   |                  |                 |                  |                                                                                                                                                          |
+   |                  |                 |                  | N/A                                                                                                                                                      |
+   |                  |                 |                  |                                                                                                                                                          |
+   |                  |                 |                  | **Value range**:                                                                                                                                         |
+   |                  |                 |                  |                                                                                                                                                          |
+   |                  |                 |                  | -  **receive**: Accept the VPC endpoint.                                                                                                                 |
+   |                  |                 |                  |                                                                                                                                                          |
+   |                  |                 |                  | -  **reject**: Reject the VPC endpoint.                                                                                                                  |
+   |                  |                 |                  |                                                                                                                                                          |
+   |                  |                 |                  | **Default value**:                                                                                                                                       |
+   |                  |                 |                  |                                                                                                                                                          |
+   |                  |                 |                  | N/A.                                                                                                                                                     |
+   +------------------+-----------------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | endpoint_id_list | Yes             | Array of strings | **Definition**                                                                                                                                           |
+   |                  |                 |                  |                                                                                                                                                          |
+   |                  |                 |                  | IDs of the VPC endpoints to operate on. For details about how to obtain the endpoint, see :ref:`Obtaining an Endpoint Connection <showvpcepconnection>`. |
+   |                  |                 |                  |                                                                                                                                                          |
+   |                  |                 |                  | **Constraints**                                                                                                                                          |
+   |                  |                 |                  |                                                                                                                                                          |
+   |                  |                 |                  | N/A                                                                                                                                                      |
+   +------------------+-----------------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Response Parameters
 -------------------
 
 **Status code: 200**
-
-Request succeeded.
 
 None
 

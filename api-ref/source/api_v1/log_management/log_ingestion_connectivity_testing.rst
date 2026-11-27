@@ -25,35 +25,35 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/logs/connectivity
    +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                        |
    +=================+=================+=================+====================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                    |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                     |
    |                 |                 |                 |                                                                                                                                    |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.   |
    |                 |                 |                 |                                                                                                                                    |
-   |                 |                 |                 | **Constraints**:                                                                                                                   |
+   |                 |                 |                 | **Constraints**                                                                                                                    |
    |                 |                 |                 |                                                                                                                                    |
    |                 |                 |                 | N/A                                                                                                                                |
    |                 |                 |                 |                                                                                                                                    |
-   |                 |                 |                 | **Value range**:                                                                                                                   |
+   |                 |                 |                 | **Range**                                                                                                                          |
    |                 |                 |                 |                                                                                                                                    |
-   |                 |                 |                 | Project ID of the account.                                                                                                         |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                            |
    |                 |                 |                 |                                                                                                                                    |
-   |                 |                 |                 | **Default value**:                                                                                                                 |
+   |                 |                 |                 | **Default Value**                                                                                                                  |
    |                 |                 |                 |                                                                                                                                    |
    |                 |                 |                 | N/A                                                                                                                                |
    +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                    |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                     |
    |                 |                 |                 |                                                                                                                                    |
    |                 |                 |                 | ID of the cluster to be tested. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                    |
-   |                 |                 |                 | **Constraints**:                                                                                                                   |
+   |                 |                 |                 | **Constraints**                                                                                                                    |
    |                 |                 |                 |                                                                                                                                    |
    |                 |                 |                 | N/A                                                                                                                                |
    |                 |                 |                 |                                                                                                                                    |
-   |                 |                 |                 | **Value range**:                                                                                                                   |
+   |                 |                 |                 | **Range**                                                                                                                          |
    |                 |                 |                 |                                                                                                                                    |
-   |                 |                 |                 | Cluster ID.                                                                                                                        |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                      |
    |                 |                 |                 |                                                                                                                                    |
-   |                 |                 |                 | **Default value**:                                                                                                                 |
+   |                 |                 |                 | **Default Value**                                                                                                                  |
    |                 |                 |                 |                                                                                                                                    |
    |                 |                 |                 | N/A                                                                                                                                |
    +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------+
@@ -66,19 +66,19 @@ Request Parameters
    +-------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
    | Parameter         | Mandatory       | Type            | Description                                                                                                           |
    +===================+=================+=================+=======================================================================================================================+
-   | target_cluster_id | Yes             | String          | **Definition**:                                                                                                       |
+   | target_cluster_id | Yes             | String          | **Definition**                                                                                                        |
    |                   |                 |                 |                                                                                                                       |
    |                   |                 |                 | Target cluster ID. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                   |                 |                 |                                                                                                                       |
-   |                   |                 |                 | **Constraints**:                                                                                                      |
-   |                   |                 |                 |                                                                                                                       |
-   |                   |                 |                 | Only cluster IDs are supported.                                                                                       |
-   |                   |                 |                 |                                                                                                                       |
-   |                   |                 |                 | **Value range**:                                                                                                      |
+   |                   |                 |                 | **Constraints**                                                                                                       |
    |                   |                 |                 |                                                                                                                       |
    |                   |                 |                 | N/A                                                                                                                   |
    |                   |                 |                 |                                                                                                                       |
-   |                   |                 |                 | **Default value**:                                                                                                    |
+   |                   |                 |                 | **Range**                                                                                                             |
+   |                   |                 |                 |                                                                                                                       |
+   |                   |                 |                 | UUID format, 36 characters.                                                                                           |
+   |                   |                 |                 |                                                                                                                       |
+   |                   |                 |                 | **Default Value**                                                                                                     |
    |                   |                 |                 |                                                                                                                       |
    |                   |                 |                 | N/A                                                                                                                   |
    +-------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
@@ -87,8 +87,6 @@ Response Parameters
 -------------------
 
 **Status code: 200**
-
-Request succeeded.
 
 None
 
@@ -99,7 +97,7 @@ Test connectivity to the target cluster.
 
 .. code-block:: text
 
-   POST /v1.0/6204a5bd270343b5885144cf9c8c158d/clusters/4f3deec3-efa8-4598-bf91-560aad1377a3/logs/connectivity
+   POST https://{Endpoint}/v1.0/6204a5bd270343b5885144cf9c8c158d/clusters/4f3deec3-efa8-4598-bf91-560aad1377a3/logs/connectivity
 
    {
      "target_cluster_id" : "4f3deec3-efa8-4598-bf91-560aad1377a4"

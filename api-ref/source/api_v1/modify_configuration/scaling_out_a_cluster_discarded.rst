@@ -8,7 +8,7 @@ Scaling Out a Cluster (Discarded)
 Function
 --------
 
-This API is used to add data nodes to an Elasticsearch or OpenSearch cluster. You are advised to use :ref:`Adding Instances and Expanding Instance Storage Capacity <updateextendinstancestorage>`.
+This API is used to scale in the number of data nodes in Elasticsearch and OpenSearch clusters. You are advised to use :ref:`Adding Instances and Expanding Instance Storage Capacity <updateextendinstancestorage>`.
 
 Calling Method
 --------------
@@ -22,97 +22,87 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/extend
 
 .. table:: **Table 1** Path Parameters
 
-   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                                 |
-   +=================+=================+=================+=============================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                             |
-   |                 |                 |                 |                                                                                                                                             |
-   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.            |
-   |                 |                 |                 |                                                                                                                                             |
-   |                 |                 |                 | **Constraints**:                                                                                                                            |
-   |                 |                 |                 |                                                                                                                                             |
-   |                 |                 |                 | N/A                                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                             |
-   |                 |                 |                 | **Value range**:                                                                                                                            |
-   |                 |                 |                 |                                                                                                                                             |
-   |                 |                 |                 | Project ID of the account.                                                                                                                  |
-   |                 |                 |                 |                                                                                                                                             |
-   |                 |                 |                 | **Default value**:                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                             |
-   |                 |                 |                 | N/A                                                                                                                                         |
-   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                             |
-   |                 |                 |                 |                                                                                                                                             |
-   |                 |                 |                 | ID of the cluster you want to scale out. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
-   |                 |                 |                 |                                                                                                                                             |
-   |                 |                 |                 | **Constraints**:                                                                                                                            |
-   |                 |                 |                 |                                                                                                                                             |
-   |                 |                 |                 | N/A                                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                             |
-   |                 |                 |                 | **Value range**:                                                                                                                            |
-   |                 |                 |                 |                                                                                                                                             |
-   |                 |                 |                 | Cluster ID.                                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                             |
-   |                 |                 |                 | **Default value**:                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                             |
-   |                 |                 |                 | N/A                                                                                                                                         |
-   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                            |
+   +=================+=================+=================+========================================================================================================================================+
+   | project_id      | Yes             | String          | **Definition**                                                                                                                         |
+   |                 |                 |                 |                                                                                                                                        |
+   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.       |
+   |                 |                 |                 |                                                                                                                                        |
+   |                 |                 |                 | **Constraints**                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                        |
+   |                 |                 |                 | N/A                                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                        |
+   |                 |                 |                 | **Range**                                                                                                                              |
+   |                 |                 |                 |                                                                                                                                        |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                |
+   |                 |                 |                 |                                                                                                                                        |
+   |                 |                 |                 | **Default Value**                                                                                                                      |
+   |                 |                 |                 |                                                                                                                                        |
+   |                 |                 |                 | N/A                                                                                                                                    |
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------+
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                         |
+   |                 |                 |                 |                                                                                                                                        |
+   |                 |                 |                 | ID of the cluster to be scaled out. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
+   |                 |                 |                 |                                                                                                                                        |
+   |                 |                 |                 | **Constraints**                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                        |
+   |                 |                 |                 | N/A                                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                        |
+   |                 |                 |                 | **Range**                                                                                                                              |
+   |                 |                 |                 |                                                                                                                                        |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                          |
+   |                 |                 |                 |                                                                                                                                        |
+   |                 |                 |                 | **Default Value**                                                                                                                      |
+   |                 |                 |                 |                                                                                                                                        |
+   |                 |                 |                 | N/A                                                                                                                                    |
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------+
 
 Request Parameters
 ------------------
 
 .. table:: **Table 2** Request body parameters
 
-   +-----------------+-----------------+----------------------------------------------------------------------------------------+-----------------------------------------------------------+
-   | Parameter       | Mandatory       | Type                                                                                   | Description                                               |
-   +=================+=================+========================================================================================+===========================================================+
-   | grow            | Yes             | :ref:`ExtendClusterGrowReq <updateextendcluster__request_extendclustergrowreq>` object | **Definition**:                                           |
-   |                 |                 |                                                                                        |                                                           |
-   |                 |                 |                                                                                        | Detailed description about the cluster scale-out request. |
-   |                 |                 |                                                                                        |                                                           |
-   |                 |                 |                                                                                        | **Constraints**:                                          |
-   |                 |                 |                                                                                        |                                                           |
-   |                 |                 |                                                                                        | N/A                                                       |
-   |                 |                 |                                                                                        |                                                           |
-   |                 |                 |                                                                                        | **Value range**:                                          |
-   |                 |                 |                                                                                        |                                                           |
-   |                 |                 |                                                                                        | N/A                                                       |
-   |                 |                 |                                                                                        |                                                           |
-   |                 |                 |                                                                                        | **Default value**:                                        |
-   |                 |                 |                                                                                        |                                                           |
-   |                 |                 |                                                                                        | N/A                                                       |
-   +-----------------+-----------------+----------------------------------------------------------------------------------------+-----------------------------------------------------------+
+   +-----------------+-----------------+----------------------------------------------------------------------------------------+--------------------------------------------------------+
+   | Parameter       | Mandatory       | Type                                                                                   | Description                                            |
+   +=================+=================+========================================================================================+========================================================+
+   | grow            | Yes             | :ref:`ExtendClusterGrowReq <updateextendcluster__request_extendclustergrowreq>` object | **Definition**                                         |
+   |                 |                 |                                                                                        |                                                        |
+   |                 |                 |                                                                                        | Detailed description of the cluster scale-out request. |
+   |                 |                 |                                                                                        |                                                        |
+   |                 |                 |                                                                                        | **Constraints**                                        |
+   |                 |                 |                                                                                        |                                                        |
+   |                 |                 |                                                                                        | N/A                                                    |
+   +-----------------+-----------------+----------------------------------------------------------------------------------------+--------------------------------------------------------+
 
 .. _updateextendcluster__request_extendclustergrowreq:
 
 .. table:: **Table 3** ExtendClusterGrowReq
 
-   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                           |
-   +=================+=================+=================+=======================================================================================================================================+
-   | modifySize      | Yes             | Integer         | **Definition**:                                                                                                                       |
-   |                 |                 |                 |                                                                                                                                       |
-   |                 |                 |                 | Number of instances to be scaled out. The total number of existing instances and newly added instances in a cluster cannot exceed 32. |
-   |                 |                 |                 |                                                                                                                                       |
-   |                 |                 |                 | **Constraints**:                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                       |
-   |                 |                 |                 | N/A                                                                                                                                   |
-   |                 |                 |                 |                                                                                                                                       |
-   |                 |                 |                 | **Value range**:                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                       |
-   |                 |                 |                 | 1-32                                                                                                                                  |
-   |                 |                 |                 |                                                                                                                                       |
-   |                 |                 |                 | **Default value**:                                                                                                                    |
-   |                 |                 |                 |                                                                                                                                       |
-   |                 |                 |                 | N/A                                                                                                                                   |
-   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                     |
+   +=================+=================+=================+=================================================================================================+
+   | modifySize      | Yes             | Integer         | **Definition**                                                                                  |
+   |                 |                 |                 |                                                                                                 |
+   |                 |                 |                 | Number of instances to be added.                                                                |
+   |                 |                 |                 |                                                                                                 |
+   |                 |                 |                 | **Constraints**                                                                                 |
+   |                 |                 |                 |                                                                                                 |
+   |                 |                 |                 | The total number of existing instances and newly added instances in a cluster cannot exceed 32. |
+   |                 |                 |                 |                                                                                                 |
+   |                 |                 |                 | **Range**                                                                                       |
+   |                 |                 |                 |                                                                                                 |
+   |                 |                 |                 | 1-32                                                                                            |
+   |                 |                 |                 |                                                                                                 |
+   |                 |                 |                 | **Default Value**                                                                               |
+   |                 |                 |                 |                                                                                                 |
+   |                 |                 |                 | N/A                                                                                             |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------+
 
 Response Parameters
 -------------------
 
 **Status code: 200**
-
-Request succeeded.
 
 None
 

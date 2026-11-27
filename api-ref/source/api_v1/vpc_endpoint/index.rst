@@ -5,8 +5,8 @@
 VPC Endpoint
 ============
 
--  :ref:`Enabling the VPC Endpoint Service <startvpecp>`
--  :ref:`Disabling the VPC Endpoint Service <stopvpecp>`
+-  :ref:`Enabling the VPC Endpoint Service <startvpcep>`
+-  :ref:`Disabling the VPC Endpoint Service <stopvpcep>`
 -  :ref:`Obtaining an Endpoint Connection <showvpcepconnection>`
 -  :ref:`Updating an Endpoint Connection <updatevpcepconnection>`
 -  :ref:`Modifying the VPCEP Service Whitelist of a Cluster <updatevpcepwhitelist>`

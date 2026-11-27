@@ -8,7 +8,7 @@ Disabling Automatic Snapshot Creation
 Function
 --------
 
-This API is used to disable automatic snapshot creation for a cluster. If a cluster does not need automatic backup, you are advised to disable automatic snapshot creation to reduce storage costs.
+This API is used to disable automatic snapshot creation for an Elasticsearch or OpenSearch cluster. If a cluster does not need automatic backup, you are advised to disable automatic snapshot creation to reduce storage costs.
 
 You can only use this API on Elasticsearch and OpenSearch clusters with automatic snapshot creation enabled.
 
@@ -27,35 +27,35 @@ PUT /v2.0/{project_id}/clusters/{cluster_id}/snapshots/policy/close
    +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                      |
    +=================+=================+=================+==================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                  |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                   |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`. |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Constraints**:                                                                                                                 |
+   |                 |                 |                 | **Constraints**                                                                                                                  |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | N/A                                                                                                                              |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Value range**:                                                                                                                 |
+   |                 |                 |                 | **Range**                                                                                                                        |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | Project ID of the account.                                                                                                       |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                          |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Default value**:                                                                                                               |
+   |                 |                 |                 | **Default Value**                                                                                                                |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | N/A                                                                                                                              |
    +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                  |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                   |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | Cluster ID. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`.                   |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Constraints**:                                                                                                                 |
+   |                 |                 |                 | **Constraints**                                                                                                                  |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | N/A                                                                                                                              |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                    |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Value range**:                                                                                                                 |
+   |                 |                 |                 | **Range**                                                                                                                        |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | Cluster ID.                                                                                                                      |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Default value**:                                                                                                               |
+   |                 |                 |                 | **Default Value**                                                                                                                |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | N/A                                                                                                                              |
    +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
@@ -69,8 +69,6 @@ Response Parameters
 -------------------
 
 **Status code: 200**
-
-Request succeeded.
 
 None
 
@@ -91,17 +89,17 @@ None
 Status Codes
 ------------
 
-+-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Status Code                       | Description                                                                                                                                                           |
-+===================================+=======================================================================================================================================================================+
-| 200                               | Request succeeded.                                                                                                                                                    |
-+-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 400                               | Invalid request.                                                                                                                                                      |
-|                                   |                                                                                                                                                                       |
-|                                   | Modify the request before retry.                                                                                                                                      |
-+-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 403                               | Request rejected.The server has received the request and understood it, but refused to respond to it. The client should not repeat the request without modifications. |
-+-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Status Code                       | Description                                                                                                                                                         |
++===================================+=====================================================================================================================================================================+
+| 200                               | Request succeeded.                                                                                                                                                  |
++-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 400                               | Invalid request.                                                                                                                                                    |
+|                                   |                                                                                                                                                                     |
+|                                   | Modify the request before retry.                                                                                                                                    |
++-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 403                               | Request denied.The server has received the request and understood it, but refuses to respond to it. The client should not repeat the request without modifications. |
++-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Error Codes
 -----------

@@ -8,11 +8,11 @@ Disabling Public Network Access
 Function
 --------
 
-After public network access is configured for an Elasticsearch or OpenSearch cluster, you can use this API to disable it.
+After an Elasticsearch/OpenSearch cluster is configured with public access, you can use this API to disable public access.
 
 .. note::
 
-   After public network access is disabled, users can no longer access the cluster via a public IP address. If you disable public network access and then re-enable it, the public IP address of the cluster may change. Exercise caution.
+   After public access is disabled, the cluster cannot be accessed through a public IP address. When public access is re-enabled after being disabled, the public IP address of the cluster may change. Proceed with caution.
 
 Calling Method
 --------------
@@ -29,35 +29,35 @@ PUT /v1.0/{project_id}/clusters/{cluster_id}/public/close
    +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                                                           |
    +=================+=================+=================+=======================================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                                       |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                                        |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                                      |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                      |
+   |                 |                 |                 | **Constraints**                                                                                                                                                       |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | N/A                                                                                                                                                                   |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Value range**:                                                                                                                                                      |
+   |                 |                 |                 | **Range**                                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | Project ID of the account.                                                                                                                                            |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                                               |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Default value**:                                                                                                                                                    |
+   |                 |                 |                 | **Default Value**                                                                                                                                                     |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | N/A                                                                                                                                                                   |
    +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                                       |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                                        |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | ID of the cluster whose public network access you want to disable. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                      |
+   |                 |                 |                 | **Constraints**                                                                                                                                                       |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | N/A                                                                                                                                                                   |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Value range**:                                                                                                                                                      |
+   |                 |                 |                 | **Range**                                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | Cluster ID.                                                                                                                                                           |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                                                         |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Default value**:                                                                                                                                                    |
+   |                 |                 |                 | **Default Value**                                                                                                                                                     |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | N/A                                                                                                                                                                   |
    +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -159,8 +159,6 @@ Example Responses
 -----------------
 
 **Status code: 200**
-
-Request succeeded.
 
 .. code-block::
 

@@ -13,6 +13,8 @@ Cluster Management
 -  :ref:`Changing the Cluster Administrator Password <resetpassword>`
 -  :ref:`Restarting a Cluster (Deprecated) <restartcluster>`
 -  :ref:`Query the disk usage of a cluster. <showclustervolumeusage>`
+-  :ref:`Updating Cluster Routes <updateroute>`
+-  :ref:`Obtaining a Cluster Route <getroutes>`
 -  :ref:`Downloading a Security Certificate <downloadcert>`
 -  :ref:`Upgrading a Cluster Kernel <upgradecore>`
 -  :ref:`Obtaining the ID of the Target Image to Upgrade To <listimages>`
@@ -34,6 +36,8 @@ Cluster Management
    changing_the_cluster_administrator_password
    restarting_a_cluster_deprecated
    query_the_disk_usage_of_a_cluster.
+   updating_cluster_routes
+   obtaining_a_cluster_route
    downloading_a_security_certificate
    upgrading_a_cluster_kernel
    obtaining_the_id_of_the_target_image_to_upgrade_to

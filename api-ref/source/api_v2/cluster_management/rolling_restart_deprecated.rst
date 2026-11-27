@@ -8,11 +8,12 @@ Rolling Restart (Deprecated)
 Function
 --------
 
-This API is used to restart nodes one by one, which requires a long time when the nodes have a large number of indexes.
+This API is used to perform a rolling restart on a specific type of nodes in an Elasticsearch or OpenSearch cluster.
 
-.. note::
+Constraints
+-----------
 
-   Rolling restart is supported only when the cluster has more than three nodes (including master nodes, client nodes, and cold data nodes). When the cluster is available, ensure that the cluster has stopped handling service requests (such as importing data and searching for data). Otherwise, the cluster restart may cause data loss.
+-  Rolling restart is supported only when there are more than three nodes (including Master nodes, Client nodes, and cold data nodes) in the cluster. When the cluster is available, ensure that the cluster has stopped processing service data (such as importing and searching for data). Otherwise, data may be lost during cluster restart. During the rolling restart, you need to wait until the restarted nodes are added to the cluster and the index status changes to green. If there are a large number of indexes, the restart takes a long time.
 
 Calling Method
 --------------
@@ -26,71 +27,95 @@ POST /v2.0/{project_id}/clusters/{cluster_id}/rolling_restart
 
 .. table:: **Table 1** Path Parameters
 
-   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                               |
-   +=================+=================+=================+===========================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                           |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.          |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | **Constraints**:                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | N/A                                                                                                                                       |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | **Value range**:                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | Project ID of the account.                                                                                                                |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | **Default value**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | N/A                                                                                                                                       |
-   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                           |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | ID of the cluster you want to restart. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | **Constraints**:                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | N/A                                                                                                                                       |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | **Value range**:                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | Cluster ID.                                                                                                                               |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | **Default value**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | N/A                                                                                                                                       |
-   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                           |
+   +=================+=================+=================+=======================================================================================================================================+
+   | project_id      | Yes             | String          | **Definition**                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.      |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Constraints**                                                                                                                       |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | N/A                                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Range**                                                                                                                             |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                               |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Default Value**                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | N/A                                                                                                                                   |
+   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | ID of the cluster to be restarted. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Constraints**                                                                                                                       |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                         |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Range**                                                                                                                             |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | Cluster ID.                                                                                                                           |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Default Value**                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | N/A                                                                                                                                   |
+   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------+
 
 Request Parameters
 ------------------
 
 .. table:: **Table 2** Request body parameters
 
-   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                                    |
-   +=================+=================+=================+================================================================================================================================================+
-   | type            | Yes             | String          | Operation role. Its type can only be **role**.                                                                                                 |
-   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-   | value           | Yes             | String          | Instance type. (At least one data node is required when you configure instance types.) Use commas (,) to separate multiple types. For example: |
-   |                 |                 |                 |                                                                                                                                                |
-   |                 |                 |                 | -  **ess**: data node.                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                                |
-   |                 |                 |                 | -  **ess-cold**: cold data node                                                                                                                |
-   |                 |                 |                 |                                                                                                                                                |
-   |                 |                 |                 | -  **ess-client**: client node                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                                |
-   |                 |                 |                 | -  **ess-master**: master node                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                                |
-   |                 |                 |                 | -  **all**: all nodes.                                                                                                                         |
-   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                            |
+   +=================+=================+=================+========================================================================+
+   | type            | Yes             | String          | **Definition**                                                         |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | Rolling restart type. Only **role** is supported.                      |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | **Constraints**                                                        |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | N/A                                                                    |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | **Range**                                                              |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | **role**: Restart by role.                                             |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | **Default Value**                                                      |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | N/A                                                                    |
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------+
+   | value           | Yes             | String          | **Definition**                                                         |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | Role type. Use commas (,) to separate multiple types.                  |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | **Constraints**                                                        |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | Select at least one node type from **ess**, **ess-cold**, and **all**. |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | **Range**                                                              |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | -  **ess**: data node                                                  |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | -  **ess-cold**: cold data node                                        |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | -  **ess-client**: client node                                         |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | -  **ess-master**: master node                                         |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | -  **all**: all nodes                                                  |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | **Default Value**                                                      |
+   |                 |                 |                 |                                                                        |
+   |                 |                 |                 | N/A                                                                    |
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------+
 
 Response Parameters
 -------------------
 
 **Status code: 200**
-
-Request succeeded.
 
 None
 

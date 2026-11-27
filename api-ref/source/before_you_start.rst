@@ -79,7 +79,3 @@ Concepts
       :alt: **Figure 1** Isolation by project
 
       **Figure 1** Isolation by project
-
--  Checkpoint: When an application consumes data, the latest SN of the consumed data is recorded as a checkpoint. When the data is consumed again, the consumption can be continued based on this checkpoint.
-
--  APP: Multiple applications can access data in the same stream. Checkpoints generated for each application are used to record the consumed data in the stream by each application.

@@ -8,7 +8,7 @@ Modifying the VPCEP Service Whitelist of a Cluster
 Function
 --------
 
-To control IP addresses and CIDR blocks that can access a VPC endpoint, configure a whitelist. When or after purchasing a VPC endpoint, you can enable or disable access control for the VPC endpoint, and add or delete a whitelist record. This API is used to modify the VPC endpoint whitelist.
+To control IP addresses and CIDR blocks that can access a VPC endpoint, configure a whitelist. When or after purchasing a VPC endpoint, you can enable or disable access control for the VPC endpoint, and add or delete a whitelist record. This API is used to modify the VPC endpoint whitelist for an Elasticsearch or OpenSearch cluster.
 
 Calling Method
 --------------
@@ -25,35 +25,35 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/vpcepservice/permissions
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                          |
    +=================+=================+=================+======================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                      |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                       |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.     |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Constraints**:                                                                                                                     |
+   |                 |                 |                 | **Constraints**                                                                                                                      |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                  |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Value range**:                                                                                                                     |
+   |                 |                 |                 | **Range**                                                                                                                            |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | Project ID of the account.                                                                                                           |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                              |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Default value**:                                                                                                                   |
+   |                 |                 |                 | **Default Value**                                                                                                                    |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                  |
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                      |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                       |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | ID of the cluster to be modified. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Constraints**:                                                                                                                     |
+   |                 |                 |                 | **Constraints**                                                                                                                      |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                  |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Value range**:                                                                                                                     |
+   |                 |                 |                 | **Range**                                                                                                                            |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | Cluster ID.                                                                                                                          |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                        |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Default value**:                                                                                                                   |
+   |                 |                 |                 | **Default Value**                                                                                                                    |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                  |
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
@@ -79,8 +79,6 @@ Response Parameters
 -------------------
 
 **Status code: 200**
-
-Request succeeded.
 
 None
 

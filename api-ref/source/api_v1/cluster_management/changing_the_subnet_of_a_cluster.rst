@@ -8,7 +8,7 @@ Changing the Subnet of a Cluster
 Function
 --------
 
-If the subnet where the cluster resides does not have insufficient IP addresses and nodes cannot be added as a result, for example, during a cluster scale-out, you can use this API to switch to another subnet. After subnet switching, the new subnet will be used to create new nodes, but the subnet of existing nodes will remain unchanged.
+If the subnet where the Elasticsearch or OpenSearch cluster resides does not have insufficient IP addresses and nodes cannot be added as a result, for example, during a cluster scale-out, you can use this API to switch to another subnet. After subnet switching, the new subnet will be used to create new nodes, but the subnet of existing nodes will remain unchanged.
 
 .. note::
 
@@ -29,35 +29,35 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/subnet/change
    +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                                         |
    +=================+=================+=================+=====================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                     |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                      |
    |                 |                 |                 |                                                                                                                                                     |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                    |
    |                 |                 |                 |                                                                                                                                                     |
-   |                 |                 |                 | **Constraints**:                                                                                                                                    |
+   |                 |                 |                 | **Constraints**                                                                                                                                     |
    |                 |                 |                 |                                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                                 |
    |                 |                 |                 |                                                                                                                                                     |
-   |                 |                 |                 | **Value range**:                                                                                                                                    |
+   |                 |                 |                 | **Range**                                                                                                                                           |
    |                 |                 |                 |                                                                                                                                                     |
-   |                 |                 |                 | Project ID of the account.                                                                                                                          |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                             |
    |                 |                 |                 |                                                                                                                                                     |
-   |                 |                 |                 | **Default value**:                                                                                                                                  |
+   |                 |                 |                 | **Default Value**                                                                                                                                   |
    |                 |                 |                 |                                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                                 |
    +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                     |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                      |
    |                 |                 |                 |                                                                                                                                                     |
    |                 |                 |                 | ID of the cluster whose subnet is to be changed. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                                     |
-   |                 |                 |                 | **Constraints**:                                                                                                                                    |
+   |                 |                 |                 | **Constraints**                                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                                     |
+   |                 |                 |                 | UUID format, 36 characters.                                                                                                                         |
+   |                 |                 |                 |                                                                                                                                                     |
+   |                 |                 |                 | **Range**                                                                                                                                           |
    |                 |                 |                 |                                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                                 |
    |                 |                 |                 |                                                                                                                                                     |
-   |                 |                 |                 | **Value range**:                                                                                                                                    |
-   |                 |                 |                 |                                                                                                                                                     |
-   |                 |                 |                 | Cluster ID.                                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                                     |
-   |                 |                 |                 | **Default value**:                                                                                                                                  |
+   |                 |                 |                 | **Default Value**                                                                                                                                   |
    |                 |                 |                 |                                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                                 |
    +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -67,32 +67,32 @@ Request Parameters
 
 .. table:: **Table 2** Request body parameters
 
-   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                          |
-   +=================+=================+=================+======================================================================================================================================+
-   | subnet_id       | Yes             | String          | **Definition**:                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | Subnet ID.                                                                                                                           |
-   |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Constraints**:                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | If automatic IPv6 address assignment is enabled for the cluster, the cluster can only be switched to a new subnet with IPv6 enabled. |
-   |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Value range**:                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | The subnet must be within the same VPC as the current cluster.                                                                       |
-   |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Default value**:                                                                                                                   |
-   |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | N/A                                                                                                                                  |
-   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                            |
+   +=================+=================+=================+========================================================================================================================+
+   | subnet_id       | Yes             | String          | **Definition**                                                                                                         |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | Subnet ID. It can be obtained by calling the API.                                                                      |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **Constraints**                                                                                                        |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | -  If the cluster has enabled automatic IPv6 address creation, you can only switch to a new subnet that supports IPv6. |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | -  The subnet ID must belong to the same VPC as the current cluster.                                                   |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **Range**                                                                                                              |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | N/A                                                                                                                    |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **Default Value**                                                                                                      |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | N/A                                                                                                                    |
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------+
 
 Response Parameters
 -------------------
 
 **Status code: 200**
-
-Request succeeded.
 
 None
 

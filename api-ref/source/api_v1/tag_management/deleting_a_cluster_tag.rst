@@ -27,35 +27,35 @@ DELETE /v1.0/{project_id}/{resource_type}/{cluster_id}/tags/{key}
    +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                                             |
    +=================+=================+=================+=========================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                         |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                          |
    |                 |                 |                 |                                                                                                                                                         |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                        |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Constraints**:                                                                                                                                        |
+   |                 |                 |                 | **Constraints**                                                                                                                                         |
    |                 |                 |                 |                                                                                                                                                         |
    |                 |                 |                 | N/A                                                                                                                                                     |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Value range**:                                                                                                                                        |
+   |                 |                 |                 | **Range**                                                                                                                                               |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | Project ID of the account.                                                                                                                              |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                                 |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Default value**:                                                                                                                                      |
+   |                 |                 |                 | **Default Value**                                                                                                                                       |
    |                 |                 |                 |                                                                                                                                                         |
    |                 |                 |                 | N/A                                                                                                                                                     |
    +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                         |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                          |
    |                 |                 |                 |                                                                                                                                                         |
    |                 |                 |                 | ID of the cluster that you want to delete tags from. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Constraints**:                                                                                                                                        |
+   |                 |                 |                 | **Constraints**                                                                                                                                         |
    |                 |                 |                 |                                                                                                                                                         |
    |                 |                 |                 | N/A                                                                                                                                                     |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Value range**:                                                                                                                                        |
+   |                 |                 |                 | **Range**                                                                                                                                               |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | Cluster ID.                                                                                                                                             |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                                           |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Default value**:                                                                                                                                      |
+   |                 |                 |                 | **Default Value**                                                                                                                                       |
    |                 |                 |                 |                                                                                                                                                         |
    |                 |                 |                 | N/A                                                                                                                                                     |
    +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -75,19 +75,19 @@ DELETE /v1.0/{project_id}/{resource_type}/{cluster_id}/tags/{key}
    |                 |                 |                 |                                                                                                                                                         |
    |                 |                 |                 | N/A                                                                                                                                                     |
    +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | key             | Yes             | String          | **Definition**:                                                                                                                                         |
+   | key             | Yes             | String          | **Definition**                                                                                                                                          |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | Name of the tag you want to delete                                                                                                                      |
+   |                 |                 |                 | Name of the tag to delete.                                                                                                                              |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Constraints**:                                                                                                                                        |
+   |                 |                 |                 | **Constraints**                                                                                                                                         |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | If the tag name is in Chinese, encode the tag name using URL before calling the API.                                                                    |
+   |                 |                 |                 | If the tag key is in Chinese, it must be URL-encoded before calling this API.                                                                           |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Value range**:                                                                                                                                        |
+   |                 |                 |                 | **Range**                                                                                                                                               |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                                     |
+   |                 |                 |                 | The value can contain 1 to 128 characters. Only digits, letters, hyphens (-), and underscores (_) are allowed.                                          |
    |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Default value**:                                                                                                                                      |
+   |                 |                 |                 | **Default Value**                                                                                                                                       |
    |                 |                 |                 |                                                                                                                                                         |
    |                 |                 |                 | N/A                                                                                                                                                     |
    +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -102,8 +102,6 @@ Response Parameters
 
 **Status code: 204**
 
-Request succeeded.
-
 None
 
 Example Requests
@@ -113,7 +111,7 @@ Delete the tags of a cluster.
 
 .. code-block:: text
 
-   DELETE https://{Endpoint}/v1.0/{project_id}/css-cluster/2a197c4d-5467-4003-931d-83ec49939cf/tags/K1
+   DELETE https://{Endpoint}/v1.0/{project_id}/css-cluster/a3f7b2c1-9d4e-4f8a-b6c3-1e2a5d7f9b04/tags/K1
 
 Example Responses
 -----------------

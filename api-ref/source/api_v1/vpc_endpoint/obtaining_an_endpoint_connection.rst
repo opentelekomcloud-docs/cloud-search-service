@@ -8,7 +8,7 @@ Obtaining an Endpoint Connection
 Function
 --------
 
-The VPC endpoint service enables secure and reliable access across VPCs through a dedicated gateway, without exposing the network information of servers. The VPC endpoint address can be an IPv4 address (automatically allocated when the VPC endpoint service is enabled), an IPv6 address (allocated when a professional VPC endpoint is created and dual-stack networking is enabled), or an internal domain name (allocated when DNS is enabled). This API is used to obtain the VPCEP connection of a cluster.
+The VPC endpoint service enables secure and reliable access across VPCs through a dedicated gateway, without exposing the network information of servers. The VPC endpoint address can be an IPv4 address (automatically allocated when the VPC endpoint service is enabled), an IPv6 address (allocated when a professional VPC endpoint is created and dual-stack networking is enabled), or an internal domain name (allocated when DNS is enabled). This API is used to obtain the VPCEP connection of an Elasticsearch or OpenSearch cluster.
 
 Calling Method
 --------------
@@ -25,76 +25,76 @@ GET /v1.0/{project_id}/clusters/{cluster_id}/vpcepservice/connections
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                         |
    +=================+=================+=================+=====================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                     |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                      |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.    |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Constraints**:                                                                                                                    |
+   |                 |                 |                 | **Constraints**                                                                                                                     |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                 |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Value range**:                                                                                                                    |
+   |                 |                 |                 | **Range**                                                                                                                           |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | Project ID of the account.                                                                                                          |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                             |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Default value**:                                                                                                                  |
+   |                 |                 |                 | **Default Value**                                                                                                                   |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                 |
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                     |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                      |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | ID of the cluster to be queried. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Constraints**:                                                                                                                    |
+   |                 |                 |                 | **Constraints**                                                                                                                     |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                 |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Value range**:                                                                                                                    |
+   |                 |                 |                 | **Range**                                                                                                                           |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | Cluster ID.                                                                                                                         |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                       |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Default value**:                                                                                                                  |
+   |                 |                 |                 | **Default Value**                                                                                                                   |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                 |
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
 
 .. table:: **Table 2** Query Parameters
 
-   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                              |
-   +=================+=================+=================+==========================================================================+
-   | offset          | No              | Integer         | **Definition**:                                                          |
-   |                 |                 |                 |                                                                          |
-   |                 |                 |                 | Start value for querying VPC endpoint connections.                       |
-   |                 |                 |                 |                                                                          |
-   |                 |                 |                 | **Constraints**:                                                         |
-   |                 |                 |                 |                                                                          |
-   |                 |                 |                 | N/A                                                                      |
-   |                 |                 |                 |                                                                          |
-   |                 |                 |                 | **Value range**:                                                         |
-   |                 |                 |                 |                                                                          |
-   |                 |                 |                 | Greater than or equal to 0.                                              |
-   |                 |                 |                 |                                                                          |
-   |                 |                 |                 | **Default value**:                                                       |
-   |                 |                 |                 |                                                                          |
-   |                 |                 |                 | 0                                                                        |
-   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------+
-   | limit           | No              | Integer         | **Definition**:                                                          |
-   |                 |                 |                 |                                                                          |
-   |                 |                 |                 | The number of VPC endpoint connections to be queried.                    |
-   |                 |                 |                 |                                                                          |
-   |                 |                 |                 | **Constraints**:                                                         |
-   |                 |                 |                 |                                                                          |
-   |                 |                 |                 | N/A                                                                      |
-   |                 |                 |                 |                                                                          |
-   |                 |                 |                 | **Value range**:                                                         |
-   |                 |                 |                 |                                                                          |
-   |                 |                 |                 | 1-1000                                                                   |
-   |                 |                 |                 |                                                                          |
-   |                 |                 |                 | **Default value**:                                                       |
-   |                 |                 |                 |                                                                          |
-   |                 |                 |                 | The default value is 10, indicating that 10 tasks are queried at a time. |
-   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+-------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                           |
+   +=================+=================+=================+=======================================================+
+   | offset          | No              | Integer         | **Definition**:                                       |
+   |                 |                 |                 |                                                       |
+   |                 |                 |                 | Start value for querying VPC endpoint connections.    |
+   |                 |                 |                 |                                                       |
+   |                 |                 |                 | **Constraints**:                                      |
+   |                 |                 |                 |                                                       |
+   |                 |                 |                 | N/A                                                   |
+   |                 |                 |                 |                                                       |
+   |                 |                 |                 | **Value range**:                                      |
+   |                 |                 |                 |                                                       |
+   |                 |                 |                 | Greater than or equal to 0.                           |
+   |                 |                 |                 |                                                       |
+   |                 |                 |                 | **Default value**:                                    |
+   |                 |                 |                 |                                                       |
+   |                 |                 |                 | 0                                                     |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------+
+   | limit           | No              | Integer         | **Definition**                                        |
+   |                 |                 |                 |                                                       |
+   |                 |                 |                 | The number of VPC endpoint connections to be queried. |
+   |                 |                 |                 |                                                       |
+   |                 |                 |                 | **Constraints**                                       |
+   |                 |                 |                 |                                                       |
+   |                 |                 |                 | N/A                                                   |
+   |                 |                 |                 |                                                       |
+   |                 |                 |                 | **Range**                                             |
+   |                 |                 |                 |                                                       |
+   |                 |                 |                 | 1-1000                                                |
+   |                 |                 |                 |                                                       |
+   |                 |                 |                 | **Default Value**                                     |
+   |                 |                 |                 |                                                       |
+   |                 |                 |                 | **10**                                                |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------+
 
 Request Parameters
 ------------------
@@ -158,131 +158,131 @@ Response Parameters
 
 .. table:: **Table 4** connections
 
-   +-----------------------+-----------------------+-----------------------------------------------------------+
-   | Parameter             | Type                  | Description                                               |
-   +=======================+=======================+===========================================================+
-   | id                    | String                | **Definition**:                                           |
-   |                       |                       |                                                           |
-   |                       |                       | Cluster VPC endpoint ID.                                  |
-   |                       |                       |                                                           |
-   |                       |                       | **Value range**:                                          |
-   |                       |                       |                                                           |
-   |                       |                       | N/A                                                       |
-   +-----------------------+-----------------------+-----------------------------------------------------------+
-   | status                | String                | **Definition**:                                           |
-   |                       |                       |                                                           |
-   |                       |                       | Cluster VPC endpoint status.                              |
-   |                       |                       |                                                           |
-   |                       |                       | **Value range**:                                          |
-   |                       |                       |                                                           |
-   |                       |                       | -  **accepted**: The VPC endpoint connection is enabled.  |
-   |                       |                       |                                                           |
-   |                       |                       | -  **rejected**: The VPC endpoint connection is disabled. |
-   +-----------------------+-----------------------+-----------------------------------------------------------+
-   | maxSession            | String                | **Definition**:                                           |
-   |                       |                       |                                                           |
-   |                       |                       | Maximum number of connections to a VPC endpoint.          |
-   |                       |                       |                                                           |
-   |                       |                       | **Value range**:                                          |
-   |                       |                       |                                                           |
-   |                       |                       | N/A                                                       |
-   +-----------------------+-----------------------+-----------------------------------------------------------+
-   | specificationName     | String                | **Definition**:                                           |
-   |                       |                       |                                                           |
-   |                       |                       | Cluster VPC endpoint name.                                |
-   |                       |                       |                                                           |
-   |                       |                       | **Value range**:                                          |
-   |                       |                       |                                                           |
-   |                       |                       | N/A                                                       |
-   +-----------------------+-----------------------+-----------------------------------------------------------+
-   | created_at            | String                | **Definition**:                                           |
-   |                       |                       |                                                           |
-   |                       |                       | Creation time.                                            |
-   |                       |                       |                                                           |
-   |                       |                       | **Value range**                                           |
-   |                       |                       |                                                           |
-   |                       |                       | The format is CCYY-MM-DDThh:mm:ss (ISO 8601).             |
-   +-----------------------+-----------------------+-----------------------------------------------------------+
-   | update_at             | String                | **Definition**:                                           |
-   |                       |                       |                                                           |
-   |                       |                       | Update time. The default value is null.                   |
-   |                       |                       |                                                           |
-   |                       |                       | **Value range**                                           |
-   |                       |                       |                                                           |
-   |                       |                       | The format is CCYY-MM-DDThh:mm:ss (ISO 8601).             |
-   +-----------------------+-----------------------+-----------------------------------------------------------+
-   | domain_id             | String                | **Definition**:                                           |
-   |                       |                       |                                                           |
-   |                       |                       | Account ID of the owner.                                  |
-   |                       |                       |                                                           |
-   |                       |                       | **Value range**:                                          |
-   |                       |                       |                                                           |
-   |                       |                       | N/A                                                       |
-   +-----------------------+-----------------------+-----------------------------------------------------------+
-   | vpcepIp               | String                | **Definition**:                                           |
-   |                       |                       |                                                           |
-   |                       |                       | IPv4 address of a cluster VPC endpoint.                   |
-   |                       |                       |                                                           |
-   |                       |                       | **Value range**:                                          |
-   |                       |                       |                                                           |
-   |                       |                       | N/A                                                       |
-   +-----------------------+-----------------------+-----------------------------------------------------------+
-   | vpcepIpv6Address      | String                | **Definition**:                                           |
-   |                       |                       |                                                           |
-   |                       |                       | IPv6 address of a cluster VPC endpoint.                   |
-   |                       |                       |                                                           |
-   |                       |                       | **Value range**:                                          |
-   |                       |                       |                                                           |
-   |                       |                       | N/A                                                       |
-   +-----------------------+-----------------------+-----------------------------------------------------------+
-   | vpcepDnsName          | String                | **Definition**:                                           |
-   |                       |                       |                                                           |
-   |                       |                       | Private domain name of a cluster VPC endpoint.            |
-   |                       |                       |                                                           |
-   |                       |                       | **Value range**:                                          |
-   |                       |                       |                                                           |
-   |                       |                       | N/A                                                       |
-   +-----------------------+-----------------------+-----------------------------------------------------------+
+   +-----------------------+-----------------------+------------------------------------------------------------------------------+
+   | Parameter             | Type                  | Description                                                                  |
+   +=======================+=======================+==============================================================================+
+   | id                    | String                | **Definition**:                                                              |
+   |                       |                       |                                                                              |
+   |                       |                       | Cluster VPC endpoint ID.                                                     |
+   |                       |                       |                                                                              |
+   |                       |                       | **Value range**:                                                             |
+   |                       |                       |                                                                              |
+   |                       |                       | N/A                                                                          |
+   +-----------------------+-----------------------+------------------------------------------------------------------------------+
+   | status                | String                | **Definition**:                                                              |
+   |                       |                       |                                                                              |
+   |                       |                       | Cluster VPC endpoint status.                                                 |
+   |                       |                       |                                                                              |
+   |                       |                       | **Value range**:                                                             |
+   |                       |                       |                                                                              |
+   |                       |                       | -  **accepted**: The VPC endpoint connection is enabled.                     |
+   |                       |                       |                                                                              |
+   |                       |                       | -  **rejected**: The VPC endpoint connection is disabled.                    |
+   +-----------------------+-----------------------+------------------------------------------------------------------------------+
+   | maxSession            | String                | **Definition**:                                                              |
+   |                       |                       |                                                                              |
+   |                       |                       | Maximum number of connections to a VPC endpoint.                             |
+   |                       |                       |                                                                              |
+   |                       |                       | **Value range**:                                                             |
+   |                       |                       |                                                                              |
+   |                       |                       | N/A                                                                          |
+   +-----------------------+-----------------------+------------------------------------------------------------------------------+
+   | specificationName     | String                | **Definition**:                                                              |
+   |                       |                       |                                                                              |
+   |                       |                       | Cluster VPC endpoint name.                                                   |
+   |                       |                       |                                                                              |
+   |                       |                       | **Value range**:                                                             |
+   |                       |                       |                                                                              |
+   |                       |                       | N/A                                                                          |
+   +-----------------------+-----------------------+------------------------------------------------------------------------------+
+   | created_at            | String                | **Definition**                                                               |
+   |                       |                       |                                                                              |
+   |                       |                       | Cluster endpoint creation time, in ISO 8601 format: **YYYY-MM-DDThh:mm:ss**. |
+   |                       |                       |                                                                              |
+   |                       |                       | **Range**                                                                    |
+   |                       |                       |                                                                              |
+   |                       |                       | N/A                                                                          |
+   +-----------------------+-----------------------+------------------------------------------------------------------------------+
+   | update_at             | String                | **Definition**                                                               |
+   |                       |                       |                                                                              |
+   |                       |                       | Cluster endpoint update time, in ISO 8601 format: **YYYY-MM-DDThh:mm:ss**.   |
+   |                       |                       |                                                                              |
+   |                       |                       | **Range**                                                                    |
+   |                       |                       |                                                                              |
+   |                       |                       | N/A                                                                          |
+   +-----------------------+-----------------------+------------------------------------------------------------------------------+
+   | domain_id             | String                | **Definition**:                                                              |
+   |                       |                       |                                                                              |
+   |                       |                       | Account ID of the owner.                                                     |
+   |                       |                       |                                                                              |
+   |                       |                       | **Value range**:                                                             |
+   |                       |                       |                                                                              |
+   |                       |                       | N/A                                                                          |
+   +-----------------------+-----------------------+------------------------------------------------------------------------------+
+   | vpcepIp               | String                | **Definition**:                                                              |
+   |                       |                       |                                                                              |
+   |                       |                       | IPv4 address of a cluster VPC endpoint.                                      |
+   |                       |                       |                                                                              |
+   |                       |                       | **Value range**:                                                             |
+   |                       |                       |                                                                              |
+   |                       |                       | N/A                                                                          |
+   +-----------------------+-----------------------+------------------------------------------------------------------------------+
+   | vpcepIpv6Address      | String                | **Definition**:                                                              |
+   |                       |                       |                                                                              |
+   |                       |                       | IPv6 address of a cluster VPC endpoint.                                      |
+   |                       |                       |                                                                              |
+   |                       |                       | **Value range**:                                                             |
+   |                       |                       |                                                                              |
+   |                       |                       | N/A                                                                          |
+   +-----------------------+-----------------------+------------------------------------------------------------------------------+
+   | vpcepDnsName          | String                | **Definition**:                                                              |
+   |                       |                       |                                                                              |
+   |                       |                       | Private domain name of a cluster VPC endpoint.                               |
+   |                       |                       |                                                                              |
+   |                       |                       | **Value range**:                                                             |
+   |                       |                       |                                                                              |
+   |                       |                       | N/A                                                                          |
+   +-----------------------+-----------------------+------------------------------------------------------------------------------+
 
 .. _showvpcepconnection__response_permissions:
 
 .. table:: **Table 5** permissions
 
-   +-----------------------+-----------------------+--------------------------------------------------------+
-   | Parameter             | Type                  | Description                                            |
-   +=======================+=======================+========================================================+
-   | id                    | String                | **Definition**:                                        |
-   |                       |                       |                                                        |
-   |                       |                       | Unique ID of the permission.                           |
-   |                       |                       |                                                        |
-   |                       |                       | **Value range**:                                       |
-   |                       |                       |                                                        |
-   |                       |                       | N/A                                                    |
-   +-----------------------+-----------------------+--------------------------------------------------------+
-   | permission            | String                | **Definition**:                                        |
-   |                       |                       |                                                        |
-   |                       |                       | Permission details for the VPCEP connection whitelist. |
-   |                       |                       |                                                        |
-   |                       |                       | **Value range**:                                       |
-   |                       |                       |                                                        |
-   |                       |                       | N/A                                                    |
-   +-----------------------+-----------------------+--------------------------------------------------------+
-   | permission_type       | String                | **Definition**:                                        |
-   |                       |                       |                                                        |
-   |                       |                       | VPC endpoint permission type.                          |
-   |                       |                       |                                                        |
-   |                       |                       | **Value range**:                                       |
-   |                       |                       |                                                        |
-   |                       |                       | domainId: user account ID.                             |
-   +-----------------------+-----------------------+--------------------------------------------------------+
-   | created_at            | String                | **Definition**:                                        |
-   |                       |                       |                                                        |
-   |                       |                       | Specifies when the VPC endpoint was created.           |
-   |                       |                       |                                                        |
-   |                       |                       | **Value range**:                                       |
-   |                       |                       |                                                        |
-   |                       |                       | The format is CCYY-MM-DDThh:mm:ss (ISO 8601).          |
-   +-----------------------+-----------------------+--------------------------------------------------------+
+   +-----------------------+-----------------------+----------------------------------------------------------------------+
+   | Parameter             | Type                  | Description                                                          |
+   +=======================+=======================+======================================================================+
+   | id                    | String                | **Definition**:                                                      |
+   |                       |                       |                                                                      |
+   |                       |                       | Unique ID of the permission.                                         |
+   |                       |                       |                                                                      |
+   |                       |                       | **Value range**:                                                     |
+   |                       |                       |                                                                      |
+   |                       |                       | N/A                                                                  |
+   +-----------------------+-----------------------+----------------------------------------------------------------------+
+   | permission            | String                | **Definition**:                                                      |
+   |                       |                       |                                                                      |
+   |                       |                       | Permission details for the VPCEP connection whitelist.               |
+   |                       |                       |                                                                      |
+   |                       |                       | **Value range**:                                                     |
+   |                       |                       |                                                                      |
+   |                       |                       | N/A                                                                  |
+   +-----------------------+-----------------------+----------------------------------------------------------------------+
+   | permission_type       | String                | **Definition**:                                                      |
+   |                       |                       |                                                                      |
+   |                       |                       | VPC endpoint permission type.                                        |
+   |                       |                       |                                                                      |
+   |                       |                       | **Value range**:                                                     |
+   |                       |                       |                                                                      |
+   |                       |                       | domainId: user account ID.                                           |
+   +-----------------------+-----------------------+----------------------------------------------------------------------+
+   | created_at            | String                | **Definition**                                                       |
+   |                       |                       |                                                                      |
+   |                       |                       | Endpoint creation time, in ISO 8601 format: **YYYY-MM-DDThh:mm:ss**. |
+   |                       |                       |                                                                      |
+   |                       |                       | **Range**                                                            |
+   |                       |                       |                                                                      |
+   |                       |                       | N/A                                                                  |
+   +-----------------------+-----------------------+----------------------------------------------------------------------+
 
 Example Requests
 ----------------
@@ -291,14 +291,12 @@ Obtain the VPCEP connection of a cluster.
 
 .. code-block:: text
 
-   GET https://{Endpoint}/v1.0/{project_id}/clusters/5c77b71c-5b35-4f50-8984-76387e42451a/vpcepservice/connections
+   GET https://{Endpoint}/v1.0/{project_id}/clusters/{cluster_id}/vpcepservice/connections
 
 Example Responses
 -----------------
 
 **Status code: 200**
-
-Request succeeded.
 
 .. code-block::
 
@@ -315,7 +313,7 @@ Request succeeded.
      } ],
      "vpcepUpdateSwitch" : false,
      "total_count" : 1,
-     "vpcServiceName" : "azcode-1.css-op-no-delete.cf072729-b076-49db-83d3-020dc9f589bd",
+     "vpcServiceName" : "region_code.css-op-no-delete.cf072729-b076-49db-83d3-020dc9f589bd",
      "permissions" : [ {
        "id" : "432a6429-f377-4168-8b24-feb5885af08c",
        "permission" : "iam:domain::db9b76a0d9ae431f8e85e89da2ca867c",

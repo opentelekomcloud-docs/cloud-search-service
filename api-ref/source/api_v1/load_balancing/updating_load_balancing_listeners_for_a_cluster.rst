@@ -8,7 +8,7 @@ Updating Load Balancing Listeners for a Cluster
 Function
 --------
 
-CSS can interconnect with ELB. This API is used to update the configuration of load balancer listeners for clusters.
+CSS can interconnect with ELB. This API is used to update the configuration of load balancer listeners in an Elasticsearch or OpenSearch cluster.
 
 Calling Method
 --------------
@@ -22,130 +22,132 @@ PUT /v1.0/{project_id}/clusters/{cluster_id}/es-listeners/{listener_id}
 
 .. table:: **Table 1** Path Parameters
 
-   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                      |
-   +=================+=================+=================+==================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                  |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`. |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Constraints**:                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | N/A                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Value range**:                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | Project ID of the account.                                                                                                       |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Default value**:                                                                                                               |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | N/A                                                                                                                              |
-   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                  |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | ID of the target cluster. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`.     |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Constraints**:                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | N/A                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Value range**:                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | Cluster ID.                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Default value**:                                                                                                               |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | N/A                                                                                                                              |
-   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
-   | listener_id     | Yes             | String          | **Definition**:                                                                                                                  |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | ID of the target listener.                                                                                                       |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Constraints**:                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | N/A                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Value range**:                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | N/A                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Default value**:                                                                                                               |
-   |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | N/A                                                                                                                              |
-   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                       |
+   +=================+=================+=================+===================================================================================================================================+
+   | project_id      | Yes             | String          | **Definition**                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.  |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | **Constraints**                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | N/A                                                                                                                               |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | **Range**                                                                                                                         |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                           |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | **Default Value**                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | N/A                                                                                                                               |
+   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------+
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | ID of the target cluster. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`.      |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | **Constraints**                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | N/A                                                                                                                               |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | **Range**                                                                                                                         |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                     |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | **Default Value**                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | N/A                                                                                                                               |
+   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------+
+   | listener_id     | Yes             | String          | **Definition**                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | ID of the target listener. For details about how to obtain the listener ID, see :ref:`Obtaining the Listener ID <showelbdetail>`. |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | **Constraints**                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | N/A                                                                                                                               |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | **Range**                                                                                                                         |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | N/A                                                                                                                               |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | **Default Value**                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                   |
+   |                 |                 |                 | N/A                                                                                                                               |
+   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------+
 
 Request Parameters
 ------------------
 
 .. table:: **Table 2** Request body parameters
 
-   +-----------------+-----------------+-------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type                                                                          | Description                                                                      |
-   +=================+=================+===============================================================================+==================================================================================+
-   | listener        | Yes             | :ref:`EsListenerRequest <updateeslistener__request_eslistenerrequest>` object | **Definition**:                                                                  |
-   |                 |                 |                                                                               |                                                                                  |
-   |                 |                 |                                                                               | Listener information.                                                            |
-   |                 |                 |                                                                               |                                                                                  |
-   |                 |                 |                                                                               | **Constraints**:                                                                 |
-   |                 |                 |                                                                               |                                                                                  |
-   |                 |                 |                                                                               | N/A.                                                                             |
-   +-----------------+-----------------+-------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-   | type            | No              | String                                                                        | **Definition**                                                                   |
-   |                 |                 |                                                                               |                                                                                  |
-   |                 |                 |                                                                               | Configuration type.                                                              |
-   |                 |                 |                                                                               |                                                                                  |
-   |                 |                 |                                                                               | **Constraints**                                                                  |
-   |                 |                 |                                                                               |                                                                                  |
-   |                 |                 |                                                                               | N/A                                                                              |
-   |                 |                 |                                                                               |                                                                                  |
-   |                 |                 |                                                                               | **Range**                                                                        |
-   |                 |                 |                                                                               |                                                                                  |
-   |                 |                 |                                                                               | **searchTool**: Modifies the Elasticsearch or OpenSearch listener configuration. |
-   |                 |                 |                                                                               |                                                                                  |
-   |                 |                 |                                                                               | **Default Value**                                                                |
-   |                 |                 |                                                                               |                                                                                  |
-   |                 |                 |                                                                               | **searchTool**                                                                   |
-   +-----------------+-----------------+-------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+   +-----------------+-----------------+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type                                                                          | Description                                                                         |
+   +=================+=================+===============================================================================+=====================================================================================+
+   | listener        | Yes             | :ref:`EsListenerRequest <updateeslistener__request_eslistenerrequest>` object | **Definition**:                                                                     |
+   |                 |                 |                                                                               |                                                                                     |
+   |                 |                 |                                                                               | Listener information.                                                               |
+   |                 |                 |                                                                               |                                                                                     |
+   |                 |                 |                                                                               | **Constraints**:                                                                    |
+   |                 |                 |                                                                               |                                                                                     |
+   |                 |                 |                                                                               | N/A.                                                                                |
+   +-----------------+-----------------+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+   | type            | No              | String                                                                        | **Definition**                                                                      |
+   |                 |                 |                                                                               |                                                                                     |
+   |                 |                 |                                                                               | Listener configuration type.                                                        |
+   |                 |                 |                                                                               |                                                                                     |
+   |                 |                 |                                                                               | **Constraints**                                                                     |
+   |                 |                 |                                                                               |                                                                                     |
+   |                 |                 |                                                                               | N/A                                                                                 |
+   |                 |                 |                                                                               |                                                                                     |
+   |                 |                 |                                                                               | **Range**                                                                           |
+   |                 |                 |                                                                               |                                                                                     |
+   |                 |                 |                                                                               | -  **searchTool**: Modifies the Elasticsearch or OpenSearch listener configuration. |
+   |                 |                 |                                                                               |                                                                                     |
+   |                 |                 |                                                                               | -  **viewTool**: Modifies the Kibana or OpenSearch Dashboard load balancer.         |
+   |                 |                 |                                                                               |                                                                                     |
+   |                 |                 |                                                                               | **Default Value**                                                                   |
+   |                 |                 |                                                                               |                                                                                     |
+   |                 |                 |                                                                               | searchTool                                                                          |
+   +-----------------+-----------------+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
 
 .. _updateeslistener__request_eslistenerrequest:
 
 .. table:: **Table 3** EsListenerRequest
 
-   +-----------------------------+-----------------+-----------------+-----------------------------------------------------+
-   | Parameter                   | Mandatory       | Type            | Description                                         |
-   +=============================+=================+=================+=====================================================+
-   | default_tls_container_ref   | Yes             | String          | **Definition**                                      |
-   |                             |                 |                 |                                                     |
-   |                             |                 |                 | ID of the server certificate used by the listener.  |
-   |                             |                 |                 |                                                     |
-   |                             |                 |                 | **Constraints**                                     |
-   |                             |                 |                 |                                                     |
-   |                             |                 |                 | This is mandatory for HTTPS authentication.         |
-   |                             |                 |                 |                                                     |
-   |                             |                 |                 | **Range**                                           |
-   |                             |                 |                 |                                                     |
-   |                             |                 |                 | N/A                                                 |
-   |                             |                 |                 |                                                     |
-   |                             |                 |                 | **Default Value**                                   |
-   |                             |                 |                 |                                                     |
-   |                             |                 |                 | N/A                                                 |
-   +-----------------------------+-----------------+-----------------+-----------------------------------------------------+
-   | client_ca_tls_container_ref | No              | String          | **Definition**                                      |
-   |                             |                 |                 |                                                     |
-   |                             |                 |                 | ID of the CA certificate used by the listener.      |
-   |                             |                 |                 |                                                     |
-   |                             |                 |                 | **Constraints**                                     |
-   |                             |                 |                 |                                                     |
-   |                             |                 |                 | This is mandatory for HTTPS two-way authentication. |
-   |                             |                 |                 |                                                     |
-   |                             |                 |                 | **Range**                                           |
-   |                             |                 |                 |                                                     |
-   |                             |                 |                 | N/A                                                 |
-   |                             |                 |                 |                                                     |
-   |                             |                 |                 | **Default Value**                                   |
-   |                             |                 |                 |                                                     |
-   |                             |                 |                 | N/A                                                 |
-   +-----------------------------+-----------------+-----------------+-----------------------------------------------------+
+   +-----------------------------+-----------------+-----------------+-----------------------------------------------------------------------+
+   | Parameter                   | Mandatory       | Type            | Description                                                           |
+   +=============================+=================+=================+=======================================================================+
+   | default_tls_container_ref   | Yes             | String          | **Definition**                                                        |
+   |                             |                 |                 |                                                                       |
+   |                             |                 |                 | ID of the server certificate used by the listener. For details, see . |
+   |                             |                 |                 |                                                                       |
+   |                             |                 |                 | **Constraints**                                                       |
+   |                             |                 |                 |                                                                       |
+   |                             |                 |                 | This parameter is mandatory for HTTPS authentication.                 |
+   |                             |                 |                 |                                                                       |
+   |                             |                 |                 | **Range**                                                             |
+   |                             |                 |                 |                                                                       |
+   |                             |                 |                 | N/A                                                                   |
+   |                             |                 |                 |                                                                       |
+   |                             |                 |                 | **Default Value**                                                     |
+   |                             |                 |                 |                                                                       |
+   |                             |                 |                 | N/A                                                                   |
+   +-----------------------------+-----------------+-----------------+-----------------------------------------------------------------------+
+   | client_ca_tls_container_ref | No              | String          | **Definition**                                                        |
+   |                             |                 |                 |                                                                       |
+   |                             |                 |                 | ID of the CA certificate used by the listener. For details, see .     |
+   |                             |                 |                 |                                                                       |
+   |                             |                 |                 | **Constraints**                                                       |
+   |                             |                 |                 |                                                                       |
+   |                             |                 |                 | This parameter is mandatory for HTTPS two-way authentication.         |
+   |                             |                 |                 |                                                                       |
+   |                             |                 |                 | **Range**                                                             |
+   |                             |                 |                 |                                                                       |
+   |                             |                 |                 | N/A                                                                   |
+   |                             |                 |                 |                                                                       |
+   |                             |                 |                 | **Default Value**                                                     |
+   |                             |                 |                 |                                                                       |
+   |                             |                 |                 | N/A                                                                   |
+   +-----------------------------+-----------------+-----------------+-----------------------------------------------------------------------+
 
 Response Parameters
 -------------------
@@ -193,7 +195,7 @@ Response Parameters
    |                             |                                                                                |                                                    |
    |                             |                                                                                | N/A.                                               |
    +-----------------------------+--------------------------------------------------------------------------------+----------------------------------------------------+
-   | protocol_port               | String                                                                         | **Definition**:                                    |
+   | protocol_port               | Integer                                                                        | **Definition**:                                    |
    |                             |                                                                                |                                                    |
    |                             |                                                                                | Port used by the listener.                         |
    |                             |                                                                                |                                                    |
@@ -237,15 +239,15 @@ Response Parameters
    |                       |                       |                                                                                          |
    |                       |                       | N/A                                                                                      |
    +-----------------------+-----------------------+------------------------------------------------------------------------------------------+
-   | enable_ipgroup        | Boolean               | **Definition**:                                                                          |
+   | enable_ipgroup        | Boolean               | **Definition**                                                                           |
    |                       |                       |                                                                                          |
    |                       |                       | Status of an access control group.                                                       |
    |                       |                       |                                                                                          |
-   |                       |                       | **Value range**:                                                                         |
+   |                       |                       | **Range**                                                                                |
    |                       |                       |                                                                                          |
-   |                       |                       | -  true: Enable the access control listener (which can be deleted directly).             |
+   |                       |                       | -  **true**: Access control is enabled for the listener.                                 |
    |                       |                       |                                                                                          |
-   |                       |                       | -  false: Disable the access control listener.                                           |
+   |                       |                       | -  **false**: Access control is disabled for the listener.                               |
    +-----------------------+-----------------------+------------------------------------------------------------------------------------------+
    | type                  | String                | **Definition**:                                                                          |
    |                       |                       |                                                                                          |
@@ -277,8 +279,6 @@ Example Responses
 -----------------
 
 **Status code: 200**
-
-Request succeeded.
 
 .. code-block::
 

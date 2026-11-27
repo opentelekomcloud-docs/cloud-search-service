@@ -27,41 +27,41 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/restart
 
 .. table:: **Table 1** Path Parameters
 
-   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                               |
-   +=================+=================+=================+===========================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                           |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.          |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | **Constraints**:                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | N/A                                                                                                                                       |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | **Value range**:                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | Project ID of the account.                                                                                                                |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | **Default value**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | N/A                                                                                                                                       |
-   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                           |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | ID of the cluster you want to restart. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | **Constraints**:                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | N/A                                                                                                                                       |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | **Value range**:                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | Cluster ID.                                                                                                                               |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | **Default value**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                           |
-   |                 |                 |                 | N/A                                                                                                                                       |
-   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                           |
+   +=================+=================+=================+=======================================================================================================================================+
+   | project_id      | Yes             | String          | **Definition**                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.      |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Constraints**                                                                                                                       |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | N/A                                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Range**                                                                                                                             |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                               |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Default Value**                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | N/A                                                                                                                                   |
+   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | ID of the cluster to be restarted. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Constraints**                                                                                                                       |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | N/A                                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Range**                                                                                                                             |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                         |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Default Value**                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | N/A                                                                                                                                   |
+   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------+
 
 Request Parameters
 ------------------
@@ -72,8 +72,6 @@ Response Parameters
 -------------------
 
 **Status code: 200**
-
-Request succeeded.
 
 None
 
