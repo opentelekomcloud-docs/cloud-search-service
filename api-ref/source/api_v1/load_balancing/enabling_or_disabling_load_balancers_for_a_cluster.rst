@@ -8,7 +8,7 @@ Enabling or Disabling Load Balancers for a Cluster
 Function
 --------
 
-CSS can interconnect with ELB. This API is used to enable or disable load balancers for clusters.
+CSS can interconnect with ELB. This API is used to enable or disable load balancers for an Elasticsearch or OpenSearch cluster.
 
 Calling Method
 --------------
@@ -25,35 +25,35 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/loadbalancers/es-switch
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                          |
    +=================+=================+=================+======================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                      |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                       |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.     |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Constraints**:                                                                                                                     |
+   |                 |                 |                 | **Constraints**                                                                                                                      |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                  |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Value range**:                                                                                                                     |
+   |                 |                 |                 | **Range**                                                                                                                            |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | Project ID of the account.                                                                                                           |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                              |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Default value**:                                                                                                                   |
+   |                 |                 |                 | **Default Value**                                                                                                                    |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                  |
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                      |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                       |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | ID of the cluster to be modified. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Constraints**:                                                                                                                     |
+   |                 |                 |                 | **Constraints**                                                                                                                      |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                  |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Value range**:                                                                                                                     |
+   |                 |                 |                 | **Range**                                                                                                                            |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | Cluster ID.                                                                                                                          |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                        |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Default value**:                                                                                                                   |
+   |                 |                 |                 | **Default Value**                                                                                                                    |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                  |
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
@@ -63,75 +63,75 @@ Request Parameters
 
 .. table:: **Table 2** Request body parameters
 
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                       |
-   +=================+=================+=================+===================================================================================+
-   | enable          | Yes             | Boolean         | **Definition**                                                                    |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | Enables or disables an Elasticsearch or OpenSearch load balancer.                 |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | **Constraints**                                                                   |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | N/A                                                                               |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | **Range**                                                                         |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | -  **true**: enabled.                                                             |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | -  **false**: disabled.                                                           |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | **Default Value**                                                                 |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | N/A                                                                               |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------+
-   | agency          | No              | String          | **Definition**:                                                                   |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | Specifies the name of the agency used for load balancing.                         |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | **Constraints**:                                                                  |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | This parameter is mandatory when **enable** is set to **true**.                   |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | **Value range**:                                                                  |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | N/A                                                                               |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | **Default value**:                                                                |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | N/A                                                                               |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------+
-   | elb_id          | No              | String          | **Definition**                                                                    |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | Load balancer ID. For details, see .                                              |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | **Constraints**                                                                   |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | This parameter is mandatory when **enable** is set to **true**.                   |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | **Range**                                                                         |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | N/A                                                                               |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | **Default Value**                                                                 |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | N/A                                                                               |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------+
-   | type            | No              | String          | **Definition**                                                                    |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | Load balancer type.                                                               |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | **Constraints**                                                                   |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | This parameter is not required for an observability cluster.                      |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | **Range**                                                                         |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | **searchTool**: Enables or disables an Elasticsearch or OpenSearch load balancer. |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | **Default Value**                                                                 |
-   |                 |                 |                 |                                                                                   |
-   |                 |                 |                 | **searchTool**                                                                    |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                            |
+   +=================+=================+=================+========================================================================================================================+
+   | enable          | Yes             | Boolean         | **Definition**                                                                                                         |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | Enables or disables an Elasticsearch or OpenSearch load balancer.                                                      |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **Constraints**                                                                                                        |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | N/A                                                                                                                    |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **Range**                                                                                                              |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | -  **true**: enabled.                                                                                                  |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | -  **false**: disabled.                                                                                                |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **Default Value**                                                                                                      |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | N/A                                                                                                                    |
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------+
+   | agency          | No              | String          | **Definition**                                                                                                         |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | Agency name for configuring load balancing.                                                                            |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **Constraints**                                                                                                        |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | This parameter is mandatory when **enable** is set to **true**.                                                        |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **Range**                                                                                                              |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | The agency name can contain at most 64 characters. Only letters, digits, underscores (_), and hyphens (-) are allowed. |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **Default Value**                                                                                                      |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | N/A                                                                                                                    |
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------+
+   | elb_id          | No              | String          | **Definition**                                                                                                         |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | Load balancer ID. For details about how to obtain the load balancer ID, see .                                          |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **Constraints**                                                                                                        |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | This parameter is mandatory when **enable** is set to **true**.                                                        |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **Range**                                                                                                              |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | N/A                                                                                                                    |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **Default Value**                                                                                                      |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | N/A                                                                                                                    |
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------+
+   | type            | No              | String          | **Definition**                                                                                                         |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | Load balancer type.                                                                                                    |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **Constraints**                                                                                                        |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | This parameter is not required for an observability cluster.                                                           |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **Range**                                                                                                              |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **searchTool**: Enables or disables an Elasticsearch or OpenSearch load balancer.                                      |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **Default Value**                                                                                                      |
+   |                 |                 |                 |                                                                                                                        |
+   |                 |                 |                 | **searchTool**                                                                                                         |
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------+
 
 Response Parameters
 -------------------
@@ -171,8 +171,6 @@ Example Responses
 -----------------
 
 **Status code: 200**
-
-Request succeeded.
 
 .. code-block::
 

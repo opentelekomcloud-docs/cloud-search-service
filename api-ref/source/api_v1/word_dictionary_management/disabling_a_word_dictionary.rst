@@ -8,9 +8,9 @@ Disabling a Word Dictionary
 Function
 --------
 
-You can configure custom word dictionaries to support word segmentation. This gives the search engine enhanced performance when searching by keywords such as company names, for example, and buzzwords from social media. You can also search text data based on a synonym dictionary.
+The word dictionaries of an Elasticsearch/OpenSearch cluster in CSS is used for word segmentation of text, enabling special words to be recognized during segmentation and facilitating text data search by keywords. For example, you can search by trending terms such as **xidapuben**. It also supports searching text data using synonyms based on a synonym dictionary.
 
-This API is used to clear custom word dictionaries (main word dictionary, stop word dictionary, and synonym dictionary).
+This API is used to clear a custom word dictionary (main word dictionary, stop word dictionary, and synonym dictionary).
 
 Calling Method
 --------------
@@ -27,35 +27,35 @@ DELETE /v1.0/{project_id}/clusters/{cluster_id}/thesaurus
    +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                                                           |
    +=================+=================+=================+=======================================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                                       |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                                        |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                                      |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                      |
+   |                 |                 |                 | **Constraints**                                                                                                                                                       |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | N/A                                                                                                                                                                   |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Value range**:                                                                                                                                                      |
+   |                 |                 |                 | **Range**                                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | Project ID of the account.                                                                                                                                            |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                                               |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Default value**:                                                                                                                                                    |
+   |                 |                 |                 | **Default Value**                                                                                                                                                     |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | N/A                                                                                                                                                                   |
    +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                                       |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                                        |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | ID of the cluster whose custom word dictionary you want to delete. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                      |
+   |                 |                 |                 | **Constraints**                                                                                                                                                       |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | N/A                                                                                                                                                                   |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Value range**:                                                                                                                                                      |
+   |                 |                 |                 | **Range**                                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | Cluster ID.                                                                                                                                                           |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                                                         |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Default value**:                                                                                                                                                    |
+   |                 |                 |                 | **Default Value**                                                                                                                                                     |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | N/A                                                                                                                                                                   |
    +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -69,8 +69,6 @@ Response Parameters
 -------------------
 
 **Status code: 200**
-
-Request succeeded.
 
 None
 

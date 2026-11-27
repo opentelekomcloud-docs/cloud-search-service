@@ -31,35 +31,35 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/logs/policy/update
    +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                                                           |
    +=================+=================+=================+=======================================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                                       |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                                        |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                                      |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                      |
+   |                 |                 |                 | **Constraints**                                                                                                                                                       |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | N/A                                                                                                                                                                   |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Value range**:                                                                                                                                                      |
+   |                 |                 |                 | **Range**                                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | Project ID of the account.                                                                                                                                            |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                                               |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Default value**:                                                                                                                                                    |
+   |                 |                 |                 | **Default Value**                                                                                                                                                     |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | N/A                                                                                                                                                                   |
    +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                                       |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                                        |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | ID of the cluster for which automatic log backup is to be enabled. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                      |
+   |                 |                 |                 | **Constraints**                                                                                                                                                       |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | N/A                                                                                                                                                                   |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Value range**:                                                                                                                                                      |
+   |                 |                 |                 | **Range**                                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | Cluster ID.                                                                                                                                                           |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                                                         |
    |                 |                 |                 |                                                                                                                                                                       |
-   |                 |                 |                 | **Default value**:                                                                                                                                                    |
+   |                 |                 |                 | **Default Value**                                                                                                                                                     |
    |                 |                 |                 |                                                                                                                                                                       |
    |                 |                 |                 | N/A                                                                                                                                                                   |
    +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -69,32 +69,30 @@ Request Parameters
 
 .. table:: **Table 2** Request body parameters
 
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                               |
-   +=================+=================+=================+===========================================================+
-   | period          | Yes             | String          | **Definition**:                                           |
-   |                 |                 |                 |                                                           |
-   |                 |                 |                 | Log backup start time. Format: Greenwich Mean Time (GMT). |
-   |                 |                 |                 |                                                           |
-   |                 |                 |                 | **Constraints**:                                          |
-   |                 |                 |                 |                                                           |
-   |                 |                 |                 | N/A                                                       |
-   |                 |                 |                 |                                                           |
-   |                 |                 |                 | **Value range**:                                          |
-   |                 |                 |                 |                                                           |
-   |                 |                 |                 | N/A                                                       |
-   |                 |                 |                 |                                                           |
-   |                 |                 |                 | **Default value**:                                        |
-   |                 |                 |                 |                                                           |
-   |                 |                 |                 | N/A                                                       |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------+
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                              |
+   +=================+=================+=================+==========================================================================================+
+   | period          | Yes             | String          | **Definition**                                                                           |
+   |                 |                 |                 |                                                                                          |
+   |                 |                 |                 | Log backup start time. The value is in the GMT format, for example, **00:00 GMT+08:00**. |
+   |                 |                 |                 |                                                                                          |
+   |                 |                 |                 | **Constraints**                                                                          |
+   |                 |                 |                 |                                                                                          |
+   |                 |                 |                 | N/A                                                                                      |
+   |                 |                 |                 |                                                                                          |
+   |                 |                 |                 | **Range**                                                                                |
+   |                 |                 |                 |                                                                                          |
+   |                 |                 |                 | N/A                                                                                      |
+   |                 |                 |                 |                                                                                          |
+   |                 |                 |                 | **Default Value**                                                                        |
+   |                 |                 |                 |                                                                                          |
+   |                 |                 |                 | N/A                                                                                      |
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------+
 
 Response Parameters
 -------------------
 
 **Status code: 200**
-
-Request succeeded.
 
 None
 
@@ -105,7 +103,7 @@ Enable the automatic log backup policy.
 
 .. code-block:: text
 
-   POST https://{Endpoint}/v1.0/{project_id}/clusters/4f3deec3-efa8-4598-bf91-560aad1377a3/logs/policy/update
+   POST https://{Endpoint}/v1.0/{project_id}/clusters/{cluster_id}/logs/policy/update
 
    {
      "period" : "00:00 GMT+08:00"

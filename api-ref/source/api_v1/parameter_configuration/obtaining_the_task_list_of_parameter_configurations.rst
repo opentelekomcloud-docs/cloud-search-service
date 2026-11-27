@@ -8,7 +8,7 @@ Obtaining the Task List of Parameter Configurations
 Function
 --------
 
-This API is used to obtain the parameter configuration task list of a cluster. It can obtain the parameter configuration list ID, cluster ID, and parameter modification records. After a cluster is created, you can call this API to check the cluster parameter settings.
+This API is used to obtain the task operation list of Elasticsearch or OpenSearch cluster parameter configurations, including the parameter configuration list ID, cluster ID, and parameter modification records. After a cluster is created, you can call this API to check the cluster parameter settings.
 
 Calling Method
 --------------
@@ -22,41 +22,41 @@ GET /v1.0/{project_id}/clusters/{cluster_id}/ymls/joblists
 
 .. table:: **Table 1** Path Parameters
 
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                             |
-   +=================+=================+=================+=========================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Constraints**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Value range**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | Project ID of the account.                                                                                                              |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Default value**:                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                     |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | ID of the cluster you want to query. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Constraints**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Value range**:                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | Cluster ID.                                                                                                                             |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | **Default value**:                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                     |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                         |
+   +=================+=================+=================+=====================================================================================================================================+
+   | project_id      | Yes             | String          | **Definition**                                                                                                                      |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.    |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Constraints**                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | N/A                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Range**                                                                                                                           |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                             |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Default Value**                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | N/A                                                                                                                                 |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                      |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | ID of the cluster to be queried. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Constraints**                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | N/A                                                                                                                                 |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Range**                                                                                                                           |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                       |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | **Default Value**                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                     |
+   |                 |                 |                 | N/A                                                                                                                                 |
+   +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
 
 .. table:: **Table 2** Query Parameters
 
@@ -108,101 +108,101 @@ Response Parameters
 
 .. table:: **Table 3** Response body parameters
 
-   +-----------------------+-----------------------------------------------------------------------------+-------------------------------------------+
-   | Parameter             | Type                                                                        | Description                               |
-   +=======================+=============================================================================+===========================================+
-   | configList            | Array of :ref:`configListRsp <listymlsjob__response_configlistrsp>` objects | **Definition**:                           |
-   |                       |                                                                             |                                           |
-   |                       |                                                                             | List of historical configuration changes. |
-   |                       |                                                                             |                                           |
-   |                       |                                                                             | **Value range**:                          |
-   |                       |                                                                             |                                           |
-   |                       |                                                                             | N/A                                       |
-   +-----------------------+-----------------------------------------------------------------------------+-------------------------------------------+
-   | totalSize             | Integer                                                                     | **Definition**:                           |
-   |                       |                                                                             |                                           |
-   |                       |                                                                             | Number of configuration tasks.            |
-   |                       |                                                                             |                                           |
-   |                       |                                                                             | **Value range**:                          |
-   |                       |                                                                             |                                           |
-   |                       |                                                                             | N/A                                       |
-   +-----------------------+-----------------------------------------------------------------------------+-------------------------------------------+
+   +-----------------------+-----------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------+
+   | Parameter             | Type                                                                        | Description                                                                                             |
+   +=======================+=============================================================================+=========================================================================================================+
+   | configList            | Array of :ref:`configListRsp <listymlsjob__response_configlistrsp>` objects | **Definition**                                                                                          |
+   |                       |                                                                             |                                                                                                         |
+   |                       |                                                                             | List of historical configuration modifications, including detailed information about the modifications. |
+   |                       |                                                                             |                                                                                                         |
+   |                       |                                                                             | **Range**                                                                                               |
+   |                       |                                                                             |                                                                                                         |
+   |                       |                                                                             | N/A                                                                                                     |
+   +-----------------------+-----------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------+
+   | totalSize             | Integer                                                                     | **Definition**:                                                                                         |
+   |                       |                                                                             |                                                                                                         |
+   |                       |                                                                             | Number of configuration tasks.                                                                          |
+   |                       |                                                                             |                                                                                                         |
+   |                       |                                                                             | **Value range**:                                                                                        |
+   |                       |                                                                             |                                                                                                         |
+   |                       |                                                                             | N/A                                                                                                     |
+   +-----------------------+-----------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------+
 
 .. _listymlsjob__response_configlistrsp:
 
 .. table:: **Table 4** configListRsp
 
-   +-----------------------+-----------------------+----------------------------------------------------------------------------------------+
-   | Parameter             | Type                  | Description                                                                            |
-   +=======================+=======================+========================================================================================+
-   | id                    | String                | **Definition**:                                                                        |
-   |                       |                       |                                                                                        |
-   |                       |                       | Configuration list ID.                                                                 |
-   |                       |                       |                                                                                        |
-   |                       |                       | **Value range**:                                                                       |
-   |                       |                       |                                                                                        |
-   |                       |                       | N/A                                                                                    |
-   +-----------------------+-----------------------+----------------------------------------------------------------------------------------+
-   | clusterId             | String                | **Definition**:                                                                        |
-   |                       |                       |                                                                                        |
-   |                       |                       | Cluster ID.                                                                            |
-   |                       |                       |                                                                                        |
-   |                       |                       | **Value range**:                                                                       |
-   |                       |                       |                                                                                        |
-   |                       |                       | N/A                                                                                    |
-   +-----------------------+-----------------------+----------------------------------------------------------------------------------------+
-   | createAt              | String                | **Definition**:                                                                        |
-   |                       |                       |                                                                                        |
-   |                       |                       | Configuration list creation time                                                       |
-   |                       |                       |                                                                                        |
-   |                       |                       | **Value range**:                                                                       |
-   |                       |                       |                                                                                        |
-   |                       |                       | Format: Unix timestamp.                                                                |
-   +-----------------------+-----------------------+----------------------------------------------------------------------------------------+
-   | status                | String                | **Definition**:                                                                        |
-   |                       |                       |                                                                                        |
-   |                       |                       | Cluster task execution status.                                                         |
-   |                       |                       |                                                                                        |
-   |                       |                       | **Value range**:                                                                       |
-   |                       |                       |                                                                                        |
-   |                       |                       | -  **success**: The task is successful.                                                |
-   |                       |                       |                                                                                        |
-   |                       |                       | -  **failed**: The task failed.                                                        |
-   |                       |                       |                                                                                        |
-   |                       |                       | -  **running**: The task is being executed.                                            |
-   +-----------------------+-----------------------+----------------------------------------------------------------------------------------+
-   | finishedAt            | String                | **Definition**:                                                                        |
-   |                       |                       |                                                                                        |
-   |                       |                       | End time. If the creation has not been completed, the end time is null.                |
-   |                       |                       |                                                                                        |
-   |                       |                       | **Value range**:                                                                       |
-   |                       |                       |                                                                                        |
-   |                       |                       | Format: Unix timestamp.                                                                |
-   +-----------------------+-----------------------+----------------------------------------------------------------------------------------+
-   | modifyDeleteReset     | String                | **Definition**:                                                                        |
-   |                       |                       |                                                                                        |
-   |                       |                       | History of parameter setting modifications.                                            |
-   |                       |                       |                                                                                        |
-   |                       |                       | **Value range**:                                                                       |
-   |                       |                       |                                                                                        |
-   |                       |                       | N/A                                                                                    |
-   +-----------------------+-----------------------+----------------------------------------------------------------------------------------+
-   | failedMsg             | String                | **Definition**:                                                                        |
-   |                       |                       |                                                                                        |
-   |                       |                       | Returned error message. If the status is success, the value of this parameter is null. |
-   |                       |                       |                                                                                        |
-   |                       |                       | **Value range**:                                                                       |
-   |                       |                       |                                                                                        |
-   |                       |                       | N/A                                                                                    |
-   +-----------------------+-----------------------+----------------------------------------------------------------------------------------+
-   | instType              | String                | **Definition**                                                                         |
-   |                       |                       |                                                                                        |
-   |                       |                       | Node type.                                                                             |
-   |                       |                       |                                                                                        |
-   |                       |                       | **Range**                                                                              |
-   |                       |                       |                                                                                        |
-   |                       |                       | N/A                                                                                    |
-   +-----------------------+-----------------------+----------------------------------------------------------------------------------------+
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter             | Type                  | Description                                                                                                                       |
+   +=======================+=======================+===================================================================================================================================+
+   | id                    | String                | **Definition**:                                                                                                                   |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | Configuration list ID.                                                                                                            |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | **Value range**:                                                                                                                  |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | N/A                                                                                                                               |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+   | clusterId             | String                | **Definition**:                                                                                                                   |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | Cluster ID.                                                                                                                       |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | **Value range**:                                                                                                                  |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | N/A                                                                                                                               |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+   | createAt              | String                | **Definition**                                                                                                                    |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | Creation time of the configuration list, in Unix timestamp format. For example, **1633658735000**.                                |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | **Range**                                                                                                                         |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | N/A                                                                                                                               |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+   | status                | String                | **Definition**:                                                                                                                   |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | Cluster task execution status.                                                                                                    |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | **Value range**:                                                                                                                  |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | -  **success**: The task is successful.                                                                                           |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | -  **failed**: The task failed.                                                                                                   |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | -  **running**: The task is being executed.                                                                                       |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+   | finishedAt            | String                | **Definition**                                                                                                                    |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | End time. If the creation has not been completed, the end time is null, in Unix timestamp format. For example, **1633658735000**. |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | **Range**                                                                                                                         |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | N/A                                                                                                                               |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+   | modifyDeleteReset     | String                | **Definition**                                                                                                                    |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | Records of parameter modification, deletion, and reset.                                                                           |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | **Range**                                                                                                                         |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | N/A                                                                                                                               |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+   | failedMsg             | String                | **Definition**:                                                                                                                   |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | Returned error message. If the status is success, the value of this parameter is null.                                            |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | **Value range**:                                                                                                                  |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | N/A                                                                                                                               |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+   | instType              | String                | **Definition**                                                                                                                    |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | Node type.                                                                                                                        |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | **Range**                                                                                                                         |
+   |                       |                       |                                                                                                                                   |
+   |                       |                       | N/A                                                                                                                               |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------+
 
 Example Requests
 ----------------
@@ -211,14 +211,12 @@ Obtaining the Parameter Configuration Task List of a Cluster
 
 .. code-block:: text
 
-   GET https://{Endpoint}/v1.0/{project_id}/clusters/5c77b71c-5b35-4f50-8984-76387e42451a/ymls/joblists
+   GET https://{Endpoint}/v1.0/{project_id}/clusters/{cluster_id}/ymls/joblists
 
 Example Responses
 -----------------
 
 **Status code: 200**
-
-Request succeeded.
 
 .. code-block::
 
@@ -226,13 +224,14 @@ Request succeeded.
      "configList" : [ {
        "id" : "7ed7258a-60a8-46fe-8814-52819d491b80",
        "clusterId" : "4213d908-f5dc-4633-8401-cfd7175fca0c",
-       "createAt" : "1755745344000,",
+       "createAt" : "1755745344000",
        "status" : "success",
-       "finishedAt" : "1755745355000,",
+       "finishedAt" : "1755745355000",
        "modifyDeleteReset" : "{\"modify\":{\"elasticsearch.yml\":{\"thread_pool.force_merge.size\":\"1\"}}}",
        "failedMsg" : "",
        "instType" : ""
-     } ]
+     } ],
+     "totalSize" : 1
    }
 
 Status Codes

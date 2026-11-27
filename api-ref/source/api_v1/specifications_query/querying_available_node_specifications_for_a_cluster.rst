@@ -8,7 +8,7 @@ Querying Available Node Specifications for a Cluster
 Function
 --------
 
-This API is used to query available alternative node specifications for a specified cluster.
+This API is used to query the specifications to which a specified cluster can be changed.
 
 Calling Method
 --------------
@@ -25,19 +25,19 @@ GET /v1.0/{project_id}/resize-flavors
    +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                      |
    +=================+=================+=================+==================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                  |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                   |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`. |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Constraints**:                                                                                                                 |
+   |                 |                 |                 | **Constraints**                                                                                                                  |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | N/A                                                                                                                              |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Value range**:                                                                                                                 |
+   |                 |                 |                 | **Range**                                                                                                                        |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | For details, see :ref:`Obtaining a Project ID and Name <css_03_0071>`.                                                           |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                          |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Default value**:                                                                                                               |
+   |                 |                 |                 | **Default Value**                                                                                                                |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | N/A                                                                                                                              |
    +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
@@ -47,19 +47,19 @@ GET /v1.0/{project_id}/resize-flavors
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                         |
    +=================+=================+=================+=====================================================================================================================================+
-   | clusterId       | Yes             | String          | **Definition**:                                                                                                                     |
+   | clusterId       | Yes             | String          | **Definition**                                                                                                                      |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | ID of the cluster to be queried. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Constraints**:                                                                                                                    |
+   |                 |                 |                 | **Constraints**                                                                                                                     |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                 |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Value range**:                                                                                                                    |
+   |                 |                 |                 | **Range**                                                                                                                           |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | Cluster ID.                                                                                                                         |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                       |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Default value**:                                                                                                                  |
+   |                 |                 |                 | **Default Value**                                                                                                                   |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                 |
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
@@ -105,11 +105,11 @@ Response Parameters
    +-----------------------+-------------------------------------------------------------------------------------------------------------+-----------------------+
    | Parameter             | Type                                                                                                        | Description           |
    +=======================+=============================================================================================================+=======================+
-   | id                    | String                                                                                                      | **Definition**:       |
+   | id                    | String                                                                                                      | **Definition**        |
    |                       |                                                                                                             |                       |
    |                       |                                                                                                             | Engine type ID.       |
    |                       |                                                                                                             |                       |
-   |                       |                                                                                                             | **Value range**:      |
+   |                       |                                                                                                             | **Range**             |
    |                       |                                                                                                             |                       |
    |                       |                                                                                                             | N/A                   |
    +-----------------------+-------------------------------------------------------------------------------------------------------------+-----------------------+
@@ -169,11 +169,11 @@ Response Parameters
    +-----------------------+-----------------------+--------------------------------------------------------+
    | Parameter             | Type                  | Description                                            |
    +=======================+=======================+========================================================+
-   | str_id                | String                | **Definition**:                                        |
+   | str_id                | String                | **Definition**                                         |
    |                       |                       |                                                        |
-   |                       |                       | Flavor ID.                                             |
+   |                       |                       | Specification ID.                                      |
    |                       |                       |                                                        |
-   |                       |                       | **Value range**:                                       |
+   |                       |                       | **Range**                                              |
    |                       |                       |                                                        |
    |                       |                       | N/A                                                    |
    +-----------------------+-----------------------+--------------------------------------------------------+
@@ -185,11 +185,11 @@ Response Parameters
    |                       |                       |                                                        |
    |                       |                       | N/A                                                    |
    +-----------------------+-----------------------+--------------------------------------------------------+
-   | ram                   | Integer               | **Definition**:                                        |
+   | ram                   | Integer               | **Definition**                                         |
    |                       |                       |                                                        |
-   |                       |                       | Memory size of an instance. Unit: GB.                  |
+   |                       |                       | Instance memory size, in GB.                           |
    |                       |                       |                                                        |
-   |                       |                       | **Value range**:                                       |
+   |                       |                       | **Range**                                              |
    |                       |                       |                                                        |
    |                       |                       | N/A                                                    |
    +-----------------------+-----------------------+--------------------------------------------------------+
@@ -209,11 +209,11 @@ Response Parameters
    |                       |                       |                                                        |
    |                       |                       | N/A                                                    |
    +-----------------------+-----------------------+--------------------------------------------------------+
-   | diskrange             | String                | **Definition**:                                        |
+   | diskrange             | String                | **Definition**                                         |
    |                       |                       |                                                        |
    |                       |                       | Disk capacity of an instance, in GB.                   |
    |                       |                       |                                                        |
-   |                       |                       | **Value range**:                                       |
+   |                       |                       | **Range**                                              |
    |                       |                       |                                                        |
    |                       |                       | N/A                                                    |
    +-----------------------+-----------------------+--------------------------------------------------------+
@@ -243,7 +243,7 @@ Response Parameters
    |                       |                       |                                                        |
    |                       |                       | -  **sellout**: The flavor has been sold out.          |
    +-----------------------+-----------------------+--------------------------------------------------------+
-   | localdisk             | String                | **Definition**:                                        |
+   | localdisk             | Boolean               | **Definition**:                                        |
    |                       |                       |                                                        |
    |                       |                       | Whether the node uses local disks.                     |
    |                       |                       |                                                        |
@@ -278,8 +278,6 @@ Example Responses
 
 **Status code: 200**
 
-Request succeeded.
-
 .. code-block::
 
    {
@@ -292,11 +290,11 @@ Request succeeded.
          "cpu" : 2,
          "ram" : 8,
          "name" : "ess.spec-2u8g",
-         "region" : "azcode-1",
+         "region" : "region_code",
          "typename" : "ess",
          "diskrange" : "40,800",
          "condOperationStatus" : "normal",
-         "localdisk" : "false",
+         "localdisk" : false,
          "edge" : false,
          "str_id" : "b58dfcfb-5f73-4f05-8c06-5171b12fd618="
        } ]

@@ -8,7 +8,7 @@ Deleting a Snapshot
 Function
 --------
 
-Delete snapshots that are no longer needed to reclaim storage spaces.
+Delete snapshots that are no longer needed from an Elasticsearch or OpenSearch cluster to reclaim storage spaces.
 
 This API is used to delete a snapshot.
 
@@ -36,35 +36,35 @@ DELETE /v1.0/{project_id}/clusters/{cluster_id}/index_snapshot/{snapshot_id}
    +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                                                     |
    +=================+=================+=================+=================================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                                 |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                                  |
    |                 |                 |                 |                                                                                                                                                                 |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                                |
    |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                |
+   |                 |                 |                 | **Constraints**                                                                                                                                                 |
    |                 |                 |                 |                                                                                                                                                                 |
    |                 |                 |                 | N/A                                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Value range**:                                                                                                                                                |
+   |                 |                 |                 | **Range**                                                                                                                                                       |
    |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | Project ID of the account.                                                                                                                                      |
+   |                 |                 |                 | N/A                                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Default value**:                                                                                                                                              |
+   |                 |                 |                 | **Default Value**                                                                                                                                               |
    |                 |                 |                 |                                                                                                                                                                 |
    |                 |                 |                 | N/A                                                                                                                                                             |
    +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                                 |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                                  |
    |                 |                 |                 |                                                                                                                                                                 |
    |                 |                 |                 | ID of the cluster to which the to-be-deleted snapshot belongs. For details about how to obtain the cluster ID, see :ref:`Obtaining a Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                |
+   |                 |                 |                 | **Constraints**                                                                                                                                                 |
    |                 |                 |                 |                                                                                                                                                                 |
    |                 |                 |                 | N/A                                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Value range**:                                                                                                                                                |
+   |                 |                 |                 | **Range**                                                                                                                                                       |
    |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | Cluster ID.                                                                                                                                                     |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                                                   |
    |                 |                 |                 |                                                                                                                                                                 |
-   |                 |                 |                 | **Default value**:                                                                                                                                              |
+   |                 |                 |                 | **Default Value**                                                                                                                                               |
    |                 |                 |                 |                                                                                                                                                                 |
    |                 |                 |                 | N/A                                                                                                                                                             |
    +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -94,8 +94,6 @@ Response Parameters
 -------------------
 
 **Status code: 200**
-
-Request succeeded.
 
 None
 

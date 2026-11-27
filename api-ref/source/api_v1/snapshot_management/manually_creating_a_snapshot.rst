@@ -8,11 +8,11 @@ Manually Creating a Snapshot
 Function
 --------
 
-CSS allows you to use snapshots to back up and restore Elasticsearch cluster data. By storing a snapshot in an OBS bucket, you save a point-in-time copy of the cluster's data. By restoring this snapshot, you can restore the cluster to a previous state. There are two ways to create snapshots to back up a CSS cluster: automatic and manual.
+The snapshot backup function of CSS provides data protection and restoration capabilities for Elasticsearch/OpenSearch clusters. Through snapshot backup, the data status of a cluster can be saved to an OBS bucket for restoration when needed. CSS cluster snapshots are classified into two types: automatic snapshots and manual snapshots.
 
--  Automatic snapshot creation: Snapshots are created periodically based on a preset time policy, for example, daily or weekly, to ensure continuous data protection. This reduces manual effort and improves backup reliability and efficiency.
+-  Automatic snapshot: Automatically executes snapshot backup operations based on preset time policies, suitable for periodic backup scenarios, such as daily or weekly backups, to ensure continuous data protection. By configuring automatic snapshot policies, you can reduce manual operations and improve backup reliability and efficiency.
 
--  Manual snapshot creation: You can manually create snapshots when necessary, for example, before performing a mission-critical operation (such as a cluster upgrade), so you can use these snapshots to quickly restore the cluster to a previous state in case anything goes wrong. Manual snapshots provide more flexibility.
+-  Manual snapshot: Manually triggers snapshot backup operations based on user requirements, suitable for temporary backups or specific scenarios, such as backing up before major operations (for example, cluster upgrade) so that you can quickly restore to the previous state if a problem occurs. Manual snapshots provide higher flexibility, allowing you to create snapshots at any time as needed.
 
 This API is used to manually create a snapshot.
 
@@ -31,35 +31,35 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/index_snapshot
    +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                                                   |
    +=================+=================+=================+===============================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                               |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                                |
    |                 |                 |                 |                                                                                                                                                               |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                              |
    |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | **Constraints**:                                                                                                                                              |
+   |                 |                 |                 | **Constraints**                                                                                                                                               |
    |                 |                 |                 |                                                                                                                                                               |
    |                 |                 |                 | N/A                                                                                                                                                           |
    |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | **Value range**:                                                                                                                                              |
+   |                 |                 |                 | **Range**                                                                                                                                                     |
    |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | Project ID of the account.                                                                                                                                    |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                                       |
    |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | **Default value**:                                                                                                                                            |
+   |                 |                 |                 | **Default Value**                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                               |
    |                 |                 |                 | N/A                                                                                                                                                           |
    +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                               |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                                |
    |                 |                 |                 |                                                                                                                                                               |
    |                 |                 |                 | ID of the cluster for which you want to create a snapshot. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | **Constraints**:                                                                                                                                              |
+   |                 |                 |                 | **Constraints**                                                                                                                                               |
    |                 |                 |                 |                                                                                                                                                               |
    |                 |                 |                 | N/A                                                                                                                                                           |
    |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | **Value range**:                                                                                                                                              |
+   |                 |                 |                 | **Range**                                                                                                                                                     |
    |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | Cluster ID.                                                                                                                                                   |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                                                 |
    |                 |                 |                 |                                                                                                                                                               |
-   |                 |                 |                 | **Default value**:                                                                                                                                            |
+   |                 |                 |                 | **Default Value**                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                               |
    |                 |                 |                 | N/A                                                                                                                                                           |
    +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -72,19 +72,19 @@ Request Parameters
    +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                                                |
    +=================+=================+=================+============================================================================================================================================================+
-   | name            | Yes             | String          | **Definition**:                                                                                                                                            |
+   | name            | Yes             | String          | **Definition**                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                            |
    |                 |                 |                 | Snapshot name.                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                            |
-   |                 |                 |                 | **Constraints**:                                                                                                                                           |
+   |                 |                 |                 | **Constraints**                                                                                                                                            |
    |                 |                 |                 |                                                                                                                                                            |
    |                 |                 |                 | N/A                                                                                                                                                        |
    |                 |                 |                 |                                                                                                                                                            |
-   |                 |                 |                 | **Value range**:                                                                                                                                           |
+   |                 |                 |                 | **Range**                                                                                                                                                  |
    |                 |                 |                 |                                                                                                                                                            |
    |                 |                 |                 | Snapshot name. Enter 4 to 64 characters. Only lowercase letters, digits, hyphens (-), and underscores (_) are allowed. The value must start with a letter. |
    |                 |                 |                 |                                                                                                                                                            |
-   |                 |                 |                 | **Default value**:                                                                                                                                         |
+   |                 |                 |                 | **Default Value**                                                                                                                                          |
    |                 |                 |                 |                                                                                                                                                            |
    |                 |                 |                 | N/A                                                                                                                                                        |
    +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -104,25 +104,25 @@ Request Parameters
    |                 |                 |                 |                                                                                                                                                            |
    |                 |                 |                 | N/A                                                                                                                                                        |
    +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | indices         | No              | String          | **Definition**:                                                                                                                                            |
+   | indices         | No              | String          | **Definition**                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                            |
-   |                 |                 |                 | Name of the index to be backed up.                                                                                                                         |
+   |                 |                 |                 | Names of the indexes to be backed up.                                                                                                                      |
    |                 |                 |                 |                                                                                                                                                            |
-   |                 |                 |                 | -  You can specify indexes you want to back up. To specify multiple indexes, use commas (,) to separate them, for example, **index1,index2,index3**.       |
+   |                 |                 |                 | -  You can specify indexes, separated by commas (,), for example, **index1,index2,index3**.                                                                |
    |                 |                 |                 |                                                                                                                                                            |
-   |                 |                 |                 | -  You can use an asterisk (*) to match multiple indexes. For example, index* indicates that all indexes with the prefix **index** will be restored.       |
+   |                 |                 |                 | -  You can use an asterisk (*) to match multiple indexes. For example, index* matches all indexes whose names start with **index**.                        |
    |                 |                 |                 |                                                                                                                                                            |
-   |                 |                 |                 | **Constraints**:                                                                                                                                           |
+   |                 |                 |                 | **Constraints**                                                                                                                                            |
    |                 |                 |                 |                                                                                                                                                            |
-   |                 |                 |                 | This parameter is valid only when **enable** is set to **true**.                                                                                           |
+   |                 |                 |                 | N/A                                                                                                                                                        |
    |                 |                 |                 |                                                                                                                                                            |
-   |                 |                 |                 | **Value range**:                                                                                                                                           |
+   |                 |                 |                 | **Range**                                                                                                                                                  |
    |                 |                 |                 |                                                                                                                                                            |
-   |                 |                 |                 | The value can contain 0 to 1,024 characters. It cannot contain uppercase letters, spaces, or the following special characters: "<|>/?                      |
+   |                 |                 |                 | 0 to 1,024 characters. Uppercase letters, spaces, or the following special characters are not allowed: "<|>/?                                              |
    |                 |                 |                 |                                                                                                                                                            |
-   |                 |                 |                 | **Default value**:                                                                                                                                         |
+   |                 |                 |                 | **Default Value**                                                                                                                                          |
    |                 |                 |                 |                                                                                                                                                            |
-   |                 |                 |                 | The default value is empty, indicating that all indexes will be backed up.                                                                                 |
+   |                 |                 |                 | Empty by default, indicating that all indexes are backed up.                                                                                               |
    +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Response Parameters
@@ -132,41 +132,37 @@ Response Parameters
 
 .. table:: **Table 3** Response body parameters
 
-   +-----------------------+--------------------------------------------------------------+---------------------------+
-   | Parameter             | Type                                                         | Description               |
-   +=======================+==============================================================+===========================+
-   | backup                | :ref:`backupRsp <createsnapshot__response_backuprsp>` object | **Definition**:           |
-   |                       |                                                              |                           |
-   |                       |                                                              | The snapshot information. |
-   |                       |                                                              |                           |
-   |                       |                                                              | **Value range**:          |
-   |                       |                                                              |                           |
-   |                       |                                                              | N/A                       |
-   +-----------------------+--------------------------------------------------------------+---------------------------+
+   +-----------------------+--------------------------------------------------------------+-----------------------+
+   | Parameter             | Type                                                         | Description           |
+   +=======================+==============================================================+=======================+
+   | backup                | :ref:`backupRsp <createsnapshot__response_backuprsp>` object | **Definition**        |
+   |                       |                                                              |                       |
+   |                       |                                                              | Snapshot information. |
+   +-----------------------+--------------------------------------------------------------+-----------------------+
 
 .. _createsnapshot__response_backuprsp:
 
 .. table:: **Table 4** backupRsp
 
-   +-----------------------+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter             | Type                  | Description                                                                                                                                                |
-   +=======================+=======================+============================================================================================================================================================+
-   | id                    | String                | **Definition**:                                                                                                                                            |
-   |                       |                       |                                                                                                                                                            |
-   |                       |                       | Snapshot ID.                                                                                                                                               |
-   |                       |                       |                                                                                                                                                            |
-   |                       |                       | **Value range**:                                                                                                                                           |
-   |                       |                       |                                                                                                                                                            |
-   |                       |                       | N/A                                                                                                                                                        |
-   +-----------------------+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | name                  | String                | **Definition**:                                                                                                                                            |
-   |                       |                       |                                                                                                                                                            |
-   |                       |                       | Snapshot name.                                                                                                                                             |
-   |                       |                       |                                                                                                                                                            |
-   |                       |                       | **Value range**:                                                                                                                                           |
-   |                       |                       |                                                                                                                                                            |
-   |                       |                       | Snapshot name. Enter 4 to 64 characters. Only lowercase letters, digits, hyphens (-), and underscores (_) are allowed. The value must start with a letter. |
-   +-----------------------+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------------+-----------------------+-----------------------+
+   | Parameter             | Type                  | Description           |
+   +=======================+=======================+=======================+
+   | id                    | String                | **Definition**:       |
+   |                       |                       |                       |
+   |                       |                       | Snapshot ID.          |
+   |                       |                       |                       |
+   |                       |                       | **Value range**:      |
+   |                       |                       |                       |
+   |                       |                       | N/A                   |
+   +-----------------------+-----------------------+-----------------------+
+   | name                  | String                | **Definition**        |
+   |                       |                       |                       |
+   |                       |                       | Snapshot name.        |
+   |                       |                       |                       |
+   |                       |                       | **Range**             |
+   |                       |                       |                       |
+   |                       |                       | N/A                   |
+   +-----------------------+-----------------------+-----------------------+
 
 Example Requests
 ----------------
@@ -179,15 +175,13 @@ Create a snapshot.
 
    {
      "name" : "snapshot_001",
-     "indices" : "myindex1myindex2"
+     "indices" : "myindex1,myindex2"
    }
 
 Example Responses
 -----------------
 
 **Status code: 201**
-
-Resource created.
 
 .. code-block::
 

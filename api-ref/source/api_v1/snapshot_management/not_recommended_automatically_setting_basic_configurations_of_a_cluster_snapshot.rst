@@ -8,7 +8,7 @@
 Function
 --------
 
-This API is used to configure basic settings for automatic cluster snapshot creation, including automatically creating an IAM agency and the OBS bucket and file path used for storing snapshots. This API also enables cluster snapshots. Cluster snapshots enhance data protection and restoration capabilities for clusters.
+This API is used to configure basic settings for automatic Elasticsearch or OpenSearch cluster snapshot creation, including automatically creating an IAM agency and the OBS bucket and file path used for storing snapshots. This API also enables cluster snapshots. Cluster snapshots enhance data protection and restoration capabilities for clusters.
 
 Constraints
 -----------
@@ -29,41 +29,41 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/index_snapshot/auto_setting
 
 .. table:: **Table 1** Path Parameters
 
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                                               |
-   +=================+=================+=================+===========================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                           |
-   |                 |                 |                 |                                                                                                                                                           |
-   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                          |
-   |                 |                 |                 |                                                                                                                                                           |
-   |                 |                 |                 | **Constraints**:                                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                                           |
-   |                 |                 |                 | N/A                                                                                                                                                       |
-   |                 |                 |                 |                                                                                                                                                           |
-   |                 |                 |                 | **Value range**:                                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                                           |
-   |                 |                 |                 | Project ID of the account.                                                                                                                                |
-   |                 |                 |                 |                                                                                                                                                           |
-   |                 |                 |                 | **Default value**:                                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                                           |
-   |                 |                 |                 | N/A                                                                                                                                                       |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                           |
-   |                 |                 |                 |                                                                                                                                                           |
-   |                 |                 |                 | ID of the cluster where snapshots you want to back up. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
-   |                 |                 |                 |                                                                                                                                                           |
-   |                 |                 |                 | **Constraints**:                                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                                           |
-   |                 |                 |                 | N/A                                                                                                                                                       |
-   |                 |                 |                 |                                                                                                                                                           |
-   |                 |                 |                 | **Value range**:                                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                                           |
-   |                 |                 |                 | Cluster ID.                                                                                                                                               |
-   |                 |                 |                 |                                                                                                                                                           |
-   |                 |                 |                 | **Default value**:                                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                                           |
-   |                 |                 |                 | N/A                                                                                                                                                       |
-   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                           |
+   +=================+=================+=================+=======================================================================================================================================+
+   | project_id      | Yes             | String          | **Definition**                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.      |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Constraints**                                                                                                                       |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | N/A                                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Range**                                                                                                                             |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                               |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Default Value**                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | N/A                                                                                                                                   |
+   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | ID of the cluster to be backed up. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Constraints**                                                                                                                       |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | N/A                                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Range**                                                                                                                             |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                         |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | **Default Value**                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                       |
+   |                 |                 |                 | N/A                                                                                                                                   |
+   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------+
 
 Request Parameters
 ------------------
@@ -74,8 +74,6 @@ Response Parameters
 -------------------
 
 **Status code: 200**
-
-Request succeeded.
 
 None
 

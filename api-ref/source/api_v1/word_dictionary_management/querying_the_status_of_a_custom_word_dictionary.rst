@@ -8,7 +8,7 @@ Querying the Status of a Custom Word Dictionary
 Function
 --------
 
-You can configure custom word dictionaries to support word segmentation. This gives the search engine enhanced performance when searching by keywords such as company names, for example, and buzzwords from social media. You can also search text data based on a synonym dictionary. CSS uses the IK and synonym analyzers. The IK analyzer uses a main word dictionary and a stop word dictionary. The synonym analyzer uses a synonym word dictionary. The IK analyzer uses the ik_max_word and ik_smart word segmentation policies. The synonym analyzer uses the ik_synonym word segmentation policy. This API is used to query the loading status of a custom word dictionary.
+The word dictionaries of an Elasticsearch/OpenSearch cluster in CSS is used for word segmentation of text, enabling special words to be recognized during segmentation and facilitating text data search by keywords. For example, you can search by trending terms such as **xidapuben**. It also supports searching text data using synonyms based on a synonym dictionary. The analyzers used by CSS include the IK analyzer and the synonym analyzer. The IK analyzer has a main word dictionary and a stop word dictionary. The synonym analyzer has a synonym dictionary. The IK tokenizer supports **ik_max_word** and **ik_smart** segmentation policies. The synonym analyzer uses the **ik_synonym** segmentation policy. This API is used to query the loading status of a custom dictionary.
 
 Calling Method
 --------------
@@ -22,41 +22,41 @@ GET /v1.0/{project_id}/clusters/{cluster_id}/thesaurus
 
 .. table:: **Table 1** Path Parameters
 
-   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                         |
-   +=================+=================+=================+=====================================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                                     |
-   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                                    |
-   |                 |                 |                 |                                                                                                                                                                     |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                    |
-   |                 |                 |                 |                                                                                                                                                                     |
-   |                 |                 |                 | N/A                                                                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                                                     |
-   |                 |                 |                 | **Value range**:                                                                                                                                                    |
-   |                 |                 |                 |                                                                                                                                                                     |
-   |                 |                 |                 | Project ID of the account.                                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                                                     |
-   |                 |                 |                 | **Default value**:                                                                                                                                                  |
-   |                 |                 |                 |                                                                                                                                                                     |
-   |                 |                 |                 | N/A                                                                                                                                                                 |
-   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                                     |
-   |                 |                 |                 | ID of the cluster whose word dictionary status you want to query For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
-   |                 |                 |                 |                                                                                                                                                                     |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                    |
-   |                 |                 |                 |                                                                                                                                                                     |
-   |                 |                 |                 | N/A                                                                                                                                                                 |
-   |                 |                 |                 |                                                                                                                                                                     |
-   |                 |                 |                 | **Value range**:                                                                                                                                                    |
-   |                 |                 |                 |                                                                                                                                                                     |
-   |                 |                 |                 | Cluster ID.                                                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                                                     |
-   |                 |                 |                 | **Default value**:                                                                                                                                                  |
-   |                 |                 |                 |                                                                                                                                                                     |
-   |                 |                 |                 | N/A                                                                                                                                                                 |
-   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                          |
+   +=================+=================+=================+======================================================================================================================================================================+
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                                       |
+   |                 |                 |                 |                                                                                                                                                                      |
+   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                                     |
+   |                 |                 |                 |                                                                                                                                                                      |
+   |                 |                 |                 | **Constraints**                                                                                                                                                      |
+   |                 |                 |                 |                                                                                                                                                                      |
+   |                 |                 |                 | N/A                                                                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                                                      |
+   |                 |                 |                 | **Range**                                                                                                                                                            |
+   |                 |                 |                 |                                                                                                                                                                      |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                                              |
+   |                 |                 |                 |                                                                                                                                                                      |
+   |                 |                 |                 | **Default Value**                                                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                                                      |
+   |                 |                 |                 | N/A                                                                                                                                                                  |
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                                       |
+   |                 |                 |                 |                                                                                                                                                                      |
+   |                 |                 |                 | ID of the cluster whose word dictionary status you want to query. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
+   |                 |                 |                 |                                                                                                                                                                      |
+   |                 |                 |                 | **Constraints**                                                                                                                                                      |
+   |                 |                 |                 |                                                                                                                                                                      |
+   |                 |                 |                 | N/A                                                                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                                                      |
+   |                 |                 |                 | **Range**                                                                                                                                                            |
+   |                 |                 |                 |                                                                                                                                                                      |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                                                      |
+   |                 |                 |                 | **Default Value**                                                                                                                                                    |
+   |                 |                 |                 |                                                                                                                                                                      |
+   |                 |                 |                 | N/A                                                                                                                                                                  |
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Request Parameters
 ------------------
@@ -70,123 +70,123 @@ Response Parameters
 
 .. table:: **Table 2** Response body parameters
 
-   +-----------------------+-----------------------+---------------------------------------------------------------------------+
-   | Parameter             | Type                  | Description                                                               |
-   +=======================+=======================+===========================================================================+
-   | status                | String                | **Definition**:                                                           |
-   |                       |                       |                                                                           |
-   |                       |                       | Custom word dictionary loading status.                                    |
-   |                       |                       |                                                                           |
-   |                       |                       | **Value range**:                                                          |
-   |                       |                       |                                                                           |
-   |                       |                       | -  **Init** indicates initialization is in progress.                      |
-   |                       |                       |                                                                           |
-   |                       |                       | -  **Loaded** indicates that the loading succeeded.                       |
-   |                       |                       |                                                                           |
-   |                       |                       | -  **Loading** indicates that the loading is in progress.                 |
-   |                       |                       |                                                                           |
-   |                       |                       | -  **Failed** indicates that the loading failed.                          |
-   |                       |                       |                                                                           |
-   |                       |                       | -  **NeedReboot** indicates that a cluster restart is required.           |
-   |                       |                       |                                                                           |
-   |                       |                       | -  **Undefined** indicates an undefined state.                            |
-   +-----------------------+-----------------------+---------------------------------------------------------------------------+
-   | bucket                | String                | **Definition**:                                                           |
-   |                       |                       |                                                                           |
-   |                       |                       | The OBS bucket that stores the word dictionary file that is last updated. |
-   |                       |                       |                                                                           |
-   |                       |                       | **Value range**:                                                          |
-   |                       |                       |                                                                           |
-   |                       |                       | N/A                                                                       |
-   +-----------------------+-----------------------+---------------------------------------------------------------------------+
-   | mainObj               | String                | **Definition**:                                                           |
-   |                       |                       |                                                                           |
-   |                       |                       | Main word dictionary file.                                                |
-   |                       |                       |                                                                           |
-   |                       |                       | **Value range**:                                                          |
-   |                       |                       |                                                                           |
-   |                       |                       | N/A                                                                       |
-   +-----------------------+-----------------------+---------------------------------------------------------------------------+
-   | stopObj               | String                | **Definition**:                                                           |
-   |                       |                       |                                                                           |
-   |                       |                       | Stop word dictionary file.                                                |
-   |                       |                       |                                                                           |
-   |                       |                       | **Value range**:                                                          |
-   |                       |                       |                                                                           |
-   |                       |                       | N/A                                                                       |
-   +-----------------------+-----------------------+---------------------------------------------------------------------------+
-   | synonymObj            | String                | **Definition**:                                                           |
-   |                       |                       |                                                                           |
-   |                       |                       | Synonym dictionary file.                                                  |
-   |                       |                       |                                                                           |
-   |                       |                       | **Value range**:                                                          |
-   |                       |                       |                                                                           |
-   |                       |                       | N/A                                                                       |
-   +-----------------------+-----------------------+---------------------------------------------------------------------------+
-   | staticMainObj         | String                | **Definition**:                                                           |
-   |                       |                       |                                                                           |
-   |                       |                       | Static main word dictionary file.                                         |
-   |                       |                       |                                                                           |
-   |                       |                       | **Value range**:                                                          |
-   |                       |                       |                                                                           |
-   |                       |                       | N/A                                                                       |
-   +-----------------------+-----------------------+---------------------------------------------------------------------------+
-   | staticStopObj         | String                | **Definition**:                                                           |
-   |                       |                       |                                                                           |
-   |                       |                       | Static main word dictionary file.                                         |
-   |                       |                       |                                                                           |
-   |                       |                       | **Value range**:                                                          |
-   |                       |                       |                                                                           |
-   |                       |                       | N/A                                                                       |
-   +-----------------------+-----------------------+---------------------------------------------------------------------------+
-   | extraMainObj          | String                | **Definition**:                                                           |
-   |                       |                       |                                                                           |
-   |                       |                       | Extra main word dictionary file.                                          |
-   |                       |                       |                                                                           |
-   |                       |                       | **Value range**:                                                          |
-   |                       |                       |                                                                           |
-   |                       |                       | N/A                                                                       |
-   +-----------------------+-----------------------+---------------------------------------------------------------------------+
-   | extraStopObj          | String                | **Definition**:                                                           |
-   |                       |                       |                                                                           |
-   |                       |                       | Extra stop word dictionary.                                               |
-   |                       |                       |                                                                           |
-   |                       |                       | **Value range**:                                                          |
-   |                       |                       |                                                                           |
-   |                       |                       | N/A                                                                       |
-   +-----------------------+-----------------------+---------------------------------------------------------------------------+
-   | updateTime            | String                | **Definition**:                                                           |
-   |                       |                       |                                                                           |
-   |                       |                       | Latest update time of a dictionary.                                       |
-   |                       |                       |                                                                           |
-   |                       |                       | **Value range**:                                                          |
-   |                       |                       |                                                                           |
-   |                       |                       | N/A                                                                       |
-   +-----------------------+-----------------------+---------------------------------------------------------------------------+
-   | updateDetails         | String                | **Definition**:                                                           |
-   |                       |                       |                                                                           |
-   |                       |                       | Word dictionary update details.                                           |
-   |                       |                       |                                                                           |
-   |                       |                       | **Value range**:                                                          |
-   |                       |                       |                                                                           |
-   |                       |                       | N/A                                                                       |
-   +-----------------------+-----------------------+---------------------------------------------------------------------------+
-   | clusterId             | String                | **Definition**:                                                           |
-   |                       |                       |                                                                           |
-   |                       |                       | ID of the cluster where a custom word dictionary you want to configure.   |
-   |                       |                       |                                                                           |
-   |                       |                       | **Value range**:                                                          |
-   |                       |                       |                                                                           |
-   |                       |                       | N/A                                                                       |
-   +-----------------------+-----------------------+---------------------------------------------------------------------------+
-   | id                    | String                | **Definition**:                                                           |
-   |                       |                       |                                                                           |
-   |                       |                       | ID of the word dictionary.                                                |
-   |                       |                       |                                                                           |
-   |                       |                       | **Value range**:                                                          |
-   |                       |                       |                                                                           |
-   |                       |                       | N/A                                                                       |
-   +-----------------------+-----------------------+---------------------------------------------------------------------------+
+   +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+   | Parameter             | Type                  | Description                                                                         |
+   +=======================+=======================+=====================================================================================+
+   | status                | String                | **Definition**                                                                      |
+   |                       |                       |                                                                                     |
+   |                       |                       | Custom word dictionary loading status.                                              |
+   |                       |                       |                                                                                     |
+   |                       |                       | **Range**                                                                           |
+   |                       |                       |                                                                                     |
+   |                       |                       | -  **Init**: Initializing.                                                          |
+   |                       |                       |                                                                                     |
+   |                       |                       | -  **Loaded**: Loaded successfully.                                                 |
+   |                       |                       |                                                                                     |
+   |                       |                       | -  **Loading**: Loading.                                                            |
+   |                       |                       |                                                                                     |
+   |                       |                       | -  **Failed**: Loading failed.                                                      |
+   |                       |                       |                                                                                     |
+   |                       |                       | -  **NeedReboot**: The cluster needs to be restarted.                               |
+   |                       |                       |                                                                                     |
+   |                       |                       | -  **Undefined**: Not defined.                                                      |
+   +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+   | bucket                | String                | **Definition**:                                                                     |
+   |                       |                       |                                                                                     |
+   |                       |                       | The OBS bucket that stores the word dictionary file that is last updated.           |
+   |                       |                       |                                                                                     |
+   |                       |                       | **Value range**:                                                                    |
+   |                       |                       |                                                                                     |
+   |                       |                       | N/A                                                                                 |
+   +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+   | mainObj               | String                | **Definition**:                                                                     |
+   |                       |                       |                                                                                     |
+   |                       |                       | Main word dictionary file.                                                          |
+   |                       |                       |                                                                                     |
+   |                       |                       | **Value range**:                                                                    |
+   |                       |                       |                                                                                     |
+   |                       |                       | N/A                                                                                 |
+   +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+   | stopObj               | String                | **Definition**:                                                                     |
+   |                       |                       |                                                                                     |
+   |                       |                       | Stop word dictionary file.                                                          |
+   |                       |                       |                                                                                     |
+   |                       |                       | **Value range**:                                                                    |
+   |                       |                       |                                                                                     |
+   |                       |                       | N/A                                                                                 |
+   +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+   | synonymObj            | String                | **Definition**:                                                                     |
+   |                       |                       |                                                                                     |
+   |                       |                       | Synonym dictionary file.                                                            |
+   |                       |                       |                                                                                     |
+   |                       |                       | **Value range**:                                                                    |
+   |                       |                       |                                                                                     |
+   |                       |                       | N/A                                                                                 |
+   +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+   | staticMainObj         | String                | **Definition**:                                                                     |
+   |                       |                       |                                                                                     |
+   |                       |                       | Static main word dictionary file.                                                   |
+   |                       |                       |                                                                                     |
+   |                       |                       | **Value range**:                                                                    |
+   |                       |                       |                                                                                     |
+   |                       |                       | N/A                                                                                 |
+   +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+   | staticStopObj         | String                | **Definition**                                                                      |
+   |                       |                       |                                                                                     |
+   |                       |                       | Static stop word dictionary file.                                                   |
+   |                       |                       |                                                                                     |
+   |                       |                       | **Range**                                                                           |
+   |                       |                       |                                                                                     |
+   |                       |                       | N/A                                                                                 |
+   +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+   | extraMainObj          | String                | **Definition**:                                                                     |
+   |                       |                       |                                                                                     |
+   |                       |                       | Extra main word dictionary file.                                                    |
+   |                       |                       |                                                                                     |
+   |                       |                       | **Value range**:                                                                    |
+   |                       |                       |                                                                                     |
+   |                       |                       | N/A                                                                                 |
+   +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+   | extraStopObj          | String                | **Definition**                                                                      |
+   |                       |                       |                                                                                     |
+   |                       |                       | Extra stop word dictionary file object.                                             |
+   |                       |                       |                                                                                     |
+   |                       |                       | **Range**                                                                           |
+   |                       |                       |                                                                                     |
+   |                       |                       | N/A                                                                                 |
+   +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+   | updateTime            | Integer               | **Definition**                                                                      |
+   |                       |                       |                                                                                     |
+   |                       |                       | Last update time of the word dictionary, in Unix timestamp format, in milliseconds. |
+   |                       |                       |                                                                                     |
+   |                       |                       | **Range**                                                                           |
+   |                       |                       |                                                                                     |
+   |                       |                       | N/A                                                                                 |
+   +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+   | updateDetails         | String                | **Definition**:                                                                     |
+   |                       |                       |                                                                                     |
+   |                       |                       | Word dictionary update details.                                                     |
+   |                       |                       |                                                                                     |
+   |                       |                       | **Value range**:                                                                    |
+   |                       |                       |                                                                                     |
+   |                       |                       | N/A                                                                                 |
+   +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+   | clusterId             | String                | **Definition**:                                                                     |
+   |                       |                       |                                                                                     |
+   |                       |                       | ID of the cluster where a custom word dictionary you want to configure.             |
+   |                       |                       |                                                                                     |
+   |                       |                       | **Value range**:                                                                    |
+   |                       |                       |                                                                                     |
+   |                       |                       | N/A                                                                                 |
+   +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+   | id                    | String                | **Definition**:                                                                     |
+   |                       |                       |                                                                                     |
+   |                       |                       | ID of the word dictionary.                                                          |
+   |                       |                       |                                                                                     |
+   |                       |                       | **Value range**:                                                                    |
+   |                       |                       |                                                                                     |
+   |                       |                       | N/A                                                                                 |
+   +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
 
 Example Requests
 ----------------
@@ -201,8 +201,6 @@ Example Responses
 -----------------
 
 **Status code: 200**
-
-Request succeeded.
 
 .. code-block::
 

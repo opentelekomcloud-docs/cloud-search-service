@@ -30,35 +30,35 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/changename
    +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                      |
    +=================+=================+=================+==================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                  |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                   |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`. |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Constraints**:                                                                                                                 |
+   |                 |                 |                 | **Constraints**                                                                                                                  |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | N/A                                                                                                                              |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Value range**:                                                                                                                 |
+   |                 |                 |                 | **Range**                                                                                                                        |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | Project ID of the account.                                                                                                       |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                          |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Default value**:                                                                                                               |
+   |                 |                 |                 | **Default Value**                                                                                                                |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | N/A                                                                                                                              |
    +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                  |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                   |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | Cluster ID. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`.                   |
+   |                 |                 |                 | Cluster ID. It can be obtained by calling the :ref:`Obtaining the Cluster ID <css_03_0101>` API.                                 |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Constraints**:                                                                                                                 |
+   |                 |                 |                 | **Constraints**                                                                                                                  |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | N/A                                                                                                                              |
+   |                 |                 |                 | Modifying the cluster name or description is independent of the cluster status.                                                  |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Value range**:                                                                                                                 |
+   |                 |                 |                 | **Range**                                                                                                                        |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | Cluster ID.                                                                                                                      |
+   |                 |                 |                 | UUID format, 36 characters.                                                                                                      |
    |                 |                 |                 |                                                                                                                                  |
-   |                 |                 |                 | **Default value**:                                                                                                               |
+   |                 |                 |                 | **Default Value**                                                                                                                |
    |                 |                 |                 |                                                                                                                                  |
    |                 |                 |                 | N/A                                                                                                                              |
    +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------+
@@ -68,48 +68,46 @@ Request Parameters
 
 .. table:: **Table 2** Request body parameters
 
-   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                    |
-   +=================+=================+=================+================================================================================================================================================================+
-   | display_name    | Yes             | String          | **Definition**:                                                                                                                                                |
-   |                 |                 |                 |                                                                                                                                                                |
-   |                 |                 |                 | New cluster name.                                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                                                |
-   |                 |                 |                 | **Constraints**:                                                                                                                                               |
-   |                 |                 |                 |                                                                                                                                                                |
-   |                 |                 |                 | display_name and desc cannot both be null at the same time.                                                                                                    |
-   |                 |                 |                 |                                                                                                                                                                |
-   |                 |                 |                 | **Value range**:                                                                                                                                               |
-   |                 |                 |                 |                                                                                                                                                                |
-   |                 |                 |                 | The cluster name must start with a letter and can contain 4 to 32 characters. Only letters, digits, periods (.), hyphens (-), and underscores (_) are allowed. |
-   |                 |                 |                 |                                                                                                                                                                |
-   |                 |                 |                 | **Default value**:                                                                                                                                             |
-   |                 |                 |                 |                                                                                                                                                                |
-   |                 |                 |                 | N/A                                                                                                                                                            |
-   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | desc            | No              | String          | **Definition**:                                                                                                                                                |
-   |                 |                 |                 |                                                                                                                                                                |
-   |                 |                 |                 | Cluster description.                                                                                                                                           |
-   |                 |                 |                 |                                                                                                                                                                |
-   |                 |                 |                 | **Constraints**:                                                                                                                                               |
-   |                 |                 |                 |                                                                                                                                                                |
-   |                 |                 |                 | The value can contain up to 128 characters. display_name and desc cannot be null at the same time.                                                             |
-   |                 |                 |                 |                                                                                                                                                                |
-   |                 |                 |                 | **Value range**:                                                                                                                                               |
-   |                 |                 |                 |                                                                                                                                                                |
-   |                 |                 |                 | N/A                                                                                                                                                            |
-   |                 |                 |                 |                                                                                                                                                                |
-   |                 |                 |                 | **Default value**:                                                                                                                                             |
-   |                 |                 |                 |                                                                                                                                                                |
-   |                 |                 |                 | N/A                                                                                                                                                            |
-   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                |
+   +=================+=================+=================+============================================================================================================================+
+   | display_name    | Yes             | String          | **Definition**                                                                                                             |
+   |                 |                 |                 |                                                                                                                            |
+   |                 |                 |                 | Modified cluster name.                                                                                                     |
+   |                 |                 |                 |                                                                                                                            |
+   |                 |                 |                 | **Constraints**                                                                                                            |
+   |                 |                 |                 |                                                                                                                            |
+   |                 |                 |                 | N/A                                                                                                                        |
+   |                 |                 |                 |                                                                                                                            |
+   |                 |                 |                 | **Range**                                                                                                                  |
+   |                 |                 |                 |                                                                                                                            |
+   |                 |                 |                 | 4 to 64 characters. Only digits, letters, hyphens (-), and underscores (_) are allowed. The name must start with a letter. |
+   |                 |                 |                 |                                                                                                                            |
+   |                 |                 |                 | **Default Value**                                                                                                          |
+   |                 |                 |                 |                                                                                                                            |
+   |                 |                 |                 | N/A                                                                                                                        |
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------+
+   | desc            | No              | String          | **Definition**                                                                                                             |
+   |                 |                 |                 |                                                                                                                            |
+   |                 |                 |                 | Cluster description.                                                                                                       |
+   |                 |                 |                 |                                                                                                                            |
+   |                 |                 |                 | **Constraints**                                                                                                            |
+   |                 |                 |                 |                                                                                                                            |
+   |                 |                 |                 | N/A                                                                                                                        |
+   |                 |                 |                 |                                                                                                                            |
+   |                 |                 |                 | **Range**                                                                                                                  |
+   |                 |                 |                 |                                                                                                                            |
+   |                 |                 |                 | Up to 128 characters. Only letters, hyphens (-), underscores (_), punctuation marks, and brackets are allowed.             |
+   |                 |                 |                 |                                                                                                                            |
+   |                 |                 |                 | **Default Value**                                                                                                          |
+   |                 |                 |                 |                                                                                                                            |
+   |                 |                 |                 | N/A                                                                                                                        |
+   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------+
 
 Response Parameters
 -------------------
 
 **Status code: 200**
-
-Request succeeded.
 
 None
 

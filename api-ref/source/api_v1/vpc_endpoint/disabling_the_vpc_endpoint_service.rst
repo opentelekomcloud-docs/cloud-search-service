@@ -1,6 +1,6 @@
-:original_name: StopVpecp.html
+:original_name: StopVpcep.html
 
-.. _StopVpecp:
+.. _StopVpcep:
 
 Disabling the VPC Endpoint Service
 ==================================
@@ -8,7 +8,7 @@ Disabling the VPC Endpoint Service
 Function
 --------
 
-This API is used to disable the VPCEP service for a cluster.
+This API is used to disable the VPCEP service for an Elasticsearch or OpenSearch cluster.
 
 .. note::
 
@@ -29,35 +29,35 @@ PUT /v1.0/{project_id}/clusters/{cluster_id}/vpcepservice/close
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                                                  |
    +=================+=================+=================+==============================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                              |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                               |
    |                 |                 |                 |                                                                                                                                                              |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                             |
    |                 |                 |                 |                                                                                                                                                              |
-   |                 |                 |                 | **Constraints**:                                                                                                                                             |
+   |                 |                 |                 | **Constraints**                                                                                                                                              |
    |                 |                 |                 |                                                                                                                                                              |
    |                 |                 |                 | N/A                                                                                                                                                          |
    |                 |                 |                 |                                                                                                                                                              |
-   |                 |                 |                 | **Value range**:                                                                                                                                             |
+   |                 |                 |                 | **Range**                                                                                                                                                    |
    |                 |                 |                 |                                                                                                                                                              |
-   |                 |                 |                 | Project ID of the account.                                                                                                                                   |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                                      |
    |                 |                 |                 |                                                                                                                                                              |
-   |                 |                 |                 | **Default value**:                                                                                                                                           |
+   |                 |                 |                 | **Default Value**                                                                                                                                            |
    |                 |                 |                 |                                                                                                                                                              |
    |                 |                 |                 | N/A                                                                                                                                                          |
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                              |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                               |
    |                 |                 |                 |                                                                                                                                                              |
    |                 |                 |                 | ID of the cluster whose VPC endpoint you want to disable. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                                              |
-   |                 |                 |                 | **Constraints**:                                                                                                                                             |
+   |                 |                 |                 | **Constraints**                                                                                                                                              |
    |                 |                 |                 |                                                                                                                                                              |
    |                 |                 |                 | N/A                                                                                                                                                          |
    |                 |                 |                 |                                                                                                                                                              |
-   |                 |                 |                 | **Value range**:                                                                                                                                             |
+   |                 |                 |                 | **Range**                                                                                                                                                    |
    |                 |                 |                 |                                                                                                                                                              |
-   |                 |                 |                 | Cluster ID.                                                                                                                                                  |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                                                |
    |                 |                 |                 |                                                                                                                                                              |
-   |                 |                 |                 | **Default value**:                                                                                                                                           |
+   |                 |                 |                 | **Default Value**                                                                                                                                            |
    |                 |                 |                 |                                                                                                                                                              |
    |                 |                 |                 | N/A                                                                                                                                                          |
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -99,8 +99,6 @@ Example Responses
 -----------------
 
 **Status code: 200**
-
-Request succeeded.
 
 .. code-block::
 

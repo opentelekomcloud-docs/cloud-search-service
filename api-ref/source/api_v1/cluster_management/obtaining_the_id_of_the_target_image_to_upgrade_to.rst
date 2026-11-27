@@ -8,13 +8,11 @@ Obtaining the ID of the Target Image to Upgrade To
 Function
 --------
 
-This API is used to obtain the IDs of target images the current cluster can be upgraded to. The upgrade types are as follows:
+This API is used to obtain the IDs of target images the current Elasticsearch or OpenSearch cluster can be upgraded to. The upgrade types are as follows:
 
 -  During a same-version upgrade, kernel patches are updated for a cluster. The cluster is upgraded to the latest image of the current version to fix known issues or optimize performance. For example, if the current cluster version is 7.10.2(7.10.2_24.3.3_0102), upon a same-version upgrade, the cluster will be upgraded to the latest image 7.10.2(7.10.2_24.3.4_0109) of version 7.10.2. (The version numbers used here are examples only.)
 
 -  Cross-version upgrade: Upgrade the cluster version. The cluster will be upgraded to the latest image of the target version to enhance functions or incorporate versions. For example, if the current cluster version is 7.6.2(7.6.2_24.3.3_1224), upon a cross-version upgrade, the cluster will be upgraded to the latest image 7.10.2(7.10.2_24.3.4_0109) of version 7.10.2. (The version numbers used here are examples only.)
-
--  Cross-engine upgrade: Change an Elasticsearch cluster to an OpenSearch cluster. Cross-engine upgrade means to upgrade an Elasticsearch cluster to the latest image of the target OpenSearch version. For example, if the Elasticsearch cluster version is 7.10.2(7.10.2_24.3.3_0102), upon a cross-engine upgrade, the Elasticsearch cluster will be upgraded to the latest image 1.3.6(1.3.6_24.3.4_0109) of OpenSearch 1.3.6. (The version numbers used here are examples only.) This feature is not supported currently.
 
 Calling Method
 --------------
@@ -31,35 +29,35 @@ GET /v1.0/{project_id}/clusters/{cluster_id}/target/{upgrade_type}/images
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                          |
    +=================+=================+=================+======================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                      |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                       |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.     |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Constraints**:                                                                                                                     |
+   |                 |                 |                 | **Constraints**                                                                                                                      |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                  |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Value range**:                                                                                                                     |
+   |                 |                 |                 | **Range**                                                                                                                            |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | Project ID of the account.                                                                                                           |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                              |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Default value**:                                                                                                                   |
+   |                 |                 |                 | **Default Value**                                                                                                                    |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                  |
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                      |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                       |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | ID of the cluster to be upgraded. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Constraints**:                                                                                                                     |
+   |                 |                 |                 | **Constraints**                                                                                                                      |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                  |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Value range**:                                                                                                                     |
+   |                 |                 |                 | **Range**                                                                                                                            |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | Cluster ID.                                                                                                                          |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                        |
    |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | **Default value**:                                                                                                                   |
+   |                 |                 |                 | **Default Value**                                                                                                                    |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                  |
    +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
@@ -76,8 +74,6 @@ GET /v1.0/{project_id}/clusters/{cluster_id}/target/{upgrade_type}/images
    |                 |                 |                 | -  **same**: same-version upgrade.                                                                                                   |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | -  **cross**: cross-version upgrade.                                                                                                 |
-   |                 |                 |                 |                                                                                                                                      |
-   |                 |                 |                 | -  **cross-engine**: cross-engine upgrade.                                                                                           |
    |                 |                 |                 |                                                                                                                                      |
    |                 |                 |                 | **Default value**:                                                                                                                   |
    |                 |                 |                 |                                                                                                                                      |
@@ -237,8 +233,6 @@ Example Responses
 -----------------
 
 **Status code: 200**
-
-Request succeeded.
 
 .. code-block::
 

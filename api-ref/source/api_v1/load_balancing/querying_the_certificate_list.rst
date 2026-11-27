@@ -8,7 +8,7 @@ Querying the Certificate List
 Function
 --------
 
-This API is used to query the certificate list.
+This API is used to query the certificate list when an Elasticsearch or OpenSearch cluster is connected to a load balancer.
 
 Calling Method
 --------------
@@ -25,35 +25,35 @@ GET /v1.0/{project_id}/clusters/{cluster_id}/elb/certificates
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                         |
    +=================+=================+=================+=====================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                     |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                      |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.    |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Constraints**:                                                                                                                    |
+   |                 |                 |                 | **Constraints**                                                                                                                     |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                 |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Value range**:                                                                                                                    |
+   |                 |                 |                 | **Range**                                                                                                                           |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | Project ID of the account.                                                                                                          |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                             |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Default value**:                                                                                                                  |
+   |                 |                 |                 | **Default Value**                                                                                                                   |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                 |
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                     |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                      |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | ID of the cluster to be queried. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Constraints**:                                                                                                                    |
+   |                 |                 |                 | **Constraints**                                                                                                                     |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                 |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Value range**:                                                                                                                    |
+   |                 |                 |                 | **Range**                                                                                                                           |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | Cluster ID.                                                                                                                         |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                       |
    |                 |                 |                 |                                                                                                                                     |
-   |                 |                 |                 | **Default value**:                                                                                                                  |
+   |                 |                 |                 | **Default Value**                                                                                                                   |
    |                 |                 |                 |                                                                                                                                     |
    |                 |                 |                 | N/A                                                                                                                                 |
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------+
@@ -105,15 +105,15 @@ Response Parameters
    |                       |                       |                                    |
    |                       |                       | N/A                                |
    +-----------------------+-----------------------+------------------------------------+
-   | type                  | String                | **Definition**:                    |
+   | type                  | String                | **Definition**                     |
    |                       |                       |                                    |
-   |                       |                       | Type of the SL certificate.        |
+   |                       |                       | SSL certificate type.              |
    |                       |                       |                                    |
-   |                       |                       | **Value range**:                   |
+   |                       |                       | **Range**                          |
    |                       |                       |                                    |
-   |                       |                       | -  **server**: server certificates |
+   |                       |                       | -  **server**: server certificate. |
    |                       |                       |                                    |
-   |                       |                       | -  **client**: CA certificates     |
+   |                       |                       | -  **client**: CA certificate.     |
    +-----------------------+-----------------------+------------------------------------+
 
 Example Requests
@@ -129,8 +129,6 @@ Example Responses
 -----------------
 
 **Status code: 200**
-
-Request succeeded.
 
 .. code-block::
 

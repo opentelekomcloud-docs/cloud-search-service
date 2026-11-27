@@ -8,13 +8,13 @@ Enabling Public Network Access
 Function
 --------
 
-Public network access is supported only when Security Mode and HTTPS Access are enabled for a cluster. When Public IP Address is enabled, a public IP address is automatically assigned, which will enable access to the security cluster from the public network. Additionally, you can configure access control from the public network by IP addresses or IP address ranges.
+When an Elasticsearch/OpenSearch cluster has security mode and HTTPS access enabled, you can choose whether to configure public access. After public access is configured, you can obtain a public IP address to access the security cluster from the public network. Additionally, access control can be configured to set the IP addresses or CIDR blocks allowed to access the cluster from the public network.
 
-To enable public network access for Elasticsearch or OpenSearch clusters, a shared load balancer is typically used for load balancing. If your workloads require quicker access, you are advised to use a dedicated load balancer to connect to your clusters. For details about its configuration, see section "Configuring a Dedicated Load Balancer for an Elasticsearch Cluster."
+Public access of an Elasticsearch/OpenSearch cluster is implemented through a shared load balancer, which shares resources with other instances. If your workloads require quicker access, you are advised to use a dedicated load balancer to access the cluster. For configuration details, see "Configuring a Dedicated Load Balancer for an Elasticsearch Cluster."
 
 .. note::
 
-   If no whitelist is configured when public network access is enabled, all IP addresses are allowed to access your cluster. Use caution.
+   When public access is enabled and no access control whitelist is configured, all IP addresses are allowed. You are advised to configure an appropriate access control whitelist.
 
 Calling Method
 --------------
@@ -31,35 +31,35 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/public/open
    +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                                                          |
    +=================+=================+=================+======================================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                                      |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                                       |
    |                 |                 |                 |                                                                                                                                                                      |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                                     |
    |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                     |
+   |                 |                 |                 | **Constraints**                                                                                                                                                      |
    |                 |                 |                 |                                                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                                                  |
    |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Value range**:                                                                                                                                                     |
+   |                 |                 |                 | **Range**                                                                                                                                                            |
    |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | Project ID of the account.                                                                                                                                           |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                                              |
    |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Default value**:                                                                                                                                                   |
+   |                 |                 |                 | **Default Value**                                                                                                                                                    |
    |                 |                 |                 |                                                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                                                  |
    +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                                      |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                                       |
    |                 |                 |                 |                                                                                                                                                                      |
    |                 |                 |                 | ID of the cluster whose public network access you want to enable. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                     |
+   |                 |                 |                 | **Constraints**                                                                                                                                                      |
    |                 |                 |                 |                                                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                                                  |
    |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Value range**:                                                                                                                                                     |
+   |                 |                 |                 | **Range**                                                                                                                                                            |
    |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | Cluster ID.                                                                                                                                                          |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                                                        |
    |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Default value**:                                                                                                                                                   |
+   |                 |                 |                 | **Default Value**                                                                                                                                                    |
    |                 |                 |                 |                                                                                                                                                                      |
    |                 |                 |                 | N/A                                                                                                                                                                  |
    +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -90,15 +90,17 @@ Request Parameters
    +-----------------+-----------------+-----------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | white_list      | No              | String                                                                      | **Definition**                                                                                                                                                |
    |                 |                 |                                                                             |                                                                                                                                                               |
-   |                 |                 |                                                                             | Public access control whitelist. Add the IP addresses or CIDR blocks to be whitelisted, separated by commas (,). Valid examples: **192.168.1.1,10.0.0.0/24**. |
+   |                 |                 |                                                                             | Whitelist for public access control. The CIDR blocks or IP addresses to be whitelisted must be separated by commas (,). Example: **192.168.1.1,10.0.0.0/24**. |
    |                 |                 |                                                                             |                                                                                                                                                               |
    |                 |                 |                                                                             | **Constraints**                                                                                                                                               |
    |                 |                 |                                                                             |                                                                                                                                                               |
-   |                 |                 |                                                                             | The following are not supported: 0.0.0.0,x.x.x.x/0, non-standard formats such as 192.168.1, or duplicate entries.                                             |
+   |                 |                 |                                                                             | The following are not supported: 0.0.0.0,x.x.x.x/0,172.16.0.0-172.16.255.255, non-standard formats such as 192.168.1, or duplicate entries.                   |
+   |                 |                 |                                                                             |                                                                                                                                                               |
+   |                 |                 |                                                                             | If no access whitelist is configured, all public IP addresses can access the cluster. This poses security risks and is not recommended.                       |
    |                 |                 |                                                                             |                                                                                                                                                               |
    |                 |                 |                                                                             | **Range**                                                                                                                                                     |
    |                 |                 |                                                                             |                                                                                                                                                               |
-   |                 |                 |                                                                             | Valid CIDR blocks or IP addresses.                                                                                                                            |
+   |                 |                 |                                                                             | IP addresses or CIDR blocks, separated by commas (,). Duplicate entries are not allowed.                                                                      |
    |                 |                 |                                                                             |                                                                                                                                                               |
    |                 |                 |                                                                             | **Default Value**                                                                                                                                             |
    |                 |                 |                                                                             |                                                                                                                                                               |
@@ -186,8 +188,6 @@ Example Responses
 -----------------
 
 **Status code: 200**
-
-Request succeeded.
 
 .. code-block::
 

@@ -1,6 +1,6 @@
-:original_name: StartVpecp.html
+:original_name: StartVpcep.html
 
-.. _StartVpecp:
+.. _StartVpcep:
 
 Enabling the VPC Endpoint Service
 =================================
@@ -8,7 +8,7 @@ Enabling the VPC Endpoint Service
 Function
 --------
 
-The VPC endpoint service enables secure and reliable access across VPCs through a dedicated gateway, without exposing the network information of servers. This API is used to enable VPC endpoints for the cluster.
+The VPC endpoint service enables secure and reliable access across VPCs through a dedicated gateway, without exposing the network information of servers. This API is used to enable VPC endpoints for an Elasticsearch or OpenSearch cluster.
 
 Calling Method
 --------------
@@ -25,35 +25,35 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/vpcepservice/open
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Parameter       | Mandatory       | Type            | Description                                                                                                                                                 |
    +=================+=================+=================+=============================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                             |
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                              |
    |                 |                 |                 |                                                                                                                                                             |
    |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                            |
    |                 |                 |                 |                                                                                                                                                             |
-   |                 |                 |                 | **Constraints**:                                                                                                                                            |
+   |                 |                 |                 | **Constraints**                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                             |
    |                 |                 |                 | N/A                                                                                                                                                         |
    |                 |                 |                 |                                                                                                                                                             |
-   |                 |                 |                 | **Value range**:                                                                                                                                            |
+   |                 |                 |                 | **Range**                                                                                                                                                   |
    |                 |                 |                 |                                                                                                                                                             |
-   |                 |                 |                 | Project ID of the account.                                                                                                                                  |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                                     |
    |                 |                 |                 |                                                                                                                                                             |
-   |                 |                 |                 | **Default value**:                                                                                                                                          |
+   |                 |                 |                 | **Default Value**                                                                                                                                           |
    |                 |                 |                 |                                                                                                                                                             |
    |                 |                 |                 | N/A                                                                                                                                                         |
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                             |
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                              |
    |                 |                 |                 |                                                                                                                                                             |
    |                 |                 |                 | ID of the cluster whose VPC endpoint you want to enable. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
    |                 |                 |                 |                                                                                                                                                             |
-   |                 |                 |                 | **Constraints**:                                                                                                                                            |
+   |                 |                 |                 | **Constraints**                                                                                                                                             |
    |                 |                 |                 |                                                                                                                                                             |
    |                 |                 |                 | N/A                                                                                                                                                         |
    |                 |                 |                 |                                                                                                                                                             |
-   |                 |                 |                 | **Value range**:                                                                                                                                            |
+   |                 |                 |                 | **Range**                                                                                                                                                   |
    |                 |                 |                 |                                                                                                                                                             |
-   |                 |                 |                 | Cluster ID.                                                                                                                                                 |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                                               |
    |                 |                 |                 |                                                                                                                                                             |
-   |                 |                 |                 | **Default value**:                                                                                                                                          |
+   |                 |                 |                 | **Default Value**                                                                                                                                           |
    |                 |                 |                 |                                                                                                                                                             |
    |                 |                 |                 | N/A                                                                                                                                                         |
    +-----------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -63,63 +63,63 @@ Request Parameters
 
 .. table:: **Table 2** Request body parameters
 
-   +------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter              | Mandatory       | Type            | Description                                                                                                                                |
-   +========================+=================+=================+============================================================================================================================================+
-   | endpoint_with_dns_name | No              | Boolean         | **Definition**:                                                                                                                            |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | Whether to enable private domain names.                                                                                                    |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | **Constraints**:                                                                                                                           |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | N/A                                                                                                                                        |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | **Value range**:                                                                                                                           |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | -  **true**: enabled.                                                                                                                      |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | -  **false**: disabled.                                                                                                                    |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | **Default value**:                                                                                                                         |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | false                                                                                                                                      |
-   +------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | profession_vpcep       | No              | Boolean         | **Definition**:                                                                                                                            |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | Whether to create professional VPC endpoints.                                                                                              |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | **Constraints**:                                                                                                                           |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | N/A                                                                                                                                        |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | **Value range**:                                                                                                                           |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | -  **true**: enabled.                                                                                                                      |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | -  **false**: disabled.                                                                                                                    |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | **Default value**:                                                                                                                         |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | false                                                                                                                                      |
-   +------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | dualstack_enable       | No              | Boolean         | **Definition**:                                                                                                                            |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | Whether to enable IPv4/IPv6 dual-stack networking.                                                                                         |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | **Constraints**:                                                                                                                           |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | The IPv4/IPv6 dual-stack network can be enabled only when a professional VPC endpoint is created and the VPC of the cluster supports IPv6. |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | **Value range**:                                                                                                                           |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | -  **true**: enabled.                                                                                                                      |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | -  **false**: disabled.                                                                                                                    |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | **Default value**:                                                                                                                         |
-   |                        |                 |                 |                                                                                                                                            |
-   |                        |                 |                 | false                                                                                                                                      |
-   +------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   +------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter              | Mandatory       | Type            | Description                                                                                                                               |
+   +========================+=================+=================+===========================================================================================================================================+
+   | endpoint_with_dns_name | No              | Boolean         | **Definition**:                                                                                                                           |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | Whether to enable private domain names.                                                                                                   |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | **Constraints**:                                                                                                                          |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | N/A                                                                                                                                       |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | **Value range**:                                                                                                                          |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | -  **true**: enabled.                                                                                                                     |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | -  **false**: disabled.                                                                                                                   |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | **Default value**:                                                                                                                        |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | false                                                                                                                                     |
+   +------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+   | profession_vpcep       | No              | Boolean         | **Definition**                                                                                                                            |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | Whether to create professional VPC endpoints.                                                                                             |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | **Constraints**                                                                                                                           |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | N/A                                                                                                                                       |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | **Range**                                                                                                                                 |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | -  **true**: Create a professional VPC endpoint.                                                                                          |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | -  **false**: Do not create a professional VPC endpoint.                                                                                  |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | **Default Value**                                                                                                                         |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | false                                                                                                                                     |
+   +------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+   | dualstack_enable       | No              | Boolean         | **Definition**                                                                                                                            |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | Whether to enable IPv4/IPv6 dual-stack networking.                                                                                        |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | **Constraints**                                                                                                                           |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | Dual-stack networking can be enabled only when creating a professional VPC endpoint, and the VPC subnet of the cluster must support IPv6. |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | **Range**                                                                                                                                 |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | -  **true**: Enable IPv4/IPv6 dual-stack networking.                                                                                      |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | -  **false**: Disable IPv4/IPv6 dual-stack networking.                                                                                    |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | **Default Value**                                                                                                                         |
+   |                        |                 |                 |                                                                                                                                           |
+   |                        |                 |                 | false                                                                                                                                     |
+   +------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+
 
 Response Parameters
 -------------------
@@ -157,8 +157,6 @@ Example Responses
 -----------------
 
 **Status code: 200**
-
-Request succeeded.
 
 .. code-block::
 

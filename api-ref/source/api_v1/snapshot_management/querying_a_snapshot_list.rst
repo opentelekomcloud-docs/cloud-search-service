@@ -8,7 +8,7 @@ Querying a Snapshot List
 Function
 --------
 
-This API is used to query all snapshots of a cluster, including the snapshot creation time, data engine, snapshot ID, and snapshot status, helping you manage the lifecycle of cluster snapshots. This API enables you to quickly obtain the details of a specified snapshot, verify snapshot availability, and help you restore data, roll back versions, or analyze storage costs. This API also provides structured data support required for automatic monitoring and warning for the O&M team, significantly improving cluster O&M efficiency and stability.
+This API is used to query all snapshots of an Elasticsearch or OpenSearch cluster, including the snapshot creation time, data engine, snapshot ID, and snapshot status, helping you manage the lifecycle of cluster snapshots. This API enables you to quickly obtain the details of a specified snapshot, verify snapshot availability, and help you restore data, roll back versions, or analyze storage costs. This API also provides structured data support required for automatic monitoring and warning for the O&M team, significantly improving cluster O&M efficiency and stability.
 
 Calling Method
 --------------
@@ -22,41 +22,41 @@ GET /v1.0/{project_id}/clusters/{cluster_id}/index_snapshots
 
 .. table:: **Table 1** Path Parameters
 
-   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                                             |
-   +=================+=================+=================+=========================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                        |
-   |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Constraints**:                                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Value range**:                                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | Project ID of the account.                                                                                                                              |
-   |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Default value**:                                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                                     |
-   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                         |
-   |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | ID of the cluster whose snapshots you want to query. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
-   |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Constraints**:                                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Value range**:                                                                                                                                        |
-   |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | Cluster ID.                                                                                                                                             |
-   |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | **Default value**:                                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                                         |
-   |                 |                 |                 | N/A                                                                                                                                                     |
-   +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                |
+   +=================+=================+=================+============================================================================================================================================================+
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                             |
+   |                 |                 |                 |                                                                                                                                                            |
+   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                           |
+   |                 |                 |                 |                                                                                                                                                            |
+   |                 |                 |                 | **Constraints**                                                                                                                                            |
+   |                 |                 |                 |                                                                                                                                                            |
+   |                 |                 |                 | N/A                                                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                                            |
+   |                 |                 |                 | **Range**                                                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                                            |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                                    |
+   |                 |                 |                 |                                                                                                                                                            |
+   |                 |                 |                 | **Default Value**                                                                                                                                          |
+   |                 |                 |                 |                                                                                                                                                            |
+   |                 |                 |                 | N/A                                                                                                                                                        |
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                             |
+   |                 |                 |                 |                                                                                                                                                            |
+   |                 |                 |                 | ID of the cluster whose snapshot list is to be queried. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
+   |                 |                 |                 |                                                                                                                                                            |
+   |                 |                 |                 | **Constraints**                                                                                                                                            |
+   |                 |                 |                 |                                                                                                                                                            |
+   |                 |                 |                 | N/A                                                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                                            |
+   |                 |                 |                 | **Range**                                                                                                                                                  |
+   |                 |                 |                 |                                                                                                                                                            |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                                              |
+   |                 |                 |                 |                                                                                                                                                            |
+   |                 |                 |                 | **Default Value**                                                                                                                                          |
+   |                 |                 |                 |                                                                                                                                                            |
+   |                 |                 |                 | N/A                                                                                                                                                        |
+   +-----------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Request Parameters
 ------------------
@@ -70,225 +70,225 @@ Response Parameters
 
 .. table:: **Table 2** Response body parameters
 
-   +-----------------------+---------------------------------------------------------------------------------------------------+-----------------------+
-   | Parameter             | Type                                                                                              | Description           |
-   +=======================+===================================================================================================+=======================+
-   | backups               | Array of :ref:`ListSnapshotBackupsResp <listsnapshots__response_listsnapshotbackupsresp>` objects | **Definition**:       |
-   |                       |                                                                                                   |                       |
-   |                       |                                                                                                   | Snapshot list.        |
-   |                       |                                                                                                   |                       |
-   |                       |                                                                                                   | **Value range**:      |
-   |                       |                                                                                                   |                       |
-   |                       |                                                                                                   | N/A                   |
-   +-----------------------+---------------------------------------------------------------------------------------------------+-----------------------+
+   +-----------------------+---------------------------------------------------------------------------------------------------+--------------------------------------------------------------------+
+   | Parameter             | Type                                                                                              | Description                                                        |
+   +=======================+===================================================================================================+====================================================================+
+   | backups               | Array of :ref:`ListSnapshotBackupsResp <listsnapshots__response_listsnapshotbackupsresp>` objects | **Definition**                                                     |
+   |                       |                                                                                                   |                                                                    |
+   |                       |                                                                                                   | Cluster snapshot list, including the cluster snapshot ID and name. |
+   |                       |                                                                                                   |                                                                    |
+   |                       |                                                                                                   | **Range**                                                          |
+   |                       |                                                                                                   |                                                                    |
+   |                       |                                                                                                   | N/A                                                                |
+   +-----------------------+---------------------------------------------------------------------------------------------------+--------------------------------------------------------------------+
 
 .. _listsnapshots__response_listsnapshotbackupsresp:
 
 .. table:: **Table 3** ListSnapshotBackupsResp
 
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | Parameter             | Type                                                                                                      | Description                                              |
-   +=======================+===========================================================================================================+==========================================================+
-   | created               | String                                                                                                    | **Definition**:                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Snapshot creation time.                                  |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Value range**:                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | The format is CCYY-MM-DDThh:mm:ss (ISO 8601).            |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | datastore             | :ref:`ListSnapshotBackupsDatastoreResp <listsnapshots__response_listsnapshotbackupsdatastoreresp>` object | **Definition**:                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Search engine.                                           |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Value range**:                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | N/A                                                      |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | description           | String                                                                                                    | **Definition**:                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Snapshot description.                                    |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Value range**:                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | N/A                                                      |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | id                    | String                                                                                                    | **Definition**:                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Snapshot ID.                                             |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Value range**:                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | N/A                                                      |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | clusterId             | String                                                                                                    | **Definition**:                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Cluster ID.                                              |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Value range**:                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | N/A                                                      |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | clusterName           | String                                                                                                    | **Definition**:                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Cluster name.                                            |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Value range**:                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | N/A                                                      |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | name                  | String                                                                                                    | **Definition**:                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Snapshot name.                                           |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Value range**:                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | N/A                                                      |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | status                | String                                                                                                    | **Definition**:                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Snapshot status.                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Value range**:                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  \**BUILDING": creating.                               |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  **COMPLETED**: available.                             |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  **FAILED**: unavailable.                              |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  **PART_FAILED**: partially available.                 |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | backupType            | String                                                                                                    | **Parameter description**:                               |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Snapshot type.                                           |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Options**:                                             |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  **0**: Automatic creation.                            |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  **1**: Manual creation.                               |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | backupMethod          | String                                                                                                    | **Parameter description**:                               |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Snapshot creation mode.                                  |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Options**:                                             |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  **auto**: automatic creation.                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  **manual**: manual creation.                          |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | backupFrequency       | String                                                                                                    | **Definition**:                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Cluster snapshot creation frequency.                     |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Value range**:                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  **HOUR**                                              |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  **DAY**                                               |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  SUN: Sunday                                           |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  MON: Monday                                           |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  TUE: Tuesday                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  WED: Wednesday                                        |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  THU: Thursday                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  FRI: Friday                                           |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  SAT: Saturday                                         |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | indices               | String                                                                                                    | **Definition**:                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Index you want to back up.                               |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Value range**:                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | N/A                                                      |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | totalShards           | Integer                                                                                                   | **Definition**:                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Total number of shards of the index you want to back up. |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Value range**:                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | N/A                                                      |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | failedShards          | Integer                                                                                                   | **Definition**:                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Number of shards that fail to be backed up.              |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Value range**:                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | N/A                                                      |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | restoreStatus         | String                                                                                                    | **Definition**:                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Snapshot restoration status.                             |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Value range**:                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  **restoring**: restoration in progress.               |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  **success**: successful restoration.                  |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | -  **failed**: restoration failed.                       |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | startTime             | Long                                                                                                      | **Definition**:                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Snapshot start timestamp.                                |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Value range**:                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | N/A                                                      |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | endTime               | Long                                                                                                      | **Definition**:                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Snapshot end timestamp.                                  |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Value range**:                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | N/A                                                      |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
-   | bucketName            | String                                                                                                    | **Definition**:                                          |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | Name of the bucket that stores snapshot data.            |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | **Value range**:                                         |
-   |                       |                                                                                                           |                                                          |
-   |                       |                                                                                                           | N/A                                                      |
-   +-----------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------+
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | Parameter             | Type                                                                                                      | Description                                                             |
+   +=======================+===========================================================================================================+=========================================================================+
+   | created               | String                                                                                                    | **Definition**                                                          |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Snapshot creation time. The format is **ISO8601: CCYY-MM-DDThh:mm:ss**. |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Range**                                                               |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | N/A                                                                     |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | datastore             | :ref:`ListSnapshotBackupsDatastoreResp <listsnapshots__response_listsnapshotbackupsdatastoreresp>` object | **Definition**:                                                         |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Search engine.                                                          |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Value range**:                                                        |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | N/A                                                                     |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | description           | String                                                                                                    | **Definition**:                                                         |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Snapshot description.                                                   |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Value range**:                                                        |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | N/A                                                                     |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | id                    | String                                                                                                    | **Definition**:                                                         |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Snapshot ID.                                                            |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Value range**:                                                        |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | N/A                                                                     |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | clusterId             | String                                                                                                    | **Definition**:                                                         |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Cluster ID.                                                             |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Value range**:                                                        |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | N/A                                                                     |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | clusterName           | String                                                                                                    | **Definition**                                                          |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Cluster name.                                                           |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Range**                                                               |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | N/A                                                                     |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | name                  | String                                                                                                    | **Definition**:                                                         |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Snapshot name.                                                          |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Value range**:                                                        |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | N/A                                                                     |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | status                | String                                                                                                    | **Definition**:                                                         |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Snapshot status.                                                        |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Value range**:                                                        |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  \**BUILDING": creating.                                              |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **COMPLETED**: available.                                            |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **FAILED**: unavailable.                                             |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **PART_FAILED**: partially available.                                |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | backupType            | String                                                                                                    | **Parameter description**:                                              |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Snapshot type.                                                          |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Options**:                                                            |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **0**: Automatic creation.                                           |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **1**: Manual creation.                                              |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | backupMethod          | String                                                                                                    | **Parameter description**:                                              |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Snapshot creation mode.                                                 |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Options**:                                                            |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **auto**: automatic creation.                                        |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **manual**: manual creation.                                         |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | backupFrequency       | String                                                                                                    | **Definition**                                                          |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Cluster snapshot creation frequency.                                    |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Range**                                                               |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **HOUR**: A snapshot is created every hour.                          |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **DAY**: A snapshot is created every day.                            |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **SUN**: A snapshot is created every Sunday.                         |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **MON**: A snapshot is created every Monday.                         |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **TUE**: A snapshot is created every Tuesday.                        |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **WED**: A snapshot is created every Wednesday.                      |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **THU**: A snapshot is created every Thursday.                       |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **FRI**: A snapshot is created every Friday.                         |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **SAT**: A snapshot is created every Saturday.                       |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | indices               | String                                                                                                    | **Definition**:                                                         |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Index you want to back up.                                              |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Value range**:                                                        |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | N/A                                                                     |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | totalShards           | Integer                                                                                                   | **Definition**:                                                         |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Total number of shards of the index you want to back up.                |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Value range**:                                                        |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | N/A                                                                     |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | failedShards          | Integer                                                                                                   | **Definition**:                                                         |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Number of shards that fail to be backed up.                             |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Value range**:                                                        |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | N/A                                                                     |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | restoreStatus         | String                                                                                                    | **Definition**:                                                         |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Snapshot restoration status.                                            |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Value range**:                                                        |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **restoring**: restoration in progress.                              |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **success**: successful restoration.                                 |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | -  **failed**: restoration failed.                                      |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | startTime             | Long                                                                                                      | **Definition**                                                          |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Timestamp when the snapshot execution starts, in milliseconds.          |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Range**                                                               |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | N/A                                                                     |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | endTime               | Long                                                                                                      | **Definition**                                                          |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Timestamp when the snapshot execution ends, in milliseconds.            |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Range**                                                               |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | N/A                                                                     |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+   | bucketName            | String                                                                                                    | **Definition**:                                                         |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | Name of the bucket that stores snapshot data.                           |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | **Value range**:                                                        |
+   |                       |                                                                                                           |                                                                         |
+   |                       |                                                                                                           | N/A                                                                     |
+   +-----------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
 
 .. _listsnapshots__response_listsnapshotbackupsdatastoreresp:
 
 .. table:: **Table 4** ListSnapshotBackupsDatastoreResp
 
-   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Parameter             | Type                  | Description                                                                                                     |
-   +=======================+=======================+=================================================================================================================+
-   | type                  | String                | **Definition**:                                                                                                 |
-   |                       |                       |                                                                                                                 |
-   |                       |                       | Cluster engine type.                                                                                            |
-   |                       |                       |                                                                                                                 |
-   |                       |                       | **Value range**:                                                                                                |
-   |                       |                       |                                                                                                                 |
-   |                       |                       | -  elasticsearch: Elasticsearch cluster.                                                                        |
-   |                       |                       |                                                                                                                 |
-   |                       |                       | -  openSearch: OpenSearch cluster.                                                                              |
-   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | version               | String                | **Definition**:                                                                                                 |
-   |                       |                       |                                                                                                                 |
-   |                       |                       | Elasticsearch engine version. For details, see the supported versions in :ref:`Before You Start <css_03_0001>`. |
-   |                       |                       |                                                                                                                 |
-   |                       |                       | **Value range**:                                                                                                |
-   |                       |                       |                                                                                                                 |
-   |                       |                       | N/A                                                                                                             |
-   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------+
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------+
+   | Parameter             | Type                  | Description                                                                                               |
+   +=======================+=======================+===========================================================================================================+
+   | type                  | String                | **Definition**:                                                                                           |
+   |                       |                       |                                                                                                           |
+   |                       |                       | Cluster engine type.                                                                                      |
+   |                       |                       |                                                                                                           |
+   |                       |                       | **Value range**:                                                                                          |
+   |                       |                       |                                                                                                           |
+   |                       |                       | -  elasticsearch: Elasticsearch cluster.                                                                  |
+   |                       |                       |                                                                                                           |
+   |                       |                       | -  openSearch: OpenSearch cluster.                                                                        |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------+
+   | version               | String                | **Definition**                                                                                            |
+   |                       |                       |                                                                                                           |
+   |                       |                       | Cluster engine version. For details, see the supported versions in :ref:`Before You Start <css_03_0001>`. |
+   |                       |                       |                                                                                                           |
+   |                       |                       | **Range**                                                                                                 |
+   |                       |                       |                                                                                                           |
+   |                       |                       | N/A                                                                                                       |
+   +-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------+
 
 Example Requests
 ----------------
@@ -297,14 +297,12 @@ Query the cluster snapshot list.
 
 .. code-block:: text
 
-   GET https://{Endpoint}/v1.0/{project_id}/clusters/37cb1075-c38e-4cd8-81df-442d52df3786/index_snapshots
+   GET https://{Endpoint}/v1.0/{project_id}/clusters/{cluster_id}/index_snapshots
 
 Example Responses
 -----------------
 
 **Status code: 200**
-
-Request succeeded.
 
 .. code-block::
 
@@ -348,7 +346,7 @@ Request succeeded.
        "indices" : ".kibana",
        "totalShards" : 1,
        "failedShards" : 0,
-       "restoreStatus" : "none",
+       "restoreStatus" : "success",
        "startTime" : 1520350957275,
        "endTime" : 1520351284357,
        "bucketName" : "obs-b8ed"

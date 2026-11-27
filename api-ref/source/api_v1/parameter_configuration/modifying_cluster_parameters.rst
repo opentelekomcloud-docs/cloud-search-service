@@ -8,14 +8,20 @@ Modifying Cluster Parameters
 Function
 --------
 
-The core configuration information of an Elasticsearch cluster is stored in the **elasticsearch.yml** and **kibana.yml** files, while that of an OpenSearch cluster is stored in the **opensearch.yml** and **opensearch_dashboards.yml** files. You can modify a cluster's configuration file for purposes like accelerating queries, modifying cross-domain access configuration, adjusting the internal cache size, and managing the task queue size.
+The core configuration information of an Elasticsearch cluster is stored in the **elasticsearch.yml** and **kibana.yml** files, while that of an OpenSearch cluster is stored in the **opensearch.yml** and **opensearch_dashboards.yml** files. You can modify a cluster's parameter configuration files for purposes like accelerating queries, modifying cross-domain access configurations, adjusting internal cache sizes, or managing background task queues.
 
-Before calling this API, call the :ref:`Obtaining the Parameter Configuration List <listymls>` API to verify the cluster's parameter settings, and modify them as required.
+Elasticsearch or OpenSearch supports configuring the SAML authentication metadata descriptor file **descriptor.xml**. In SAML 2.0, SSO configuration information (such as keys and URL endpoints) is typically stored in an XML descriptor file.
+
+Before calling this API, you are advised to call the :ref:`Obtaining the Parameter Configuration List <listymls>` API to confirm the cluster's parameter configuration, so that you can modify parameters as needed.
 
 Constraints
 -----------
 
-Set the values of any custom parameters to those supported by Elasticsearch. Otherwise, the cluster may fail to restart. Exercise caution when performing this operation.
+When the parameter type **UpdateYmlsReqEditModify** is **elasticsearch.yml**, custom parameters must be parameters supported by Elasticsearch or OpenSearch. Otherwise, the cluster restart will fail.
+
+When the parameter type **UpdateYmlsReqEditModify** is **kibana.yml**, custom parameters must be parameters supported by Kibana or Dashboards. Otherwise, the Kibana or Dashboards process restart will fail.
+
+When the parameter type **UpdateYmlsReqEditModify** is **system.config**, a **descriptor.xml** file is generated in the Elasticsearch or OpenSearch **config** directory, and all nodes load this file when the cluster is manually restarted.
 
 Calling Method
 --------------
@@ -29,41 +35,41 @@ POST /v1.0/{project_id}/clusters/{cluster_id}/ymls/update
 
 .. table:: **Table 1** Path Parameters
 
-   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                          |
-   +=================+=================+=================+======================================================================================================================================================================+
-   | project_id      | Yes             | String          | **Definition**:                                                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                                     |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | N/A                                                                                                                                                                  |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Value range**:                                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | Project ID of the account.                                                                                                                                           |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Default value**:                                                                                                                                                   |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | N/A                                                                                                                                                                  |
-   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | cluster_id      | Yes             | String          | **Definition**:                                                                                                                                                      |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | ID of the cluster whose parameter settings you want to be modify. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Constraints**:                                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | N/A                                                                                                                                                                  |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Value range**:                                                                                                                                                     |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | Cluster ID.                                                                                                                                                          |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | **Default value**:                                                                                                                                                   |
-   |                 |                 |                 |                                                                                                                                                                      |
-   |                 |                 |                 | N/A                                                                                                                                                                  |
-   +-----------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                           |
+   +=================+=================+=================+=======================================================================================================================================================================+
+   | project_id      | Yes             | String          | **Definition**                                                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                                                       |
+   |                 |                 |                 | Project ID. For details about how to obtain the project ID and name, see :ref:`Obtaining the Project ID and Name <css_03_0071>`.                                      |
+   |                 |                 |                 |                                                                                                                                                                       |
+   |                 |                 |                 | **Constraints**                                                                                                                                                       |
+   |                 |                 |                 |                                                                                                                                                                       |
+   |                 |                 |                 | N/A                                                                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                                                       |
+   |                 |                 |                 | **Range**                                                                                                                                                             |
+   |                 |                 |                 |                                                                                                                                                                       |
+   |                 |                 |                 | Project ID of an account. The value contains 32 characters, consisting of lowercase letters and digits.                                                               |
+   |                 |                 |                 |                                                                                                                                                                       |
+   |                 |                 |                 | **Default Value**                                                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                                                       |
+   |                 |                 |                 | N/A                                                                                                                                                                   |
+   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | cluster_id      | Yes             | String          | **Definition**                                                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                                                       |
+   |                 |                 |                 | ID of the cluster whose parameter configuration is to be modified. For details about how to obtain the cluster ID, see :ref:`Obtaining the Cluster ID <css_03_0101>`. |
+   |                 |                 |                 |                                                                                                                                                                       |
+   |                 |                 |                 | **Constraints**                                                                                                                                                       |
+   |                 |                 |                 |                                                                                                                                                                       |
+   |                 |                 |                 | N/A                                                                                                                                                                   |
+   |                 |                 |                 |                                                                                                                                                                       |
+   |                 |                 |                 | **Range**                                                                                                                                                             |
+   |                 |                 |                 |                                                                                                                                                                       |
+   |                 |                 |                 | The value is a UUID containing 36 characters.                                                                                                                         |
+   |                 |                 |                 |                                                                                                                                                                       |
+   |                 |                 |                 | **Default Value**                                                                                                                                                     |
+   |                 |                 |                 |                                                                                                                                                                       |
+   |                 |                 |                 | N/A                                                                                                                                                                   |
+   +-----------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Request Parameters
 ------------------
@@ -148,25 +154,35 @@ Request Parameters
 
 .. table:: **Table 4** UpdateYmlsReqEditModify
 
-   +-------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter         | Mandatory       | Type            | Description                                                                                                                                                                                                                         |
-   +===================+=================+=================+=====================================================================================================================================================================================================================================+
-   | elasticsearch.yml | No              | Object          | **Definition**:                                                                                                                                                                                                                     |
-   |                   |                 |                 |                                                                                                                                                                                                                                     |
-   |                   |                 |                 | Parameter configuration list. The value is the JSON data to be modified. This parameter is also used for OpenSearch clusters. When you modify the opensearch.yml file, you need to set this parameter to elasticsearch.yml as well. |
-   |                   |                 |                 |                                                                                                                                                                                                                                     |
-   |                   |                 |                 | **Constraints**:                                                                                                                                                                                                                    |
-   |                   |                 |                 |                                                                                                                                                                                                                                     |
-   |                   |                 |                 | N/A                                                                                                                                                                                                                                 |
-   +-------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | kibana.yml        | No              | Object          | **Definition**:                                                                                                                                                                                                                     |
-   |                   |                 |                 |                                                                                                                                                                                                                                     |
-   |                   |                 |                 | Parameter configuration list. The value is the JSON data to be modified. This parameter is also used for OpenSearch clusters. That is, when modifying opensearch_dashboards.yml, set this parameter to kibana.yml as well.          |
-   |                   |                 |                 |                                                                                                                                                                                                                                     |
-   |                   |                 |                 | **Constraints**:                                                                                                                                                                                                                    |
-   |                   |                 |                 |                                                                                                                                                                                                                                     |
-   |                   |                 |                 | N/A                                                                                                                                                                                                                                 |
-   +-------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter         | Mandatory       | Type            | Description                                                                                                                                                                                                                                                                                                                                                                                        |
+   +===================+=================+=================+====================================================================================================================================================================================================================================================================================================================================================================================================+
+   | elasticsearch.yml | No              | Object          | **Definition**                                                                                                                                                                                                                                                                                                                                                                                     |
+   |                   |                 |                 |                                                                                                                                                                                                                                                                                                                                                                                                    |
+   |                   |                 |                 | Parameter configuration list, where the value is the JSON data to be modified. The key is the configuration parameter name supported by Elasticsearch/OpenSearch, and the value is the corresponding configuration parameter value. When modifying parameters of an Elasticsearch cluster (**elasticsearch.yml**) or an OpenSearch cluster (**opensearch.yml**), enter **elasticsearch.yml** here. |
+   |                   |                 |                 |                                                                                                                                                                                                                                                                                                                                                                                                    |
+   |                   |                 |                 | **Constraints**                                                                                                                                                                                                                                                                                                                                                                                    |
+   |                   |                 |                 |                                                                                                                                                                                                                                                                                                                                                                                                    |
+   |                   |                 |                 | Custom parameters must be set to parameters supported by Elasticsearch or OpenSearch. Otherwise, the cluster restart will fail. Exercise caution when performing this operation.                                                                                                                                                                                                                   |
+   +-------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | kibana.yml        | No              | Object          | **Definition**                                                                                                                                                                                                                                                                                                                                                                                     |
+   |                   |                 |                 |                                                                                                                                                                                                                                                                                                                                                                                                    |
+   |                   |                 |                 | Parameter configuration list, where the value is the JSON data to be modified. The key is the configuration parameter name supported by Kibana or Dashboards, and the value is the corresponding configuration parameter value. When modifying parameters of an Elasticsearch cluster (**kibana.yml**) or an OpenSearch cluster (**opensearch_dashboards.yml**), enter **kibana.yml** here.        |
+   |                   |                 |                 |                                                                                                                                                                                                                                                                                                                                                                                                    |
+   |                   |                 |                 | **Constraints**                                                                                                                                                                                                                                                                                                                                                                                    |
+   |                   |                 |                 |                                                                                                                                                                                                                                                                                                                                                                                                    |
+   |                   |                 |                 | Custom parameters must be set to parameters supported by Kibana or Dashboards. Otherwise, the Kibana or Dashboards process restart will fail. Proceed with caution.                                                                                                                                                                                                                                |
+   +-------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | system.config     | No              | Object          | **Definition**                                                                                                                                                                                                                                                                                                                                                                                     |
+   |                   |                 |                 |                                                                                                                                                                                                                                                                                                                                                                                                    |
+   |                   |                 |                 | Parameter configuration list, where the value is the JSON data to be modified. When **system.config** of the cluster is modified, a **descriptor.xml** file is generated in the **config** directory of the Elasticsearch or OpenSearch cluster.                                                                                                                                                   |
+   |                   |                 |                 |                                                                                                                                                                                                                                                                                                                                                                                                    |
+   |                   |                 |                 | **Constraints**                                                                                                                                                                                                                                                                                                                                                                                    |
+   |                   |                 |                 |                                                                                                                                                                                                                                                                                                                                                                                                    |
+   |                   |                 |                 | In the JSON data, the key is **descriptor.xml**. The maximum length of the value is 100 KB (102,400 bytes/characters, including line breaks).                                                                                                                                                                                                                                                      |
+   |                   |                 |                 |                                                                                                                                                                                                                                                                                                                                                                                                    |
+   |                   |                 |                 | Modifying **system.config** is supported only for Elasticsearch clusters with version 7.10.2 or OpenSearch clusters with version 2.19.0.                                                                                                                                                                                                                                                           |
+   +-------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Response Parameters
 -------------------
@@ -175,35 +191,35 @@ Response Parameters
 
 .. table:: **Table 5** Response body parameters
 
-   +-----------------------+-----------------------+-------------------------------------------------------------------------------+
-   | Parameter             | Type                  | Description                                                                   |
-   +=======================+=======================+===============================================================================+
-   | acknowledged          | Boolean               | **Definition**:                                                               |
-   |                       |                       |                                                                               |
-   |                       |                       | Parameter settings modified successfully or not.                              |
-   |                       |                       |                                                                               |
-   |                       |                       | **Value range**:                                                              |
-   |                       |                       |                                                                               |
-   |                       |                       | -  **true**: The modification is successful.                                  |
-   |                       |                       |                                                                               |
-   |                       |                       | -  **false**: The modification fails.                                         |
-   +-----------------------+-----------------------+-------------------------------------------------------------------------------+
-   | externalMessage       | String                | **Definition**:                                                               |
-   |                       |                       |                                                                               |
-   |                       |                       | Error description.                                                            |
-   |                       |                       |                                                                               |
-   |                       |                       | **Value range**:                                                              |
-   |                       |                       |                                                                               |
-   |                       |                       | If **acknowledged** was set to **true**, **null** is returned for this field. |
-   +-----------------------+-----------------------+-------------------------------------------------------------------------------+
-   | httpErrorResponse     | String                | **Definition**:                                                               |
-   |                       |                       |                                                                               |
-   |                       |                       | HTTP error information. The default value is null.                            |
-   |                       |                       |                                                                               |
-   |                       |                       | **Value range**:                                                              |
-   |                       |                       |                                                                               |
-   |                       |                       | N/A                                                                           |
-   +-----------------------+-----------------------+-------------------------------------------------------------------------------+
+   +-----------------------+-----------------------+--------------------------------------------------------------------------------+
+   | Parameter             | Type                  | Description                                                                    |
+   +=======================+=======================+================================================================================+
+   | acknowledged          | Boolean               | **Definition**:                                                                |
+   |                       |                       |                                                                                |
+   |                       |                       | Parameter settings modified successfully or not.                               |
+   |                       |                       |                                                                                |
+   |                       |                       | **Value range**:                                                               |
+   |                       |                       |                                                                                |
+   |                       |                       | -  **true**: The modification is successful.                                   |
+   |                       |                       |                                                                                |
+   |                       |                       | -  **false**: The modification fails.                                          |
+   +-----------------------+-----------------------+--------------------------------------------------------------------------------+
+   | externalMessage       | String                | **Definition**                                                                 |
+   |                       |                       |                                                                                |
+   |                       |                       | Error message. When **acknowledged** is **true**, this field returns **null**. |
+   |                       |                       |                                                                                |
+   |                       |                       | **Range**                                                                      |
+   |                       |                       |                                                                                |
+   |                       |                       | N/A                                                                            |
+   +-----------------------+-----------------------+--------------------------------------------------------------------------------+
+   | httpErrorResponse     | String                | **Definition**:                                                                |
+   |                       |                       |                                                                                |
+   |                       |                       | HTTP error information. The default value is null.                             |
+   |                       |                       |                                                                                |
+   |                       |                       | **Value range**:                                                               |
+   |                       |                       |                                                                                |
+   |                       |                       | N/A                                                                            |
+   +-----------------------+-----------------------+--------------------------------------------------------------------------------+
 
 Example Requests
 ----------------
@@ -260,8 +276,6 @@ Example Responses
 -----------------
 
 **Status code: 200**
-
-Request succeeded.
 
 .. code-block::
 
